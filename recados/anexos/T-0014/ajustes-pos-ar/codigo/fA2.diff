@@ -1,0 +1,52 @@
+--- site/styles.css	2026-11-20 17:57:11.000000000 +0000
++++ fA2/styles.css	2026-11-20 18:09:14.141449608 +0000
+@@ -422,3 +422,49 @@
+   .lista-veiculos { display: none !important; }
+   .rod-pdf { margin-top: 5mm; padding-top: 2mm; border-top: 1px solid var(--linha); font-size: 7.5pt; color: var(--texto-2); }
+ }
++
++/* ===== SIMULAÇÃO (filtros compactos): comum às opções A, B e C ===== */
++.lado-filtros { gap: 0; padding: 10px 8px 8px; border-radius: var(--raio); background: var(--filtro-fundo); color: var(--filtro-txt); }
++.lado-sub { padding: 0 6px 6px; font-size: 13px; font-weight: 700; color: var(--filtro-tit); }
++.lado-filtros .barra-filtros, .painel-c .barra-filtros { background: none; border: 0; border-radius: 0; }
++.lado-filtros .filtro, .painel-c .filtro { border-bottom: 1px solid var(--filtro-linha); padding: 2px 0 4px; }
++.lado-filtros .filtro:last-child, .painel-c .filtro:last-child { border-bottom: 0; padding-bottom: 0; }
++.filtro-bt { color: var(--filtro-tit); }
++.filtro-bt .seta, .filtro-bt b { color: var(--filtro-txt-2); }
++.filtro-bt.ativo { background: none; box-shadow: none; color: var(--filtro-tit); }
++.filtro-lista label em { margin-left: auto; min-width: 3ch; text-align: right; font-variant-numeric: tabular-nums; color: var(--filtro-txt-2); }
++.filtro-lista label:hover { background: var(--filtro-hover); }
++.filtro-lista input { accent-color: var(--filtro-marca); }
++/* computador: lista compacta (28 px por linha, 30 px no título do grupo) */
++.lado-filtros .filtro-bt { height: 30px; padding: 0 6px; font-size: 12px; letter-spacing: .03em; text-transform: uppercase; }
++.lado-filtros .filtro-lista { padding: 0 0 2px; max-height: 260px; }
++.lado-filtros .filtro-lista label { min-height: 28px; padding: 3px 6px; gap: 8px; line-height: 1.25; border-radius: 6px; }
++.lado-filtros .filtro-lista input { width: 16px; height: 16px; }
++/* celular (painel "Filtrar"): sem folga extra, mas cada linha continua com 44 px de toque */
++dialog.painel-c .painel-corpo { background: var(--filtro-fundo); padding: 4px 12px 12px; color: var(--filtro-txt); }
++.painel-c .filtro-bt { height: 44px; padding: 0 4px; font-size: 13px; letter-spacing: .03em; text-transform: uppercase; }
++.painel-c .filtro-lista { padding: 0; max-height: none; }
++.painel-c .filtro-lista label { min-height: 44px; padding: 0 4px; font-size: 14px; }
++.painel-c .filtro-lista label em { font-size: 13px; }
++/* ajuste após o print: coluna um pouco mais larga e letra de 12 px para os nomes caberem numa linha; destaque só com mouse */
++.res-grade { grid-template-columns: 210px minmax(0, 1fr); }
++.lado-filtros { padding: 10px 6px 8px; }
++.lado-filtros .filtro-lista label { font-size: 12px; padding: 3px 4px; gap: 6px; }
++.filtro-lista label:hover { background: none; }
++@media (hover: hover) { .filtro-lista label:hover { background: var(--filtro-hover); } }
++/* opção A aprovada: fundo = --verde-claro (sem cor nova); texto 14,1:1, contagem 6,7:1, título 16,4:1; a marca da caixa (--verde-esc) tem 3,6:1, acima do 3:1 de não texto */
++:root { --filtro-fundo: var(--verde-claro); --filtro-linha: #C9D8C2; --filtro-txt: var(--texto); --filtro-txt-2: #4F5752; --filtro-tit: var(--escuro); --filtro-hover: rgba(255,255,255,.55); --filtro-marca: var(--verde-esc); }
++/* cartões maiores (aprovação da opção A): 4 por linha no computador, foto e texto maiores; celular sem mudança */
++@media (min-width: 641px) {
++  :root { --foto-cartao: 150px; }
++  .lista { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
++  .item .foto img { padding: 10px; }
++  .item .corpo { padding: 10px 12px 12px; gap: 4px; }
++  .item .foto-cod { right: 6px; bottom: 6px; padding: 2px 7px; font-size: 13px !important; }
++  .item .desc, .item .apl { font-size: 13px; line-height: 1.35; height: 2.7em; }
++  .item .refs { height: 24px; gap: 4px; }
++  .item .ref, .item .refs-rot { font-size: 12.5px; }
++  .bt-detalhes { height: 36px; font-size: 13.5px; }
++}
++/* tela larga (1680 px ou mais): 5 por linha, para o cartão não passar de ~320 px e a foto não ficar perdida */
++@media (min-width: 1680px) { .lista { grid-template-columns: repeat(5, minmax(0, 1fr)); } }
