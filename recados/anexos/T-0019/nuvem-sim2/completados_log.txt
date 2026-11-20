@@ -1,0 +1,7 @@
+Itens completados pela regra (log do gerador, A4 e digital): 0
+Saiu da base: 0 | INATIVO: 0 | família sem lista: 0 (56 famílias com lista: 51 do A4 + 5 tipos de filtro do digital)
+Famílias idênticas a 13/11: A4 51 de 51 · Digital 55 de 55
+Log A4:
+56
+Log digital:
+329
