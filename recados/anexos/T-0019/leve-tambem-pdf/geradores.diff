@@ -1,0 +1,130 @@
+diff -ru /home/user/bapajudacatalogo/catalogo_grafico/gerador/cross.py catalogo_grafico/gerador/cross.py
+--- /home/user/bapajudacatalogo/catalogo_grafico/gerador/cross.py	2026-11-20 13:22:45.778328738 +0000
++++ catalogo_grafico/gerador/cross.py	2026-11-20 18:20:07.745426357 +0000
+@@ -126,7 +126,7 @@
+ for a, b in PAIRS:
+     res, st = match(a, b, need_engine='strict' if a in ('Velas de Ignição', 'Kit de Distribuição') else True)
+     CROSS_LOG[a] = (b, st, res)
+-    F[a]['extra_col'] = 'OFEREÇA JUNTO'
++    F[a]['extra_col'] = 'LEVE TAMBÉM'
+     for r in F[a]['rows']:
+         r['extra'] = ' · '.join(res.get(r['code'], [])) or '—'
+ 
+@@ -149,24 +149,24 @@
+     'Embreagem Remanufaturada': 'Servo e cilindro de embreagem.',
+     'Servo e Cilindro de Embreagem': 'Kit de embreagem.',
+     'Pastilha de Freio': 'Fluido de freio DOT.',
+-    'Sapata de Freio': 'Cilindro de roda (coluna "Ofereça junto") e fluido de freio DOT.',
++    'Sapata de Freio': 'Cilindro de roda (coluna "Leve também") e fluido de freio DOT.',
+     'Cilindro de Roda': 'Sapatas de freio e fluido de freio DOT.',
+     'Cuíca de Freio': 'Catraca de freio.',
+     'Catraca de Freio': 'Cuíca de freio.',
+     'Eletroventiladores': "Aditivo, água desmineralizada e bomba d'água.",
+     "Bomba D'Água": 'Kit de distribuição (motores com correia dentada), aditivo e água desmineralizada.',
+-    'Bomba de Óleo': 'Interruptor de pressão do óleo (coluna "Ofereça junto"), óleo e filtro de óleo.',
++    'Bomba de Óleo': 'Interruptor de pressão do óleo (coluna "Leve também"), óleo e filtro de óleo.',
+     'Interruptores de Pressão do Óleo': 'Bomba de óleo, óleo e filtro de óleo.',
+     'Bomba de Combustível': 'Filtro de combustível.',
+-    'Kit de Distribuição': 'Bomba d\'água (coluna "Ofereça junto") e polias e tensionadores.',
++    'Kit de Distribuição': 'Bomba d\'água (coluna "Leve também") e polias e tensionadores.',
+     'Polias e Tensionadores': 'Kit de distribuição.',
+-    'Velas de Ignição': 'Cabos de vela (coluna "Ofereça junto").',
++    'Velas de Ignição': 'Cabos de vela (coluna "Leve também").',
+     'Cabo de Vela': 'Velas de ignição.',
+     'Filtros': 'Kit revisão: filtros de óleo, ar, combustível e cabine, com o óleo lubrificante.',
+     'Óleo Lubrificante': 'Filtro de óleo e filtro de ar.',
+     'Cubo de Roda': 'Rolamentos de roda.',
+     'Rolamentos': 'Cubo de roda.',
+-    'Pneus e Câmaras de Ar Moto': 'Para cada pneu, a câmara indicada; para cada câmara, os pneus BAP compatíveis (coluna "Ofereça junto").',
++    'Pneus e Câmaras de Ar Moto': 'Para cada pneu, a câmara indicada; para cada câmara, os pneus BAP compatíveis (coluna "Leve também").',
+ }
+ for f in PF.M.fams:
+     if f['name'] in VENDA: f['venda'] = VENDA[f['name']]
+diff -ru /home/user/bapajudacatalogo/catalogo_grafico/gerador/digital2.py catalogo_grafico/gerador/digital2.py
+--- /home/user/bapajudacatalogo/catalogo_grafico/gerador/digital2.py	2026-11-20 13:22:45.778328738 +0000
++++ catalogo_grafico/gerador/digital2.py	2026-11-20 18:20:07.743069808 +0000
+@@ -378,7 +378,7 @@
+         bh = 20 + 14 + th + 18
+         dc.rect(MX, 935, CW - 260, bh, fill='card', r=14)
+         dc.rect(MX, 935, 5, bh, fill='green')
+-        dc.label(MX + 20, 935 + 16, 'OFEREÇA JUNTO', 9, 'green2', 'PB', 1.4)
++        dc.label(MX + 20, 935 + 16, 'LEVE TAMBÉM', 9, 'green2', 'PB', 1.4)
+         dc.text(MX + 20, 935 + 34, tw, html.escape(f['venda'], quote=False), 12.5, 18, 'white')
+     dc.rect(0, H - 56, W, 56, fill='green')
+     dc.label(MX, H - 56 + 13, SITE_IG, 10.5, 'white', 'PB')
+diff -ru /home/user/bapajudacatalogo/catalogo_grafico/gerador/moto.py catalogo_grafico/gerador/moto.py
+--- /home/user/bapajudacatalogo/catalogo_grafico/gerador/moto.py	2026-11-20 13:22:45.810975617 +0000
++++ catalogo_grafico/gerador/moto.py	2026-11-20 18:20:07.747489139 +0000
+@@ -68,16 +68,16 @@
+     ('Óleo 4T', 'LUBRIFICANTES · ÓLEOS DE MOTOR', 'Óleo para motores de motocicleta 4 tempos.', F['Óleo Lubrificante']['img'], _oleo, False,
+      'Vela de ignição na revisão da moto.'),
+     ('Pneus Moto', 'RODAGEM · PNEUS E CÂMARAS', 'Pneus para motocicletas, com e sem câmara, dianteiros e traseiros.', F['Pneus e Câmaras de Ar Moto']['img'], _pneus, False,
+-     'Câmara de ar indicada para cada pneu (coluna Ofereça junto).'),
++     'Câmara de ar indicada para cada pneu (coluna Leve também).'),
+     ('Câmaras de Ar Moto', 'RODAGEM · PNEUS E CÂMARAS', 'Câmaras de ar para motocicletas, por aro e medida.', F['Pneus e Câmaras de Ar Moto']['img'], _cam, False,
+-     'Pneus BAP compatíveis (coluna Ofereça junto).'),
++     'Pneus BAP compatíveis (coluna Leve também).'),
+     ('Rolamentos Moto', 'RODAGEM · CUBOS E ROLAMENTOS', 'Rolamentos de roda e de direção para motocicletas.', F['Rolamentos']['img'], _rol, False, None),
+ ]
+ MOTO_FAMS = []
+ for nome, eb, desc, img, rows_, spec_, venda in MOTO_DEF:
+     if not rows_: continue
+     d = dict(name=nome, group='LINHA MOTO', eyebrow='LINHA MOTO · ' + eb, desc=desc, count=len(rows_), lanc=False, img=img,
+-             spec=spec_, rows=rows_, extra_col='OFEREÇA JUNTO', moto=True)
++             spec=spec_, rows=rows_, extra_col='LEVE TAMBÉM', moto=True)
+     if venda: d['venda'] = venda
+     MOTO_FAMS.append(d)
+ MOTO_ROWS = [r for f in MOTO_FAMS for r in f['rows']]
+diff -ru /home/user/bapajudacatalogo/catalogo_grafico/gerador/oferta.py catalogo_grafico/gerador/oferta.py
+--- /home/user/bapajudacatalogo/catalogo_grafico/gerador/oferta.py	2026-11-20 13:22:45.810975617 +0000
++++ catalogo_grafico/gerador/oferta.py	2026-11-20 18:20:07.743226003 +0000
+@@ -119,14 +119,14 @@
+         if f.get('moto'):
+             _moto(f, fams); continue
+         if nome == 'Pneus e Câmaras de Ar Moto':
+-            f['extra_col'] = 'OFEREÇA JUNTO'                     # já vem do pneus_fix (pneu ↔ câmara)
++            f['extra_col'] = 'LEVE TAMBÉM'                     # já vem do pneus_fix (pneu ↔ câmara)
+             for r in f['rows']:
+                 if not r.get('extra') or r['extra'] == '—':
+                     r['extra'] = 'Óleo 4T e vela'; LOG[(nome, 'sugestão fixa')] += 1
+             continue
+         if nome not in REGRAS: continue
+         alvos, fixa = REGRAS[nome]
+-        f['extra_col'] = 'OFEREÇA JUNTO'
++        f['extra_col'] = 'LEVE TAMBÉM'
+         ja = nome in ('Kit de Distribuição', 'Bomba de Óleo', 'Sapata de Freio', 'Velas de Ignição')
+         for r in f['rows']:
+             if ja and r.get('extra') and r['extra'] != '—':
+diff -ru /home/user/bapajudacatalogo/catalogo_grafico/gerador/pneus_fix.py catalogo_grafico/gerador/pneus_fix.py
+--- /home/user/bapajudacatalogo/catalogo_grafico/gerador/pneus_fix.py	2026-11-20 13:22:45.810975617 +0000
++++ catalogo_grafico/gerador/pneus_fix.py	2026-11-20 18:20:07.743454250 +0000
+@@ -82,7 +82,7 @@
+         r['segs'] = [[x.replace('Uso Sem Câmara', 'Uso sem câmara'), b] for x, b in r['segs']]
+ for f in M.fams:
+     if f['name'] == 'Pneus e Câmaras de Ar Moto':
+-        f['rows'] = rows; f['spec'] = False; f['count'] = len(rows); f['extra_col'] = 'OFEREÇA JUNTO'
++        f['rows'] = rows; f['spec'] = False; f['count'] = len(rows); f['extra_col'] = 'LEVE TAMBÉM'
+ D2.fams = M.fams
+ if __name__ == '__main__':
+     D2.build('digital_v4.pdf')
+diff -ru /home/user/bapajudacatalogo/catalogo_grafico/gerador/print_cat.py catalogo_grafico/gerador/print_cat.py
+--- /home/user/bapajudacatalogo/catalogo_grafico/gerador/print_cat.py	2026-11-20 13:22:45.817143132 +0000
++++ catalogo_grafico/gerador/print_cat.py	2026-11-20 18:20:07.749538999 +0000
+@@ -355,7 +355,7 @@
+     h = max(para_h(html.escape(f['venda']), 10, 14, tw) + 16, 32)
+     y = y_bottom - h
+     dc.rect(MX, y, CW, h, fill='white', stroke='green', sw=1.2, r=10)
+-    dc.label(MX + 14, y + (h - 12) / 2, 'OFEREÇA JUNTO', 9, 'gdark', 'PB', 1.3)
++    dc.label(MX + 14, y + (h - 12) / 2, 'LEVE TAMBÉM', 9, 'gdark', 'PB', 1.3)
+     dc.text(MX + 140, y + 8, tw, html.escape(f['venda']), 10, 14, 'ink')
+     return y
+ 
+@@ -463,7 +463,7 @@
+     passos = [('Encontre a linha', 'O sumário organiza as linhas por sistema do veículo (suspensão, freio, arrefecimento...). Cada página traz uma linha de produtos BAP.'),
+               ('Veja os destaques', 'Os cards no topo mostram os itens de maior estoque da linha, com foto, aplicação e equivalência.'),
+               ('Consulte a lista', 'A tabela traz mais produtos da linha, com código, aplicação, posição e equivalência. Aplicações longas terminam em "(+ outras aplicações)".'),
+-              ('Ofereça junto', 'A coluna e a faixa "Ofereça junto" indicam o agregado de cada produto, como bomba d\'água com o kit de distribuição ou câmara com o pneu.'),
++              ('Leve também', 'A coluna e a faixa "Leve também" indicam o agregado de cada produto, como bomba d\'água com o kit de distribuição ou câmara com o pneu.'),
+               ('Fique atento às tags', 'NOVO: produto recém-chegado ao portfólio BAP. LANÇAMENTO 2026: linha lançada em 2026, indicada no topo da página.'),
+               ('Catálogo digital', 'Todos os itens e todas as aplicações completas estão no Catálogo Digital Completo, com busca e sumário clicável.')]
+     y0 = TOP + HERO + 30; cw = (CW - 16) / 2
