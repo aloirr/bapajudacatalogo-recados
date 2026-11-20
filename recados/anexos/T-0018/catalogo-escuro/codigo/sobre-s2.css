@@ -1,0 +1,11 @@
+/* SIMULAÇÃO (scratchpad): cabeçalho escuro no catálogo, como na página inicial */
+body:not(.inicio-marca) .topo { background: var(--g-catalogo) fixed; border-bottom-color: transparent; }
+body:not(.inicio-marca) .topo .marca img { content: url(assets/logo_branco.png); }
+body:not(.inicio-marca) .marca span { color: var(--branco); border-left-color: color-mix(in srgb, var(--branco) 35%, transparent); }
+body:not(.inicio-marca) .menu a { color: var(--branco); }
+body:not(.inicio-marca) .menu a:hover { color: var(--verde); }
+:root { --g-catalogo: linear-gradient(90deg, var(--escuro) 0%, var(--texto) 55%, var(--verde-esc) 100%); }
+/* S2: na Sobre, o cabeçalho fica transparente sobre o topo escuro (igual à página inicial); ao rolar, ganha o --escuro */
+body:has(.sobre) .topo { position: fixed; left: 0; right: 0; background: transparent; transition: background-color .2s, box-shadow .2s; }
+body:has(.sobre).topo-rolou .topo { background: var(--escuro); box-shadow: var(--sombra); }
+.sobre .sb-topo-in { padding-top: calc(56px + 72px); }
