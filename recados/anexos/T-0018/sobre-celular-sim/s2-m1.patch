@@ -1,0 +1,28 @@
+diff --git a/site/styles.css b/site/styles.css
+index dd2b509..147fe98 100644
+--- a/site/styles.css
++++ b/site/styles.css
+@@ -32,8 +32,12 @@
+   --foto-cartao-cel: 55px;
+   --alto-topo: 84px; /* altura do cabeçalho e uma folga: scroll-padding-top e a foto do produto (76 px no celular) */
+   /* fundo da faixa do início e do topo da Sobre (T-0018): só tokens; o verde translúcido é o --verde no color-mix */
+-  --fundo-faixa: radial-gradient(900px 420px at 88% 30%, color-mix(in srgb, var(--verde) 35%, transparent) 0%, transparent 65%),
+-                 linear-gradient(120deg, var(--escuro) 0%, var(--texto) 50%, var(--verde-esc) 100%);
++  --verde-mancha: color-mix(in srgb, var(--verde) 35%, transparent);
++  --degrade-faixa: linear-gradient(120deg, var(--escuro) 0%, var(--texto) 50%, var(--verde-esc) 100%);
++  --fundo-faixa: radial-gradient(900px 420px at 88% 30%, var(--verde-mancha) 0%, transparent 65%), var(--degrade-faixa);
++  /* topo da Sobre no celular (R-20261120-174100, item 2): a mancha sai de trás da frase verde do título e desce
++     para trás das fotos; o computador e a faixa do início continuam no --fundo-faixa */
++  --fundo-sobre-cel: radial-gradient(460px 280px at 50% 74%, var(--verde-mancha) 0%, transparent 65%), var(--degrade-faixa);
+   /* cabeçalho e faixa da busca do catálogo (T-0018, opção b, R-20261120-161500): degradê do --escuro ao --verde-esc.
+      A ponta é o --verde-esc com 15% de --escuro, para o menu branco de 14 px passar do AA (5,1:1; no --verde-esc puro, 4,1:1) */
+   /* véu --escuro no alto da faixa do início e do topo da Sobre, por trás do cabeçalho transparente: o branco fica legível */
+@@ -620,7 +624,7 @@ dialog.painel-c::backdrop { background: var(--veu); }
+   .sb-dados div:nth-child(n+3) { border-top: 1px solid var(--linha); }
+ }
+ @media (max-width: 640px) {
+-  .sobre-marca .sb-topo { padding-top: 60px; }
++  .sobre-marca .sb-topo { padding-top: 60px; background-image: var(--veu-topo), var(--fundo-sobre-cel); }
+   .sb-txt h1 { font-size: 27px; }
+   .sb-txt p { font-size: 15px; }
+   .sb-fotos { height: 190px; }
