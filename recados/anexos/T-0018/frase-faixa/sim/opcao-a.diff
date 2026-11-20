@@ -1,0 +1,51 @@
+diff -ru orig/app.js site-a/app.js
+--- orig/app.js	2026-11-20 19:55:01.881917118 +0000
++++ site-a/app.js	2026-11-20 19:56:10.508159227 +0000
+@@ -819,16 +819,14 @@
+   window.addEventListener("hashchange", () => topoInicio(false));
+   function telaInicio() {
+     const portfolio = Math.floor(BASE.total / 100) * 100; // op4d: o total arredondado para baixo à centena (4.419 → +4.400)
+-    const celular = window.matchMedia("(max-width: 640px)").matches; // o exemplo da busca geral cabe no celular
++    const celular = window.matchMedia("(max-width: 640px)").matches; // o exemplo da busca geral e o título em 1 linha (R-20261120-155400) cabem no celular
+     topoInicio(true);
+     app.innerHTML = `
+       <section class="marca-faixa">
+         <div class="marca-faixa-in">
+           <div class="mf-texto">
+-            <span class="mf-selo">BAP AUTO PARTS</span>
+-            <h1>A peça certa <br class="so-pc">para a sua <em>oficina</em></h1>
++            <h1>${celular ? "A peça certa pro seu" : "A peça certa <br>para o seu"} <em>veículo</em>.</h1>
+             <p class="mf-num"><b class="mf-total">+${fmt(portfolio)}</b><span>produtos <br>no portfólio</span></p>
+-            <p>Busque por código, referência, veículo ou placa.</p>
+           </div>
+           <div class="mf-foto"><img src="${IMG_FAIXA.src}" width="${IMG_FAIXA.w}" height="${IMG_FAIXA.h}" alt="${esc(IMG_FAIXA.alt)}"></div>
+           <div class="mf-busca">
+diff -ru orig/styles.css site-a/styles.css
+--- orig/styles.css	2026-11-20 19:55:01.935196162 +0000
++++ site-a/styles.css	2026-11-20 19:56:54.156014901 +0000
+@@ -485,8 +485,7 @@
+ .marca-faixa-in { max-width: 1200px; margin: 0 auto; padding: 26px 16px 34px; display: grid;
+   grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); grid-template-areas: "txt foto" "busca busca"; gap: 18px 32px; align-items: center; }
+ .mf-texto { grid-area: txt; }
+-.mf-selo, .sb-selo { display: inline-block; padding: 4px 12px; border-radius: 999px; font-size: 12px; font-weight: 600; } /* o selo: base comum */
+-.mf-selo { margin: 0 0 14px; background: color-mix(in srgb, var(--verde) 16%, transparent); color: var(--verde); letter-spacing: .08em; }
++.sb-selo { display: inline-block; padding: 4px 12px; border-radius: 999px; font-size: 12px; font-weight: 600; }
+ .marca-faixa h1 { font-size: clamp(28px, 3.3vw, 42px); line-height: 1.12; font-weight: 700; margin: 0 0 12px; }
+ .marca-faixa h1 em, .sb-txt h1 em { font-style: normal; color: var(--verde); }
+ .marca-faixa p { margin: 0; color: var(--branco); font-size: 16px; max-width: 520px; } /* a frase de apoio (op4d): --branco, o mais forte também onde passa sobre o verde */
+@@ -547,14 +546,13 @@
+   .rec-lista li:nth-child(2) { border-top: 1px solid var(--linha); }
+ }
+ @media (max-width: 640px) {
+-  .mf-selo { font-size: 11px; margin-bottom: 10px; }
+   .so-pc { display: none; }
+   .inicio-marca .marca img { height: 40px; }
+   .inicio-marca .marca-faixa { padding-top: 60px; }
+   .marca-faixa .mf-num { gap: 10px; margin: 2px 0 10px; }
+   .mf-num b { font-size: 36px; }
+   .mf-num span { font-size: 11px; padding-left: 10px; }
+-  .marca-faixa h1 { font-size: 26px; }
++  .marca-faixa h1 { font-size: 22px; letter-spacing: -.01em; } /* o título em 1 linha de 375 a 440 px (R-20261120-155400) */
+   .marca-faixa p { font-size: 14px; }
+   .mf-bloco { padding: 12px 12px 14px; }
+   /* campos de digitação com 16 px no celular: o Safari do iPhone amplia a página ao focar um campo com fonte menor
