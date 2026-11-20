@@ -1,0 +1,8 @@
+/* SIMULAÇÃO t2: tag verde cheia (cor da marca) com ✓ branco, canto superior esquerdo da foto */
+.item .tag-compat { position: absolute; left: 3px; top: 3px; display: inline-flex; align-items: center; gap: 2px; max-width: calc(100% - 12px); padding: 1px 5px 1px 3px; border-radius: 6px; background: var(--verde-txt); color: var(--branco); font-size: 9px; font-weight: 700; line-height: 1.2; box-shadow: var(--sombra-cod); pointer-events: none; }
+.item .tag-compat::before { content: "✓"; font-weight: 800; }
+@media (max-width: 640px) { .item .tag-compat { font-size: 8px; padding: 0 4px 0 3px; gap: 2px; white-space: nowrap; left: 3px; top: 3px; } }
+
+/* a foto desce um pouco quando há tag, para a tag não cobrir a peça */
+.item .foto:has(.tag-compat) img { padding-top: 16px; }
+@media (max-width: 640px) { .item .foto:has(.tag-compat) img { padding-top: 13px; } }
