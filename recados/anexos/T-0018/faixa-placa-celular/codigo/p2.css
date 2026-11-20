@@ -1,0 +1,10 @@
+/* SIMULAÇÃO p2 (celular, placa consultada): placa menor com o ✕ e o nome do veículo ainda maior, em até 2 linhas */
+@media (max-width: 640px) {
+  .faixa-modelo:not(.aberto):has(.mv-tirar) { grid-template-columns: auto minmax(0, 1fr); align-items: center; gap: 12px; padding: 10px 12px; }
+  .faixa-modelo:not(.aberto):has(.mv-tirar) #mv-placa-rot { display: none; }
+  .faixa-modelo:not(.aberto):has(.mv-tirar) .mv-alterar { display: none; }
+  .faixa-modelo:not(.aberto):has(.mv-tirar) .mv-placa-grande { width: 132px; }
+  .faixa-modelo:not(.aberto):has(.mv-tirar) .mv-placa-grande b { font-size: 16px; }
+  .faixa-modelo:not(.aberto):has(.mv-tirar) .mv-resumo { justify-content: center; }
+  .faixa-modelo:not(.aberto):has(.mv-tirar) .mv-resumo-txt { font-size: 21px; font-weight: 700; line-height: 1.2; white-space: normal; color: var(--escuro); letter-spacing: -.01em; }
+}

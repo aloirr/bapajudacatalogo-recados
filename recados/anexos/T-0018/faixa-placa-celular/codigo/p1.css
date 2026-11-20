@@ -1,0 +1,8 @@
+/* SIMULAÇÃO p1 (celular, placa consultada): só a placa com o ✕ e, ao lado, o nome do veículo grande; sem "Placa" e sem "Alterar veículo" */
+@media (max-width: 640px) {
+  .faixa-modelo:not(.aberto):has(.mv-tirar) { grid-template-columns: auto minmax(0, 1fr); align-items: center; gap: 12px; padding: 10px 12px; }
+  .faixa-modelo:not(.aberto):has(.mv-tirar) #mv-placa-rot { display: none; }
+  .faixa-modelo:not(.aberto):has(.mv-tirar) .mv-alterar { display: none; }
+  .faixa-modelo:not(.aberto):has(.mv-tirar) .mv-resumo { justify-content: center; }
+  .faixa-modelo:not(.aberto):has(.mv-tirar) .mv-resumo-txt { font-size: 18px; font-weight: 700; line-height: 1.25; white-space: normal; color: var(--escuro); }
+}
