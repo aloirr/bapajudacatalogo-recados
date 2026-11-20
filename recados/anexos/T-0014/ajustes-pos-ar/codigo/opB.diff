@@ -1,0 +1,87 @@
+--- site/app.js	2026-11-20 17:57:11.000000000 +0000
++++ opB/app.js	2026-11-20 18:00:18.094540346 +0000
+@@ -1124,14 +1124,17 @@
+   // cada item: o código em negrito e a descrição (d) do catálogo, numa linha que abre o produto (R-20261120-132000 e
+   // 132200); fora do catálogo: o código e a nota "fora do catálogo", sem link. No PDF vai o texto, sem link.
+   function itensRelHtml(cods) {
++    // SIMULAÇÃO T-0019 (opção B): cada item com a miniatura da foto, o código e a descrição
++    const mini = (p) => `<span class="rel-mini" aria-hidden="true">${p && p.i
++      ? `<img src="img/${encodeURIComponent(p.i)}" alt="" loading="lazy" onerror="this.src='assets/logo_escuro.png';this.className='sem'">`
++      : '<img class="sem" src="assets/logo_escuro.png" alt="">'}</span>`;
+     return `<ul class="itens-rel">${cods.map((c) => {
+       const p = POR_COD.get(normCod(c));
+       return p
+-        ? `<li><a class="item-rel" href="#/produto/${encodeURIComponent(p.c)}"><b>${esc(p.c)}</b><span title="${esc(p.d)}">${esc(p.d)}</span></a></li>`
+-        : `<li><span class="item-rel fora"><b>${esc(c)}</b><span>fora do catálogo</span></span></li>`;
++        ? `<li><a class="item-rel" href="#/produto/${encodeURIComponent(p.c)}">${mini(p)}<span class="rel-txt"><b>${esc(p.c)}</b><span title="${esc(p.d)}">${esc(p.d)}</span></span></a></li>`
++        : `<li><span class="item-rel fora">${mini(null)}<span class="rel-txt"><b>${esc(c)}</b><span>fora do catálogo</span></span></span></li>`;
+     }).join("")}</ul>`;
+   }
+-
+   // Tabela da aplicação: uma linha por veículo do "ve" (Marca, Modelo, Cilindrada, Versão, Ano). Marca, Modelo e
+   // Versão são do "ve". SIMULAÇÃO: a base ainda não tem cilindrada nem ano por veículo; aqui eles saem do trecho da
+   // aplicação onde o modelo aparece (o mesmo texto da lista Motor e do ano); o ano da base (an), se houver, vale
+@@ -1197,6 +1200,8 @@
+     if (p.de) ficha.push(["Detalhe", p.de]);
+     (p.x || []).forEach(([k, v]) => ficha.push([k, v]));
+     const junto = listaCodigos(p.oj), parecido = listaCodigos(p.ip);
++    const relSec = (tit, cods) => cods.length ? `<section class="secao rel-sec"><${H2} class="secao-tit">${tit}</${H2}>${itensRelHtml(cods)}</section>` : "";
++    const rel = junto.length || parecido.length ? `<div class="rel rel-b">${relSec("Ofereça junto", junto)}${relSec("Itens parecidos", parecido)}</div>` : "";
+     const link = location.origin + location.pathname + "#/produto/" + encodeURIComponent(p.c);
+     // com o campo "ve": a aplicação vira tabela (R-20261120-130900) e o texto original fica em "Ver aplicação completa";
+     // no PDF, o texto vai embaixo da tabela, em letra pequena ("Aplicação completa"), para as restrições ("exc. Si")
+@@ -1228,10 +1233,9 @@
+               <button class="bt bt-claro bt-mini bt-pdf" type="button">Salvar em PDF</button>
+             </div>
+           </div>
++          ${rel}
+           ${dados}
+           ${p.df ? `<section class="secao"><${H2} class="secao-tit">Diferencial BAP</${H2}><p>${esc(p.df)}</p></section>` : ""}
+-          ${junto.length ? `<section class="secao"><${H2} class="secao-tit">Ofereça junto</${H2}>${itensRelHtml(junto)}</section>` : ""}
+-          ${parecido.length ? `<section class="secao"><${H2} class="secao-tit">Itens parecidos</${H2}>${itensRelHtml(parecido)}</section>` : ""}
+         </div>
+       </div>
+       <div class="so-impressao rod-pdf">As fotos são ilustrativas. Confira sempre a aplicação antes da compra.<br>${esc(link)}${BASE.gerado_em ? " · base atualizada em " + esc(BASE.gerado_em) : ""}</div>`;
+--- site/styles.css	2026-11-20 17:57:11.000000000 +0000
++++ opB/styles.css	2026-11-20 18:01:19.613214027 +0000
+@@ -224,10 +224,10 @@
+ /* "Ofereça junto" e "Itens parecidos": código em negrito e descrição, na linha neutra (opção A); 2 colunas no
+    computador, 1 no celular */
+ .itens-rel { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; }
+-.item-rel { display: flex; flex-direction: column; justify-content: center; gap: 1px; min-height: 44px; padding: 6px 10px; border-radius: 8px; background: var(--branco); color: var(--escuro); box-shadow: var(--contorno-neutro); text-decoration: none; }
++.item-rel { display: flex; align-items: center; gap: 10px; min-height: 44px; padding: 6px 10px 6px 6px; border-radius: 8px; background: var(--branco); color: var(--escuro); box-shadow: var(--contorno-neutro); text-decoration: none; }
+ a.item-rel:hover { background: var(--fundo); }
+ .item-rel b { font-size: max(var(--min), calc(14px * var(--t))); font-weight: 700; font-variant-numeric: tabular-nums; }
+-.item-rel span { font-size: max(var(--min), calc(13px * var(--t))); color: var(--texto); line-height: 1.3; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
++.item-rel .rel-txt > span { font-size: max(var(--min), calc(13px * var(--t))); color: var(--texto); line-height: 1.3; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+ .item-rel.fora span { color: var(--texto-2); }
+ @media (max-width: 640px) { .itens-rel { grid-template-columns: minmax(0, 1fr); } }
+ .aviso { font-size: max(var(--min), calc(12.5px * var(--t))); color: var(--texto-2); margin-top: 8px; }
+@@ -422,3 +422,27 @@
+   .lista-veiculos { display: none !important; }
+   .rod-pdf { margin-top: 5mm; padding-top: 2mm; border-top: 1px solid var(--linha); font-size: 7.5pt; color: var(--texto-2); }
+ }
++
++/* SIMULAÇÃO T-0019: miniatura da foto no item relacionado */
++.rel-mini { flex: none; width: 48px; height: 48px; border-radius: 6px; background: var(--branco); box-shadow: var(--contorno-neutro); display: grid; place-items: center; overflow: hidden; }
++.rel-mini img { width: 100%; height: 100%; object-fit: contain; padding: 3px; }
++.rel-mini img.sem { opacity: .25; padding: 10px; }
++.rel-txt { display: flex; flex-direction: column; gap: 1px; min-width: 0; }
++a.item-rel:hover .rel-txt b { color: var(--verde-txt); }
++@media print { .rel-mini { display: none; } }
++/* opção B: faixa logo abaixo do cabeçalho, antes da aplicação; cartões pequenos lado a lado */
++.rel-b { display: flex; flex-wrap: wrap; gap: 0 12px; }
++.rel-b .secao { flex: 1 1 auto; display: flex; align-items: center; gap: 8px 16px; padding: 10px 12px; background: var(--verde-claro); border-color: transparent; }
++.rel-b .secao-tit { margin: 0; flex: none; color: var(--verde-txt); }
++.rel-b .itens-rel { display: flex; flex-wrap: wrap; gap: 8px; flex: 1 1 auto; min-width: 0; }
++.rel-b .itens-rel li { flex: 0 1 260px; min-width: 0; }
++.rel-b .item-rel { box-shadow: none; }
++@media (max-width: 640px) {
++  .rel-b .secao { flex-direction: column; align-items: stretch; }
++  .rel-b .itens-rel { flex-wrap: nowrap; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 2px; }
++  .rel-b .itens-rel li { flex: 0 0 min(260px, 78%); scroll-snap-align: start; }
++}
++@media (min-width: 641px) { .rel-b .secao-tit { width: 140px; } }
++.rel-b .rel-sec + .rel-sec { background: var(--branco); border-color: var(--linha); } /* "Itens parecidos": a 2ª faixa, neutra */
++.rel-b .rel-sec + .rel-sec .secao-tit { color: var(--texto-2); }
++.rel-b .rel-sec + .rel-sec .item-rel { box-shadow: var(--contorno-neutro); }
