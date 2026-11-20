@@ -1,0 +1,79 @@
+--- site/app.js	2026-11-20 18:38:01.000000000 +0000
++++ f1/app.js	2026-11-20 18:49:04.675445078 +0000
+@@ -823,26 +823,34 @@
+   }
+ 
+   // ---------- filtros e etiquetas (R-20261120-113148 e R-20261120-123800, Alexandre) ----------
+-  // Um grupo por filtro (Sistema, Família, Linha, Categoria), aberto, com caixas de marcar (uma ou mais) e a contagem;
++  // Um grupo por filtro (Linha, Categoria, Sistema, Família), aberto, com caixas de marcar (uma ou mais) e a contagem;
+   // o botão do grupo só recolhe. Ficam na coluna à esquerda dos cartões (no celular, no painel "Filtrar"). A lógica:
+   // si=, fa=, li= e ca= no endereço (repetidos quando há mais de um) e a contagem sobre o resultado sem o próprio
+   // filtro. Abaixo, as etiquetas do termo (q) e de cada filtro marcado, com o X, e o "Limpar tudo". A placa e o
+   // veículo ficam no quadro da busca (montarBusca).
+-  const ROT_FILTRO = { si: "Sistema", fa: "Família", li: "Linha", ca: "Categoria" };
++  // ordem dos grupos, no computador e no celular: Linha, Categoria, Sistema, Família (pedido do Alexandre)
++  const ROT_FILTRO = { li: "Linha", ca: "Categoria", si: "Sistema", fa: "Família" };
+   let FILTRO_FOCO = null; // { k, v, y }: o que reabrir e focar depois de refazer a lista
+   function montarFiltros(pr, todos) {
+     const barra = app.querySelector(".barra-filtros");
++    // as opções não somem ao marcar outra: a lista e a ordem de cada grupo vêm da busca sem nenhum filtro marcado;
++    // a contagem, da busca com os outros filtros. Com 0, a opção fica cinza e desabilitada (a marcada, nunca).
++    const semFiltros = new URLSearchParams(pr); Object.keys(ROT_FILTRO).forEach((k) => semFiltros.delete(k));
++    const universo = semFiltros.toString() === pr.toString() ? todos : buscar(semFiltros);
+     barra.innerHTML = Object.keys(ROT_FILTRO).map((k) => {
+       const marcados = pr.getAll(k).filter(Boolean);
+       const semEste = new URLSearchParams(pr); semEste.delete(k);
+       const base = marcados.length ? buscar(semEste) : todos;
+-      const op = contar(base, k).slice(0, 40);
+-      for (const v of marcados) if (!op.some(([x]) => x === v)) op.push([v, 0]);
++      const qtd = new Map(contar(base, k));
++      const op = contar(universo, k).slice(0, 40).map(([v]) => [v, qtd.get(v) || 0]);
++      for (const v of marcados) if (!op.some(([x]) => x === v)) op.push([v, qtd.get(v) || 0]);
+       if (!op.length) return ""; // a coluna aparece sempre, mesmo com uma opção só (R-20261120-130300)
+       return `<div class="filtro" data-k="${k}">
+         <button class="filtro-bt" type="button" aria-expanded="true" aria-controls="filtro-${k}"><span>${ROT_FILTRO[k]}${marcados.length ? ` <b>(${marcados.length})</b>` : ""}</span><span class="seta" aria-hidden="true">▾</span></button>
+-        <div class="filtro-lista" id="filtro-${k}" role="group" aria-label="${ROT_FILTRO[k]}">${op.map(([v, n]) =>
+-          `<label><input type="checkbox" value="${esc(v)}"${marcados.includes(v) ? " checked" : ""}><span>${esc(titulo(v))}</span><em>${fmt(n)}</em></label>`).join("")}</div></div>`;
++        <div class="filtro-lista" id="filtro-${k}" role="group" aria-label="${ROT_FILTRO[k]}">${op.map(([v, n]) => {
++          const marc = marcados.includes(v), off = !n && !marc;
++          return `<label${off ? ' class="off"' : ""}><input type="checkbox" value="${esc(v)}"${marc ? " checked" : ""}${off ? ' disabled aria-disabled="true"' : ""}><span>${esc(titulo(v))}</span><em>${fmt(n)}</em></label>`;
++        }).join("")}</div></div>`;
+     }).join("");
+     for (const box of barra.querySelectorAll(".filtro")) {
+       const k = box.dataset.k, bt = box.querySelector(".filtro-bt");
+--- site/styles.css	2026-11-20 18:38:01.000000000 +0000
++++ f1/styles.css	2026-11-20 18:49:18.645456155 +0000
+@@ -11,6 +11,7 @@
+   --raio: 12px;
+   --sombra: 0 10px 30px rgba(21, 21, 21, .10);
+   --borda-campo: #CFD5D1; /* borda dos campos e das listas */
++  --cinza-off: #7D837F; /* opção de filtro desligada (0 produtos): cinza, legível (3,5:1 no --verde-claro, 3,9:1 no branco) */
+   --veu: rgba(21, 21, 21, .55); /* fundo por trás da janela e do painel */
+   --verde-txt: #2E6B1F; /* texto verde com contraste AA (6,5:1 no branco, 5,9:1 no --fundo, 5,8:1 no --verde-claro) */
+   --sombra-cod: 0 1px 3px rgba(21, 21, 21, .25); /* código BAP sobre a foto do cartão */
+@@ -133,9 +134,15 @@
+ .filtro-lista label em { min-width: 3ch; text-align: right; font-style: normal; font-variant-numeric: tabular-nums; color: var(--texto-2); font-size: 13px; }
+ .filtro-lista input { accent-color: var(--verde-esc); width: 18px; height: 18px; flex: none; }
+ @media (hover: hover) { .filtro-lista label:hover { background: var(--branco); } }
++/* opção com 0 produtos: fica na lista, na mesma ordem, cinza e desabilitada (não some ao marcar outra) */
++.filtro-lista label.off { cursor: not-allowed; }
++.filtro-lista label.off span, .filtro-lista label.off em { color: var(--cinza-off); }
++.filtro-lista label.off input { cursor: not-allowed; }
++@media (hover: hover) { .filtro-lista label.off:hover { background: none; } }
+ /* computador: a coluna à esquerda, compacta */
+ .lado-filtros .filtro-bt { height: 30px; padding: 0 6px; font-size: 12px; }
+-.lado-filtros .filtro-lista { max-height: 260px; overflow: auto; padding: 0 0 2px; }
++.lado-filtros .filtro-lista { padding: 0 0 2px; } /* Linha, Categoria e Sistema por inteiro */
++.lado-filtros .filtro[data-k="fa"] .filtro-lista { max-height: 260px; overflow: auto; } /* só a Família tem rolagem */
+ .lado-filtros .filtro-lista label { min-height: 28px; padding: 3px 4px; gap: 6px; line-height: 1.25; font-size: 12px; }
+ .lado-filtros .filtro-lista label em { font-size: 12px; }
+ .lado-filtros .filtro-lista input { width: 16px; height: 16px; }
+@@ -381,7 +388,7 @@
+ .mv-campo select.travada { opacity: 1; color: var(--texto-2); background: var(--fundo); border-color: var(--linha); font-weight: 600; cursor: not-allowed; } /* placa: travada, cinza e legível (5,8:1) */
+ /* filtros numa coluna fina à esquerda dos cartões, de cima a baixo */
+ .res-grade { display: grid; grid-template-columns: 210px minmax(0, 1fr); gap: 14px; align-items: start; margin-top: 12px; }
+-.lado-filtros { display: flex; flex-direction: column; padding: 10px 6px 8px; border-radius: var(--raio); background: var(--verde-claro); color: var(--texto); position: sticky; top: 84px; max-height: calc(100vh - 100px); overflow: auto; }
++.lado-filtros { display: flex; flex-direction: column; padding: 10px 6px 8px; border-radius: var(--raio); background: var(--verde-claro); color: var(--texto); }
+ .lado-sub { margin: 0; padding: 0 6px 6px; font-size: 13px; font-weight: 700; color: var(--escuro); }
+ .bt-filtrar { display: inline-flex; height: 44px; }
+ /* painel "Filtrar" por cima (celular): fundo escurecido e foco preso (dialog com showModal) */
