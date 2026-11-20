@@ -1,0 +1,6 @@
+/* SIMULAÇÃO f1 (PDF "Salvar em PDF"): cabeçalho escuro, como o do site (degradê --g-catalogo, logo branco, texto branco, linha verde) */
+@media print {
+  .cab-pdf { background: var(--g-catalogo); border-bottom: 2px solid var(--verde); padding: 3mm 5mm; margin: 0 0 5mm; border-radius: 2mm; }
+  .cab-pdf img { content: url(assets/logo_branco.png); height: 11mm; }
+  .cab-pdf span { color: var(--branco); }
+}

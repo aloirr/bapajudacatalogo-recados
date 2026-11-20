@@ -1,0 +1,7 @@
+/* SIMULAÇÃO f2 (PDF): faixa escura mais alta, de borda a borda da folha, com "FICHA DO PRODUTO" maior e "Catálogo online" */
+@page { margin: 0 12mm 12mm; }
+@media print {
+  .cab-pdf { background: var(--fundo-faixa); background-color: var(--escuro); border-bottom: 3px solid var(--verde); padding: 8mm 12mm 7mm; margin: 0 -12mm 6mm; }
+  .cab-pdf img { content: url(assets/logo_branco.png); height: 14mm; }
+  .cab-pdf span { color: var(--branco); font-size: 10pt; letter-spacing: .1em; }
+}
