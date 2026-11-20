@@ -1,0 +1,377 @@
+--- site/app.js	2026-11-20 17:29:39.000000000 +0000
++++ sobre1/app.js	2026-11-20 18:39:25.536426334 +0000
+@@ -729,43 +729,82 @@
+   }
+ 
+   // ---------- telas ----------
++  // OPÇÃO 4 (simulação T-0018): "Marca em destaque". Faixa da marca com a busca e a placa, 3 diferenciais
++  // (fatos do próprio catálogo) e 8 destaques com foto, de sistemas diferentes. Sem preço, sem estoque.
++  // OPÇÃO 4c: sem repetir o "componentes de qualidade" do logo; selo "BAP AUTO PARTS"; sem os 3 diferenciais
++  // (o total vai na frase da faixa); "Pesquisas recentes" em lista tabelada (8 linhas; 2 colunas no computador).
++  // O site ainda não registra pesquisas: estas 8 são EXEMPLO (simulação), de sistemas diferentes, todas com foto.
++  const RECENTES = ["KAC11424", "SFR30019", "TER556014", "CUB60027", "ELE1000", "KCD2500", "CIL8500", "BV10"];
+   function telaInicio() {
+     const sistemas = contar(BASE.produtos, "si");
+-    const comFoto = BASE.produtos.filter((p) => p.i).length;
++    const recentes = RECENTES.map((c) => POR_COD.get(normCod(c))).filter((p) => p && p.i).slice(0, 8);
+     app.innerHTML = `
+-      <section class="hero">
+-        <div class="hero-in">
+-          <div>
+-            <h1>Encontre a peça certa<br>com a <em>qualidade BAP</em></h1>
+-            <p>Busque pelo código BAP, pela referência do concorrente ou do original, pelo veículo ou pela aplicação.</p>
+-            <div class="hero-num">
+-              <div><b>${fmt(BASE.total)}</b><span>produtos no catálogo</span></div>
+-              <div><b>${fmt(sistemas.length)}</b><span>sistemas</span></div>
+-              <div><b>${fmt(comFoto)}</b><span>com foto</span></div>
+-            </div>
++      <section class="marca-faixa">
++        <div class="marca-faixa-in">
++          <div class="mf-texto">
++            <span class="mf-selo">BAP AUTO PARTS</span>
++            <h1>A peça certa <br class="so-pc">para a sua <em>oficina</em></h1>
++            <p>${fmt(BASE.total)} produtos em ${fmt(sistemas.length)} sistemas. Busque por código, referência, veículo ou placa.</p>
+           </div>
+-          <div class="hero-fotos" aria-hidden="true">
+-            <img class="f1" src="assets/hero.png" alt="">
+-            <img class="f2" src="assets/card2.png" alt="">
++          <div class="mf-foto" aria-hidden="true"><img src="assets/hero.png" alt=""></div>
++          <div class="mf-busca">
++            <form class="mf-bloco mf-geral" id="form-geral" role="search" autocomplete="off" aria-label="Buscar produtos">
++              <label class="v-rot" for="campo-q">Código, descrição ou aplicação</label>
++              <div class="mf-linha">
++                <input id="campo-q" name="q" type="search" enterkeyhint="search" placeholder="Ex.: gol 2007 amortecedor, AMT7115, TRW 16900255S">
++                <button type="submit" class="bt">Buscar</button>
++              </div>
++            </form>
++            <form class="mf-bloco v-placa" id="form-placa" autocomplete="off" aria-label="Buscar pela placa">
++              <label class="v-rot" for="campo-placa">Placa do veículo</label>
++              <div class="v-placa-linha">
++                <div class="v-placa-campo">
++                  <span class="v-placa-faixa" aria-hidden="true">BR</span>
++                  <input id="campo-placa" type="text" inputmode="text" autocapitalize="characters" autocomplete="off" spellcheck="false" maxlength="8" enterkeyhint="search" placeholder="ABC1D23" aria-describedby="status-placa">
++                </div>
++                <button type="submit" class="bt">Buscar</button>
++              </div>
++              <p class="status-placa" id="status-placa" role="status" aria-live="polite" hidden></p>
++            </form>
+           </div>
+         </div>
+       </section>
+-      <div id="busca-home"></div>
+-      <section class="bloco">
+-        <h2>Navegue por sistema</h2>
+-        <p class="sub">Toque em um sistema para ver todos os produtos dele.</p>
+-        <div class="sistemas">${sistemas.map(([s, n]) => `<a class="sistema" href="#/busca?si=${encodeURIComponent(s)}"><i></i><b>${esc(titulo(s))}</b><span>${fmt(n)} produtos</span></a>`).join("")}</div>
+-      </section>
+-      <section class="bloco">
+-        <h2>Fique por dentro</h2>
+-        <p class="sub">Linhas em destaque no portfólio BAP.</p>
+-        <div class="novidades">
+-          <a class="novidade" href="#/busca?si=TRANSMISS%C3%83O"><div class="img"><img src="assets/card2.png" alt="Kit de embreagem BAP" loading="lazy"></div><div class="txt"><h3>Transmissão e embreagem</h3><p>Kits de embreagem, atuadores e rolamentos para linha leve e pesada.</p><span class="ver">Ver produtos →</span></div></a>
+-          <a class="novidade" href="#/busca?ca=LUBRIFICANTES"><div class="img"><img src="assets/card3.png" alt="Óleos BAP ProActive" loading="lazy"></div><div class="txt"><h3>Lubrificantes BAP ProActive</h3><p>Óleos sintéticos, semissintéticos e minerais para o seu motor.</p><span class="ver">Ver produtos →</span></div></a>
+-          <a class="novidade" href="#/busca?si=FREIO"><div class="img"><img src="assets/card4.png" alt="Catraca de freio BAP" loading="lazy"></div><div class="txt"><h3>Freio</h3><p>Pastilhas, discos, tambores e catracas com a garantia BAP.</p><span class="ver">Ver produtos →</span></div></a>
+-        </div>
++      <section class="bloco recentes-bloco">
++        <div class="rec-topo"><div><h2>Pesquisas recentes <span class="selo-sim" title="O site ainda não registra as pesquisas: estas peças são só exemplo">simulação</span></h2>
++          <p class="sub">As mais pesquisadas nos últimos 7 dias</p></div>
++          <a class="rec-todos" href="#/busca">Ver todos<span class="so-pc"> os produtos</span> ›</a></div>
++        <ul class="rec-lista">${recentes.map((p) => `<li><a class="rec-item" href="#/produto/${encodeURIComponent(p.c)}">
++          <span class="rec-foto">${fotoHtml(p)}</span>
++          <span class="rec-txt"><b>${esc(p.c)}</b><span>${esc(titulo(p.d))}</span></span>
++          <span class="rec-si">${esc(titulo(p.si))}</span>
++          <span class="rec-seta" aria-hidden="true">›</span></a></li>`).join("")}</ul>
+       </section>`;
+-    montarBusca(document.getElementById("busca-home"));
++
++    // busca geral: o mesmo caminho da busca de texto (a placa é o bloco ao lado)
++    const fG = app.querySelector("#form-geral");
++    fG.addEventListener("submit", (ev) => { ev.preventDefault(); VEICULO_PLACA = null; irPara("/busca", { q: fG.elements.q.value.trim() }); });
++
++    // placa (layout da opção 3): mesmo serviço e mesmo fluxo da tela de busca (o endereço leva o veículo, nunca a placa)
++    const fP = app.querySelector("#form-placa"), cP = fP.querySelector("#campo-placa"), st = fP.querySelector("#status-placa"), btP = fP.querySelector("button");
++    const aviso = (h) => { st.hidden = false; st.innerHTML = h; };
++    cP.addEventListener("input", () => { cP.value = cP.value.toUpperCase().replace(/[^A-Z0-9]/g, "").slice(0, 7); });
++    fP.addEventListener("submit", (ev) => {
++      ev.preventDefault();
++      const placa = cP.value;
++      if (!PLACA_OK.test(placa)) { aviso("<b>Placa inválida.</b> Use ABC1234 ou ABC1D23."); cP.focus(); return; }
++      btP.disabled = true; aviso("Consultando…");
++      const acordando = setTimeout(() => { aviso("Acordando o serviço, aguarde…"); }, PLACAS_ACORDANDO_MS);
++      consultarPlaca(placa).then((v) => {
++        const a = veiculoDaPlaca(v);
++        if (!a.q) throw Object.assign(new Error("vazio"), { status: 404 });
++        const daPlaca = { vm: a.bruto.mo, vmo: a.bruto.modelo, va: a.bruto.ano, vmt: a.bruto.cil, vv: a.bruto.versao };
++        VEICULO_PLACA = { placa, chave: chaveVeiculo(daPlaca) };
++        irPara("/busca", new URLSearchParams(Object.entries(daPlaca).filter(([, x]) => x)));
++      }).catch((e) => {
++        aviso({ 400: "<b>Placa inválida.</b>", 404: "<b>Placa não encontrada.</b>", 429: "<b>Muitas consultas.</b> Tente em alguns minutos." }[e && e.status]
++          || "<b>Placa indisponível agora;</b> use a busca ao lado.");
++      }).finally(() => { clearTimeout(acordando); btP.disabled = false; });
++    });
+   }
+ 
+   function telaBusca(pr) {
+@@ -1333,10 +1372,43 @@
+   const linkDoCartao = (cod) => [...app.querySelectorAll(".lista .item")].find((e) => e.dataset.cod === cod)?.querySelector(".item-link") || null;
+ 
+   function telaSobre() {
+-    app.innerHTML = `<div class="texto-pagina"><h1>BAP · componentes de qualidade</h1>
+-      <p>A BAP Autoparts oferece peças de reposição para a linha leve, pesada e moto: suspensão, direção, transmissão, freio, rodagem, filtração, elétrica, motor, arrefecimento, lubrificantes, químicos e acessórios.</p>
+-      <p>Este catálogo mostra os produtos ativos da base unificada BAP, com aplicação, referências cruzadas e ficha técnica. Para preço e disponibilidade, fale com o seu representante.</p>
+-      <p><a class="bt" href="#/busca">Ver todos os produtos</a></p></div>`;
++    // T-simulação: página "Sobre a BAP" a partir da página "Empresa" do site institucional (texto fiel; fotos do próprio catálogo)
++    app.innerHTML = `<div class="sobre">
++      <section class="sb-topo"><div class="sb-topo-in">
++        <div class="sb-txt">
++          <span class="sb-selo">A BAP</span>
++          <h1>Tradição e inovação em <em>componentes de qualidade</em></h1>
++          <p>A BAP chega ao mercado de autopeças com dois desejos: seguir as tradições que ditam o sucesso do setor e inovar com seus produtos e serviços.</p>
++        </div>
++        <div class="sb-fotos" aria-hidden="true">
++          <img class="sf1" src="assets/card3.png" alt="">
++          <img class="sf2" src="assets/card2.png" alt="">
++          <img class="sf3" src="assets/card4.png" alt="">
++        </div>
++      </div></section>
++      <section class="sb-corpo">
++        <div class="sb-hist">
++          <div class="sb-bloco"><h2>Tradição e inovação</h2>
++            <p>Acreditamos que as tradições existem, pois dão bons resultados. Elas definiram o caminho que trouxe o setor até aqui. Porém, tão importante quanto vislumbrar o passado é sonhar com o futuro.</p></div>
++          <div class="sb-bloco"><h2>Qualidade com valor acessível</h2>
++            <p>Somos uma marca jovem e pretendemos agir assim: trazendo novidades e acompanhando as tendências do mercado. O setor automotivo apresenta constantes evoluções e visamos atendê-las com peças de qualidade e valor acessível.</p></div>
++          <div class="sb-bloco"><h2>Brasileira em sua essência</h2>
++            <p>Brasileira em sua essência, a BAP traz toda a qualidade esperada de marcas internacionais sem penalizar o bolso de nossos consumidores. Além disso, toda essa proximidade com o mercado brasileiro nos permite acompanhá-lo de perto. O contato e treinamentos constantes são parte de nossas práticas.</p></div>
++        </div>
++        <blockquote class="sb-frase"><p>Temos um pé nas tradições e outro nas inovações.</p><span>Somos a BAP: <b>Componentes de qualidade.</b></span></blockquote>
++        <div class="sb-cta">
++          <img src="assets/hero.png" alt="" aria-hidden="true">
++          <div><h2>Quer conhecer nossas soluções?</h2><p>Acesse nosso catálogo completo.</p></div>
++          <a class="bt" href="#/busca">Ver o catálogo ›</a>
++        </div>
++        <dl class="sb-dados">
++          <div><dt>Razão social</dt><dd>BRASIL AUTOPARTS S.A</dd></div>
++          <div><dt>CNPJ</dt><dd>61.558.903/0001-87</dd></div>
++          <div><dt>Atendimento</dt><dd>Seg–Sex das 8h às 18h</dd></div>
++          <div><dt>E-mail</dt><dd><a href="mailto:sac@bapautoparts.com.br">sac@bapautoparts.com.br</a></dd></div>
++        </dl>
++      </section>
++    </div>`;
+   }
+ 
+   let ROTA_ATUAL = null, ROTA_ANTERIOR = null; // hash da tela na frente e da anterior (para o Voltar)
+@@ -1363,6 +1435,12 @@
+     ROTA_ANTERIOR = ROTA_ATUAL;
+     ROTA_ATUAL = location.hash || "#/";
+     document.title = "Catálogo BAP · Componentes de qualidade";
++    const ehInicio = !ehProduto && caminho !== "/busca" && caminho !== "/sobre";
++    document.body.classList.toggle("inicio-marca", ehInicio);
++    const logoTopo = document.querySelector(".topo .marca img");
++    if (logoTopo) logoTopo.src = ehInicio ? "assets/logo_branco.png" : "assets/logo_escuro.png";
++    const nomeTopo = document.querySelector(".topo .marca span");
++    if (nomeTopo) nomeTopo.textContent = "Catálogo online"; // simulação: o nome do topo passa a ser CATÁLOGO ONLINE
+     let volta = null;
+     if (ehProduto) telaProduto(cod);
+     else if (caminho === "/busca") {
+--- site/styles.css	2026-11-20 17:29:39.000000000 +0000
++++ sobre1/styles.css	2026-11-20 18:39:25.537349909 +0000
+@@ -421,3 +421,199 @@
+   .tab-rola { display: block !important; }
+   .rod-pdf { margin-top: 5mm; padding-top: 2mm; border-top: 1px solid var(--linha); font-size: 7.5pt; color: var(--texto-2); }
+ }
++
++/* ===== OPÇÃO 4 (simulação T-0018): "Marca em destaque" ===== */
++.inicio-marca .topo { background: var(--escuro); border-bottom-color: var(--escuro); }
++.inicio-marca .marca img { height: 52px; }
++.inicio-marca .marca span { color: #B9C4BC; border-left-color: #3A3F3B; }
++.inicio-marca .menu a { color: #E8ECE9; }
++.inicio-marca .menu a:hover { color: var(--verde); }
++.marca-faixa { color: var(--branco); position: relative; overflow: hidden;
++  background: radial-gradient(900px 420px at 88% 30%, rgba(98,187,71,.35) 0%, rgba(98,187,71,0) 65%),
++              linear-gradient(120deg, var(--escuro) 0%, #17301a 50%, var(--verde-esc) 100%); }
++.marca-faixa::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 6px; background: var(--verde); }
++.marca-faixa-in { max-width: 1200px; margin: 0 auto; padding: 26px 16px 34px; display: grid;
++  grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); grid-template-areas: "txt foto" "busca busca"; gap: 18px 32px; align-items: center; }
++.mf-texto { grid-area: txt; }
++.mf-selo { display: inline-block; margin: 0 0 14px; padding: 4px 12px; border-radius: 999px; background: rgba(98,187,71,.16); color: var(--verde); font-size: 12px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; }
++.marca-faixa h1 { font-size: clamp(28px, 3.3vw, 42px); line-height: 1.12; font-weight: 700; margin: 0 0 12px; }
++.marca-faixa h1 em { font-style: normal; color: var(--verde); }
++.marca-faixa p { margin: 0; color: #D5DDD7; font-size: 16px; max-width: 520px; }
++.mf-foto { grid-area: foto; display: flex; justify-content: center; }
++.mf-foto img { max-height: 190px; width: auto; filter: drop-shadow(0 18px 24px rgba(0,0,0,.45)); }
++.mf-busca { grid-area: busca; min-width: 0; }
++.mf-busca .cartao-busca { margin: 0; max-width: none; box-shadow: 0 16px 40px rgba(0,0,0,.35); }
++.difs { max-width: 1200px; margin: 0 auto; padding: 22px 16px 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
++.dif { background: var(--branco); border: 1px solid var(--linha); border-left: 4px solid var(--verde); border-radius: var(--raio); padding: 16px 18px; display: flex; flex-direction: column; gap: 2px; }
++.dif b { font-size: 20px; color: var(--escuro); line-height: 1.2; }
++.dif span { font-size: 14px; color: var(--texto-2); }
++.destaques-bloco { padding-top: 28px; padding-bottom: 48px; }
++.dest-topo { display: flex; align-items: flex-end; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 18px; }
++.dest-topo .sub { margin: 0; }
++.destaques { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
++.destaque { background: var(--branco); border: 1px solid var(--linha); border-radius: var(--raio); overflow: hidden; text-decoration: none; color: var(--texto); display: flex; flex-direction: column; transition: border-color .15s, box-shadow .15s, transform .15s; }
++.destaque:hover { border-color: var(--verde); box-shadow: var(--sombra); transform: translateY(-2px); }
++.d-foto { height: 170px; background: #FAFBFA; border-bottom: 1px solid var(--linha); }
++.d-foto img { width: 100%; height: 100%; object-fit: contain; padding: 12px; }
++.d-txt { padding: 10px 14px 14px; display: flex; flex-direction: column; gap: 2px; min-width: 0; }
++.d-si { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: .05em; color: var(--verde-txt); }
++.d-cod { font-size: 16px; color: var(--escuro); }
++.d-desc { font-size: 13px; color: var(--texto-2); line-height: 1.3; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
++@media (max-width: 900px) {
++  .marca-faixa-in { grid-template-columns: minmax(0, 1fr); grid-template-areas: "txt" "busca"; padding: 28px 16px 32px; }
++  .mf-foto { display: none; }
++  .destaques { grid-template-columns: repeat(2, minmax(0, 1fr)); }
++  .difs { grid-template-columns: minmax(0, 1fr); gap: 10px; }
++}
++@media (max-width: 640px) {
++  .mf-selo { font-size: 11px; margin-bottom: 10px; }
++  .so-pc { display: none; }
++  .inicio-marca .marca img { height: 40px; }
++  .marca-faixa h1 { font-size: 26px; }
++  .marca-faixa p { font-size: 14px; }
++  .mf-busca .cartao-busca { margin: 0; }
++  .dif { padding: 12px 14px; }
++  .dif b { font-size: 17px; }
++  .d-foto { height: 120px; }
++  .d-txt { padding: 8px 10px 12px; }
++  .d-cod { font-size: 14px; }
++  .destaques { gap: 10px; }
++}
++
++/* ===== OPÇÃO 4b (simulação T-0018): busca geral + placa estilizada (da opção 3) lado a lado; "Pesquisas recentes" ===== */
++.mf-busca { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 420px); gap: 14px; align-items: stretch; }
++.mf-bloco { background: var(--branco); border-radius: 12px; padding: 14px 16px 16px; box-shadow: 0 16px 40px rgba(0,0,0,.35); color: var(--texto); min-width: 0; }
++.v-rot { display: block; font-size: 12px; font-weight: 600; color: var(--texto-2); text-transform: uppercase; letter-spacing: .05em; margin: 0 0 6px; }
++.mf-linha { display: flex; gap: 10px; }
++.mf-geral input { flex: 1; min-width: 0; height: 64px; border: 1px solid var(--linha); border-radius: 10px; padding: 0 16px; font: inherit; font-size: 16px; color: var(--texto); background: var(--branco); }
++.mf-geral input:focus { outline: none; border-color: var(--verde-esc); box-shadow: 0 0 0 4px rgba(98,187,71,.25); }
++.mf-geral .bt { height: 64px; padding: 0 24px; font-size: 16px; }
++/* placa Mercosul (copiado da opção 3) */
++.v-placa .v-rot { color: var(--escuro); font-size: 12px; }
++.v-placa-linha { display: flex; gap: 10px; }
++.v-placa-campo { flex: 1; min-width: 0; display: flex; height: 64px; border: 3px solid var(--escuro); border-radius: 10px; overflow: hidden; background: var(--branco); }
++.v-placa-campo:focus-within { border-color: var(--verde-esc); box-shadow: 0 0 0 4px rgba(98,187,71,.25); }
++.v-placa-faixa { width: 34px; flex: none; background: var(--verde-esc); color: var(--branco); font-size: 11px; font-weight: 700; display: grid; place-items: end center; padding-bottom: 8px; letter-spacing: .04em; }
++.v-placa-campo input { flex: 1; min-width: 0; border: 0; outline: none; padding: 0 12px; font: inherit; font-size: 28px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--escuro); text-align: center; background: none; }
++.v-placa-campo input::placeholder { color: #B8BFBA; font-weight: 600; }
++.v-placa .bt { height: 64px; padding: 0 24px; font-size: 16px; }
++.v-placa .status-placa { margin: 8px 0 0; font-size: 13px; }
++/* Pesquisas recentes: 4 cartões e o selo "simulação" */
++.recentes { grid-template-columns: repeat(4, minmax(0, 1fr)); }
++.selo-sim { display: inline-block; vertical-align: middle; margin-left: 8px; padding: 2px 9px; border-radius: 999px; border: 1px dashed #C9A227; background: #FFF8E1; color: #7A5D00; font-size: 11px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; position: relative; top: -2px; }
++@media (max-width: 900px) {
++  .mf-busca { grid-template-columns: minmax(0, 1fr); gap: 10px; }
++  .recentes { grid-template-columns: repeat(2, minmax(0, 1fr)); }
++}
++@media (max-width: 640px) {
++  .mf-bloco { padding: 12px 12px 14px; }
++  .mf-geral input { height: 52px; font-size: 15px; padding: 0 12px; }
++  .mf-geral .bt { height: 52px; padding: 0 16px; }
++  .v-placa-campo { height: 56px; }
++  .v-placa-campo input { font-size: 22px; letter-spacing: .1em; padding: 0 6px; }
++  .v-placa .bt { height: 56px; padding: 0 16px; }
++}
++/* ===== OPÇÃO 4c (simulação T-0018): selo "BAP AUTO PARTS", sem diferenciais, "Pesquisas recentes" em lista tabelada ===== */
++.mf-selo { letter-spacing: .14em; }
++.recentes-bloco { padding-top: 26px; padding-bottom: 44px; }
++.rec-topo { display: flex; align-items: flex-end; justify-content: space-between; gap: 12px; margin-bottom: 12px; }
++.rec-topo h2 { margin: 0 0 2px; }
++.rec-topo .sub { margin: 0; }
++.rec-todos { flex: none; font-size: 14px; font-weight: 600; color: var(--verde-txt); text-decoration: none; padding: 10px 0; }
++.rec-todos:hover { text-decoration: underline; }
++.rec-lista { list-style: none; margin: 0; padding: 0 16px; background: var(--branco); border: 1px solid var(--linha); border-radius: var(--raio);
++  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 40px; }
++.rec-lista li { border-top: 1px solid var(--linha); min-width: 0; }
++.rec-lista li:nth-child(-n+2) { border-top: 0; }
++.rec-item { display: flex; align-items: center; gap: 14px; min-height: 64px; padding: 8px 0; text-decoration: none; color: var(--texto); }
++.rec-foto { flex: none; width: 48px; height: 48px; border-radius: 8px; background: #FAFBFA; border: 1px solid var(--linha); overflow: hidden; display: grid; place-items: center; }
++.rec-foto img { width: 100%; height: 100%; object-fit: contain; padding: 3px; }
++.rec-foto .sem-foto { font-size: 0; }
++.rec-foto .sem-foto img { width: 30px; height: auto; padding: 0; }
++.rec-txt { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 1px; }
++.rec-txt b { font-size: 15px; color: var(--escuro); line-height: 1.25; }
++.rec-txt span { font-size: 13px; color: var(--texto-2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
++.rec-si { flex: none; font-size: 11px; font-weight: 600; letter-spacing: .05em; text-transform: uppercase; color: var(--verde-txt); }
++.rec-seta { flex: none; font-size: 22px; line-height: 1; color: #A9B1AC; width: 12px; text-align: right; }
++.rec-item:hover b { color: var(--verde-esc); }
++.rec-item:hover .rec-seta { color: var(--verde-esc); }
++.rec-item:focus-visible { outline: 3px solid var(--verde); outline-offset: 2px; border-radius: 6px; }
++@media (max-width: 900px) {
++  .rec-lista { grid-template-columns: minmax(0, 1fr); }
++  .rec-lista li:nth-child(2) { border-top: 1px solid var(--linha); }
++}
++@media (max-width: 640px) {
++  .recentes-bloco { padding-top: 18px; padding-bottom: 28px; }
++  .rec-topo { margin-bottom: 8px; }
++  .rec-topo h2 { font-size: 18px; }
++  .rec-topo .sub { font-size: 13px; }
++  .rec-todos { font-size: 13px; }
++  .rec-lista { padding: 0 12px; }
++  .rec-item { gap: 12px; min-height: 56px; padding: 6px 0; }
++  .rec-foto { width: 44px; height: 44px; }
++  .rec-txt b { font-size: 14px; }
++  .rec-si { display: none; }
++}
++@media (max-width: 640px) {
++  .rec-topo h2 { white-space: nowrap; }
++  .rec-topo .selo-sim { margin-left: 6px; padding: 1px 7px; font-size: 10px; }
++  .rec-todos { padding: 12px 0 2px; }
++}
++
++/* Sobre a BAP (simulação): texto da página "Empresa" do site institucional, fotos do catálogo */
++.sobre { --sb-larg: 1160px; }
++.sb-topo { color: var(--branco); overflow: hidden;
++  background: radial-gradient(900px 420px at 80% 45%, #2d6e22 0%, rgba(45,110,34,0) 62%), linear-gradient(115deg, #0f1410 0%, #182a14 55%, #23461b 100%); }
++.sb-topo-in { max-width: var(--sb-larg); margin: 0 auto; padding: 56px 16px 64px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, .95fr); gap: 32px; align-items: center; }
++.sb-selo { display: inline-block; font-size: 12px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--escuro); background: var(--verde); border-radius: 999px; padding: 4px 12px; margin-bottom: 16px; }
++.sb-txt h1 { font-size: clamp(28px, 3.6vw, 44px); line-height: 1.12; margin: 0 0 18px; font-weight: 700; }
++.sb-txt h1 em { font-style: normal; color: var(--verde); }
++.sb-txt p { margin: 0; color: #D5DDD7; font-size: 17px; max-width: 520px; }
++.sb-fotos { position: relative; height: 320px; }
++.sb-fotos img { position: absolute; filter: drop-shadow(0 18px 24px rgba(0,0,0,.45)); }
++.sb-fotos .sf1 { width: 62%; left: 19%; top: 0; z-index: 2; }
++.sb-fotos .sf2 { width: 36%; left: 0; bottom: 0; }
++.sb-fotos .sf3 { width: 36%; right: 0; bottom: 6px; }
++.sb-corpo { max-width: var(--sb-larg); margin: 0 auto; padding: 0 16px 48px; }
++.sb-hist { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; margin-top: -28px; position: relative; }
++.sb-bloco { background: var(--branco); border-radius: var(--raio); box-shadow: var(--sombra); padding: 24px 24px 26px; border-top: 4px solid var(--verde); }
++.sb-bloco h2 { font-size: 18px; line-height: 1.25; margin: 0 0 10px; color: var(--escuro); }
++.sb-bloco p { margin: 0; color: var(--texto-2); font-size: 15px; line-height: 1.65; }
++.sb-frase { margin: 44px auto 40px; max-width: 760px; text-align: center; padding: 0; }
++.sb-frase p { margin: 0 0 8px; font-size: clamp(21px, 2.4vw, 28px); line-height: 1.3; font-weight: 600; color: var(--escuro); }
++.sb-frase p::before { content: ""; display: block; width: 48px; height: 4px; border-radius: 2px; background: var(--verde); margin: 0 auto 18px; }
++.sb-frase span { font-size: 16px; color: var(--texto-2); }
++.sb-frase b { color: var(--verde-txt); }
++.sb-cta { display: grid; grid-template-columns: 200px minmax(0, 1fr) auto; align-items: center; gap: 24px; background: var(--escuro); color: var(--branco); border-radius: var(--raio); padding: 22px 32px; }
++.sb-cta img { width: 100%; filter: drop-shadow(0 10px 16px rgba(0,0,0,.5)); }
++.sb-cta h2 { margin: 0 0 4px; font-size: 22px; }
++.sb-cta p { margin: 0; color: #B9C4BC; }
++.sb-dados { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; margin: 24px 0 0; background: var(--branco); border: 1px solid var(--linha); border-radius: var(--raio); }
++.sb-dados div { padding: 18px 22px; border-left: 1px solid var(--linha); min-width: 0; }
++.sb-dados div:first-child { border-left: 0; }
++.sb-dados dt { font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--texto-2); margin-bottom: 4px; }
++.sb-dados dd { margin: 0; font-weight: 600; color: var(--escuro); overflow-wrap: anywhere; }
++.sb-dados a { color: var(--verde-esc); text-decoration: none; }
++@media (max-width: 900px) {
++  .sb-topo-in { grid-template-columns: minmax(0, 1fr); padding: 36px 16px 56px; gap: 20px; }
++  .sb-fotos { height: 220px; max-width: 420px; width: 100%; margin: 0 auto; }
++  .sb-hist { grid-template-columns: minmax(0, 1fr); }
++  .sb-cta { grid-template-columns: minmax(0, 1fr); text-align: center; justify-items: center; padding: 24px 20px; gap: 14px; }
++  .sb-cta img { width: 180px; }
++  .sb-dados { grid-template-columns: repeat(2, minmax(0, 1fr)); }
++  .sb-dados div:nth-child(3) { border-left: 0; }
++  .sb-dados div:nth-child(n+3) { border-top: 1px solid var(--linha); }
++}
++@media (max-width: 640px) {
++  .sb-txt h1 { font-size: 27px; }
++  .sb-txt p { font-size: 15px; }
++  .sb-fotos { height: 190px; }
++  .sb-bloco { padding: 18px 18px 20px; }
++  .sb-bloco h2 { font-size: 17px; }
++  .sb-bloco p { font-size: 14px; }
++  .sb-frase { margin: 32px auto 28px; }
++  .sb-cta .bt { width: 100%; justify-content: center; }
++  .sb-dados { grid-template-columns: minmax(0, 1fr); }
++  .sb-dados div { border-left: 0; padding: 14px 18px; }
++  .sb-dados div + div { border-top: 1px solid var(--linha); }
++}
