@@ -1,0 +1,21 @@
+--- a/.coord/donos.json
++++ b/.coord/donos.json
+@@ -136,6 +136,18 @@
+       "dono": "gerente-projetos"
+     },
+     {
++      "padrao": "docs/qualidade/redundancias/**",
++      "dono": "corretor-redundancias"
++    },
++    {
++      "padrao": "docs/marca/**",
++      "dono": "design-de-marca"
++    },
++    {
++      "padrao": "docs/ux/**",
++      "dono": "designer-ux"
++    },
++    {
+       "padrao": "docs/**",
+       "dono": "gerente-projetos"
+     }

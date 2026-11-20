@@ -1,0 +1,34 @@
+--- a/CLAUDE.md
++++ b/CLAUDE.md
+@@ -27,17 +27,19 @@
+ 6. A BAP Central (`aloirr/bapcentral`) só lê a base. Avise o Alexandre quando a base mudar de formato.
+ 
+ ## Time e quadro
+-- **8 agentes** em `.claude/agents/`; como trabalham: `.coord/README.md`.
++- **11 agentes** em `.claude/agents/`; como trabalham: `.coord/README.md`.
+   - `po`: o **único** que conversa com o Alexandre. Transforma o pedido em tarefa e colhe o "aprovado".
+   - `gerente-projetos`: divide em passos, chama os agentes, cobra testes e revisão, abre o PR.
+   - Donos de pasta: `catalogo-dados` (`dados/`), `catalogo-grafico` (`catalogo_grafico/`), `web-site` (`site/` e `scripts/gerar_site.py`), `integracao-placas` (`servicos/placas/`, fase 3).
+-  - Conferência: `testes` (gerar_site, buscas, prints 1366 e 390 px) e `revisor-codigo` (revisão independente de cada PR).
++  - Conferência: `testes` (gerar_site, buscas, prints 1366 e 390 px), `designer-ux` (especificação e revisão de UX de tela e PDF; dono de `docs/ux/`), `design-de-marca` (guarda a marca BAP no site e nos PDFs; dono de `docs/marca/`), `revisor-codigo` (revisão independente de cada PR) e `corretor-redundancias` (excesso e repetição em todo PR, antes do fechamento; achados RD-nnnn em `docs/qualidade/redundancias/`).
++  - `designer-ux`, `design-de-marca` e `corretor-redundancias` só leem e apontam: cada um escreve só na sua pasta.
+ - **Quadro:** `.coord/quadro.md`, uma tarefa por arquivo em `.coord/tarefas/T-nnnn.md`.
+   - Cada tarefa tem o pedido **literal** do Alexandre, a especificação e os critérios de aceite.
+ - **Donos:** `.coord/donos.json`. Só o dono mexe na pasta.
+   - `.claude/**`, `.coord/donos.json`, `render.yaml`, `.github/**`, `CLAUDE.md` e `.gitignore` são do **Alexandre**.
+-- **Caminho:** pedido → `po` → tarefa → `gerente-projetos` → donos → `testes` → `revisor-codigo` → PR → `po` → Alexandre.
+-  - Nenhum PR vai para o `main` sem o **"aprovado"** do Alexandre. O merge é dele.
++- **Caminho:** pedido → `po` → tarefa → `gerente-projetos` → donos → `testes` → `designer-ux` e `design-de-marca` (em mudança de tela, PDF ou marca) → `revisor-codigo` → `corretor-redundancias` → PR → `po` → Alexandre.
++  - **Merge (R-20261120-111308-alexandre):** o `po` autoriza todos os merges, inclusive os de governança, depois de conferir o número, o SHA do head, os arquivos, o CI verde e as revisões LIBERADO; cada autorização fica em recado, com o número e o SHA. O `gerente-projetos` executa o merge.
++  - As simulações de tela e de PDF continuam indo ao Alexandre.
+   - **"autorizo"** libera, só naquela tarefa, o que a regra trava (ex.: a `TRAVA` ou a `FICHA`).
+ 
+ ## Testar antes de entregar
+@@ -56,6 +58,6 @@
+   - Leia e grave **só com `node scripts/coord.mjs`** (`caixa`, `pendencias`, `ler`, `fio`, `enviar`, `lido`). Com o clone anexado, ele grava **com git**: `pull --rebase`, commit com o nome do agente (`<agente>@bapajuda.invalid`) e `push origin HEAD:main`, pela integração de GitHub do próprio Claude. Nenhum token entra.
+   - **Nunca grave pela API do GitHub:** o proxy da nuvem bloqueia ("Write access to this GitHub API path is not permitted through this proxy").
+   - **Autorizado pelo Alexandre (20/11/2026):** gravar direto no `main` do `bapajudacatalogo-recados`, só em `recados/` e `lidos/`. O código deste repositório continua indo por branch e PR.
+-- **Donos:** `.coord/donos.json` (a primeira regra que casa manda). Governança (`.claude`, `donos.json`, `coord*.mjs`, `.github`, `render.yaml`, `CLAUDE.md`, `.gitignore`) só com o recado do Alexandre "autorizo o merge do PR #N no commit <sha>".
++- **Donos:** `.coord/donos.json` (a primeira regra que casa manda). Governança (`.claude`, `donos.json`, `coord*.mjs`, `.github`, `render.yaml`, `CLAUDE.md`, `.gitignore`) só com o recado do `po` "autorizo o merge do PR #N no commit <sha>" (R-20261120-111308-alexandre); o `gerente-projetos` executa.
+ - Recado do celular: issue com o formulário **Recado** no `aloirr/bapajudacatalogo-recados` (conta domontecristo).
+ <!-- /SESSOES-E-RECADOS -->
