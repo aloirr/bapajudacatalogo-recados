@@ -1,0 +1,39 @@
+produtos_com_ref_que_sai: 133
+produtos_com_rotulo_limpo: 1524
+produtos_que_mudam: 1640
+produtos_repetidos_antes: 115
+produtos_repetidos_antes_rotulo_limpo: 115
+produtos_repetidos_depois: 3
+produtos_sem_referencia_a_mais: 0
+produtos_sem_referencia_antes: 167
+produtos_sem_referencia_depois: 167
+refs_novas_ou_alteradas: 21
+refs_que_saem: 237
+repetidas_antes_rotulo_da_base: 151
+repetidas_antes_rotulo_limpo: 153
+repetidas_depois: 4
+rotulos_sem_CROSS: 134
+rotulos_sem_PN: 3822
+rotulos_sem_REF_CRUZADA: 68
+saem_e_estao_no_historico: 218
+saem_fora_do_historico: 19
+total_refs_antes: 12538
+total_refs_depois: 12322
+
+# Leitura (main 1465c68 -> v2), por motivo
+produtos que mudam: 1640 (133 com referência que sai ou é reescrita; o resto só pelo rótulo)
+referências que saem de vez por histórico ("| ANTERIOR"): 217, em 115 produtos (218 entradas tocadas; 1 reescrita no ROL32218: "FAG 32218")
+referências reescritas sem perda (texto do código limpo): 19
+  - 4 SEH (SEH80042, SEH80043, SEH80048, SEH80049): sai a nota "| Original ..."
+  - 13 SCE140xx (SCE14000 a SCE14012): "REFERENCIAS CROSS FARJ: ..." vira marca FARJ, quebra de linha vira ", "
+  - 1 SCE14002: "WABCO PN: 970 051 128 0 (WABCO)\n..." vira marca WABCO
+  - 1 BDA50024: "URBA: UB0639, REFERENCIAS CRUZADAS - INDISA PN: 452506" vira "URBA: UB0639" + "INDISA: 452506"
+total de referências: 12538 -> 12322 (-217 do histórico, +1 da separação do BDA50024)
+repetidas (mesma marca e código): 151 a mais em 115 produtos -> 4 a mais em 3 produtos (BDA50024 x2, KAP11245, KAP11930; vêm repetidas na base, v19)
+rótulos sem PN: 3822
+rótulos sem CROSS/REFERENCIAS (no rótulo): 134 (132 "CROSS REFERENCIAS - " + 2 "CROSS REFERENCES - FAG PN", estes 2 dentro do histórico)
+rótulos sem REF. CRUZADA: 68
+prefixo tirado do texto do código (virou rótulo): 15 (13 "REFERENCIAS CROSS FARJ", 1 "WABCO PN", 1 "REFERENCIAS CRUZADAS - INDISA PN")
+produtos sem referência: 167 -> 167 (0 a mais)
+no JSON (arquivo inteiro): 0 "REFERENCIAS CROSS", 0 "REFERENCIAS CRUZADAS", 0 "CROSS REFER", 0 "REF. CRUZADA", 0 "ANTERIOR", 0 rótulo terminado em " PN", 0 quebra de linha em r
+fica para a v19 (não é prefixo nem PN do fim): "Pruduct PN SUNRISE" (8 refs, ROD8000 a ROD8007)
