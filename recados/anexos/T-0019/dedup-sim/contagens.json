@@ -1,0 +1,13 @@
+{
+ "paginas": {"A4": [56, 56], "Digital": [327, 317], "Moto": [17, 17]},
+ "refs_saem_por_repeticao": {"tiradas_pelo_refs_unicas": 471, "repetidas_visiveis_no_main": 405, "itens_com_repetida_no_main": 223, "celulas_EQUIVALE_A_com_repetida_no_PDF_main": {"Digital": 223, "Moto": 23, "A4": 0}},
+ "refs_saem_por_historico_a_mais_que_no_main": 0, "historico_na_base_dos_itens_do_PDF": {"itens": 38, "trechos": 38},
+ "refs_saem_por_vazio": {"PN: -": 83, "PN: 0": 45, "#N/A": 2},
+ "rotulos_que_mudam": {"PN_tirado": 1214, "prefixo_CROSS_REFERENCES_REFERENCIAS_CRUZADAS_REF_CRUZADA": 313, "Referencias Cruzadas SKnnn -> SKnnn (Kit Batente)": 16},
+ "KHC_aplicacao_revisada_cortada": 85,
+ "itens_sem_referencia": {"main": 394, "simulacao": 181, "ficam_sem_referencia_a_mais": 0, "ganham_referencia": 213},
+ "codigos_de_referencia_perdidos_vs_main": 0,
+ "ano_maior_para_traco": {"A4": 411, "Digital": 3111, "Moto": 0, "sobra_ano_maior_sem_ano_depois": 0},
+ "viuvas_corrigidas_pela_regra_digital": ["Suporte Tensor (Morcego) 25+2 -> 23+4", "Semi-Eixo Homocinético 29+1 -> 26+4", "Embreagem Remanufaturada 10+2 -> 8+4", "Lâmpadas 15+1 -> 12+4", "Palhetas Limpa-Parabrisa 3+2 -> 1+4"],
+ "viuvas_que_ficam": ["Filtros (ar do motor) 4+1: linha de 626 pt", "Filtros 2+2 e 2+2: linhas de 400-600 pt", "Filtros Moto 2+1 (digital e Moto)"]
+}
