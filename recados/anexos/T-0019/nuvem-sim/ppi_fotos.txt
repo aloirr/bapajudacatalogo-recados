@@ -1,0 +1,4 @@
+destaques A4 244 | sem foto própria 116 | com foto 128
+menor ppi (734.2766946940206, 'BOR11004', 'Bucha da Barra Estabilizadora', (611, 367))
+maior ppi (1328.5006138333235, 'BOL40003', 'Bomba de Óleo', (664, 664))
+ppi < 300: 0 | < 200: 0
