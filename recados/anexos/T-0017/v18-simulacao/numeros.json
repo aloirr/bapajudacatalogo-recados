@@ -1,0 +1,224 @@
+{
+ "linhas_veiculos": 17270,
+ "separado_antes": 12251,
+ "duvidoso_antes": 5019,
+ "separado_depois": 12150,
+ "duvidoso_depois": 5120,
+ "linhas_numericas_conferidas": 433,
+ "mudam": 101,
+ "ficam": 332,
+ "produtos_afetados": 95,
+ "produtos_perdem_ve": 1,
+ "produtos_perdem_parte": 94,
+ "produtos_com_ve_antes": 3619,
+ "produtos_com_ve_depois": 3618,
+ "mudam_por_modelo": [
+  [
+   "RENAULT 12",
+   67
+  ],
+  [
+   "PEUGEOT 2008",
+   21
+  ],
+  [
+   "RENAULT 21",
+   7
+  ],
+  [
+   "RENAULT 19",
+   6
+  ]
+ ],
+ "ficam_por_modelo": [
+  [
+   "PEUGEOT 206",
+   49
+  ],
+  [
+   "PEUGEOT 207",
+   41
+  ],
+  [
+   "PEUGEOT 208",
+   30
+  ],
+  [
+   "PEUGEOT 307",
+   25
+  ],
+  [
+   "SCANIA 124",
+   17
+  ],
+  [
+   "FIAT 500",
+   16
+  ],
+  [
+   "PEUGEOT 308",
+   14
+  ],
+  [
+   "FIAT 147",
+   13
+  ],
+  [
+   "PEUGEOT 2008",
+   13
+  ],
+  [
+   "PEUGEOT 306",
+   12
+  ],
+  [
+   "PEUGEOT 408",
+   11
+  ],
+  [
+   "PEUGEOT 106",
+   8
+  ],
+  [
+   "ALFA ROMEO 145",
+   8
+  ],
+  [
+   "SCANIA 113",
+   8
+  ],
+  [
+   "PEUGEOT 405",
+   8
+  ],
+  [
+   "SCANIA 112",
+   7
+  ],
+  [
+   "PEUGEOT 406",
+   5
+  ],
+  [
+   "SCANIA 111",
+   4
+  ],
+  [
+   "ALFA ROMEO 146",
+   4
+  ],
+  [
+   "PEUGEOT 3008",
+   4
+  ],
+  [
+   "ALFA ROMEO 156",
+   4
+  ],
+  [
+   "PEUGEOT 504",
+   3
+  ],
+  [
+   "PEUGEOT 505",
+   3
+  ],
+  [
+   "PEUGEOT 205",
+   3
+  ],
+  [
+   "CHRYSLER 300C",
+   3
+  ],
+  [
+   "ALFA ROMEO 155",
+   3
+  ],
+  [
+   "BMW 118i",
+   2
+  ],
+  [
+   "SCANIA 143",
+   2
+  ],
+  [
+   "RENAULT 12",
+   1
+  ],
+  [
+   "RENAULT 19",
+   1
+  ],
+  [
+   "AGRALE 6000",
+   1
+  ],
+  [
+   "AGRALE 8500",
+   1
+  ],
+  [
+   "PORSCHE 911",
+   1
+  ],
+  [
+   "AGRALE 1600",
+   1
+  ],
+  [
+   "AGRALE 1800",
+   1
+  ],
+  [
+   "BMW 120i",
+   1
+  ],
+  [
+   "BMW 320i",
+   1
+  ],
+  [
+   "PEUGEOT 5008",
+   1
+  ],
+  [
+   "RENAULT 21",
+   1
+  ],
+  [
+   "ALFA ROMEO 164",
+   1
+  ]
+ ],
+ "mudam_por_motivo": [
+  [
+   "seguido de \"/\" e ano (é data, ex.: 12/2016)",
+   61
+  ],
+  [
+   "vem depois de \"/\" ou \"-\" com número (é o ano de uma data, ex.: 04/12, 08-12)",
+   13
+  ],
+  [
+   "é um ano (vem depois de data, \"-\" ou \"até\")",
+   11
+  ],
+  [
+   "é um ano (seguido de outra data: faixa de anos)",
+   10
+  ],
+  [
+   "seguido de \"dentes\" (é medida)",
+   4
+  ],
+  [
+   "seguido de \",\" e número (é medida, ex.: 19,05 mm)",
+   2
+  ]
+ ],
+ "perde_ve": [
+  "TRI90067"
+ ]
+}
