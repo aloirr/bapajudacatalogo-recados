@@ -1,0 +1,357 @@
+{
+ "produtos_site": 4419,
+ "situacao": {
+  "separado": 3620,
+  "com >=1 fabricante+modelo": 4057,
+  "duvidoso": 590,
+  "sem veículo": 209
+ },
+ "motivo_sem_veiculo": {
+  "texto sem marca nem modelo do dicionário": 25,
+  "aplicação vazia": 106,
+  "universal / genérico (linha, caminhões, motos...)": 78
+ },
+ "linhas_produto_x_veiculo": 17149,
+ "fabricantes_distintos": 39,
+ "modelos_distintos": 832,
+ "versoes_distintas": 475,
+ "top20_fabricantes": [
+  [
+   "FORD",
+   720
+  ],
+  [
+   "CHEVROLET",
+   718
+  ],
+  [
+   "VOLKSWAGEN",
+   625
+  ],
+  [
+   "FIAT",
+   624
+  ],
+  [
+   "RENAULT",
+   351
+  ],
+  [
+   "HONDA",
+   319
+  ],
+  [
+   "TOYOTA",
+   270
+  ],
+  [
+   "HYUNDAI",
+   249
+  ],
+  [
+   "CITROËN",
+   230
+  ],
+  [
+   "PEUGEOT",
+   218
+  ],
+  [
+   "MERCEDES-BENZ",
+   218
+  ],
+  [
+   "AUDI",
+   180
+  ],
+  [
+   "NISSAN",
+   174
+  ],
+  [
+   "KIA",
+   159
+  ],
+  [
+   "MITSUBISHI",
+   157
+  ],
+  [
+   "VOLVO",
+   134
+  ],
+  [
+   "JEEP",
+   93
+  ],
+  [
+   "SCANIA",
+   85
+  ],
+  [
+   "IVECO",
+   71
+  ],
+  [
+   "BMW",
+   58
+  ]
+ ],
+ "top30_modelos": [
+  [
+   "FIAT Palio",
+   227
+  ],
+  [
+   "VOLKSWAGEN Gol",
+   219
+  ],
+  [
+   "FIAT Uno",
+   181
+  ],
+  [
+   "FIAT Strada",
+   179
+  ],
+  [
+   "FORD Fiesta",
+   162
+  ],
+  [
+   "VOLKSWAGEN Saveiro",
+   159
+  ],
+  [
+   "FIAT Siena",
+   153
+  ],
+  [
+   "FIAT Fiorino",
+   152
+  ],
+  [
+   "VOLKSWAGEN Polo",
+   150
+  ],
+  [
+   "CHEVROLET Corsa",
+   135
+  ],
+  [
+   "FORD Ka",
+   134
+  ],
+  [
+   "CHEVROLET S10",
+   132
+  ],
+  [
+   "VOLKSWAGEN Parati",
+   123
+  ],
+  [
+   "VOLKSWAGEN Golf",
+   123
+  ],
+  [
+   "VOLKSWAGEN Fox",
+   122
+  ],
+  [
+   "VOLKSWAGEN Voyage",
+   122
+  ],
+  [
+   "CHEVROLET Prisma",
+   120
+  ],
+  [
+   "HONDA Civic",
+   116
+  ],
+  [
+   "FORD Cargo",
+   115
+  ],
+  [
+   "TOYOTA Hilux",
+   111
+  ],
+  [
+   "FORD EcoSport",
+   109
+  ],
+  [
+   "RENAULT Sandero",
+   109
+  ],
+  [
+   "CHEVROLET Onix",
+   108
+  ],
+  [
+   "FORD Ranger",
+   108
+  ],
+  [
+   "CHEVROLET Montana",
+   105
+  ],
+  [
+   "FIAT Doblo",
+   105
+  ],
+  [
+   "RENAULT Logan",
+   101
+  ],
+  [
+   "FIAT Palio Weekend",
+   100
+  ],
+  [
+   "FIAT Idea",
+   100
+  ],
+  [
+   "AUDI A3",
+   100
+  ]
+ ],
+ "top_versoes": [
+  [
+   "FIAT Uno Mille",
+   32
+  ],
+  [
+   "FIAT Strada Adventure",
+   17
+  ],
+  [
+   "CHEVROLET Corsa Pick-Up",
+   17
+  ],
+  [
+   "FIAT Palio Adventure",
+   15
+  ],
+  [
+   "MITSUBISHI Pajero Sport",
+   14
+  ],
+  [
+   "FORD Cargo 2422",
+   14
+  ],
+  [
+   "MITSUBISHI Pajero Dakar",
+   14
+  ],
+  [
+   "MITSUBISHI Pajero Full",
+   12
+  ],
+  [
+   "FORD Cargo 1317",
+   11
+  ],
+  [
+   "VOLKSWAGEN Gol G5",
+   11
+  ],
+  [
+   "FIAT Doblo Adventure",
+   10
+  ],
+  [
+   "FORD Cargo 815",
+   10
+  ],
+  [
+   "FORD Cargo 1622",
+   10
+  ],
+  [
+   "CHEVROLET Corsa Sedan",
+   9
+  ],
+  [
+   "FORD Cargo 2428",
+   9
+  ],
+  [
+   "VOLKSWAGEN Constellation 24.250",
+   9
+  ],
+  [
+   "PEUGEOT 206 SW",
+   9
+  ],
+  [
+   "FIAT Idea Adventure",
+   8
+  ],
+  [
+   "MERCEDES-BENZ Sprinter 313",
+   8
+  ],
+  [
+   "MERCEDES-BENZ Sprinter 311",
+   8
+  ],
+  [
+   "FORD Cargo 814",
+   8
+  ],
+  [
+   "MERCEDES-BENZ Accelo 715",
+   8
+  ],
+  [
+   "PEUGEOT 207 SW",
+   8
+  ],
+  [
+   "MERCEDES-BENZ Sprinter Furgao",
+   8
+  ],
+  [
+   "FIAT Uno Way",
+   7
+  ]
+ ],
+ "sit_por_linha": {
+  "LEVE": {
+   "separado": 3385,
+   "duvidoso": 324,
+   "sem veículo": 86
+  },
+  "PESADA": {
+   "separado": 190,
+   "duvidoso": 182,
+   "sem veículo": 47
+  },
+  "LEVE E PESADA": {
+   "duvidoso": 64,
+   "separado": 36
+  },
+  "UNIVERSAL": {
+   "sem veículo": 74,
+   "separado": 2
+  },
+  "MOTO": {
+   "duvidoso": 20,
+   "separado": 7,
+   "sem veículo": 2
+  }
+ },
+ "motivos_duvidoso": {
+  "marca sem modelo reconhecido": 445,
+  "marca do trecho diferente da do modelo": 217,
+  "só fabricante de motor/câmbio/implemento ou máquina agrícola": 89
+ },
+ "json_atual_bytes": 2783860,
+ "json_extra_bytes": 379254,
+ "json_extra_bytes_com_indice_fabricante": 251157
+}
