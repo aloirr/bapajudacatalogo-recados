@@ -1,0 +1,10 @@
+/* SIMULAÇÃO (scratchpad): cabeçalho escuro no catálogo, como na página inicial */
+body:not(.inicio-marca) .topo { background: var(--g-catalogo) fixed; border-bottom-color: transparent; }
+body:not(.inicio-marca) .topo .marca img { content: url(assets/logo_branco.png); }
+body:not(.inicio-marca) .marca span { color: var(--branco); border-left-color: color-mix(in srgb, var(--branco) 35%, transparent); }
+body:not(.inicio-marca) .menu a { color: var(--branco); }
+body:not(.inicio-marca) .menu a:hover { color: var(--verde); }
+:root { --g-catalogo: linear-gradient(90deg, var(--escuro) 0%, var(--texto) 55%, var(--verde-esc) 100%); }
+/* B: a faixa escura desce até o quadro de busca (o quadro branco fica sobre o escuro, como na home) */
+.pagina-busca #busca-topo { margin-inline: calc(50% - 50vw); padding-inline: calc(50vw - 50%); background: var(--g-catalogo) fixed; padding-block: 14px 22px; }
+.pagina-busca .cartao-busca { margin-top: 0; box-shadow: var(--sombra-janela, var(--sombra)); }
