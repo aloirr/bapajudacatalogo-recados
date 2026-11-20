@@ -102,7 +102,7 @@ Rótulo de acessibilidade (`alt`, `aria-label`) que repete o texto da tela; a bu
 4. Um recado por dono (agrupando os achados dele), com cópia ao gerente:
    `node scripts/coord.mjs enviar --de corretor-redundancias --para <dono> --cc gerente-projetos --tipo pedido --tarefa T-nnnn --assunto "Redundâncias RD-nnnn…" --arquivo docs/qualidade/redundancias/T-nnnn.md`.
 5. Quando o dono corrigir, **reteste** com evidência (print 1366 e 390 px, página A4 ou saída do teste), feche o achado no catálogo e marque o recado: `node scripts/coord.mjs lido corretor-redundancias <id>`.
-6. Escreva o resultado na tarefa (seção Registro):
+6. Mande o bloco do resultado ao `gerente-projetos`, que registra na tarefa (seção Registro); `.coord/tarefas/**` é dele e você não escreve lá:
 
 ```
 Redundâncias T-nnnn · dd/mm/aaaa hh:mm (Manaus) · LIBERADO | VOLTA PARA AJUSTE

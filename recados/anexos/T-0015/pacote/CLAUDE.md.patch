@@ -1,6 +1,6 @@
 --- a/CLAUDE.md
 +++ b/CLAUDE.md
-@@ -27,17 +27,19 @@
+@@ -27,17 +27,20 @@
  6. A BAP Central (`aloirr/bapcentral`) só lê a base. Avise o Alexandre quando a base mudar de formato.
  
  ## Time e quadro
@@ -20,11 +20,12 @@
 -  - Nenhum PR vai para o `main` sem o **"aprovado"** do Alexandre. O merge é dele.
 +- **Caminho:** pedido → `po` → tarefa → `gerente-projetos` → donos → `testes` → `designer-ux` e `design-de-marca` (em mudança de tela, PDF ou marca) → `revisor-codigo` → `corretor-redundancias` → PR → `po` → Alexandre.
 +  - **Merge (R-20261120-111308-alexandre):** o `po` autoriza todos os merges, inclusive os de governança, depois de conferir o número, o SHA do head, os arquivos, o CI verde e as revisões LIBERADO; cada autorização fica em recado, com o número e o SHA. O `gerente-projetos` executa o merge.
++  - Até a T-0016 ajustar o guardião, o hook de merge ainda exige o recado do Alexandre 'autorizo o merge do PR #N no commit <sha>' para merge pelo terminal; o gerente executa o merge pela integração do GitHub com a autorização do PO.
 +  - As simulações de tela e de PDF continuam indo ao Alexandre.
    - **"autorizo"** libera, só naquela tarefa, o que a regra trava (ex.: a `TRAVA` ou a `FICHA`).
  
  ## Testar antes de entregar
-@@ -56,6 +58,6 @@
+@@ -56,6 +59,6 @@
    - Leia e grave **só com `node scripts/coord.mjs`** (`caixa`, `pendencias`, `ler`, `fio`, `enviar`, `lido`). Com o clone anexado, ele grava **com git**: `pull --rebase`, commit com o nome do agente (`<agente>@bapajuda.invalid`) e `push origin HEAD:main`, pela integração de GitHub do próprio Claude. Nenhum token entra.
    - **Nunca grave pela API do GitHub:** o proxy da nuvem bloqueia ("Write access to this GitHub API path is not permitted through this proxy").
    - **Autorizado pelo Alexandre (20/11/2026):** gravar direto no `main` do `bapajudacatalogo-recados`, só em `recados/` e `lidos/`. O código deste repositório continua indo por branch e PR.

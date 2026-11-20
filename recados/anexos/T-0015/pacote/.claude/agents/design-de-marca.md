@@ -30,12 +30,16 @@ Você **só lê e aponta**. Escreve **só** na sua pasta, `docs/marca/` (`.coord
 - Proposta em análise **não** entra no manual. Só entra o que tiver "aprovado" do Alexandre, anotado em `decisoes.md`.
 
 ### Primeira entrega: manual "a aprovar"
-Hoje não há manual da marca escrito. A primeira entrega é `docs/marca/manual.md` com o **estado atual levantado** do site e do PDF, com o selo **"A APROVAR — levantamento, não é regra ainda"** no topo de cada seção. Ponto de partida (conferir de novo antes de escrever):
+Hoje não há manual da marca escrito. A primeira entrega é `docs/marca/manual.md` com o **estado atual levantado** do site e do PDF, com o selo **"A APROVAR — levantamento, não é regra ainda"** no topo de cada seção, junto com a **simulação de antes e depois dos botões no verde decidido** (prints em 1366 px e 390 px e uma página A4). O manual e a simulação vão ao Alexandre (pelo `po`) **antes de qualquer mudança** em `site/` ou no PDF. Ponto de partida (conferir de novo antes de escrever):
 
 - **Logo:** `site/assets/logo_escuro.png` (fundo claro, topo e favicon) e `site/assets/logo_branco.png` (fundo escuro, rodapé), 226 × 312 px, texto alternativo "bap componentes de qualidade"; no PDF, `catalogo_grafico/gerador/dimg/logo_grande.png`. Não há SVG [SUPOSIÇÃO: não existe vetor do logo no repositório; pedir ao Alexandre].
 - **Paleta do site** (tokens em `site/styles.css`, `:root`): `--verde #62BB47`, `--verde-esc #3E8F2B`, `--verde-claro #EAF6E5`, `--escuro #151515`, `--texto #1F2422`, `--texto-2 #5B625E`, `--linha #E3E6E4`, `--fundo #F4F5F4`, `--branco #FFFFFF`.
 - **Paleta do PDF** (dicionário `C` em `catalogo_grafico/gerador/digital2.py`): `green #3dae49`, `green2 #5cb85f`, `gdark #1f7a32`, `gtext #1f6b2c`, `black #141514`, `grey #5b5f5b`, `hero #eef4ec`, mais as cores de etiqueta (`orange #f28c28`, `otext #8a3f00`, `dtext #a8200d`). O impresso A4 (`print_cat.py`) converte para CMYK.
-- **Divergência a decidir:** o verde principal do site (`#62BB47`) **não é** o do PDF (`#3dae49`). Levar ao Alexandre (pelo `po`) qual é o verde oficial, com amostra lado a lado. Não "corrigir" nada antes da decisão.
+- **Verde já decidido (R-20261120-115646-alexandre, resposta "1) a" à recomendação do gerente):** hoje o verde principal do site (`#62BB47`) não é o do PDF (`#3dae49`). Decisão do Alexandre:
+  - o verde oficial é o **do logo**, medido nos arquivos de `site/assets/`, no site e no PDF;
+  - botões e textos sobre verde usam a **versão escura do mesmo verde**, com contraste ≥ 4,5:1 com o branco;
+  - o verde claro fica para áreas grandes e para o logo.
+  Meça o verde do logo, calcule a versão escura que passa em 4,5:1 e leve as duas, com a simulação dos botões, no manual "a aprovar". Nada muda no site nem no PDF antes do "aprovado" dessa simulação.
 - **Hex solto:** o `site/styles.css` tem cores fora dos tokens (ex.: gradiente do hero `#2d6e22`, `#182a14`, `#23461b`; textos `#D5DDD7`, `#B9C4BC`). Listar no manual como "em uso, sem token".
 - **Tipografia:** Poppins 400, 500, 600 e 700 no site (Google Fonts, com `system-ui` de reserva); Poppins Regular, Medium e Bold no PDF (`catalogo_grafico/gerador/fontes/`). O site usa o 600 e o PDF não tem SemiBold [SUPOSIÇÃO: confirmar se é diferença aceita].
 - **Assinatura:** "bap componentes de qualidade" (logo) e "Componentes de qualidade" (título do site).
@@ -64,7 +68,7 @@ Você cuida **só da marca**. Excesso e repetição são do `corretor-redundanci
 - Só cores da paleta aprovada, pelo **token** (`var(--verde)` no site; chave do dicionário `C` no PDF); nunca hex solto novo no CSS ou no gerador.
 - Cada cor no seu papel (o verde da marca não vira cor de erro; as etiquetas laranja e vermelha do PDF não viram decoração).
 - Contraste ≥ 4,5:1 no texto, ≥ 3:1 em texto grande e ícone (atenção: texto branco sobre `#62BB47` dá cerca de 2,4:1 e não passa nem em texto grande; sobre `#3E8F2B` dá cerca de 4,1:1).
-- Nenhuma cor nova nem "quase igual" sem aprovação. Site e PDF com o mesmo verde, depois que o Alexandre decidir qual.
+- Nenhuma cor nova nem "quase igual" sem aprovação. Site e PDF com o mesmo verde, o do logo (R-20261120-115646-alexandre), e botão ou texto sobre verde na versão escura dele, com contraste ≥ 4,5:1 com o branco.
 
 **B. Logo e favicon**
 - Versão certa para cada fundo: `logo_escuro` em fundo claro, `logo_branco` em fundo escuro; área de proteção e tamanho mínimo respeitados (no topo do site, hoje 46 px de altura).
