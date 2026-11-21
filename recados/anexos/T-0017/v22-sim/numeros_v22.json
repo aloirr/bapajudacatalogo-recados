@@ -1,0 +1,26 @@
+{
+ "base_sha256": "2f1e442f6d09e321994a1c7a9ab1badecbad27569c4e76852a4c7522ffdd7e4e",
+ "codigos_com_seta": 54,
+ "ocorrencias_por_forma": {
+  "->": 45,
+  ">": 147,
+  "> (com espaço)": 2,
+  "→": 0,
+  "- > / –>": 0
+ },
+ "codigos_por_forma": {
+  "->": 10,
+  ">": 43,
+  "> (com espaço)": 2,
+  "→": 0,
+  "- > / –>": 0
+ },
+ "celulas_sim": 23,
+ "linhas_veiculos_sim": 23,
+ "codigos_sim": 9,
+ "celulas_P1": 4,
+ "celulas_P2": 3,
+ "ficam": 9,
+ "codigos_sem_veiculos": 9,
+ "log_previsto": 30
+}

@@ -1,0 +1,781 @@
+{
+ "codigos_com_seta": [
+  "38",
+  "41",
+  "47",
+  "53",
+  "54",
+  "57",
+  "60",
+  "70",
+  "71",
+  "ELE1060",
+  "ELE1066",
+  "ELE1068",
+  "ELE1070",
+  "ELE1071",
+  "ELE1077",
+  "ELE1080",
+  "ELE1084",
+  "ELE1085",
+  "ELE1086",
+  "ELE1087",
+  "ELE1092",
+  "SFR30029",
+  "SFR30031",
+  "SFR30039",
+  "SFR30040",
+  "SFR30042",
+  "SFR30043",
+  "SFR30045",
+  "SFR30049",
+  "SFR30050",
+  "SFR30051",
+  "SFR30052",
+  "SFR30054",
+  "SFR30055",
+  "SFR30056",
+  "SFR30061",
+  "SFR30063",
+  "SFR30064",
+  "SFR30065",
+  "SFR30067",
+  "SFR30069",
+  "SFR30070",
+  "SFR30071",
+  "SFR30072",
+  "SFR30073",
+  "SFR30074",
+  "SFR30076",
+  "SFR30077",
+  "SFR30078",
+  "SFR30079",
+  "SFR30085",
+  "SFR30086",
+  "SFR30089",
+  "SFR30091"
+ ],
+ "sem_veiculos": [
+  "38",
+  "41",
+  "47",
+  "53",
+  "54",
+  "57",
+  "60",
+  "70",
+  "71"
+ ],
+ "linhas": [
+  {
+   "linha": 2670,
+   "cod": "ELE1060",
+   "fab": "VOLKSWAGEN",
+   "modelo": "Bora",
+   "versao": null,
+   "ini": 1998,
+   "fim": 2005,
+   "situacao": "separado",
+   "ano_duvida": null,
+   "formas": [
+    "->"
+   ],
+   "trechos": [
+    "VOLKSWAGEM: Bora saloon/estate/ 1.6/1.8/1.9 TDi 1998->2005"
+   ],
+   "motivo": []
+  },
+  {
+   "linha": 2671,
+   "cod": "ELE1060",
+   "fab": "VOLKSWAGEN",
+   "modelo": "Golf",
+   "versao": null,
+   "ini": 1998,
+   "fim": 2005,
+   "situacao": "separado",
+   "ano_duvida": null,
+   "formas": [
+    "->"
+   ],
+   "trechos": [
+    "Golf MK4 hatch/estate 1.6/1.8/1.9 1998->2005"
+   ],
+   "motivo": []
+  },
+  {
+   "linha": 2689,
+   "cod": "ELE1066",
+   "fab": "SEAT",
+   "modelo": "Cordoba",
+   "versao": null,
+   "ini": 2002,
+   "fim": 2009,
+   "situacao": "separado",
+   "ano_duvida": null,
+   "formas": [
+    "->"
+   ],
+   "trechos": [
+    "SEAT: Cordoba Mk2 Saloon 1.2/1.4/1.9 2002->2009"
+   ],
+   "motivo": []
+  },
+  {
+   "linha": 2690,
+   "cod": "ELE1066",
+   "fab": "SEAT",
+   "modelo": "Ibiza",
+   "versao": null,
+   "ini": 2002,
+   "fim": 2009,
+   "situacao": "separado",
+   "ano_duvida": null,
+   "formas": [
+    "->"
+   ],
+   "trechos": [
+    "Ibiza Mk4 hatch 1.2/1.4/1.9 2002->2009",
+    "Ibiza Mk5 hatch 1.4/1.6 2008->",
+    "Ibiza Mk5 Sportcoupe 1.2/1.4/1.6 2008->",
+    "Ibiza IV ST 1.2/1.4/1.6 2010->"
+   ],
+   "motivo": [
+    "o mesmo veículo tem outro trecho aberto ou sem início no texto"
+   ]
+  },
+  {
+   "linha": 2697,
+   "cod": "ELE1068",
+   "fab": "FIAT",
+   "modelo": "Fiorino",
+   "versao": "Furgão",
+   "ini": 1988,
+   "fim": 1995,
+   "situacao": "separado",
+   "ano_duvida": null,
+   "formas": [
+    "->"
+   ],
+   "trechos": [
+    "FIAT: Fiorino Furgão 1.0/1.0 SPI/1.3/1.5 1988->1995"
+   ],
+   "motivo": []
+  },
+  {
+   "linha": 2698,
+   "cod": "ELE1068",
+   "fab": "FIAT",
+   "modelo": "Fiorino",
+   "versao": "Pick-Up",
+   "ini": 1988,
+   "fim": 1995,
+   "situacao": "separado",
+   "ano_duvida": null,
+   "formas": [
+    "->"
+   ],
+   "trechos": [
+    "Fiorino Pick-up 1.0/1.0 SPI/1.3/1.5 1988->1995"
+   ],
+   "motivo": []
+  },
+  {
+   "linha": 2699,
+   "cod": "ELE1068",
+   "fab": "FIAT",
+   "modelo": "Premio",
+   "versao": null,
+   "ini": 1985,
+   "fim": 1992,
+   "situacao": "separado",
+   "ano_duvida": null,
+   "formas": [
+    "->"
+   ],
+   "trechos": [
+    "Prêmio 1.3/1.5/1.6 1985->1992"
+   ],
+   "motivo": []
+  },
+  {
+   "linha": 2701,
+   "cod": "ELE1068",
+   "fab": "FIAT",
+   "modelo": "Uno",
+   "versao": "Mille",
+   "ini": 1984,
+   "fim": 1995,
+   "situacao": "separado",
+   "ano_duvida": null,
+   "formas": [
+    "->"
+   ],
+   "trechos": [
+    "Uno Mille 1.0 1984->1995"
+   ],
+   "motivo": []
+  },
+  {
+   "linha": 2705,
+   "cod": "ELE1070",
+   "fab": "HONDA",
+   "modelo": "City",
+   "versao": null,
+   "ini": 2009,
+   "fim": 2016,
+   "situacao": "separado",
+   "ano_duvida": null,
+   "formas": [
+    "->"
+   ],
+   "trechos": [
+    "HONDA: City 1.5 flex 2009->2016"
+   ],
+   "motivo": []
+  },
+  {
+   "linha": 2706,
+   "cod": "ELE1070",
+   "fab": "HONDA",
+   "modelo": "Fit",
+   "versao": null,
+   "ini": 2009,
+   "fim": 2016,
+   "situacao": "separado",
+   "ano_duvida": null,
+   "formas": [
+    "->"
+   ],
+   "trechos": [
+    "Fit 1.4 flex 2009->2016",
+    "Fit 1.5 flex 2009->2016"
+   ],
+   "motivo": []
+  },
+  {
+   "linha": 2707,
+   "cod": "ELE1071",
+   "fab": "VOLKSWAGEN",
+   "modelo": "Bora",
+   "versao": null,
+   "ini": 1998,
+   "fim": 2005,
+   "situacao": "separado",
+   "ano_duvida": null,
+   "formas": [
+    "->"
+   ],
+   "trechos": [
+    "VW: Bora Saloon/Estate 1.8/1.9 1998->2005"
+   ],
+   "motivo": []
+  },
+  {
+   "linha": 2709,
+   "cod": "ELE1071",
+   "fab": "VOLKSWAGEN",
+   "modelo": "Golf",
+   "versao": null,
+   "ini": 1999,
+   "fim": 2006,
+   "situacao": "separado",
+   "ano_duvida": null,
+   "formas": [
+    "->"
+   ],
+   "trechos": [
+    "Golf Mk4 Estate 1.9/2.0 1999->2006"
+   ],
+   "motivo": []
+  },
+  {
+   "linha": 2710,
+   "cod": "ELE1071",
+   "fab": "VOLKSWAGEN",
+   "modelo": "Polo",
+   "versao": null,
+   "ini": 2006,
+   "fim": 2009,
+   "situacao": "separado",
+   "ano_duvida": null,
+   "formas": [
+    "->"
+   ],
+   "trechos": [
+    "Polo Mk4 hatch 1.4 16v 2006->2009"
+   ],
+   "motivo": []
+  },
+  {
+   "linha": 2725,
+   "cod": "ELE1077",
+   "fab": "HONDA",
+   "modelo": "Civic",
+   "versao": null,
+   "ini": 2006,
+   "fim": 2011,
+   "situacao": "separado",
+   "ano_duvida": null,
+   "formas": [
+    "->"
+   ],
+   "trechos": [
+    "HONDA: New Civic 1.8 16v 2006->2011"
+   ],
+   "motivo": []
+  },
+  {
+   "linha": 2728,
+   "cod": "ELE1080",
+   "fab": "CHEVROLET",
+   "modelo": "Ipanema",
+   "versao": null,
+   "ini": 1993,
+   "fim": 1997,
+   "situacao": "separado",
+   "ano_duvida": null,
+   "formas": [
+    "->"
+   ],
+   "trechos": [
+    "CHEVROLET: Ipanema 1.8 EFI/2.0 EFI/2.0 MPFI 1993->1997"
+   ],
+   "motivo": []
+  },
+  {
+   "linha": 2729,
+   "cod": "ELE1080",
+   "fab": "CHEVROLET",
+   "modelo": "Kadett",
+   "versao": null,
+   "ini": 1996,
+   "fim": 1998,
+   "situacao": "separado",
+   "ano_duvida": null,
+   "formas": [
+    "->"
+   ],
+   "trechos": [
+    "Kadett 1.8 EFI/2.0 EFI/2.0 GSI/2.0 MPFI 1996->1998"
+   ],
+   "motivo": []
+  },
+  {
+   "linha": 2730,
+   "cod": "ELE1080",
+   "fab": "CHEVROLET",
+   "modelo": "Monza",
+   "versao": null,
+   "ini": 1993,
+   "fim": 1996,
+   "situacao": "separado",
+   "ano_duvida": null,
+   "formas": [
+    "->"
+   ],
+   "trechos": [
+    "Monza 1.8 EFI/2.0 EFI 1993->1996"
+   ],
+   "motivo": []
+  },
+  {
+   "linha": 2740,
+   "cod": "ELE1084",
+   "fab": "VOLKSWAGEN",
+   "modelo": "Apollo",
+   "versao": null,
+   "ini": 1990,
+   "fim": 1992,
+   "situacao": "separado",
+   "ano_duvida": null,
+   "formas": [
+    "->"
+   ],
+   "trechos": [
+    "VOLKSWAGEN: Apollo 1.8 1990->1992"
+   ],
+   "motivo": []
+  },
+  {
+   "linha": 2742,
+   "cod": "ELE1084",
+   "fab": "VOLKSWAGEN",
+   "modelo": "Parati",
+   "versao": null,
+   "ini": 1989,
+   "fim": 1995,
+   "situacao": "separado",
+   "ano_duvida": null,
+   "formas": [
+    "->"
+   ],
+   "trechos": [
+    "Parati I 1.6/1.6D/1.8 1989->1995"
+   ],
+   "motivo": []
+  },
+  {
+   "linha": 2743,
+   "cod": "ELE1084",
+   "fab": "VOLKSWAGEN",
+   "modelo": "Quantum",
+   "versao": null,
+   "ini": 1985,
+   "fim": 1991,
+   "situacao": "separado",
+   "ano_duvida": null,
+   "formas": [
+    "->"
+   ],
+   "trechos": [
+    "Quantum 1.8/2.0 1985->1991"
+   ],
+   "motivo": []
+  },
+  {
+   "linha": 2744,
+   "cod": "ELE1084",
+   "fab": "VOLKSWAGEN",
+   "modelo": "Saveiro",
+   "versao": null,
+   "ini": 1989,
+   "fim": 1997,
+   "situacao": "separado",
+   "ano_duvida": null,
+   "formas": [
+    "->"
+   ],
+   "trechos": [
+    "Saveiro I 1.6/1.6MI/1.8/1.8MI 1989->1997"
+   ],
+   "motivo": []
+  },
+  {
+   "linha": 2745,
+   "cod": "ELE1084",
+   "fab": "VOLKSWAGEN",
+   "modelo": "Voyage",
+   "versao": null,
+   "ini": 1989,
+   "fim": 1995,
+   "situacao": "separado",
+   "ano_duvida": null,
+   "formas": [
+    "->"
+   ],
+   "trechos": [
+    "Voyage 1.6/1.8/1.8 Special 1989->1995"
+   ],
+   "motivo": []
+  },
+  {
+   "linha": 2752,
+   "cod": "ELE1086",
+   "fab": "CHEVROLET",
+   "modelo": "Corsa",
+   "versao": null,
+   "ini": 1993,
+   "fim": 2002,
+   "situacao": "separado",
+   "ano_duvida": null,
+   "formas": [
+    "->"
+   ],
+   "trechos": [
+    "Corsa B hatch 1.4i/1.4i 16v/1.6i 16v/ 1.6 GSI 16v/1.5 TD/1.7 D 1993->2000",
+    "Corsa B estate 1.4i 16v 1999->2002",
+    "Corsa B van 1.4i/1.7 D 1999->2000"
+   ],
+   "motivo": []
+  },
+  {
+   "linha": 2753,
+   "cod": "ELE1086",
+   "fab": "CHEVROLET",
+   "modelo": "Tigra",
+   "versao": null,
+   "ini": 1994,
+   "fim": 2000,
+   "situacao": "separado",
+   "ano_duvida": null,
+   "formas": [
+    "->"
+   ],
+   "trechos": [
+    "Tigra 1.4 16v/1.6 16v 1994->2000"
+   ],
+   "motivo": []
+  },
+  {
+   "linha": 2767,
+   "cod": "ELE1092",
+   "fab": "FORD",
+   "modelo": "Escort",
+   "versao": null,
+   "ini": 1992,
+   "fim": 1996,
+   "situacao": "duvidoso",
+   "ano_duvida": null,
+   "formas": [
+    "->"
+   ],
+   "trechos": [
+    "FORD: Escort 1.8/1.8i 1992->1996",
+    "Escort 2.0 1992->1996",
+    "Escort XR3 1992->1996"
+   ],
+   "motivo": [
+    "SITUACAO 'duvidoso'"
+   ]
+  },
+  {
+   "linha": 2768,
+   "cod": "ELE1092",
+   "fab": "FORD",
+   "modelo": "Verona",
+   "versao": null,
+   "ini": 1992,
+   "fim": 1996,
+   "situacao": "duvidoso",
+   "ano_duvida": null,
+   "formas": [
+    "->"
+   ],
+   "trechos": [
+    "Verona 1.6/1.8/1.8i/2.0 1992->1996"
+   ],
+   "motivo": [
+    "SITUACAO 'duvidoso'"
+   ]
+  },
+  {
+   "linha": 2769,
+   "cod": "ELE1092",
+   "fab": "VOLKSWAGEN",
+   "modelo": "Logus",
+   "versao": null,
+   "ini": 1993,
+   "fim": 1996,
+   "situacao": "duvidoso",
+   "ano_duvida": null,
+   "formas": [
+    "->"
+   ],
+   "trechos": [
+    "VOLKSWAGEM: Logus 1.6/1.6i/1.8/1.8i/2.0/2.0i 1993->1996"
+   ],
+   "motivo": [
+    "SITUACAO 'duvidoso'"
+   ]
+  },
+  {
+   "linha": 2770,
+   "cod": "ELE1092",
+   "fab": "VOLKSWAGEN",
+   "modelo": "Pointer",
+   "versao": null,
+   "ini": 1993,
+   "fim": 1996,
+   "situacao": "duvidoso",
+   "ano_duvida": null,
+   "formas": [
+    "->"
+   ],
+   "trechos": [
+    "Pointer 1.6/1.8i/2.0/2.0i 1993->1996"
+   ],
+   "motivo": [
+    "SITUACAO 'duvidoso'"
+   ]
+  },
+  {
+   "linha": 7683,
+   "cod": "SFR30029",
+   "fab": "IVECO",
+   "modelo": "Daily",
+   "versao": null,
+   "ini": 1999,
+   "fim": 2007,
+   "situacao": "separado",
+   "ano_duvida": null,
+   "formas": [
+    ">"
+   ],
+   "trechos": [
+    "IVECO: Daily 35.10 1999>2007",
+    "T\nIVECO: Daily 35.13 1999>2007",
+    "T\nIVECO: Daily 35S14 2008>",
+    "T\nIVECO: Daily 38.13 1999>2007",
+    "T\nIVECO: Daily 40.12 1999>2007",
+    "T\nIVECO: Daily 40.13 1999>2007",
+    "T\nIVECO: Daily 45S14 2008>",
+    "T\nIVECO: Daily 45S16 2008>",
+    "T\nIVECO: Daily 45S17 2013>",
+    "T\nIVECO: Daily 49.10 1999>2007",
+    "T\nIVECO: Daily 49.12 1999>2007",
+    "T\nIVECO: Daily 50.13 1999>2007",
+    "T\nIVECO: Daily 55C16 2008>",
+    "T\nIVECO: Daily 55C17 2013>"
+   ],
+   "motivo": [
+    "o mesmo veículo tem outro trecho aberto ou sem início no texto"
+   ]
+  },
+  {
+   "linha": 7718,
+   "cod": "SFR30039",
+   "fab": "FIAT",
+   "modelo": "Fiorino",
+   "versao": null,
+   "ini": 1992,
+   "fim": 2010,
+   "situacao": "separado",
+   "ano_duvida": null,
+   "formas": [
+    ">"
+   ],
+   "trechos": [
+    "FIAT: Fiorino 1992>",
+    "T\nFIAT: Fiorino 750 kg 2008>2010"
+   ],
+   "motivo": [
+    "o mesmo veículo tem outro trecho aberto ou sem início no texto"
+   ]
+  },
+  {
+   "linha": 7732,
+   "cod": "SFR30045",
+   "fab": "FIAT",
+   "modelo": "Fiorino",
+   "versao": null,
+   "ini": 1994,
+   "fim": 2010,
+   "situacao": "separado",
+   "ano_duvida": null,
+   "formas": [
+    ">"
+   ],
+   "trechos": [
+    "FIAT: Fiorino 1994>",
+    "T\nFIAT: Fiorino 750 kg 2008>2010"
+   ],
+   "motivo": [
+    "o mesmo veículo tem outro trecho aberto ou sem início no texto"
+   ]
+  },
+  {
+   "linha": 7749,
+   "cod": "SFR30050",
+   "fab": "FORD",
+   "modelo": "Escort",
+   "versao": null,
+   "ini": 1983,
+   "fim": 1993,
+   "situacao": "duvidoso",
+   "ano_duvida": null,
+   "formas": [
+    ">"
+   ],
+   "trechos": [
+    "FORD: Escort 1983>1993",
+    "T\nFORD: Escort Guarujá 1991>1992",
+    "T\nFORD: Escort Hobby >1992"
+   ],
+   "motivo": [
+    "o mesmo veículo tem outro trecho aberto ou sem início no texto",
+    "SITUACAO 'duvidoso'"
+   ]
+  },
+  {
+   "linha": 7762,
+   "cod": "SFR30054",
+   "fab": "FORD",
+   "modelo": "Escort",
+   "versao": null,
+   "ini": 1996,
+   "fim": 2002,
+   "situacao": "separado",
+   "ano_duvida": null,
+   "formas": [
+    ">"
+   ],
+   "trechos": [
+    "FORD: Escort 1.8 16V 1997>",
+    "T\nFORD: Escort Zetec 16V Hatch/ Station Wagon/ Sedan 1996>2002"
+   ],
+   "motivo": [
+    "o mesmo veículo tem outro trecho aberto ou sem início no texto"
+   ]
+  },
+  {
+   "linha": 7789,
+   "cod": "SFR30063",
+   "fab": "FIAT",
+   "modelo": "Palio Weekend",
+   "versao": "ELX",
+   "ini": 2000,
+   "fim": 2009,
+   "situacao": "duvidoso",
+   "ano_duvida": null,
+   "formas": [
+    ">"
+   ],
+   "trechos": [
+    "T\nFIAT: Palio Weekend ELX 1.4 2006>2009",
+    "T\nFIAT: Palio Weekend ELX Fire 1.0 16V 2001>2009",
+    "T\nFIAT: Palio Weekend ELX Fire 1.3 16V 2000>"
+   ],
+   "motivo": [
+    "o mesmo veículo tem outro trecho aberto ou sem início no texto",
+    "SITUACAO 'duvidoso'"
+   ]
+  },
+  {
+   "linha": 7796,
+   "cod": "SFR30067",
+   "fab": "KIA",
+   "modelo": "Besta",
+   "versao": null,
+   "ini": 1999,
+   "fim": 2005,
+   "situacao": "separado",
+   "ano_duvida": null,
+   "formas": [
+    ">"
+   ],
+   "trechos": [
+    "KIA MOTORS: Besta Bongo 1999>",
+    "T\nKIA MOTORS: Besta GS 3.0 1999>2005",
+    "T\nKIA MOTORS: Besta GS Grand (16 Lugares) 1999>"
+   ],
+   "motivo": [
+    "o mesmo veículo tem outro trecho aberto ou sem início no texto"
+   ]
+  },
+  {
+   "linha": 7818,
+   "cod": "SFR30077",
+   "fab": "JEEP",
+   "modelo": "Cherokee",
+   "versao": null,
+   "ini": 1993,
+   "fim": 1999,
+   "situacao": "duvidoso",
+   "ano_duvida": null,
+   "formas": [
+    ">"
+   ],
+   "trechos": [
+    "CHRYSLER: Cherokee 2.5 1993>",
+    "T\nCHRYSLER: Cherokee 4.0 1995>1999",
+    "T\nCHRYSLER: Cherokee 5.2 1995>1999",
+    "T\nCHRYSLER: Cherokee 5.9 1995>1999"
+   ],
+   "motivo": [
+    "o mesmo veículo tem outro trecho aberto ou sem início no texto",
+    "SITUACAO 'duvidoso'"
+   ]
+  }
+ ]
+}
