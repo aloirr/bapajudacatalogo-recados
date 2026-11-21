@@ -1,0 +1,219 @@
+diff --git a/catalogo_grafico/gerador/LEIA_GERADOR.md b/catalogo_grafico/gerador/LEIA_GERADOR.md
+index 0ca40af..d3144aa 100644
+--- a/catalogo_grafico/gerador/LEIA_GERADOR.md
++++ b/catalogo_grafico/gerador/LEIA_GERADOR.md
+@@ -4,9 +4,10 @@
+ - O A4 e o digital rodam só com o que está no Git: base `dados/BASE_BAP_UNIFICADA_PRODUTOS_BAP.xlsx` (e a v10 de `dados/versoes/` para a FAMÍLIA dos filtros e o DETALHE), fotos dos destaques em `site/img/*.jpg` (pelo código com `taxo.norm`).
+ - Sem `ESTOQUE_BAP.xlsx` e sem `entradas/bap/`. Destaques: lista fixa em `destaques_fixos.json` (os 5 de 13/11, A4 e digital, só códigos; R-20261120-153200). Item que saiu da base ou ficou INATIVO, e família sem lista: completa pela regra 1) com foto própria; 2) com aplicação ou especificação; 3) pelo código. O gerador lista no log (`[destaques] ...`). A lista: com aplicação primeiro, depois pelo código.
+ - Sem "Diferencial BAP" e sem "Itens parecidos" nos PDFs (A4, digital e Linha Moto; R-20261120-160300, T-0019). Os campos DIFERENCIAL e ITEM_PARECIDO continuam na base.
+-- Referências cruzadas: uma regra só com o site (RD-0193). As da base (`montar.refs_from_base` e `pneus_fix.refs_moto`) passam pelo `refs_de` do `scripts/gerar_site.py`, carregado pelo `site_regras.py` (`site_regras.G`, sem cópia; usado pelo `montar.py` e pelo `digital2.py`): separa por ";" e por ",", tira o histórico ("| ANTERIOR: ..."), o preço de compra, o código vazio ("-", "0", "--", "N/A") e o rótulo fica só com a marca ("Nakata", sem " Pn" e sem "CROSS REFERENCES - "). Por cima, só no PDF (`montar.ref_lista`): sai o "#N/A" (`montar.SEM_CODIGO`) e o que vem depois de ", APLICAÇÃO REVISADA", trecho sem marca só fica se for código, e o rótulo com "bap", "similar", "aplica" ou "descri" fica fora; até 10 por item. Os dois primeiros cortes são provisórios (RD-0193): o lugar deles é o `refs_de`; a v19 da base tira a aplicação de dentro das referências e o segundo fica sem efeito. As que vêm escritas (catálogo antigo, site de 12/11, Fraga de 13/11: "Marca Código") passam pelo `refs_de` com a marca (`montar.refs_pela_regra`): sai o código vazio, a marca própria e o fornecedor. No fim do `fraga_complementos.aplicar`, em todos os itens dos 3 PDFs: `refs_pela_regra` e cada referência uma vez, na ordem da 1ª (`montar.refs_unicas`, RD-0194).
+-- AUTOIMPACT é fornecedor das palhetas (R-20261120-184000-alexandre, item 5): a referência sai pelo `refs_de` do site (lista dos fornecedores do `scripts/gerar_site.py`). Trava dos PDFs (`digital2.trava_pdf`, no fim do `print_cat.build` e do `digital2.build`, que também faz a Linha Moto): se o texto do PDF tiver o nome de um fornecedor da lista do site (`G.FORNECEDORES`; hoje só a AUTOIMPACT), junto ou com até 3 sinais entre cada letra ("AUTO IMPACT", "Auto-Impact", "AUTO.IMPACT"), o build para com `[PARADO]` e o arquivo fica com o fim `.BLOQUEADO` (não entregar). Na base o dado fica (REFERENCIAS_CRUZADAS e DADOS_ADICIONAIS).
+-- "Em diante" = "2015–" nos PDFs (R-20261120-175000): `datas.em_diante` no desenho (aplicação, DETALHE e subtítulo), sempre depois do `fix_text` (`datas.para_pdf`); o ">" continua só como marca interna e a base não muda.
++- Referências cruzadas: uma regra só com o site (RD-0193). As da base (`montar.refs_from_base` e `pneus_fix.refs_moto`) passam pelo `refs_de` do `scripts/gerar_site.py`, carregado pelo `site_regras.py` (`site_regras.G`, sem cópia; usado pelo `montar.py` e pelo `digital2.py`): separa por ";" e por ",", tira o histórico ("| ANTERIOR: ..."), o preço de compra, o código vazio ("-", "0", "--", "N/A", "#N/A"), a marca própria e o fornecedor, e o rótulo fica só com a marca ("Nakata", sem " Pn" e sem "CROSS REFERENCES - "). Por cima, só no PDF (`montar.ref_lista`): trecho sem marca só fica se for código, e o rótulo com "bap", "similar", "aplica" ou "descri" fica fora; até 10 por item. As que vêm escritas (catálogo antigo, site de 12/11, Fraga de 13/11: "Marca Código") passam pelo `refs_de` com a marca (`montar.refs_pela_regra`). No fim do `fraga_complementos.aplicar`, em todos os itens dos 3 PDFs: `refs_pela_regra` e cada referência uma vez, na ordem da 1ª (`montar.refs_unicas`, RD-0194).
++- Fornecedor não sai nos PDFs: os `FORNECEDORES` do site (AUTOIMPACT, das palhetas, R-20261120-184000-alexandre item 5; SUNRISE, R-20261120-194900-po). A referência sai pelo `refs_de` (também com o nome dentro do rótulo: "Pruduct Pn Sunrise"). Trava dos PDFs (`digital2.trava_pdf`, no fim do `print_cat.build` e do `digital2.build`, que também faz a Linha Moto): se o texto do PDF casar com o `G.FORNECEDOR_RE` do site (o nome junto ou com até 3 sinais entre cada letra: "AUTO IMPACT", "Sun-Rise"; RD-0226), o build para com `[PARADO]` e o arquivo fica com o fim `.BLOQUEADO` (não entregar). Na base o dado fica.
++- "Em diante" = "AAAA+" nos PDFs (R-20261120-194600-alexandre, item 4, R-20261120-195900 e R-20261120-201100-alexandre): `datas.em_diante`, num lugar só, no desenho (aplicação, DETALHE e subtítulo), sempre depois do `fix_text` (`datas.para_pdf`): "2015 em Diante", "2015>", "03/2015>", "2008->" e "2025 →" sem ano depois viram "2015+" (R-20261120-201100-alexandre), colado ao ano; letra ou "(" logo depois ganha um espaço ("2001>GM" = "2001+ GM", designer-ux); "1999->2008" e "1999 → 2008" são faixa ("1999–2008"); ">1994" ("até") fica. O "em diante" que o `cross.py` troca por ">" passa pelo mesmo `para_pdf`. A base não muda.
++- Aplicação: cada veículo uma vez (RD-0222; R-20261120-195900-alexandre). No fim do `fraga_complementos.aplicar`, em todos os itens dos 3 PDFs, `aplicacao_unica` tira o veículo que já apareceu na mesma aplicação (mesma montadora e mesmo texto, com as datas comparadas como no PDF), na ordem do 1º; o complemento do Fraga só fica com o que a base ainda não tem.
+ - Digital e Linha Moto: a última página de continuação de uma família com 1 ou 2 linhas recebe as últimas 3 (ou 2) da página anterior (`digital2.paginate`).
+ - Tag NOVO e "Leve também" seguem o `STATUS_CADASTRO` da base (ATIVO = NOVO quando o item não estava no catálogo; os demais ficam fora do par do "Leve também").
+ - As seções abaixo sobre o OneDrive e o estoque valem só para os scripts que ainda leem o estoque (`encartelados.py`, `kitfiltros/parse.py`). O `apres_bemol.py` ainda lê as fotos de `entradas/bap/`.
+diff --git a/catalogo_grafico/gerador/datas.py b/catalogo_grafico/gerador/datas.py
+index 45dedc2..4c9aa09 100644
+--- a/catalogo_grafico/gerador/datas.py
++++ b/catalogo_grafico/gerador/datas.py
+@@ -44,11 +44,17 @@ def fix_text(t):
+ 
+ 
+ def em_diante(t):
+-    """'2015>' -> '2015–', '03/2015>' -> '03/2015–' e '2008->' (sem ano depois) -> '2008–' ("em diante" = "2015–",
+-    igual ao site; R-20261120-175000). Só no desenho do PDF (aplicação, DETALHE e subtítulo), depois do fix_text: a base
+-    e o fix_text não mudam."""
+-    t = re.sub(r'((?:\d{2}/)?' + Y + r')\s*->(?!\s*\d)', r'\1–', t)
+-    return re.sub(r'((?:\d{2}/)?' + Y + r')\s*>', r'\1–', t)
++    """"em diante" = "AAAA+" nos PDFs (R-20261120-194600-alexandre, item 4: "troque por 2015+"; R-20261120-195900 e
++    R-20261120-201100-alexandre), num lugar só: '2015 em Diante', '2015>', '03/2015>', '2008->' e '2025 →' sem ano depois
++    -> '2015+' (antes "2015–", da R-20261120-175000); letra ou "(" logo depois ganha um espaço ("2001+ GM"). É a mesma
++    regra do site (site/app.js, anoMaisHtml): "AAAA+", com o espaço depois do "+" antes de uma letra ou de "(".
++    '1999->2008' e '1999 → 2008' são faixa -> '1999–2008'; '>1994' ("até") fica. Só no desenho do PDF (aplicação,
++    DETALHE e subtítulo), depois do fix_text: a base e o fix_text não mudam."""
++    t = re.sub(r'((?:\d{2}/)?' + Y + r')\s*(?:->|→)\s*((?:\d{2}/)?' + Y + r')', r'\1–\2', t)
++    t = re.sub(r'((?:\d{2}/)?' + Y + r')\s+em\s+diante\b', r'\1+', t, flags=re.I)
++    t = re.sub(r'((?:\d{2}/)?' + Y + r')\s*(?:-?>|→)(?!\s*\d+(?![\dA-Za-z]))', r'\1+', t)
++    t = re.sub(r'(' + Y + r'\+)(?=[^\W\d_]|\()', r'\1 ', t)   # "2001>GM" -> "2001+ GM" (designer-ux)
++    return re.sub(r'((?:\d{2}/)?' + Y + r')\s*>', r'\1–', t)   # número que não é ano depois ("09/1993>1201"): como antes
+ 
+ 
+ def para_pdf(t):
+diff --git a/catalogo_grafico/gerador/digital2.py b/catalogo_grafico/gerador/digital2.py
+index a9cf038..09af64e 100644
+--- a/catalogo_grafico/gerador/digital2.py
++++ b/catalogo_grafico/gerador/digital2.py
+@@ -87,7 +87,7 @@ def markup(segs):
+     return ''.join(out)
+ 
+ 
+-datas_re = re.compile(r'(?<![\w/])((?:\d{2}/)?(?:19|20)\d{2})((?:–(?:\d{2}/)?(?:19|20)\d{2})|–|>)?(?![\w/])')
++datas_re = re.compile(r'(?<![\w/])((?:\d{2}/)?(?:19|20)\d{2})((?:–(?:\d{2}/)?(?:19|20)\d{2})|–|>|\+)?(?![\w/])')
+ 
+ # ---------------------------------------------------------------- desenho
+ _pc = {}
+@@ -498,12 +498,13 @@ def pagina_sistema(dc, grupo, key, itens, pg):
+     dc.end()
+ 
+ 
+-# Trava dos PDFs (T-0019): fornecedor não sai em nenhum dos 3 PDFs (a AUTOIMPACT, das palhetas: R-20261120-184000-alexandre,
+-# item 5). A lista é a do site (G.FORNECEDORES do scripts/gerar_site.py, RD-0220); a referência sai pelo refs_de
+-# (montar.refs_pela_regra). Aqui o nome é procurado com até 3 sinais entre cada letra ("AUTO IMPACT", "Auto-Impact",
+-# "AUTO.IMPACT"). Se ele voltar por qualquer texto, o build para e o PDF fica com o fim ".BLOQUEADO" (não entregar).
++# Trava dos PDFs (T-0019): fornecedor não sai em nenhum dos 3 PDFs: os FORNECEDORES (AUTOIMPACT, SUNRISE) do site
++# (G.FORNECEDORES do scripts/gerar_site.py, RD-0220, RD-0227; R-20261120-184000-alexandre, item 5, e R-20261120-194900-po);
++# a referência sai pelo refs_de (montar.refs_pela_regra). O nome é procurado pelo G.FORNECEDOR_RE do site (RD-0226), com
++# até 3 sinais entre cada letra ("AUTO IMPACT", "Auto-Impact", "Sun-Rise"). Se ele voltar por qualquer texto, o build para
++# e o PDF fica com o fim ".BLOQUEADO" (não entregar).
+ from site_regras import G as _G
+-TRAVA_PDF = re.compile('|'.join(r'[\W_]{0,3}'.join(map(re.escape, f)) for f in _G.FORNECEDORES), re.I)
++TRAVA_PDF = re.compile(_G.FORNECEDOR_RE, re.I)
+ 
+ 
+ def trava_pdf(out):
+diff --git a/catalogo_grafico/gerador/fraga_complementos.py b/catalogo_grafico/gerador/fraga_complementos.py
+index e2f7771..81777f2 100644
+--- a/catalogo_grafico/gerador/fraga_complementos.py
++++ b/catalogo_grafico/gerador/fraga_complementos.py
+@@ -32,6 +32,68 @@ def segs_de(apl):
+     return segs
+ 
+ 
++def _norm(s):
++    """texto para comparar: as datas como no PDF (datas.para_pdf: "1993-1995" e "1993>1995" = "1993–1995", "2015 em Diante"
++    = "2015+"), sem acento, maiúsculo, só palavras, números e "+", sem o "até" e o "DE" antes do ano ("1993 até 1995" =
++    "1993–1995", "DE 1999–2002" = "1999–2002")"""
++    import unicodedata, datas
++    s = datas.para_pdf(s)
++    s = ''.join(c for c in unicodedata.normalize('NFD', s) if unicodedata.category(c) != 'Mn').upper()
++    t = re.findall(r'[A-Z0-9]+|\+', s)
++    t = [x for k, x in enumerate(t)
++         if not (x in ('ATE', 'DE') and k + 1 < len(t) and re.fullmatch(r'(?:19|20)\d{2}', t[k + 1]))]
++    return ' ' + ' '.join(t) + ' '
++
++
++_ANO = re.compile(r'(?<!\d)(?:19|20)\d{2}(?!\d)')
++_SEP = re.compile(r'((?:\s*[·;\n]\s*)+)')
++
++
++def aplicacao_unica(segs):
++    """cada veículo uma vez na aplicação, na ordem do 1º (RD-0222, R-20261120-195900-alexandre: "cada aplicação aparece
++    UMA vez só"): a base já traz o texto do Fraga em 109 itens, e às vezes repete o veículo nela mesma (FSE6167).
++    Veículo = os trechos entre "·", ";" ou quebra de linha até o que tem o ano ("Fiorino 1.0 L 8V · 1993 até 1995",
++    "LS 1632 10.0 L 10V - DE 1999–2002"); o que sobra no fim do trecho vai com o último ("S10 ... 2012>20 · Dupla").
++    Compara pela montadora (a última em negrito, com o BR_SHORT) e pelo _norm do texto. Trecho sem ano e trecho só com
++    o ano ficam sempre. Montadora que fica sem veículo sai junto."""
++    import montar as _M
++    vistos, out, marca, mudou = set(), [], '', False
++    for t, b in segs:
++        if b: marca = _M.BR_SHORT.get(t.strip().upper(), t.strip().upper())
++        if b or not t.strip(' ·;\n'):
++            if not b and out and not out[-1][1] and out[-1][0].rstrip().endswith('·'): continue   # um separador só
++            out.append([t, b]); continue
++        p = _SEP.split(t)                    # texto, separador, texto, ..., texto
++        txt = p[0::2]
++        ents, ent = [], []
++        for k, x in enumerate(txt):
++            if not x.strip(): continue
++            ent.append(k)
++            if _ANO.search(x): ents.append(ent); ent = []
++        if ent and ents: ents[-1] += ent   # o que sobra no fim é do último ("S10 ... 2012>20 · Dupla")
++        tira = set()
++        for ent in ents:
++            ch = _norm(' '.join(txt[i] for i in ent))
++            if any(not re.fullmatch(r'(?:19|20)\d\d|\+', w) for w in ch.split()):   # só o ano: fica
++                if (marca, ch) in vistos: tira.update(ent)
++                vistos.add((marca, ch))
++        if not tira:
++            out.append([t, b]); continue
++        mudou = True
++        # sai o veículo repetido e o separador depois de cada trecho dele
++        novo = ''.join(x for k, x in enumerate(p) if k // 2 not in tira)
++        if t[:1].isspace() and not novo[:1].isspace(): novo = ' ' + novo
++        if not novo.strip(' ·;\n'):
++            if out and out[-1][1]: out.pop()     # montadora sem veículo
++            if not out or out[-1][0].rstrip().endswith('·'): continue
++            novo = ' · '
++        out.append([novo, b])
++    if not mudou: return segs
++    while out and not out[-1][1] and not out[-1][0].strip(' ·;\n'): out.pop()
++    if out and not out[-1][1]: out[-1][0] = out[-1][0].rstrip(' ·;\n') + ' '
++    return out
++
++
+ DUAS = ('MAGNETI MARELLI', 'KIT & CIA', 'ORIGINAL OEM', 'LS AUTOMOTIVE')
+ 
+ 
+@@ -81,11 +143,12 @@ def aplicar(fams, filtro_moto=None):
+                 r['_refs_antes_fraga'] = atual
+                 r['refs'] = novas if atual in ('', '—', '-') else atual.rstrip(' ·,') + ' · ' + novas
+                 LOG['ref'].append(r['code'])
+-    # no fim, em todos os itens dos 3 PDFs: a regra do site nas que vieram escritas (o Fraga e o site de 12/11 trazem
+-    # AUTOIMPACT, fornecedor; montar.refs_pela_regra) e cada referência uma vez, na ordem da 1ª (o Fraga repete as do
+-    # catálogo; a base às vezes também; RD-0194)
++    # no fim, em todos os itens dos 3 PDFs: cada veículo uma vez na aplicação (aplicacao_unica, RD-0222); a regra do
++    # site nas referências que vieram escritas (o Fraga e o site de 12/11 trazem AUTOIMPACT, fornecedor;
++    # montar.refs_pela_regra) e cada referência uma vez, na ordem da 1ª (o Fraga repete as do catálogo; a base às vezes
++    # também; RD-0194)
+     import montar as _M
+-    LOG['fora'], LOG['repetidas'], feitos = [], [], set()
++    LOG['fora'], LOG['repetidas'], LOG['apl_repetida'], feitos = [], [], [], set()
+     n = lambda s: len(s.split(' · ')) if s else 0
+     for f in fams:
+         for r in f['rows']:
+@@ -94,4 +157,8 @@ def aplicar(fams, filtro_moto=None):
+             regra = _M.refs_pela_regra(antes); r['refs'] = _M.refs_unicas(regra)
+             if regra != antes: LOG['fora'].append((r['code'], n(antes) - n(regra)))
+             if r['refs'] != regra: LOG['repetidas'].append((r['code'], n(regra) - n(r['refs'])))
++            for k in ('segs', '_segs_antes_fraga'):          # o A4 usa a de antes do Fraga (print_cat)
++                if r.get(k):
++                    u = aplicacao_unica(r[k])
++                    if u != r[k]: r[k] = u; LOG['apl_repetida'].append((r['code'], k))
+     return LOG
+diff --git a/catalogo_grafico/gerador/montar.py b/catalogo_grafico/gerador/montar.py
+index de56ff8..b199be1 100644
+--- a/catalogo_grafico/gerador/montar.py
++++ b/catalogo_grafico/gerador/montar.py
+@@ -84,24 +84,17 @@ def segs_from_base(app):
+     return segs
+ 
+ 
+-# [provisório, RD-0193] Dois cortes só do PDF que deveriam morar no refs_de do scripts/gerar_site.py (dono: web-site), para o
+-# site e os PDFs terem uma regra só: o "#N/A" (JUH70105), que vai para a lista dos vazios do refs_de ("cod not in ..."), e
+-# o ", APLICAÇÃO REVISADA ..." dos kits KHC (em ref_lista, abaixo; o site corta no app.js). A v19 da base tira a aplicação
+-# de dentro das REFERENCIAS_CRUZADAS: depois dela o segundo corte fica sem efeito. Os dois saem quando o refs_de tirar.
+-SEM_CODIGO = {'#N/A'}
+-
+-
+ def ref_lista(s, codigo=''):
+     """referências da base [(marca, código)] pela regra do site (gerar_site.refs_de): separa por ";" e por ",", tira o
+     histórico "| ANTERIOR", o preço de compra, o código vazio, o prefixo "CROSS REFERENCES - " e o " PN" da marca.
+     Trecho sem marca só fica se for código (palavras com número, separadas por " / ": "REFERENCIAS CRUZADAS: SK132S"
+     -> ('', 'SK132S'), "W8BC / W7BC"); nota de cadastro e pedaço de marca ("SKF" de "SKF / PERFEC PN: ...") ficam fora.
+-    [provisório, RD-0193; ver SEM_CODIGO] O código para antes do ", APLICAÇÃO REVISADA ..." dos kits KHC."""
++    O "#N/A" sai no refs_de (código vazio); a aplicação saiu de dentro das referências na v19 da base (RD-0193)."""
+     if not isinstance(s, str) or not s.strip(): return []
+     out = []
+     for x in G.refs_de(s, str(codigo or '')):
+-        c = re.split(r'(?i),?\s*APLICA[ÇC][ÃA]O\b', x['c'])[0].strip(' ,')
+-        if c and c.upper() not in SEM_CODIGO and (x['m'] or re.fullmatch(r'[\w.\-]*\d[\w.\-]*(?:\s*/\s*[\w.\-]*\d[\w.\-]*)*', c)):
++        c = x['c']
++        if c and (x['m'] or re.fullmatch(r'[\w.\-]*\d[\w.\-]*(?:\s*/\s*[\w.\-]*\d[\w.\-]*)*', c)):
+             out.append((x['m'], c))
+     return out
+ 
+diff --git a/catalogo_grafico/gerador/site_regras.py b/catalogo_grafico/gerador/site_regras.py
+index c26f209..e523507 100644
+--- a/catalogo_grafico/gerador/site_regras.py
++++ b/catalogo_grafico/gerador/site_regras.py
+@@ -1,5 +1,5 @@
+ """Regras do site usadas pelos PDFs (RD-0193, RD-0220): carrega o ../../scripts/gerar_site.py (dono: web-site) uma vez só,
+-sem cópia. G.refs_de e G.so_codigo (referências, no montar.py) e G.FORNECEDORES (trava dos PDFs, no digital2.py)."""
++sem cópia. G.refs_de e G.so_codigo (referências, no montar.py) e G.FORNECEDOR_RE (trava dos PDFs, no digital2.py)."""
+ import importlib.util as _ilu, os as _os
+ 
+ _GS = _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '..', '..', 'scripts', 'gerar_site.py')
