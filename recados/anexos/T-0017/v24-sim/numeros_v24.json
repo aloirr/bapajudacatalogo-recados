@@ -1,0 +1,45 @@
+{
+ "base_sha256": "05eeb19ac26bc5ec1d5be44b55739ef0b1b09bf37a666927aefcdab9de96d129",
+ "referencias": 12044,
+ "referencias_repetidas": 1256,
+ "referencias_genericas": 165,
+ "pares_com_a_mesma_referencia": 738,
+ "casos": 662,
+ "casos_so_pela_aplicacao": 51,
+ "veiculos_comuns_nao_comparaveis_suposicao": 308,
+ "veiculos_testados": 3315,
+ "veiculos_testados_por_trecho_diferente": 190,
+ "validos": 21,
+ "codigos_que_mudam": 12,
+ "validos_se_o_limite_de_generica_mudar": {
+  "sem nenhum limite": 21,
+  "só o de famílias": 21,
+  "só o de 5 códigos": 21
+ },
+ "site": {
+  "codigos": [
+   "CIL8546",
+   "CUB60235"
+  ],
+  "veiculos": 5
+ },
+ "linhas_novas_veiculos": 21,
+ "fora": 3296,
+ "fora_por_motivo": {
+  "referência genérica (suspeita)": 574,
+  "outra referência da mesma marca diverge (item diferente)": 1736,
+  "produto ou peça diferente (PRODUTO/DESCRICAO)": 417,
+  "medida diferente (DESCRICAO/DETALHE_CATALOGO)": 49,
+  "montadoras sem nada em comum entre A e B (suspeita)": 34,
+  "muda c/ ou s/ (ex.: c/ parafuso, c/ pivô)": 22,
+  "veículo já está na APLICACAO de A": 441,
+  "trecho de V em B não isolável": 5,
+  "ano de V na VEICULOS de B não bate com o trecho de V em B": 2,
+  "as faixas do trecho de V em B têm intervalo (a VEICULOS juntaria)": 1,
+  "linha de V em B é duvidosa ou tem ANO_DUVIDA": 12,
+  "[SUPOSIÇÃO] V já está em A com outro trecho: somar trecho a veículo que já existe fica sem método": 1,
+  "só há anúncio da internet como prova": 2
+ },
+ "log_previsto": 42,
+ "amt7500_amt7014_validos": 0
+}
