@@ -1,0 +1,99 @@
+diff --git a/catalogo_grafico/gerador/LEIA_GERADOR.md b/catalogo_grafico/gerador/LEIA_GERADOR.md
+index 0e4564a..9146f41 100644
+--- a/catalogo_grafico/gerador/LEIA_GERADOR.md
++++ b/catalogo_grafico/gerador/LEIA_GERADOR.md
+@@ -47,7 +47,7 @@ Versão de 12/11/2026 (atualizada pelo PC EMPRESA; antes 27/10 pelo PC PESSOAL).
+ `https://catalogobap.catalogofraga.com.br` → aba CÓDIGO DA PEÇA → Buscar → Ver detalhes: Aplicação Detalhada (montadora, veículo, versão, motor, anos) e Produtos Similares (Tecfil). A nuvem do Cowork não acessa (proxy); usar o navegador do app. Novo código achado lá: acrescentar em `entradas/aplicacoes_site_bap.json` no mesmo formato (`{código: [ref, "MONTADORA§Modelo motor · anos · ...¦MONTADORA§..."]}`).
+ 
+ ## Rodapé (27/10)
+-Páginas internas dos três catálogos: esquerda "www.bapautoparts.com.br · @bapautoparts", centro o nº da página, direita "Verifique a disponibilidade e estoque de sua região." (`digital2.OBS_DISP`); embaixo o aviso de uso interno. Capa e contracapa sem a observação.
++Páginas internas dos três catálogos: esquerda "www.bapautoparts.com.br · @bapautoparts", centro o nº da página, direita "Consulte a disponibilidade na sua região." (`digital2.OBS_DISP`, R-20261120-212000-alexandre); embaixo o aviso de uso interno. Capa e contracapa sem a observação.
+ 
+ ## Regra de sintonia
+ Mudou um script: gravar a versão nova **aqui** (mesmo nome) e no OneDrive `catalogo_bap\gerador\`, e anotar no Registro do `agente_catalogo_bap.md` com o nome da conversa.
+diff --git a/catalogo_grafico/gerador/digital2.py b/catalogo_grafico/gerador/digital2.py
+index ae6a146..20de8bb 100644
+--- a/catalogo_grafico/gerador/digital2.py
++++ b/catalogo_grafico/gerador/digital2.py
+@@ -39,11 +39,15 @@ SITE = 'https://www.bapautoparts.com.br'
+ LOGO = 'dimg/capa_0.png'
+ LEGAL_B = 'USO INTERNO E CONFIDENCIAL'
+ SITE_IG = 'www.bapautoparts.com.br  ·  @bapautoparts'
+-OBS_DISP = 'Verifique a disponibilidade e estoque de sua região.'   # rodapé das páginas (Alexandre, 27/10)
++OBS_DISP = 'Consulte a disponibilidade na sua região.'   # rodapé das páginas (R-20261120-212000-alexandre, "3) a")
+ LEGAL_R = ' — material exclusivo do time BAP. Proibida a distribuição a clientes e terceiros. Imagens ilustrativas.'
+ 
+ # ---------------------------------------------------------------- dados + correções
+ fams = json.load(open('digital_data.json'))
++for _f in fams:                                  # " nan" (célula vazia) depois da montadora: sai e a marca fica (P3 da v21)
++    for _r in _f['rows']:
++        for _sg in _r.get('segs') or []:
++            if not _sg[1]: _sg[0] = re.sub(r'^(\s*)nan(?=\s*(?:·|;|$))', r'\1', _sg[0]).replace('  ·', ' ·')
+ byname = {f['name']: f for f in fams}
+ pneus, inter = byname['Pneus e Câmaras de Ar Moto'], byname['Interruptores']
+ mov = [r for r in pneus['rows'] if r['code'].startswith('INT16')]
+diff --git a/catalogo_grafico/gerador/fraga_complementos.py b/catalogo_grafico/gerador/fraga_complementos.py
+index 2e7c2bd..ca88613 100644
+--- a/catalogo_grafico/gerador/fraga_complementos.py
++++ b/catalogo_grafico/gerador/fraga_complementos.py
+@@ -35,14 +35,17 @@ def segs_de(apl):
+ 
+ def _norm(s):
+     """texto para comparar: as datas como no PDF (datas.para_pdf: "1993-1995" e "1993>1995" = "1993–1995", "2015 em Diante"
+-    = "2015+"), sem acento, maiúsculo, só palavras, números e "+", sem o "até" e o "DE" antes do ano ("1993 até 1995" =
+-    "1993–1995", "DE 1999–2002" = "1999–2002")"""
++    = "2015+"), sem acento, maiúsculo, só palavras, números e "+", sem o "DE" antes do ano ("DE 1999–2002" = "1999–2002")
++    e sem o "até" entre dois anos ("1993 até 1995" = "1993–1995"). O "até" sem ano antes (">1994" e "até 1995") fica como
++    o marcador "ATE": "Gol >1994" e "Gol até 1995" não são "Gol 1994" e "Gol 1995" (T-0019)."""
+     import unicodedata
+     s = datas.para_pdf(s)
+     s = ''.join(c for c in unicodedata.normalize('NFD', s) if unicodedata.category(c) != 'Mn').upper()
+-    t = re.findall(r'[A-Z0-9]+|\+', s)
++    t = re.findall(r'[A-Z0-9]+|\+|>', s)
++    eano = lambda k: 0 <= k < len(t) and re.fullmatch(datas.Y, t[k])
++    t = ['ATE' if x == '>' else x for k, x in enumerate(t) if x != '>' or eano(k + 1)]   # ">1994" = "até 1994"
+     t = [x for k, x in enumerate(t)
+-         if not (x in ('ATE', 'DE') and k + 1 < len(t) and re.fullmatch(datas.Y, t[k + 1]))]
++         if not (eano(k + 1) and (x == 'DE' or (x == 'ATE' and eano(k - 1))))]
+     return ' ' + ' '.join(t) + ' '
+ 
+ 
+@@ -75,7 +78,7 @@ def aplicacao_unica(segs):
+         tira = set()
+         for ent in ents:
+             ch = _norm(' '.join(txt[i] for i in ent))
+-            if any(not re.fullmatch(datas.Y + r'|\+', w) for w in ch.split()):   # só o ano: fica
++            if any(not re.fullmatch(datas.Y + r'|\+|ATE', w) for w in ch.split()):   # só o ano (ou "até 2008"): fica
+                 if (marca, ch) in vistos: tira.update(ent)
+                 vistos.add((marca, ch))
+         if not tira:
+diff --git a/catalogo_grafico/gerador/print_cat.py b/catalogo_grafico/gerador/print_cat.py
+index 2a92d2e..4415c12 100644
+--- a/catalogo_grafico/gerador/print_cat.py
++++ b/catalogo_grafico/gerador/print_cat.py
+@@ -249,6 +249,15 @@ def cards(dc, f, top, y):
+         r['_card_cut'] = t                    # aplicação cortada no destaque: o digital repete o item na tabela
+         apps.append(m)
+     ah = max(para_h(m, CARD_FS, CARD_FS * 1.34, tw) for m in apps)
++    import tags as TG
++    tsb = [TG.do_item(f['name'], r, f['spec']) for r in top]
++    # subtítulo comprido (SCE14002, 4 linhas): a faixa do código cresce em todos os cartões e não encosta na aplicação
++    def _code_h(tl, sb):
++        hh = min(TG.medir(lw, tl, tw)[1], 2 * 10) if tl else 0
++        if not sb or hh >= 12: return 0
++        return 7 + 16.5 + 2 + hh + 1 + para_h(html.escape(D2.datas.para_pdf(sb)), 7.4, 9.6, tw, 'PM') + 4
++    extra = max([0] + [_code_h(tl, sb) - fixed_code for tl, sb in tsb])
++    fixed_code += extra
+     ch = PH + fixed_code + 1 + 6 + ah + 6 + 1 + 5 + rh + 6
+     for k, (r, m, rf) in enumerate(zip(top, apps, refsl)):
+         x = MX + k * (cw + gap)
+@@ -262,8 +271,7 @@ def cards(dc, f, top, y):
+         while cs > 9 and lw(r['code'], cs, 'PB') > tw - (40 if r.get('nov') else 0): cs -= .5
+         dc.label(x + 9, yc + 7 + (15 - cs) * .6, r['code'], cs, 'black', 'PB')
+         if r.get('nov'): dc.tag(x + cw - 9 - 36, yc + 9, 'NOVO', 6.8, 'otag', 'otext', 4)
+-        import tags as TG
+-        tl, sb = TG.do_item(f['name'], r, f['spec'])
++        tl, sb = tsb[k]
+         hh = TG.desenhar(dc, lw, x + 9, yc + 7 + 16.5 + 2, tl, tw, max_linhas=2) if tl else 0
+         if sb and hh < 12: dc.text(x + 9, yc + 7 + 16.5 + 2 + hh + 1, tw, html.escape(D2.datas.para_pdf(sb)), 7.4, 9.6, 'gtext', 'PM')
+         yb = yc + fixed_code
