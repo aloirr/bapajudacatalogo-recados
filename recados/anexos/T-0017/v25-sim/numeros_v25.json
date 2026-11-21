@@ -1,0 +1,145 @@
+{
+ "base_sha256": "a77de850bdc2254eecaa46bffd04924541ada17bc443c13f649f2708fdec04d2",
+ "codigo": "AMT7500",
+ "linha_produtos": 1156,
+ "celulas": 1,
+ "linhas_novas_veiculos": 1,
+ "log_previsto": 2,
+ "arquivos_procurados": 33,
+ "registros_com_amt7500_ou_referencia": 47,
+ "registros_com_palio_ou_siena": 0,
+ "por_arquivo": {
+  "catalogo_grafico/entregas/Alteracoes_Catalogo_Complementos_Fraga_13112026.xlsx": {
+   "registros": 1,
+   "com_palio_ou_siena": 0
+  },
+  "catalogo_grafico/entregas/Aplicacoes_Catalogo_Online_Antes_Depois_12112026.pdf": {
+   "registros": 0,
+   "com_palio_ou_siena": 0
+  },
+  "catalogo_grafico/entregas/Auditoria_Catalogo_BAP_23102026.xlsx": {
+   "registros": 8,
+   "com_palio_ou_siena": 0
+  },
+  "catalogo_grafico/entregas/BAP_Lubrificantes_e_Quimicos_Apresentacao_Comercial.pdf": {
+   "registros": 0,
+   "com_palio_ou_siena": 0
+  },
+  "catalogo_grafico/entregas/Catalogo_BAP_2027_A4_grafica.pdf": {
+   "registros": 4,
+   "com_palio_ou_siena": 0
+  },
+  "catalogo_grafico/entregas/Catalogo_BAP_2027_Completo_Digital.pdf": {
+   "registros": 7,
+   "com_palio_ou_siena": 0
+  },
+  "catalogo_grafico/entregas/Catalogo_BAP_2027_Linha_Moto.pdf": {
+   "registros": 0,
+   "com_palio_ou_siena": 0
+  },
+  "catalogo_grafico/entregas/Conferencia_Catalogo_x_Fraga_13112026.xlsx": {
+   "registros": 1,
+   "com_palio_ou_siena": 0
+  },
+  "catalogo_grafico/entregas/Encartelados_Moto_BAP.xlsx": {
+   "registros": 0,
+   "com_palio_ou_siena": 0
+  },
+  "catalogo_grafico/entregas/Fotos_pendentes_destaques_catalogo.xlsx": {
+   "registros": 0,
+   "com_palio_ou_siena": 0
+  },
+  "catalogo_grafico/entregas/Itens_sem_aplicacao_BAP.xlsx": {
+   "registros": 0,
+   "com_palio_ou_siena": 0
+  },
+  "catalogo_grafico/entregas/Kit_Filtros_BAP.pdf": {
+   "registros": 0,
+   "com_palio_ou_siena": 0
+  },
+  "catalogo_grafico/entregas/Portfolio_Produtos_BAP_AUTOPARTS.pdf": {
+   "registros": 0,
+   "com_palio_ou_siena": 0
+  },
+  "catalogo_grafico/gerador/digital_data.json": {
+   "registros": 3,
+   "com_palio_ou_siena": 0
+  },
+  "catalogo_grafico/gerador/entradas/BASE_BAP_UNIFICADA_PRODUTOS_BAP.xlsx": {
+   "registros": 2,
+   "com_palio_ou_siena": 0
+  },
+  "catalogo_grafico/gerador/entradas/BASE_BAP_UNIFICADA_PRODUTOS_BAP_v8.xlsx": {
+   "registros": 2,
+   "com_palio_ou_siena": 0
+  },
+  "catalogo_grafico/gerador/entradas/CATALOGO_BAP_CUICA_DE_FREIO.xlsx": {
+   "registros": 0,
+   "com_palio_ou_siena": 0
+  },
+  "catalogo_grafico/gerador/entradas/CATALOGO_BAP_INTERRUPTORES.xlsx": {
+   "registros": 0,
+   "com_palio_ou_siena": 0
+  },
+  "catalogo_grafico/gerador/entradas/Cata_logo_PIVO_-_2026_.pdf": {
+   "registros": 0,
+   "com_palio_ou_siena": 0
+  },
+  "catalogo_grafico/gerador/entradas/aplicacoes_site_bap.json": {
+   "registros": 0,
+   "com_palio_ou_siena": 0
+  },
+  "catalogo_grafico/gerador/entradas/aplicacoes_site_bap_2.json": {
+   "registros": 0,
+   "com_palio_ou_siena": 0
+  },
+  "catalogo_grafico/gerador/entradas/complementos_fraga_13112026.json": {
+   "registros": 2,
+   "com_palio_ou_siena": 0
+  },
+  "dados/versoes/BASE_BAP_UNIFICADA_PRODUTOS_BAP_v10.xlsx": {
+   "registros": 2,
+   "com_palio_ou_siena": 0
+  },
+  "dados/versoes/BASE_BAP_UNIFICADA_PRODUTOS_BAP_v11.xlsx": {
+   "registros": 4,
+   "com_palio_ou_siena": 0
+  },
+  "dados/versoes/BASE_BAP_UNIFICADA_PRODUTOS_BAP_v12.xlsx": {
+   "registros": 4,
+   "com_palio_ou_siena": 0
+  },
+  "dados/versoes/BASE_BAP_UNIFICADA_PRODUTOS_BAP_v8.xlsx": {
+   "registros": 2,
+   "com_palio_ou_siena": 0
+  },
+  "dados/versoes/BASE_BAP_UNIFICADA_PRODUTOS_BAP_v9.xlsx": {
+   "registros": 2,
+   "com_palio_ou_siena": 0
+  },
+  "docs/legado/agente_catalogo_bap.md": {
+   "registros": 3,
+   "com_palio_ou_siena": 0
+  },
+  "docs/legado/historico/HISTORICO_CATALOGO_BAP.md": {
+   "registros": 0,
+   "com_palio_ou_siena": 0
+  },
+  "docs/legado/recados/20261019-1830_de-catalogo_para-bap-tools.md": {
+   "registros": 0,
+   "com_palio_ou_siena": 0
+  },
+  "docs/legado/recados/20261019-1831_de-catalogo_para-bap-ajuda.md": {
+   "registros": 0,
+   "com_palio_ou_siena": 0
+  },
+  "docs/legado/recados/20261019-1832_de-catalogo_para-analista.md": {
+   "registros": 0,
+   "com_palio_ou_siena": 0
+  },
+  "docs/legado/recados/20261019-1833_de-catalogo_para-treinamentos.md": {
+   "registros": 0,
+   "com_palio_ou_siena": 0
+  }
+ }
+}
