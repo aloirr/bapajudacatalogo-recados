@@ -4,7 +4,7 @@ Pedido: **R-20261120-235000-alexandre**, item 1.3. Nesta rodada houve **aprovaç
 - Os limites: nada novo duvidoso, nenhum produto sai, nenhuma coluna muda de formato, nada de preço, estoque ou fornecedor.
 - O que pede decisão do Alexandre ficou de fora (veja o `RESUMO.md`).
 
-Gravada pelo `dados/scripts/base_v23.py` sobre a v22 (sha256 `0c403c37…54ba`). A v23 tem sha256 `93f11cd5…ca44`.
+Gravada pelo `dados/scripts/base_v23.py` sobre a v22 (sha256 `0c403c37…54ba`). A v23 tem sha256 `b58fbe08…e9a4`.
 
 ## Arquivos
 - `RESUMO.md`: o antes e o depois de cada célula, com a recomendação e o motivo, e o que ficou de fora.
