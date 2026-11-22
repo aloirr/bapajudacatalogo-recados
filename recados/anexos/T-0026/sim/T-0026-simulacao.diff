@@ -1,0 +1,86 @@
+diff --git a/catalogo_grafico/gerador/catalogo_moto.py b/catalogo_grafico/gerador/catalogo_moto.py
+index a09b8ba..9c80ca1 100644
+--- a/catalogo_grafico/gerador/catalogo_moto.py
++++ b/catalogo_grafico/gerador/catalogo_moto.py
+@@ -9,6 +9,7 @@ import moto, digital2 as D2
+ 
+ D2.DOC_TITULO = f'CATÁLOGO LINHA MOTO {D2.ANO}'
+ D2.DOC_META = f'Catálogo BAP {D2.ANO} — Linha Moto (uso interno)'
++D2.SUM_DESC = 'Todas as linhas BAP para motocicletas com as aplicações completas.'
+ FAMS = []
+ for f in moto.MOTO_FAMS:
+     g = dict(f)
+diff --git a/catalogo_grafico/gerador/digital2.py b/catalogo_grafico/gerador/digital2.py
+index acb2eae..7b193dc 100644
+--- a/catalogo_grafico/gerador/digital2.py
++++ b/catalogo_grafico/gerador/digital2.py
+@@ -22,6 +22,7 @@ W, H, MX = 794, 1123, 36
+ ANO = '2027'                               # ano da capa e dos títulos (Alexandre, 29/10: catálogo 2027)
+ DOC_TITULO = f'CATÁLOGO COMPLETO {ANO}'   # o catálogo só de moto troca este título
+ DOC_META = f'Catálogo BAP {ANO} — Completo (uso interno)'   # título dos metadados; o da Linha Moto também troca
++SUM_DESC = 'Todas as linhas BAP com as aplicações completas.'   # texto do sumário; o da Linha Moto também troca (RD-0499)
+ CW = W - 2 * MX
+ TOP, FOOT, HERO = 54, 56, 132
+ S = 595.2756 / W
+@@ -491,11 +492,11 @@ def capa(dc):
+ 
+ def sumario(dc, entries, pg):
+     dc.bookmark('sumario', 'Sumário', 0)
+-    dc.top(back=False, right='Catálogo completo')
++    dc.top(back=False)                           # o título do catálogo fica só à esquerda da barra (RD-0499)
+     dc.rect(0, TOP, W, HERO, fill='hero'); dc.rect(0, TOP + HERO - 1, W, 1, fill='heroline')
+-    dc.label(MX, TOP + 26, DOC_TITULO, 10, 'gdark', 'PB', 1.6)
++    dc.label(MX, TOP + 26, 'BAP AUTOPARTS', 10, 'gdark', 'PB', 1.6)
+     dc.label(MX - 1, TOP + 46, 'Sumário', 40, 'black', 'PB', -.8)
+-    dc.text(MX, TOP + 94, 520, 'Todas as linhas BAP com as aplicações completas. Toque no nome da linha para ir direto à página.', 11, 16, 'sec')
++    dc.text(MX, TOP + 94, 520, f'{SUM_DESC} Toque no nome da linha para ir direto à página.', 11, 16, 'sec')
+     grupos = []
+     for e in entries:
+         if e['group'] not in grupos: grupos.append(e['group'])
+diff --git a/catalogo_grafico/gerador/print_cat.py b/catalogo_grafico/gerador/print_cat.py
+index 16eca53..bca8177 100644
+--- a/catalogo_grafico/gerador/print_cat.py
++++ b/catalogo_grafico/gerador/print_cat.py
+@@ -480,8 +480,9 @@ def por_que(dc, pg):
+     topbar(dc, '')                                      # a marca fica só no sobretítulo; à esquerda já está o catálogo (RD-0429)
+     hero(dc, 'BAP AUTOPARTS', 'Por que BAP?', '')       # sem subtítulo: o "Quem somos" já diz (RD-0429)
+     y = TOP + HERO + 36
+-    blocos = [('Quem somos', 'A BAP AUTOPARTS é uma empresa brasileira fundada em 2021 para oferecer componentes automotivos de qualidade, com segurança e preço acessível. O portfólio cobre as linhas leve, pesada e moto, da suspensão à parte elétrica.'),
+-              ('Por que vender BAP', 'Portfólio robusto para suspensão, direção, freio, arrefecimento, motor, transmissão, elétrica e acessórios. Produtos com padrão OEM, testados para máxima performance, e preço competitivo sem abrir mão da qualidade.'),
++    # as linhas ficam só em "Por que vender BAP" e a qualidade com preço só em "Quem somos" (RD-0498)
++    blocos = [('Quem somos', 'A BAP AUTOPARTS é uma empresa brasileira fundada em 2021 para oferecer componentes automotivos de qualidade, com segurança e preço acessível.'),
++              ('Por que vender BAP', 'Portfólio robusto para as linhas leve, pesada e moto: suspensão, direção, freio, arrefecimento, motor, transmissão, elétrica e acessórios. Produtos com padrão OEM, testados para máxima performance.'),
+               ('Garantia Expressa BAP', 'Ativação simples e direta, sem burocracia: o cliente aciona a garantia direto com a fábrica pelo SAC BAP. Prazos conforme o certificado da embalagem, sem intermediários.')]
+     for t, txt in blocos:
+         dc.rect(MX, y + 2, 4, 18, fill='green')
+@@ -500,7 +501,7 @@ def por_que(dc, pg):
+ 
+ 
+ def como(dc, pg):
+-    topbar(dc, f'Catálogo {ANO}')
++    topbar(dc, '')                                      # à esquerda já está o catálogo e o ano (RD-0499)
+     hero(dc, 'GUIA RÁPIDO', 'Como consultar', 'Encontre a peça certa e aumente o ticket em poucos passos.')
+     passos = [('Encontre a linha', 'O sumário organiza as linhas por sistema do veículo (suspensão, freio, arrefecimento...). Cada página traz uma linha de produtos BAP.'),
+               ('Veja os destaques', 'Os cards no topo mostram os itens em destaque da linha, com foto, aplicação e equivalência.'),
+@@ -527,8 +528,8 @@ def como(dc, pg):
+ 
+ 
+ def sumario(dc, entries, pg):
+-    topbar(dc, f'Catálogo {ANO}')
+-    hero(dc, f'CATÁLOGO {ANO}', 'Sumário', 'Linhas de produtos BAP organizadas por sistema do veículo.')
++    topbar(dc, '')                                      # o catálogo e o ano ficam só à esquerda da barra (RD-0499)
++    hero(dc, 'BAP AUTOPARTS', 'Sumário', 'Linhas de produtos BAP organizadas por sistema do veículo.')
+     grupos = []
+     for e in entries:
+         if e['group'] not in grupos: grupos.append(e['group'])
+@@ -554,8 +555,8 @@ def sumario(dc, entries, pg):
+ 
+ 
+ def anotacoes(dc, pg):
+-    topbar(dc, f'Catálogo {ANO}')
+-    hero(dc, f'CATÁLOGO {ANO}', 'Anotações', '')
++    topbar(dc, '')                                      # o catálogo e o ano ficam só à esquerda da barra (RD-0499)
++    hero(dc, 'BAP AUTOPARTS', 'Anotações', '')
+     y = TOP + HERO + 50
+     while y < H - FOOT - 30:
+         dc.rect(MX, y, CW, 1, fill='line'); y += 34
