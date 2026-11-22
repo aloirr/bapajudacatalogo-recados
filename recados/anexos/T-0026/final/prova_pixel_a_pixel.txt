@@ -1,0 +1,24 @@
+## A4: antes 56 páginas · depois 56 páginas
+- pág. 2: MUDA · 211488 pixels diferentes · caixa (73, 445, 1202, 1074)
+- pág. 3: MUDA · 797 pixels diferentes · caixa (1046, 50, 1199, 66)
+- pág. 4: MUDA · 2095 pixels diferentes · caixa (74, 50, 1199, 155)
+- iguais pixel a pixel (150 ppi): 53 de 56 páginas; mudam: [2, 3, 4]
+  - pág. 2 texto que sai: ['qualidade, com segurança e preço acessível. O portfólio cobre as linhas leve, pesada e moto, da suspensão à', 'parte elétrica.', 'Portfólio robusto para suspensão, direção, freio, arrefecimento, motor, transmissão, elétrica e acessórios.', 'Produtos com padrão OEM, testados para máxima performance, e preço competitivo sem abrir mão da', 'qualidade.']
+  - pág. 2 texto que entra: ['qualidade, com segurança e preço acessível.', 'Portfólio robusto para as linhas leve, pesada e moto: suspensão, direção, freio, arrefecimento, motor,', 'transmissão, elétrica e acessórios. Produtos com padrão OEM, testados para máxima performance.']
+  - pág. 3 texto que sai: ['CATÁLOGO 2027']
+  - pág. 3 texto que entra: []
+  - pág. 4 texto que sai: ['CATÁLOGO 2027', 'C A T Á L O G O 2 0 2 7']
+  - pág. 4 texto que entra: ['B A P A U T O P A R T S']
+
+## Digital: antes 311 páginas · depois 311 páginas
+- pág. 2: MUDA · 3117 pixels diferentes · caixa (56, 33, 1182, 141)
+- iguais pixel a pixel (150 ppi): 310 de 311 páginas; mudam: [2]
+  - pág. 2 texto que sai: ['CATÁLOGO COMPLETO', 'C A T Á L O G O C O M P L E T O 2 0 2 7']
+  - pág. 2 texto que entra: ['B A P A U T O P A R T S']
+
+## Moto: antes 17 páginas · depois 17 páginas
+- pág. 2: MUDA · 10144 pixels diferentes · caixa (56, 33, 1182, 278)
+- iguais pixel a pixel (150 ppi): 16 de 17 páginas; mudam: [2]
+  - pág. 2 texto que sai: ['CATÁLOGO COMPLETO', 'C A T Á L O G O L I N H A M O T O 2 0 2 7', 'Todas as linhas BAP com as aplicações completas. Toque no nome da linha para ir direto à', 'página.']
+  - pág. 2 texto que entra: ['B A P A U T O P A R T S', 'Todas as linhas BAP para motocicletas com as aplicações completas. Toque no nome da', 'linha para ir direto à página.']
+
