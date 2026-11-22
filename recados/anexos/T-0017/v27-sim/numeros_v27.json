@@ -1,0 +1,111 @@
+{
+ "base_sha256": "3a9f589dfed3b42bd9834d1ad1298cf2d5e73684a9733ff5c7af8ec02c152f2a",
+ "recomendado": {
+  "p1": "b",
+  "p2": "a",
+  "p3": "a",
+  "p6": "a"
+ },
+ "rolamentos": 194,
+ "rolamentos_leitura_do_texto": {
+  "CÂMBIO E DIFERENCIAL": 67,
+  "RODAGEM": 62,
+  "CÂMBIO E DIFERENCIAL + RODAGEM": 19,
+  "MOTOR + RODAGEM": 17,
+  "CÂMBIO E DIFERENCIAL + MOTOR + RODAGEM": 6,
+  "TRANSMISSÃO": 6,
+  "CÂMBIO E DIFERENCIAL + TRANSMISSÃO": 6,
+  "MOTOR": 5,
+  "CÂMBIO E DIFERENCIAL + MOTOR + TRANSMISSÃO": 3,
+  "CÂMBIO E DIFERENCIAL + MOTOR": 3
+ },
+ "rolamentos_com_um_sistema_lido": 140,
+ "rolamentos_com_mais_de_um_sistema_lido": 54,
+ "rolamentos_que_mudam_por_combinacao": {
+  "aa": 108,
+  "ab": 78,
+  "ba": 108,
+  "bb": 84
+ },
+ "rolamentos_sistema_novo_por_combinacao": {
+  "aa": {
+   "CÂMBIO E DIFERENCIAL": 77,
+   "MOTOR": 20,
+   "TRANSMISSÃO": 11
+  },
+  "ab": {
+   "CÂMBIO E DIFERENCIAL": 67,
+   "MOTOR": 5,
+   "TRANSMISSÃO": 6
+  },
+  "ba": {
+   "MOTOR": 20,
+   "TRANSMISSÃO": 88
+  },
+  "bb": {
+   "MOTOR": 5,
+   "TRANSMISSÃO": 79
+  }
+ },
+ "celulas_produtos": {
+  "APLICACAO": 3,
+  "SISTEMA": 108,
+  "DETALHE_CATALOGO": 13
+ },
+ "celulas_total": 124,
+ "codigos_mudados": 124,
+ "log_previsto": 124,
+ "celulas_com_duvidoso_antes": {
+  "PRODUTOS": 0,
+  "VEICULOS": 5120
+ },
+ "celulas_com_duvidoso_depois": {
+  "PRODUTOS": 0,
+  "VEICULOS": 5120
+ },
+ "site_produtos": 4419,
+ "site_produtos_que_mudam": 124,
+ "site_chaves_que_mudam": {
+  "a": 3,
+  "si": 108,
+  "ss": 11,
+  "de": 13
+ },
+ "site_si_antes": {
+  "DIREÇÃO": 604,
+  "RODAGEM": 460,
+  "ARREFECIMENTO": 141,
+  "SUSPENSÃO": 1147,
+  "QUÍMICOS": 38,
+  "MOTOR": 267,
+  "TRANSMISSÃO": 572,
+  "ACESSÓRIOS": 113,
+  "ELÉTRICA": 285,
+  "FREIO": 394,
+  "FILTRAÇÃO": 374,
+  "LUBRIFICANTES": 24
+ },
+ "site_si_depois": {
+  "DIREÇÃO": 604,
+  "RODAGEM": 352,
+  "TRANSMISSÃO": 660,
+  "MOTOR": 287,
+  "ARREFECIMENTO": 141,
+  "SUSPENSÃO": 1147,
+  "QUÍMICOS": 38,
+  "ACESSÓRIOS": 113,
+  "ELÉTRICA": 285,
+  "FREIO": 394,
+  "FILTRAÇÃO": 374,
+  "LUBRIFICANTES": 24
+ },
+ "site_ss_antes": 132,
+ "site_ss_depois": 121,
+ "leve_tambem_site_produtos_que_mudam": 0,
+ "leve_tambem_pdf_itens_que_mudam_por_combinacao": {
+  "aa": 0,
+  "ab": 0,
+  "ba": 0,
+  "bb": 0
+ }
+}
