@@ -233,7 +233,7 @@ index 0000000..0a93974
 +def plural(n, um='item', varios='itens'):
 +    return um if n == 1 else varios
 diff --git a/catalogo_grafico/gerador/portfolio.py b/catalogo_grafico/gerador/portfolio.py
-index 1c258e2..7a69794 100644
+index 1c258e2..a224761 100644
 --- a/catalogo_grafico/gerador/portfolio.py
 +++ b/catalogo_grafico/gerador/portfolio.py
 @@ -10,8 +10,9 @@ import pandas as pd
@@ -302,7 +302,7 @@ index 1c258e2..7a69794 100644
  def aplicacoes(rows, n=12):
      """principais aplicações na ordem do catálogo (ranking): montadora + modelos, sem repetir"""
      import re
-@@ -231,19 +253,26 @@ def aplicacoes(rows, n=12):
+@@ -231,19 +253,28 @@ def aplicacoes(rows, n=12):
          segs = r.get('segs') or []
          tr, cur = [], None
          for t, b in segs:
@@ -321,7 +321,9 @@ index 1c258e2..7a69794 100644
          for m, t in tr:
              mod = re.split(r'\s·\s|;\s|\s\(', t.strip(' ·;'))[0].strip(' ,·/')
 -            mod = re.sub(r'\s*(?:\d{2}/)?(?:19|20)\d{2}.*$', '', mod).strip(' ,·/')     # tira anos
-+            ano = re.search(r'(?:\s+[-–])?\s*(?:\d{2}/)?(?:19|20)\d{2}.*$', mod)            # o ano (e o " - " antes dele)
++            # o ano ("2014–2015") ou o mês/ano da base ("12/97 12/03"), e o " - " antes dele. O mês vai de 01 a 12: o par
++            # de anos curto ("Monza 82/96") e a medida ("60/55W", "90/90-19", '13/16"') não são data
++            ano = re.search(r'(?:\s+[-–])?\s*(?:(?:\d{2}/)?(?:19|20)\d{2}|(?<![\w/.,])(?:0[1-9]|1[0-2])/\d{2}(?![\d/"\'”%A-Za-z])).*$', mod)
 +            if ano and re.search(r'(?:^|\s)(?<!\d\s)[A-Za-z]-?$', mod[:ano.start()]): continue   # "FORD F 2000": não é ano, o corte partiria o modelo
 +            if ano: mod = mod[:ano.start()].strip(' ,·/')                                       # tira anos
              if not mod and not m: continue
@@ -336,7 +338,7 @@ index 1c258e2..7a69794 100644
              vistos.add(k); out.append((m, mod))
              if len(out) >= n: return out
      return out
-@@ -254,7 +283,7 @@ def heroi(s, fam, c, top, bot):
+@@ -254,7 +285,7 @@ def heroi(s, fam, c, top, bot):
      ih = bot - top - 30
      s.foto(c['img'], 40, top, 400, ih)
      if c['lanc']: s.chip(56, top + 16, 'NOVIDADE 2026', 'white', 'orange', 7.5)

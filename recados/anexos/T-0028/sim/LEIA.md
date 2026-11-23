@@ -1,6 +1,6 @@
 # T-0028 · Simulação: Portfólio e capa da Linha Moto
 
-`catalogo-grafico`, 23/11/2026 07:35 (Manaus); ajustes do parecer de UX às 07:50 e às 08:08. Branch `catalogo-grafico/T-0028-entregas`, head `e2cded4` (4 commits sobre o main `15c3d8d`: `223ce6b`, `6c035be`, `e74d4f1` e `e2cded4`).
+`catalogo-grafico`, 23/11/2026 07:35 (Manaus); ajustes do parecer de UX às 07:50, 08:08 e 08:16. Branch `catalogo-grafico/T-0028-entregas`, head `fe47d1f` (5 commits sobre o main `15c3d8d`: `223ce6b`, `6c035be`, `e74d4f1`, `e2cded4` e `fe47d1f`).
 Decisões 9a e 11a do R-20261123-112006-alexandre. Nada foi gravado em `catalogo_grafico/entregas/`.
 
 ## O que muda
@@ -108,3 +108,28 @@ Observação, sem pergunta: algumas "Principais aplicações" saem com a grafia 
 - **Ficam, sem mudança, porque vêm da base:**
   - aplicações sem a montadora ("Agile", pág. 12; "GOL G IV de", pág. 13);
   - modelos de outra linha na lista ("Ford Focus" e "Volvo V40" nos Filtros de Cabine da Pesada).
+
+## 2º reteste do UX: a data "mês/ano" (`fe47d1f`, 08:16)
+- **O problema:** o corte tirava o ano ("2014–2015"), mas não a data "mês/ano" da base ("12/97 12/03"). A linha saía cortada no meio: "VW Gol Mec. 12/97 12…".
+- **A correção:** o corte do ano também pega o "mês/ano", e a aplicação termina antes dele, como no ano.
+  - O mês vai de 01 a 12, e o número não pode vir colado a letra, número, barra, aspas ou "%".
+  - Por isso ficam o par de anos curto ("Monza 82/96", "Elba 92/96", "LO914 00/04") e as medidas ("60/55W", "90/90-19", '13/16"', "12/24V"), como nas exceções do `datas.py`.
+- **O que muda:**
+  - Variante a: págs. 13, 15, 51 e 58.
+  - Variante b: págs. 13, 15, 49 e 55.
+  - Lista completa: `mesano-aplicacoes-antes-depois.txt`.
+  - Imagens: `port-mesano-<variante>-pNN-antes.png` e `-depois.png`, a 150 ppi. Os `port-carro-*-depois.png` das págs. 13 e 15 foram refeitos com o head.
+- **As 12 linhas apontadas (6 por variante):**
+  - pág. 13: "VW Gol Mec.", "VW Fusca", "VW Passat" e "VW Kombi Carat Central";
+  - pág. 15: "MB 1621 4x2";
+  - pág. 49 da b e 51 da a: "Scania R113 s/ ABS DS 10.6 L SOHV".
+- **Uma linha a mais, do mesmo tipo:** "CARGO 1217 - CARGO 1417 5.9 01…" passa a "CARGO 1217 - CARGO 1417 5.9" (pág. 55 da b e 58 da a).
+- **Diferença do exemplo do UX:** a pág. 15 sai "MB 1621 4x2", e não "MB 1621 4x2 + MB 1622 4x2". "Como sai o ano" quer dizer cortar a partir da data, que foi o que eu fiz, e o "VW Gol Mec." do exemplo também é o corte.
+  - Para dar "MB 1621 4x2 + MB 1622 4x2", a data teria de sair do meio do texto, sem cortar a linha. Aí a pág. 13 viraria "VW Gol Mec. + VW Gol Mi Plus + VW…".
+  - Não dá para ter os 2 exemplos com uma regra só.
+- **Glifo vazio:** 0 nas aplicações, nas 2 variantes. Restam só os 2 da seta da pág. 3.
+- **Os outros PDFs**, regerados no `fe47d1f`:
+  - A4 (56 págs.) e Completo Digital (311 págs.): iguais à entrega, pixel a pixel.
+  - Linha Moto: só a capa difere da entrega, igual à da 1ª rodada.
+  - Lista de aplicações: igual.
+- **A variante b** ainda aplica no head, e o head gera o mesmo PDF da simulação.
