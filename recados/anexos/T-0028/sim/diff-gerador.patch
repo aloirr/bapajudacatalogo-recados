@@ -233,7 +233,7 @@ index 0000000..0a93974
 +def plural(n, um='item', varios='itens'):
 +    return um if n == 1 else varios
 diff --git a/catalogo_grafico/gerador/portfolio.py b/catalogo_grafico/gerador/portfolio.py
-index 1c258e2..b041ebf 100644
+index 1c258e2..7a69794 100644
 --- a/catalogo_grafico/gerador/portfolio.py
 +++ b/catalogo_grafico/gerador/portfolio.py
 @@ -10,8 +10,9 @@ import pandas as pd
@@ -274,7 +274,35 @@ index 1c258e2..b041ebf 100644
      top, bot = 128, H - 46
      if n_pr == 1:
          fam, cards = next(iter(fams.items())); heroi(s, fam, cards[0], top, bot); s.footer(); return
-@@ -231,12 +232,18 @@ def aplicacoes(rows, n=12):
+@@ -223,6 +224,27 @@ def pagina_sistema(s, lin_nome, num, sis, fams):
+     s.footer()
+ 
+ 
++def carro(mod, m):
++    """o "mesmo carro" de uma aplicação: a montadora (a 1ª, se forem várias) e o modelo, com o número quando o nome
++    é uma sigla (CG 125, G 400). Na linha da base v27 a montadora vem na frente: "FORD ECOSPORT 1.6 L" = "Ford" +
++    "Ecosport 1.6 L 16V"."""
++    import re
++    from montar import BRANDS_RX, BR_SHORT
++    from pneus_fix import BR
++    t = mod.upper()
++    if not m:
++        pre = re.match(rf'(?:{BRANDS_RX}|{BR}|VW|MB)\b[:\s]*', t)
++        if pre: m, t = pre.group(0), t[pre.end():]
++    mt = re.split(r'\s*[/+]\s*', m.upper().strip(' :'))[0]
++    mt = BR_SHORT.get(mt.replace('Ë', 'E'), mt)
++    ws = [w.strip(':;.') for w in re.split(r'[\s/,]+', t) if w.strip(':;.')] or ['']
++    if re.fullmatch(r'\d+', ws[0]) and len(ws) > 1 and re.fullmatch(r'[A-ZÀ-Ý]{3,}', ws[1]):
++        return mt, ws[1]                                                # MB 1315 ATEGO: o modelo é o Atego
++    if re.fullmatch(r'[A-Z]{1,3}', ws[0]) and len(ws) > 1 and re.fullmatch(r'\d{2,4}', ws[1]):
++        return mt, ws[0] + ' ' + ws[1]                                  # sigla + número: CG 125 ≠ CG 150 (o Atego 1315 é Atego)
++    return mt, ws[0]
++
++
+ def aplicacoes(rows, n=12):
+     """principais aplicações na ordem do catálogo (ranking): montadora + modelos, sem repetir"""
+     import re
+@@ -231,19 +253,26 @@ def aplicacoes(rows, n=12):
          segs = r.get('segs') or []
          tr, cur = [], None
          for t, b in segs:
@@ -293,11 +321,22 @@ index 1c258e2..b041ebf 100644
          for m, t in tr:
              mod = re.split(r'\s·\s|;\s|\s\(', t.strip(' ·;'))[0].strip(' ,·/')
 -            mod = re.sub(r'\s*(?:\d{2}/)?(?:19|20)\d{2}.*$', '', mod).strip(' ,·/')     # tira anos
-+            mod = re.sub(r'(?:\s+[-–])?\s*(?:\d{2}/)?(?:19|20)\d{2}.*$', '', mod).strip(' ,·/')     # tira anos (e o " - " antes deles)
++            ano = re.search(r'(?:\s+[-–])?\s*(?:\d{2}/)?(?:19|20)\d{2}.*$', mod)            # o ano (e o " - " antes dele)
++            if ano and re.search(r'(?:^|\s)(?<!\d\s)[A-Za-z]-?$', mod[:ano.start()]): continue   # "FORD F 2000": não é ano, o corte partiria o modelo
++            if ano: mod = mod[:ano.start()].strip(' ,·/')                                       # tira anos
              if not mod and not m: continue
              if len(mod) > 46: mod = mod[:46].rsplit('/', 1)[0].rsplit(',', 1)[0].strip(' ,/') + '…'
              mod = re.sub(r'(?i)\s*\b(?:diant|tras|dir|esq|sup|inf)(?:eir[oa]|eit[oa]|uerd[oa]|erior)?\.?(?=\s|$)', '', mod).strip(' ,·/+')
-@@ -254,7 +261,7 @@ def heroi(s, fam, c, top, bot):
+             if not mod: continue
+-            w1 = re.split(r'[\s/,]+', mod.upper())[0]                       # 1º modelo: não repetir o mesmo carro
+-            k = (m.upper(), w1)
+-            if k in vistos: continue
++            k = carro(mod, m)                                                # não repetir o mesmo carro
++            if k in vistos or (k[0], k[1].split(' ')[0]) in vistos: continue   # "Dodge RAM" já cobre o "RAM 2500"
+             vistos.add(k); out.append((m, mod))
+             if len(out) >= n: return out
+     return out
+@@ -254,7 +283,7 @@ def heroi(s, fam, c, top, bot):
      ih = bot - top - 30
      s.foto(c['img'], 40, top, 400, ih)
      if c['lanc']: s.chip(56, top + 16, 'NOVIDADE 2026', 'white', 'orange', 7.5)

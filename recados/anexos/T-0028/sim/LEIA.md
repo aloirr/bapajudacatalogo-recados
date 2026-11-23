@@ -1,6 +1,6 @@
 # T-0028 · Simulação: Portfólio e capa da Linha Moto
 
-`catalogo-grafico`, 23/11/2026 07:35 (Manaus); ajuste do parecer de UX às 07:50. Branch `catalogo-grafico/T-0028-entregas`, head `6c035be` (2 commits sobre o main `15c3d8d`: `223ce6b` e `6c035be`).
+`catalogo-grafico`, 23/11/2026 07:35 (Manaus); ajustes do parecer de UX às 07:50 e às 08:08. Branch `catalogo-grafico/T-0028-entregas`, head `e2cded4` (4 commits sobre o main `15c3d8d`: `223ce6b`, `6c035be`, `e74d4f1` e `e2cded4`).
 Decisões 9a e 11a do R-20261123-112006-alexandre. Nada foi gravado em `catalogo_grafico/entregas/`.
 
 ## O que muda
@@ -75,4 +75,36 @@ Observação, sem pergunta: algumas "Principais aplicações" saem com a grafia 
   - Linha Moto: só a capa difere da entrega, e é igual à da 1ª rodada.
   - Lista de aplicações: igual.
 - **Variante b:** o `diff-variante-b.patch` foi refeito sobre o `6c035be`, com o mesmo conteúdo. Não foi aplicada no branch.
-- **Observação, sem pergunta:** o Filtro de Ar Moto mostra só "HONDA CG 125 CARGO ESD". O produto tem 27 linhas, todas CG 125, 150 e 160. A regra antiga do `aplicacoes()` não repete a 1ª palavra, que nas linhas da v27 é a montadora. Não mexi nessa regra.
+- O Filtro de Ar Moto mostrava só "HONDA CG 125 CARGO ESD": resolvido no reteste, abaixo.
+
+## Reteste do UX: o "mesmo carro" (`e74d4f1` e `e2cded4`, 08:08)
+- **O problema:** a regra "não repetir o mesmo carro" do `aplicacoes()` olhava a 1ª palavra do texto. Nas linhas da v27, essa palavra é a montadora.
+  - Por isso, as 27 linhas do FAR6365 viravam uma só.
+  - E "Ford Ecosport" e "FORD ECOSPORT" contavam como carros diferentes.
+- **A correção:** a função nova `carro()` dá a chave do "mesmo carro": a montadora e o modelo.
+  - **Montadora:** a do negrito; a da frente da linha da v27; a 1ª, se forem várias. Os nomes são juntados pelo `montar.BR_SHORT`: VOLKSWAGEN = VW, CHEVROLET = GM, MERCEDES-BENZ = MB.
+  - **Modelo:** a 1ª palavra depois da montadora, sem a pontuação.
+    - Se o nome é uma sigla de até 3 letras seguida de número, o número entra: CG 125, CG 150 e CG 160 são 3 carros, assim como G 400 e G 360.
+    - "1315 ATEGO" e "Atego 1315" são o mesmo carro (Atego).
+    - Um modelo sem número já mostrado cobre o mesmo modelo com número: "Dodge RAM" cobre o "RAM 2500".
+  - **A montadora fica na chave** para que "Caminhões", "Ônibus" e "Tratores" de montadoras diferentes não se juntem. Na 1ª versão (`e74d4f1`), sem a montadora, a pág. 57 da b perdia "Agrale Caminhões", "MB Caminhões" e "Valmet Tratores".
+  - **Ano que é modelo:** o corte do ano partia o modelo ("FORD F 2000" virava "FORD F"; "Ford F-1998>" virava "Ford F-"; "Clark Empilhadeira C-1987>" virava "…C-"). Quando o número vem logo depois de uma letra solta, que não seja o "L" de litros, a aplicação fica fora da lista.
+- **O resultado pedido, na variante b:**
+  - pág. 73, Filtro de Ar Moto: "HONDA CG 125 CARGO ESD", "HONDA CG 150 CARGO ESD" e "HONDA CG 160 CARGO";
+  - pág. 37: o Ecosport aparece uma vez só ("Ford Ecosport 1.6 L 16V");
+  - Royale (pág. 13), Ranger (19) e Courier (33) também aparecem uma vez só.
+- **Páginas que mudam, `e2cded4` × `6c035be`, conferidas pixel a pixel e no texto:**
+  - Variante a: 27 págs. (12, 13, 15, 16, 17, 20, 22, 23, 31, 35, 39, 44, 50, 51, 52, 56, 57, 60, 61, 65, 66, 67, 68, 75, 76, 79 e 82).
+  - Variante b: 23 págs. (12, 13, 15, 16, 19, 21, 22, 33, 37, 42, 48, 49, 53, 54, 56, 57, 61, 62, 63, 64, 67, 73 e 76).
+  - Muda só a lista "Principais aplicações": com a repetição fora, entram aplicações que estavam escondidas.
+  - O que sai e o que entra, página por página: `carro-aplicacoes-antes-depois.txt`.
+  - Imagens: `port-carro-<variante>-pNN-antes.png` e `-depois.png`, a 110 ppi. Os 2 PNGs do Filtro de Ar Moto (`port-a-p79-…` e `port-b-p73-…`) foram refeitos.
+- **Glifo vazio:** 0 nas aplicações, nas 2 variantes. Restam só os 2 da seta da pág. 3, sem mudança.
+- **Os outros PDFs**, regerados no `e2cded4`:
+  - A4: 56 págs.; Completo Digital: 311 págs.; os dois iguais à entrega, pixel a pixel.
+  - Linha Moto: só a capa difere da entrega, e é igual à da 1ª rodada.
+  - Lista de aplicações: igual.
+- **Não mudaram:** a caixa alta, a seta da pág. 3 e a variante b. O `diff-variante-b.patch` ainda aplica no `e2cded4`, e o head gera o mesmo PDF da simulação.
+- **Ficam, sem mudança, porque vêm da base:**
+  - aplicações sem a montadora ("Agile", pág. 12; "GOL G IV de", pág. 13);
+  - modelos de outra linha na lista ("Ford Focus" e "Volvo V40" nos Filtros de Cabine da Pesada).
