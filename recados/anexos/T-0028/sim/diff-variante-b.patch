@@ -1,5 +1,5 @@
 diff --git a/catalogo_grafico/gerador/portfolio.py b/catalogo_grafico/gerador/portfolio.py
-index aad87b8..7bec8ec 100644
+index b041ebf..befbe63 100644
 --- a/catalogo_grafico/gerador/portfolio.py
 +++ b/catalogo_grafico/gerador/portfolio.py
 @@ -111,6 +111,7 @@ def dados(base):

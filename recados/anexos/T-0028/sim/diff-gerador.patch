@@ -1,3 +1,127 @@
+diff --git a/.claude/agents/corretor-redundancias.md b/.claude/agents/corretor-redundancias.md
+index 384d1f3..167ddd2 100644
+--- a/.claude/agents/corretor-redundancias.md
++++ b/.claude/agents/corretor-redundancias.md
+@@ -1,6 +1,6 @@
+ ---
+ name: corretor-redundancias
+-description: Corretor de redundâncias do Catálogo BAP. Use em todo PR que muda código, site, base ou PDF (PR só de documentos dispensa o corretor, R-20261123-112006-alexandre), depois do revisor-codigo e antes de o gerente-projetos abrir o PR, para auditar excessos, duplicidades e redundâncias em telas do site (textos, rótulos, avisos, estados vazios), páginas de PDF, layouts, código (duplicação, código morto, regra repetida), rotinas (gerar_site, CI), testes, docs e tarefas. Defeito funcional é do testes. Entrega relatório com achados RD-nnnn e recados aos donos; só escreve em docs/qualidade/redundancias/.
++description: Corretor de redundâncias do Catálogo BAP. Use em todo PR, depois do revisor-codigo e antes de o gerente-projetos abrir o PR, para auditar excessos, duplicidades e redundâncias em telas do site (textos, rótulos, avisos, estados vazios), páginas de PDF, layouts, código (duplicação, código morto, regra repetida), rotinas (gerar_site, CI), testes, docs e tarefas. Defeito funcional é do testes. Entrega relatório com achados RD-nnnn e recados aos donos; só escreve em docs/qualidade/redundancias/.
+ tools: Read, Grep, Glob, Bash, Write, Edit
+ ---
+ 
+@@ -10,11 +10,11 @@ Você é o especialista em **tirar o que se repete ou sobra sem necessidade** no
+ 
+ ## Onde você entra no caminho
+ 
+-`dono` → `testes` → `designer-ux` e `design-de-marca` (em mudança de tela, PDF ou marca) → `revisor-codigo` → **`corretor-redundancias`** (só em PR que muda código, site, base ou PDF) → PR → `po`.
++`dono` → `testes` → `designer-ux` e `design-de-marca` (em mudança de tela, PDF ou marca) → `revisor-codigo` → **`corretor-redundancias`** → PR → `po`.
+ 
+ ## Escopo
+ 
+-- **Todo PR que muda código, site, base ou PDF passa por você antes do fechamento**; PR só de documentos passa só pelo `revisor-codigo` (R-20261123-112006-alexandre). Nos PRs que passam por você, você entra depois do `testes`, do `designer-ux` e do `design-de-marca` (quando entram) e do `revisor-codigo`, e antes de o `gerente-projetos` abrir o PR e devolver ao `po`.
++- **Todo PR passa por você antes do fechamento**: depois do `testes`, do `designer-ux` e do `design-de-marca` (quando entram) e do `revisor-codigo`, e antes de o `gerente-projetos` abrir o PR e devolver ao `po`.
+ - Seu escopo é **só excesso, duplicidade e redundância**. Busca que não acha, valor errado, rótulo que contradiz o dado, foto trocada ou regra fora do pedido são do `testes` (ou do `revisor-codigo`); clareza e usabilidade são do `designer-ux`; identidade visual é do `design-de-marca`. Encaminhe por recado e não catalogue.
+ - Você **não corrige** nada de outro agente. Só o dono mexe na pasta (`.coord/donos.json`; `node scripts/coord.mjs dono <caminho>`). Para cada achado, recado ao dono com cópia ao gerente, com o trecho pronto (antes → depois).
+ - Você **só escreve** em `docs/qualidade/redundancias/` (relatórios e o catálogo de achados). Fora dela, só lê.
+diff --git a/.claude/agents/design-de-marca.md b/.claude/agents/design-de-marca.md
+index b846d4c..1542ebc 100644
+--- a/.claude/agents/design-de-marca.md
++++ b/.claude/agents/design-de-marca.md
+@@ -14,7 +14,7 @@ Você **só lê e aponta**. Escreve **só** na sua pasta, `docs/marca/` (`.coord
+ 
+ ## Onde você entra no caminho
+ 
+-`dono` → `testes` → `designer-ux` e **`design-de-marca`** (em mudança de tela, PDF ou marca) → `revisor-codigo` → `corretor-redundancias` (só em PR que muda código, site, base ou PDF) → PR → `po`.
++`dono` → `testes` → `designer-ux` e **`design-de-marca`** (em mudança de tela, PDF ou marca) → `revisor-codigo` → `corretor-redundancias` → PR → `po`.
+ 
+ ## Missão
+ 1. **Proteger a identidade aprovada pelo Alexandre** em tudo o que leva a marca: o catálogo online (`site/`), o catálogo impresso A4, o catálogo digital em PDF, a Linha Moto, o portfólio, o Kit Filtros, as apresentações e os demais materiais de `catalogo_grafico/`.
+diff --git a/.claude/agents/designer-ux.md b/.claude/agents/designer-ux.md
+index 0538ed8..5d4656e 100644
+--- a/.claude/agents/designer-ux.md
++++ b/.claude/agents/designer-ux.md
+@@ -12,7 +12,7 @@ Você **especifica e revisa**; não edita `site/` nem `catalogo_grafico/`. A tel
+ 
+ ## Onde você entra no caminho
+ 
+-`dono` → `testes` → **`designer-ux`** e `design-de-marca` (em mudança de tela, PDF ou marca) → `revisor-codigo` → `corretor-redundancias` (só em PR que muda código, site, base ou PDF) → PR → `po`.
++`dono` → `testes` → **`designer-ux`** e `design-de-marca` (em mudança de tela, PDF ou marca) → `revisor-codigo` → `corretor-redundancias` → PR → `po`.
+ 
+ ## Fonte do desenho
+ - As decisões de design são do **Alexandre**. Chegam pela tarefa (`.coord/tarefas/T-nnnn.md`, com o pedido literal) ou por recado, às vezes com uma referência (HTML, imagem, print). Siga a referência e o pedido; não invente identidade.
+diff --git a/.claude/agents/gerente-projetos.md b/.claude/agents/gerente-projetos.md
+index 49325d1..be977e7 100644
+--- a/.claude/agents/gerente-projetos.md
++++ b/.claude/agents/gerente-projetos.md
+@@ -29,8 +29,7 @@ Você coordena o time do repositório `aloirr/bapajudacatalogo`. Fala em **portu
+ 6. **Cobrar revisão**, nesta ordem:
+    - em mudança de tela, PDF ou marca, chame o `designer-ux` e o `design-de-marca` com os prints (1366 e 390 px, página A4) antes do `revisor-codigo`;
+    - chame o `revisor-codigo` com o diff do branch;
+-   - em todo PR que muda código, site, base ou PDF, chame o `corretor-redundancias` antes de abrir o PR; PR só de documentos (registro, parecer, catálogo de redundâncias, .md de tarefa e quadro) passa só pelo `revisor-codigo` (R-20261123-112006-alexandre);
+-   - um PR de registro por tarefa, no fim dela (R-20261123-112006-alexandre).
++   - em todo PR, chame o `corretor-redundancias` antes de abrir o PR.
+    Achado importante: volta para o dono. Repita até as revisões saírem LIBERADO. Os pareceres deles chegam por recado; você registra na tarefa.
+ 7. **Abrir o PR** para o `main`:
+    - título: `T-nnnn: <título da tarefa>`;
+diff --git a/.coord/README.md b/.coord/README.md
+index f695d7b..985ff1b 100644
+--- a/.coord/README.md
++++ b/.coord/README.md
+@@ -16,7 +16,7 @@ O repositório `aloirr/bapajudacatalogo` tem um time de 11 agentes do Claude Cod
+ | `designer-ux` | Visual e experiência do site e do PDF: tokens, componentes, especificação de tela e página, revisão de UX (🔴/🟡/🟢) de toda mudança de tela, PDF ou marca, antes do `revisor-codigo`. Só especifica e aponta; não edita `site/` nem `catalogo_grafico/`. | `docs/ux/` |
+ | `design-de-marca` | Guardião da marca BAP (logo, verde, Poppins, tom de voz) no site e nos PDFs. Em toda mudança de tela, PDF ou marca, junto com o `designer-ux` e antes do `revisor-codigo`. Só lê e aponta; o manual só tem o que o Alexandre aprovou. | `docs/marca/` |
+ | `revisor-codigo` | Revisão independente de cada PR. Só lê e aponta. | — |
+-| `corretor-redundancias` | Corta o que se repete ou sobra (telas do site, PDF, código, CI, docs, tarefas). Passa em todo PR que muda código, site, base ou PDF, depois do `revisor-codigo` e antes do PR; PR só de documentos passa só pelo `revisor-codigo` (R-20261123-112006-alexandre). Só lê e aponta (RD-nnnn). | `docs/qualidade/redundancias/` |
++| `corretor-redundancias` | Corta o que se repete ou sobra (telas do site, PDF, código, CI, docs, tarefas). Passa em todo PR, depois do `revisor-codigo` e antes do PR. Só lê e aponta (RD-nnnn). | `docs/qualidade/redundancias/` |
+ 
+ O dono de cada caminho está em **`.coord/donos.json`** (vale o primeiro padrão que casar). Dono `alexandre`: `.claude/**`, `.coord/donos.json`, `render.yaml`, `.github/**`, `CLAUDE.md` e `.gitignore`.
+ 
+@@ -28,7 +28,7 @@ Alexandre ──pedido──▶ po ──T-nnnn──▶ gerente-projetos ──
+                                           │◀──────── testes ◀───────┘
+                                           │◀──── designer-ux e design-de-marca (tela, PDF, marca)
+                                           │◀──── revisor-codigo
+-                                          │◀──── corretor-redundancias (código, site, base, PDF)
++                                          │◀──── corretor-redundancias
+                                           ▼
+                                      PR aberto
+                                           │
+@@ -37,13 +37,13 @@ Alexandre ◀──entrega + prints + PR── po ◀─┘
+     └── "aprovado" da simulação ──▶ po autoriza o merge (número + SHA) ──▶ gerente-projetos faz o merge
+ ```
+ 
+-Caminho: dono → `testes` → `designer-ux` e `design-de-marca` (em mudança de tela, PDF ou marca) → `revisor-codigo` → `corretor-redundancias` (só em PR que muda código, site, base ou PDF) → PR → `po`. O `po` autoriza todos os merges, inclusive os de governança, e o `gerente-projetos` executa (R-20261120-111308-alexandre); as simulações de tela e de PDF continuam indo ao Alexandre.
++Caminho: dono → `testes` → `designer-ux` e `design-de-marca` (em mudança de tela, PDF ou marca) → `revisor-codigo` → `corretor-redundancias` → PR → `po`. O `po` autoriza todos os merges, inclusive os de governança, e o `gerente-projetos` executa (R-20261120-111308-alexandre); as simulações de tela e de PDF continuam indo ao Alexandre.
+ 
+ 1. **Pedido.** O Alexandre fala com o `po`. O `po` cria `.coord/tarefas/T-nnnn.md` (modelo abaixo) e a linha no `quadro.md`.
+ 2. **Plano.** O `gerente-projetos` escreve os passos na tarefa e abre o branch.
+ 3. **Trabalho.** Cada dono mexe só na sua pasta.
+ 4. **Testes.** O `testes` roda a bateria e escreve o resultado na tarefa.
+-5. **Revisão.** Em mudança de tela, PDF ou marca, o `designer-ux` e o `design-de-marca` dão parecer sobre os prints. Depois, o `revisor-codigo` lê o diff inteiro e, em PR que muda código, site, base ou PDF, o `corretor-redundancias` caça o que se repete ou sobra. O gerente registra os pareceres na tarefa.
++5. **Revisão.** Em mudança de tela, PDF ou marca, o `designer-ux` e o `design-de-marca` dão parecer sobre os prints. Depois, o `revisor-codigo` lê o diff inteiro e o `corretor-redundancias` caça o que se repete ou sobra. O gerente registra os pareceres na tarefa.
+ 6. **PR.** O `gerente-projetos` abre o PR para o `main` e devolve ao `po`.
+ 7. **Entrega.** O `po` mostra ao Alexandre o que foi feito, os prints e o link do PR.
+ 8. **Aprovação e merge.** Simulação de tela ou de PDF só segue com o **"aprovado"** do Alexandre. O `po` autoriza o merge em recado, com o número e o SHA do head, depois de conferir os arquivos, o CI verde e as revisões LIBERADO; o `gerente-projetos` executa (R-20261120-111308-alexandre).
+diff --git a/CLAUDE.md b/CLAUDE.md
+index 7b9958e..0c88297 100644
+--- a/CLAUDE.md
++++ b/CLAUDE.md
+@@ -31,13 +31,13 @@ Catálogo da **BAP AUTOPARTS**. Tudo é em **português do Brasil**: respostas,
+   - `po`: o **único** que conversa com o Alexandre. Transforma o pedido em tarefa e colhe o "aprovado".
+   - `gerente-projetos`: divide em passos, chama os agentes, cobra testes e revisão, abre o PR.
+   - Donos de pasta: `catalogo-dados` (`dados/`), `catalogo-grafico` (`catalogo_grafico/`), `web-site` (`site/` e `scripts/gerar_site.py`), `integracao-placas` (`servicos/placas/` e `servicos/login/`).
+-  - Conferência: `testes` (gerar_site, buscas, prints 1366 e 390 px), `designer-ux` (especificação e revisão de UX de tela e PDF; dono de `docs/ux/`), `design-de-marca` (guarda a marca BAP no site e nos PDFs; dono de `docs/marca/`), `revisor-codigo` (revisão independente de cada PR) e `corretor-redundancias` (excesso e repetição em todo PR que muda código, site, base ou PDF, antes do fechamento; PR só de documentos passa só pelo `revisor-codigo`, R-20261123-112006-alexandre; achados RD-nnnn em `docs/qualidade/redundancias/`).
++  - Conferência: `testes` (gerar_site, buscas, prints 1366 e 390 px), `designer-ux` (especificação e revisão de UX de tela e PDF; dono de `docs/ux/`), `design-de-marca` (guarda a marca BAP no site e nos PDFs; dono de `docs/marca/`), `revisor-codigo` (revisão independente de cada PR) e `corretor-redundancias` (excesso e repetição em todo PR, antes do fechamento; achados RD-nnnn em `docs/qualidade/redundancias/`).
+   - `designer-ux`, `design-de-marca` e `corretor-redundancias` só leem e apontam: cada um escreve só na sua pasta.
+ - **Quadro:** `.coord/quadro.md`, uma tarefa por arquivo em `.coord/tarefas/T-nnnn.md`.
+   - Cada tarefa tem o pedido **literal** do Alexandre, a especificação e os critérios de aceite.
+ - **Donos:** `.coord/donos.json`. Só o dono mexe na pasta.
+   - `.claude/**`, `.coord/donos.json`, `render.yaml`, `.github/**`, `CLAUDE.md` e `.gitignore` são do **Alexandre**.
+-- **Caminho:** pedido → `po` → tarefa → `gerente-projetos` → donos → `testes` → `designer-ux` e `design-de-marca` (em mudança de tela, PDF ou marca) → `revisor-codigo` → `corretor-redundancias` (só em PR que muda código, site, base ou PDF) → PR → `po`.
++- **Caminho:** pedido → `po` → tarefa → `gerente-projetos` → donos → `testes` → `designer-ux` e `design-de-marca` (em mudança de tela, PDF ou marca) → `revisor-codigo` → `corretor-redundancias` → PR → `po`.
+   - **Merge (R-20261120-111308-alexandre):** o `po` autoriza todos os merges, inclusive os de governança, depois de conferir o número, o SHA do head, os arquivos, o CI verde e as revisões LIBERADO; cada autorização fica em recado, com o número e o SHA. O `gerente-projetos` executa o merge.
+   - Todo merge é squash, com expectedHeadSha e, no corpo, 'Agente: <dono>' e a tarefa (R-20261120-131230-alexandre).
+   - O guardião confere todo merge (pelo terminal e pela integração do GitHub): o SHA do head (40 caracteres), o CI do PR verde e esse recado do `po` (ou do Alexandre), publicado no `bapajudacatalogo-recados` (T-0016).
 diff --git a/catalogo_grafico/gerador/LEIA_GERADOR.md b/catalogo_grafico/gerador/LEIA_GERADOR.md
 index 480a1bd..ca9c6d1 100644
 --- a/catalogo_grafico/gerador/LEIA_GERADOR.md
@@ -109,7 +233,7 @@ index 0000000..0a93974
 +def plural(n, um='item', varios='itens'):
 +    return um if n == 1 else varios
 diff --git a/catalogo_grafico/gerador/portfolio.py b/catalogo_grafico/gerador/portfolio.py
-index 1c258e2..aad87b8 100644
+index 1c258e2..b041ebf 100644
 --- a/catalogo_grafico/gerador/portfolio.py
 +++ b/catalogo_grafico/gerador/portfolio.py
 @@ -10,8 +10,9 @@ import pandas as pd
@@ -150,7 +274,30 @@ index 1c258e2..aad87b8 100644
      top, bot = 128, H - 46
      if n_pr == 1:
          fam, cards = next(iter(fams.items())); heroi(s, fam, cards[0], top, bot); s.footer(); return
-@@ -254,7 +255,7 @@ def heroi(s, fam, c, top, bot):
+@@ -231,12 +232,18 @@ def aplicacoes(rows, n=12):
+         segs = r.get('segs') or []
+         tr, cur = [], None
+         for t, b in segs:
+-            if b: cur = [t.strip(), '']; tr.append(cur)
+-            elif cur is None: cur = ['', t]; tr.append(cur)
+-            else: cur[1] += t
++            if b: cur = [t.strip(), '']; tr.append(cur); continue
++            # APLICACAO da base v27: uma aplicação por linha. A linha quebrada no meio (a de cima sem ano no fim
++            # e esta sem uma 1ª palavra já vista, como "SUSPENSÃO" + "PNEUMÁTICA 4X2...") continua a de cima.
++            lns, vistas = t.split('\n'), set()
++            for k, ln in enumerate(lns):
++                p1 = (ln.split() or [''])[0]
++                if cur is None or (k and (re.search(r'(?:(?:19|20)\d{2}|[>+])\s*[·;]?\s*$', lns[k - 1]) or p1 in vistas)):
++                    cur = ['', ln]; tr.append(cur); vistas.add(p1)
++                else: cur[1] += (' ' if k else '') + ln
+         for m, t in tr:
+             mod = re.split(r'\s·\s|;\s|\s\(', t.strip(' ·;'))[0].strip(' ,·/')
+-            mod = re.sub(r'\s*(?:\d{2}/)?(?:19|20)\d{2}.*$', '', mod).strip(' ,·/')     # tira anos
++            mod = re.sub(r'(?:\s+[-–])?\s*(?:\d{2}/)?(?:19|20)\d{2}.*$', '', mod).strip(' ,·/')     # tira anos (e o " - " antes deles)
+             if not mod and not m: continue
+             if len(mod) > 46: mod = mod[:46].rsplit('/', 1)[0].rsplit(',', 1)[0].strip(' ,/') + '…'
+             mod = re.sub(r'(?i)\s*\b(?:diant|tras|dir|esq|sup|inf)(?:eir[oa]|eit[oa]|uerd[oa]|erior)?\.?(?=\s|$)', '', mod).strip(' ,·/+')
+@@ -254,7 +261,7 @@ def heroi(s, fam, c, top, bot):
      ih = bot - top - 30
      s.foto(c['img'], 40, top, 400, ih)
      if c['lanc']: s.chip(56, top + 16, 'NOVIDADE 2026', 'white', 'orange', 7.5)
@@ -159,3 +306,90 @@ index 1c258e2..aad87b8 100644
      x = 476; y = top + 6; wr = W - 40 - x
      s.t(x, y, tit(fam).upper(), 9.5, 'gdark', 'PB', ls=1.4); y += 22
      s.t(x, y, c['nome'], 28, 'ink', 'PB', ls=-.4); y += 46
+diff --git a/docs/qualidade/redundancias/CATALOGO.md b/docs/qualidade/redundancias/CATALOGO.md
+index 4f9719f..8b17605 100644
+--- a/docs/qualidade/redundancias/CATALOGO.md
++++ b/docs/qualidade/redundancias/CATALOGO.md
+@@ -2,7 +2,7 @@
+ 
+ Situação: `ABERTO`, `EM CORREÇÃO`, `CORRIGIDO` ou `MANTIDO`. Os relatórios de cada PR ficam em `T-nnnn.md`, a varredura do site no ar em `VARREDURA-aaaa-mm-dd.md` e as regras em `GUIA.md`, nesta pasta.
+ 
+-O próximo número livre é o **RD-0532**.
++O próximo número livre é o **RD-0529**.
+ 
+ [SUPOSIÇÃO] As rodadas até o RD-0119 não deixaram catálogo no repositório. Esta tabela começa no RD-0120 e cresce a partir daqui.
+ 
+@@ -376,17 +376,9 @@ Do RD-0134 ao RD-0145, os achados são do parecer do PR #34 (T-0016, governança
+ | RD-0526 | baixa | código | catalogo_grafico/gerador/lista_aplicacoes_site.py:126 e kitfiltros/kit.py:235 | a regra do singular copiada em 2 geradores fora dos 3 PDFs: `{"item" if len(itens) == 1 else "itens"}` e `{"veículo" if len(rows) == 1 else "veículos"}`; 2 cópias a mais do `plural()`, além das do Portfólio (RD-0527). O texto que sai está certo (proposta: quando o `plural` for para um módulo comum, os 2 passam a usá-lo, sem cópia; nenhuma página muda) | T-0027 | catalogo-grafico | ABERTO (fila do Alexandre, junto do RD-0527; decisão a, R-20261122-113733-po) |
+ | RD-0527 | baixa | texto (PDF) e código | Portfólio, págs. 69 e 76 (catalogo_grafico/gerador/portfolio.py:154, :180, :202 e :257) | "1 itens" no Portfólio, que escreve "itens" à mão em 4 pontos, fora do `plural()` do `digital2.py` (proposta, com a regeração do Portfólio e simulação própria: o mesmo `plural()` num módulo que os 2 geradores importem, e não uma segunda cópia; o `portfolio.py` não importa o `digital2.py`, só o `apres_bemol` e o `taxo`; o `:202` já faz o singular de "família" e "produto", mas não o de "itens", e o total do `:400` é sempre maior que 1) | T-0027 | catalogo-grafico | ABERTO (fila do Alexandre, com a regeração do Portfólio; decisão 2a, R-20261122-112104-po) |
+ | RD-0528 | baixa | código | catalogo_grafico/gerador/moto.py:106 e pneus_fix.py:88 (blocos `__main__` de depuração) | os 2 ainda procuram o texto "ITENS NESTA" / "ITENS NESTA LINHA" da capa de linha do `cover_page`, que saiu no #152 (e que nenhum PDF desenhava desde antes): condição que nunca casa (apontado pelo `revisor-codigo` no #152) (proposta: `moto.py:106` → `print([i + 1 for i, p in enumerate(d) if 'Linha Moto' in p.get_text() and 'APLICAÇÃO' in p.get_text()])`; no `pneus_fix.py` sai a linha `cov = …` da :88 e a :89 passa a `print('tabela', [i + 1 for i in pg])`; nenhuma página muda) | T-0027 | catalogo-grafico | ABERTO (fila do Alexandre; sem decisão) |
+-| RD-0529 | baixa | tarefa | .coord/tarefas/T-0006.md:44 (Registro) × docs/propostas/BUSCA_POR_MEDIDA.md, seção 1 | o Registro repetia os números da seção 1 da proposta ("Baterias: Ah e CCA em 46 de 47; pneus: aro em 21 de 21 e medida em 12 de 12; rolamentos: nenhuma medida em mm, série no código em 77 de 78 rígidos e 52 de 96 cônicos.") (a :44 termina em "…levantamento, proposta e simulação (os números: seção 1 da proposta)."); achado na sessão Cowork, sem os guardiões | T-0006 | gerente-projetos | CORRIGIDO (1aebdfd; 064481f, #157) |
+-| RD-0530 | baixa | tarefa | .coord/tarefas/T-0006.md:5 × :57 (e :53, :48 e a proposta, seções 4 e 6); .coord/quadro.md:12 × :40 | o que fica para depois 2 vezes na tarefa e 2 no quadro: "a implementação só com pedido novo do Alexandre" na Situação e no "Fica para depois"; "implementação só com pedido novo" na linha da T-0006 e na fila; a ordem "baterias, pneus e rolamentos" 3 vezes (Registro 05:54, "Fica para depois" e fila); os filtros e o "60ah" da fase 1 copiados da seção 6 da proposta; o "Ver mais", já na linha do designer-ux (:48) e na seção 4 (o padrão do RD-0519 e do RD-0529) (proposta: :5 → "\| Situação \| APROVADA \|"; :57 → "- Fica para depois: a implementação (fases 1 a 3 da seção 6 da proposta), só com pedido novo do Alexandre."; quadro:12, Situação → "APROVADA"; quadro:40 → "   - T-0006, implementação da busca por medida: só com pedido novo do Alexandre;") | T-0006 | gerente-projetos | CORRIGIDO (4f70489; 15c3d8d, #158) |
+-| RD-0531 | baixa | tarefa | .coord/tarefas/T-0006.md:54 × .coord/quadro.md:58 | a passagem da condução ao Claude Code, fato da sessão e não da tarefa, no Registro da T-0006 ("- 23/11 05:56 · alexandre · R-20261123-095655-po: o Claude Code conduz daqui; a sessão Cowork para.") e no quadro ("- Fim: em 23/11 05:56, o Alexandre passou a condução ao Claude Code (R-20261123-095655-po).") (proposta: sai a :54 da T-0006; fica só no quadro) | T-0006 | gerente-projetos | CORRIGIDO (4f70489; 15c3d8d, #158) |
+ 
+ ## Notas
+ 
+-### T-0006, manhã de 23/11/2026 (PRs #157 e #158)
+-- RD-0529: achado na sessão Cowork de 22/11 (R-20261122-223000-alexandre), sem os guardiões, no parecer LIBERADO do #157 (19:13), e corrigido no próprio PR: a linha do Registro passou do `ff1cbce` ao texto novo no `1aebdfd` (head do #157; squash `064481f`, 07:08 de 23/11). Catalogado na volta ao Claude Code. A linha citada é a do `ff1cbce`.
+-- RD-0530 e RD-0531: registro do gerente (PR #158), primeira rodada no `2bad048` (07:11); corrigidos no `4f70489` (reteste às 07:14; squash `15c3d8d`, 07:19). As linhas citadas são as do `2bad048`.
+-- Relatório: `T-0006.md`.
+-
+ ### T-0027, manhã de 22/11/2026 (PRs #151 a #154)
+ - RD-0510: corrigido no `2164a2d` (gerador; os PDFs no `33678a7`, head do #152; squash `af3bae1`), com a decisão 1a e 2a (R-20261122-112104-po, na delegação do Alexandre).
+ - RD-0521: registro do gerente (PR #151), primeira rodada no `cd1fad3` (07:11); corrigido no `d52fc17` (squash `0fb9453`).
+diff --git a/docs/qualidade/redundancias/T-0006.md b/docs/qualidade/redundancias/T-0006.md
+deleted file mode 100644
+index 042d706..0000000
+--- a/docs/qualidade/redundancias/T-0006.md
++++ /dev/null
+@@ -1,50 +0,0 @@
+-# Redundâncias T-0006 · proposta e simulação da busca por medida (PRs #157 e #158)
+-
+-- Data: 22 e 23/11/2026 (Manaus). Auditor: `corretor-redundancias`.
+-- Tarefa: `.coord/tarefas/T-0006.md`. Aprovação da simulação: R-20261123-095435-alexandre (1a 2a 3a 4a). Merge do #157: R-20261123-110657-po.
+-- Material usado: o diff de cada PR (`git diff main...HEAD`), a proposta (`docs/propostas/BUSCA_POR_MEDIDA.md`) e o quadro. Os 2 PRs só mudam texto do `.coord/` e de `docs/propostas/`; não há tela nem PDF novo no site.
+-- Próximo número livre: **RD-0532**.
+-
+-## 1. PR #157 (`gerente-projetos/T-0006-busca-por-medida`, head `1aebdfd`; o antes no `ff1cbce`; squash `064481f`)
+-
+-- Dono: `gerente-projetos` (nos papéis de `catalogo-dados`, `web-site` e `testes`, na sessão Cowork). Arquivos: `.coord/tarefas/T-0006.md`, `.coord/quadro.md`, `.coord/diario/gerente-projetos.md`, `.coord/tarefas/T-0027.md` e `docs/propostas/` (proposta, levantamento e simulação).
+-- Parecer na sessão Cowork de 22/11, 19:12, sem os guardiões (R-20261122-223000-alexandre). Catalogado em 23/11, na volta ao Claude Code. A linha citada é a do `ff1cbce`.
+-
+-| ID | Sev. | Tipo | Onde | Antes | Depois | Situação |
+-|---|---|---|---|---|---|---|
+-| RD-0529 | baixa | tarefa | `.coord/tarefas/T-0006.md:44` (Registro) × proposta, seção 1 | "- 22/11 18:50–19:10 · sessão Cowork (…) · levantamento, proposta e simulação. Baterias: Ah e CCA em 46 de 47; pneus: aro em 21 de 21 e medida em 12 de 12; rolamentos: nenhuma medida em mm, série no código em 77 de 78 rígidos e 52 de 96 cônicos." | "- 22/11 18:50–19:10 · sessão Cowork (Claude nos papéis catalogo-dados, web-site e testes) · levantamento, proposta e simulação (os números: seção 1 da proposta)." | CORRIGIDO (`1aebdfd`; `064481f`, #157) |
+-
+-- Conferido no main `064481f`: a `T-0006.md:44` está com o texto novo.
+-
+-```
+-Redundâncias T-0006 (PR #157, head 1aebdfd) · 22/11/2026 19:13 (Manaus) · LIBERADO
+-- RD-0529 baixa .coord/tarefas/T-0006.md:44 repetia os números da seção 1 da proposta (dono gerente-projetos) · CORRIGIDO (1aebdfd)
+-```
+-
+-## 2. PR #158 (`gerente-projetos/T-0006-registro`, registro da T-0006, heads `2bad048` e `4f70489`)
+-
+-- Dono: `gerente-projetos`. Arquivos: `.coord/tarefas/T-0006.md`, `.coord/quadro.md` e `.coord/diario/gerente-projetos.md`.
+-- Primeira rodada no `2bad048`, 23/11 07:11; reteste no `4f70489`, 07:14. As linhas citadas são as do `2bad048`.
+-
+-| ID | Sev. | Tipo | Onde | Antes | Depois | Situação |
+-|---|---|---|---|---|---|---|
+-| RD-0530 | baixa | tarefa | `T-0006.md:5` × `:57` (e `:53`, `:48` e a proposta, seções 4 e 6); `quadro.md:12` × `:40` | o que fica para depois 2 vezes na tarefa e 2 no quadro (o padrão do RD-0519): `:5`, "APROVADA (proposta e simulação; a implementação só com pedido novo do Alexandre)", e `:57`, "- Fica para depois: a implementação (fase 1: baterias, com os filtros Amperagem e Partida a frio (CCA) e o "60ah" na busca; depois pneus e rolamentos), só com pedido novo do Alexandre; o "Ver mais" das listas longas (nota do designer-ux) entra nela."; `quadro.md:12`, "APROVADA (implementação só com pedido novo)", e `:40`, "T-0006, implementação da busca por medida (fase 1: baterias; depois pneus e rolamentos): só com pedido novo do Alexandre;". A ordem 3 vezes (`:53`, `:57` e `quadro.md:40`); os filtros e o "60ah" copiam a seção 6 da proposta (o caso do RD-0529); o "Ver mais" já está na `:48` e na seção 4 | `:5` → "\| Situação \| APROVADA \|"; `:57` → "- Fica para depois: a implementação (fases 1 a 3 da seção 6 da proposta), só com pedido novo do Alexandre."; `quadro.md:12`, Situação → "APROVADA"; `quadro.md:40` → "   - T-0006, implementação da busca por medida: só com pedido novo do Alexandre;" | CORRIGIDO (`4f70489`; `15c3d8d`, #158) |
+-| RD-0531 | baixa | tarefa | `T-0006.md:54` × `quadro.md:58` | a passagem da condução, fato da sessão e não da tarefa, 2 vezes: "- 23/11 05:56 · alexandre · R-20261123-095655-po: o Claude Code conduz daqui; a sessão Cowork para." e "- Fim: em 23/11 05:56, o Alexandre passou a condução ao Claude Code (R-20261123-095655-po)." | sai a `T-0006.md:54`; fica só no quadro (`:58`, seção "Sessão Cowork") | CORRIGIDO (`4f70489`; `15c3d8d`, #158) |
+-
+-- Fica, sem número: a `:53` com o sentido de "1) a  2) a  3) a  4) a", único lugar das decisões 2 a 4; o `verificar` do #157 na `:52` (fato da tarefa) e no quadro (`:57`, que fecha o item da sessão Cowork); a autorização (`:55`) e o merge (`:56`) com os SHAs, que a auditoria do merge pede; o "PR #157" no cabeçalho e na `:47`; no diário, o "Ficou: …a implementação da T-0006 só com pedido novo do Alexandre.", porque o diário pede "o que ficou" em cada sessão, numa frase, sem os detalhes.
+-
+-```
+-Redundâncias T-0006 (PR #158, head 2bad048) · 23/11/2026 07:11 (Manaus) · VOLTA PARA AJUSTE
+-- RD-0530 baixa .coord/tarefas/T-0006.md:5 × :57 e quadro.md:12 × :40: o que fica para depois 2 vezes em cada; ordem, filtros e "Ver mais" repetindo o Registro e a proposta (dono gerente-projetos) · ABERTO
+-- RD-0531 baixa .coord/tarefas/T-0006.md:54 × quadro.md:58: a passagem da condução, fato da sessão (dono gerente-projetos) · ABERTO
+-- OK: Registro sem números da proposta; decisões 2 a 4 só na :53; SHAs da autorização e do merge; diário com uma linha
+-```
+-
+-- Reteste no `4f70489` (1 commit sobre o `2bad048`): as 4 trocas do RD-0530 estão com o texto proposto (`T-0006.md:5` e `:56`; `quadro.md:12` e `:40`); a linha da passagem saiu da tarefa e fica só no `quadro.md:58` (RD-0531). As outras mudanças são só de hora (o diário passou a "05:36–07:09", a pedido do revisor; o quadro, a 07:14) e não repetem nada. O "Fica para depois" está uma vez na tarefa e uma no quadro.
+-
+-```
+-Redundâncias T-0006 (PR #158, head 4f70489) · 23/11/2026 07:14 (Manaus) · LIBERADO
+-- RD-0530 baixa .coord/tarefas/T-0006.md:5 × :57 e quadro.md:12 × :40 (dono gerente-projetos) · CORRIGIDO (4f70489)
+-- RD-0531 baixa .coord/tarefas/T-0006.md:54 × quadro.md:58 (dono gerente-projetos) · CORRIGIDO (4f70489)
+-- OK: o que fica para depois uma vez na tarefa e uma no quadro; a passagem da condução só no quadro; diário e quadro só mudam a hora
+-```

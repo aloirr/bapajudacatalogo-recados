@@ -1,6 +1,6 @@
 # T-0028 · Simulação: Portfólio e capa da Linha Moto
 
-`catalogo-grafico`, 23/11/2026 07:35 (Manaus). Branch `catalogo-grafico/T-0028-entregas`, head `223ce6b` (sobre o main `15c3d8d`).
+`catalogo-grafico`, 23/11/2026 07:35 (Manaus); ajuste do parecer de UX às 07:50. Branch `catalogo-grafico/T-0028-entregas`, head `6c035be` (2 commits sobre o main `15c3d8d`: `223ce6b` e `6c035be`).
 Decisões 9a e 11a do R-20261123-112006-alexandre. Nada foi gravado em `catalogo_grafico/entregas/`.
 
 ## O que muda
@@ -16,7 +16,7 @@ Decisões 9a e 11a do R-20261123-112006-alexandre. Nada foi gravado em `catalogo
 | Linha Moto | gerado × entrega | 17 = 17 | só a pág. 1 (capa) difere; as outras 16 são iguais |
 | Lista de aplicações do site | código novo × código do main | 21 = 21 | nenhuma página difere |
 | Kit Filtros | não roda nesta nuvem | – | Os caminhos fixos do `kit.py` e do `parse.py` (`/home/claude/...` e `/mnt/user-data/uploads/...`) não existem aqui. Só muda o "N veículo(s)" do cabeçalho, e o `plural()` dá o mesmo texto de antes para n de 0 a 4999 (teste feito) |
-| Portfólio, variante a (código do commit) | código novo × código do main, as duas na v27 | 94 = 94 | só mudam as págs. 78, 79 e 88 ("1 itens" → "1 item") |
+| Portfólio, variante a (código do `223ce6b`) | código novo × código do main, as duas na v27 | 94 = 94 | só mudam as págs. 78, 79 e 88 ("1 itens" → "1 item") |
 
 ## Portfólio: entrega (82 págs., 23/10, v11) × regerado
 - **Regerado pela v27, como está no commit (a): 94 págs., e não 88.**
@@ -51,3 +51,28 @@ Decisões 9a e 11a do R-20261123-112006-alexandre. Nada foi gravado em `catalogo
    - b) Trocar já para "Novembro de 2026" e "Catálogo BAP 2027", com uma nova rodada de simulação.
 
 Observação, sem pergunta: algumas "Principais aplicações" saem com a grafia da base ("Gm/Gm Corsa", "Vw/Ford Gol") ou cortadas sem "…" ("Volkswagen / Chevrolet / Ford VW Fus", pág. 42 da b). Já acontecia na entrega e não muda aqui.
+
+## Ajuste do parecer de UX (`6c035be`, 07:50)
+- **O problema:** o `aplicacoes()` do `portfolio.py` juntava as linhas da APLICACAO da v27. A quebra de linha ia para o PDF como glifo vazio, que a Poppins não tem, e 2 aplicações ficavam coladas ("HONDA CG 125 CARGO ESD - 2014–2015¤HONDA CG 12…").
+- **A correção:**
+  - Cada linha passa a ser uma aplicação.
+  - A linha quebrada no meio na base ("…SUSPENSÃO" + "PNEUMÁTICA 4X2…") continua a de cima: a de cima não termina em ano e esta não começa por uma 1ª palavra já vista.
+  - O " - " antes do ano sai junto com o ano.
+- **O "depois" × o "antes" (o `223ce6b`):** só mudam 6 págs. em cada variante, conferidas pixel a pixel e no texto.
+  - Variante a: 39, 42, 47, 66, 68 e 79.
+  - Variante b: 37, 40, 45, 62, 64 e 73.
+  - Por quê, na b:
+    - 37, 62 e 73 tinham o glifo vazio;
+    - 40 e 64 (Filtros de Óleo) tinham a mesma cola, escondida pelo corte "…": a lista ganha as linhas separadas;
+    - 45 (Amortecedores da Pesada) muda de "MB OF1724 -" para "MB OF1724".
+  - Imagens: `port-aplic-<variante>-pNN-<produto>-antes.png` e `-depois.png`. Os 2 PNGs do Filtro de Ar Moto também foram refeitos.
+- **Glifo vazio no Portfólio inteiro (PyMuPDF):**
+  - Antes do ajuste, o detector achou 5 em cada variante: 3 nas aplicações e 2 na seta da pág. 3.
+  - Depois do ajuste, **0 nas aplicações** nas 2 variantes. Restam só os 2 da seta "→" da pág. 3, "Linha → sistema → família → produto" (`portfolio.py:406`). A entrega de 23/10 também tem esses 2. Eles ficam como estão, por decisão do gerente: a troca é da marca.
+- **Para a seta, a Poppins (Regular, Medium e Bold) não tem nenhuma seta** (nem U+2192, nem ➔, ⟶ ou ►). Ela tem `›` (U+203A), `»` (U+00BB), `>`, `–` (U+2013), `—` (U+2014), `•`, `·` e `/`.
+- **Os outros PDFs:** foram regerados no `6c035be`.
+  - A4 e Completo Digital: iguais à entrega, pixel a pixel.
+  - Linha Moto: só a capa difere da entrega, e é igual à da 1ª rodada.
+  - Lista de aplicações: igual.
+- **Variante b:** o `diff-variante-b.patch` foi refeito sobre o `6c035be`, com o mesmo conteúdo. Não foi aplicada no branch.
+- **Observação, sem pergunta:** o Filtro de Ar Moto mostra só "HONDA CG 125 CARGO ESD". O produto tem 27 linhas, todas CG 125, 150 e 160. A regra antiga do `aplicacoes()` não repete a 1ª palavra, que nas linhas da v27 é a montadora. Não mexi nessa regra.
