@@ -1,0 +1,161 @@
+diff --git a/catalogo_grafico/gerador/LEIA_GERADOR.md b/catalogo_grafico/gerador/LEIA_GERADOR.md
+index 480a1bd..ca9c6d1 100644
+--- a/catalogo_grafico/gerador/LEIA_GERADOR.md
++++ b/catalogo_grafico/gerador/LEIA_GERADOR.md
+@@ -42,7 +42,7 @@ Versão de 12/11/2026 (atualizada pelo PC EMPRESA; antes 27/10 pelo PC PESSOAL).
+ | Base v13 (da v11: regra da v12 + aplicações do site) | `python base_v13.py` |
+ | Base v14 (da v13: complementos do Fraga de 13/11) | `python base_v14.py` |
+ | Auditoria do catálogo | `python auditoria_catalogo.py` |
+-| Portfólio (cliente) | `python portfolio.py` |
++| Portfólio (cliente) | `python portfolio.py` (lê a base unificada de `dados/`, como os 3 PDFs) |
+ | Kit Filtros (cliente) | `python kitfiltros/kit.py saidas/Kit_Filtros_BAP.pdf` (ajustar caminhos `G`/entradas no topo do `kit.py`/`parse.py` para a sua nuvem) |
+ | Apresentação lubrificantes | `python apres_bemol.py` / `node apres_ppt.js` (texto em `apres_conteudo.json`) |
+ | Encartelados moto | `python encartelados.py` |
+@@ -52,7 +52,7 @@ Versão de 12/11/2026 (atualizada pelo PC EMPRESA; antes 27/10 pelo PC PESSOAL).
+ | Varredura das quebras de palavra (B8) | `python varredura_quebras.py a4 saidas/A4.pdf` (ou `digital`, `moto`) |
+ 
+ ## Mapa
+-`taxo.py` classificação · `datas.py` datas · `montar.py` junta a base unificada e o catálogo (item novo pelo STATUS_CADASTRO) · `pneus_fix.py` · `cross.py` "Leve também" (antes "Ofereça junto"; 4 linhas antigas) · `moto.py` famílias e Linha Moto por sistema/família; chama `site_aplicacoes.py` · `site_aplicacoes.py` aplicações e Tecfil do catálogo online (`entradas/aplicacoes_site_bap.json`, 49 filtros, 12/11) · `fraga_complementos.py` complementos do Fraga aprovados em 13/11 (veículos e referências a mais, `entradas/complementos_fraga_13112026.json`; chamado no `moto.py` depois do OFEREÇA JUNTO; no A4 a aplicação fica a de antes) · `filtros_split.py` FILTRAÇÃO por tipo no digital (ar do motor, ar da cabine, combustível, óleo, outros) · `detalhe.py` DETALHE + descrição essencial · `diferencial.py` itens parecidos (c/ × s/ ABS...) da auditoria · `tags.py` tags embaixo do código, tiradas do DETALHE · `oferta.py` "Leve também" (antes "Ofereça junto") em todos (só código real, do mesmo sistema ou de um compatível) · `digital2.py` digital (formato A4, página por sistema, imagens comprimidas, `ANO`, `DOC_TITULO` e `SUM_DESC`, texto do sumário, que o `catalogo_moto.py` troca; rodapé com `SITE_IG` e `OBS_DISP`) · `print_cat.py` A4 (usa o mesmo rodapé) · `catalogo_moto.py` · `base_v11.py` · `base_v13.py` · `base_v14.py` · `auditoria_catalogo.py` · `portfolio.py` · `kitfiltros/`.
++`taxo.py` classificação · `datas.py` datas · `montar.py` junta a base unificada e o catálogo (item novo pelo STATUS_CADASTRO) · `pneus_fix.py` · `cross.py` "Leve também" (antes "Ofereça junto"; 4 linhas antigas) · `moto.py` famílias e Linha Moto por sistema/família; chama `site_aplicacoes.py` · `site_aplicacoes.py` aplicações e Tecfil do catálogo online (`entradas/aplicacoes_site_bap.json`, 49 filtros, 12/11) · `fraga_complementos.py` complementos do Fraga aprovados em 13/11 (veículos e referências a mais, `entradas/complementos_fraga_13112026.json`; chamado no `moto.py` depois do OFEREÇA JUNTO; no A4 a aplicação fica a de antes) · `filtros_split.py` FILTRAÇÃO por tipo no digital (ar do motor, ar da cabine, combustível, óleo, outros) · `detalhe.py` DETALHE + descrição essencial · `diferencial.py` itens parecidos (c/ × s/ ABS...) da auditoria · `tags.py` tags embaixo do código, tiradas do DETALHE · `oferta.py` "Leve também" (antes "Ofereça junto") em todos (só código real, do mesmo sistema ou de um compatível) · `digital2.py` digital (formato A4, página por sistema, imagens comprimidas, `ANO`, `DOC_TITULO` e `SUM_DESC`, texto do sumário, que o `catalogo_moto.py` troca; rodapé com `SITE_IG` e `OBS_DISP`) · `print_cat.py` A4 (usa o mesmo rodapé) · `catalogo_moto.py` · `base_v11.py` · `base_v13.py` · `base_v14.py` · `auditoria_catalogo.py` · `portfolio.py` · `kitfiltros/` · `plural.py` singular e plural ("1 item", "2 itens") num lugar só, importado pelos geradores (RD-0527).
+ 
+ ## Catálogo online da BAP
+ `https://catalogobap.catalogofraga.com.br` → aba CÓDIGO DA PEÇA → Buscar → Ver detalhes: Aplicação Detalhada (montadora, veículo, versão, motor, anos) e Produtos Similares (Tecfil). A nuvem do Cowork não acessa (proxy); usar o navegador do app. Novo código achado lá: acrescentar em `entradas/aplicacoes_site_bap.json` no mesmo formato (`{código: [ref, "MONTADORA§Modelo motor · anos · ...¦MONTADORA§..."]}`).
+diff --git a/catalogo_grafico/gerador/catalogo_moto.py b/catalogo_grafico/gerador/catalogo_moto.py
+index c02a62e..24f3be3 100644
+--- a/catalogo_grafico/gerador/catalogo_moto.py
++++ b/catalogo_grafico/gerador/catalogo_moto.py
+@@ -28,7 +28,7 @@ def capa_moto(dc):
+     dc.label(MX + 16, 350, 'Linha Moto', 76, 'white', 'PB', -1.5)
+     n = sum(f['count'] for f in FAMS)
+     for i, t in enumerate(['Pneus · Câmaras de ar · Rolamentos', 'Óleo 4T · Filtros · Velas de ignição · Lâmpadas',
+-                           f'{len(FAMS)} famílias · {n} {D2.plural(n)} para motocicletas']):
++                           f'{len(FAMS)} {D2.plural(len(FAMS), "linha", "linhas")} · {n} {D2.plural(n)} para motocicletas']):
+         dc.label(MX + 20, 470 + i * 24, t, 14, 'white', 'PR')
+     dc.tag(MX + 20, 560, 'LINHA MOTO · USO INTERNO', 9, 'orange', 'white', 9)
+     imgs = [f['img'] for f in FAMS if f.get('img')][:6]
+diff --git a/catalogo_grafico/gerador/digital2.py b/catalogo_grafico/gerador/digital2.py
+index 15a603f..902f939 100644
+--- a/catalogo_grafico/gerador/digital2.py
++++ b/catalogo_grafico/gerador/digital2.py
+@@ -11,6 +11,7 @@ from reportlab.pdfbase import pdfmetrics
+ from reportlab.pdfbase.ttfonts import TTFont
+ import datas
+ import tags as TG
++from plural import plural   # singular num lugar só: plural.py (RD-0510, RD-0527)
+ from quebra import NBSP  # B8: o import também instala a quebra (palavra longa no espaço inseparável ou no separador, não no meio)
+ 
+ FD = 'fontes/'
+@@ -20,7 +21,6 @@ pdfmetrics.registerFontFamily('PR', normal='PR', bold='PB', italic='PR', boldIta
+ 
+ W, H, MX = 794, 1123, 36
+ ANO = '2027'                               # ano da capa e dos títulos (Alexandre, 29/10: catálogo 2027)
+-def plural(n, um='item', varios='itens'): return um if n == 1 else varios   # singular num lugar só (RD-0510)
+ MARCA = 'BAP AUTOPARTS'   # nome da marca: sobretítulo das páginas de abertura e autor dos metadados
+ DOC_TITULO = f'CATÁLOGO COMPLETO {ANO}'   # o catálogo só de moto troca este título
+ DOC_META = f'Catálogo BAP {ANO} — Completo (uso interno)'   # título dos metadados; o da Linha Moto também troca
+diff --git a/catalogo_grafico/gerador/kitfiltros/kit.py b/catalogo_grafico/gerador/kitfiltros/kit.py
+index 8f8eb0b..fa7c0c8 100644
+--- a/catalogo_grafico/gerador/kitfiltros/kit.py
++++ b/catalogo_grafico/gerador/kitfiltros/kit.py
+@@ -1,7 +1,9 @@
+ import re, collections, sys, os, datetime
+ import pandas as pd
+ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
++sys.path.insert(1, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))   # gerador/: o plural.py
+ import parse
++from plural import plural
+ from reportlab.lib.pagesizes import A4
+ from reportlab.pdfbase import pdfmetrics
+ from reportlab.pdfbase.ttfonts import TTFont
+@@ -232,7 +234,7 @@ def construir(saida):
+                     sty.append(('BACKGROUND', (0, i), (-1, i), ZEBRA))
+             t.setStyle(TableStyle(sty))
+             nome = MONT.get(mont, mont.title() if len(mont) > 3 else mont)
+-            hdr = Table([[Paragraph(nome.upper(), ST['mont']), Paragraph(f'<font color="#6B6F6B">{len(rows)} {"veículo" if len(rows) == 1 else "veículos"}</font>', ParagraphStyle('r', parent=ST['cel'], alignment=2, fontSize=7))]],
++            hdr = Table([[Paragraph(nome.upper(), ST['mont']), Paragraph(f'<font color="#6B6F6B">{len(rows)} {plural(len(rows), "veículo", "veículos")}</font>', ParagraphStyle('r', parent=ST['cel'], alignment=2, fontSize=7))]],
+                         colWidths=[(W - 2 * MX) * 0.7, (W - 2 * MX) * 0.3])
+             hdr.setStyle(TableStyle([('BACKGROUND', (0, 0), (-1, -1), CLARO), ('LINEBEFORE', (0, 0), (0, 0), 3, VERDE),
+                                      ('VALIGN', (0, 0), (-1, -1), 'MIDDLE'), ('TOPPADDING', (0, 0), (-1, -1), 2.5), ('BOTTOMPADDING', (0, 0), (-1, -1), 2.5)]))
+diff --git a/catalogo_grafico/gerador/lista_aplicacoes_site.py b/catalogo_grafico/gerador/lista_aplicacoes_site.py
+index eab9178..34a71d9 100644
+--- a/catalogo_grafico/gerador/lista_aplicacoes_site.py
++++ b/catalogo_grafico/gerador/lista_aplicacoes_site.py
+@@ -13,6 +13,7 @@ from reportlab.pdfbase import pdfmetrics
+ from reportlab.pdfbase.ttfonts import TTFont
+ import moto
+ import site_aplicacoes as S
++from plural import plural
+ 
+ OUT = sys.argv[1] if len(sys.argv) > 1 else 'saidas/Aplicacoes_Catalogo_Online_Antes_Depois_12112026.pdf'
+ for n, f in [('PR', 'Poppins-Regular'), ('PM', 'Poppins-Medium'), ('PB', 'Poppins-Bold')]:
+@@ -123,7 +124,7 @@ story += [t, Spacer(0, 5 * mm),
+ HEAD = [Paragraph(h, P_H) for h in ('CÓDIGO', 'PRODUTO (SITE)', 'ANTES', 'DEPOIS — APLICAÇÃO E EQUIVALÊNCIA')]
+ for linha, itens in grupos.items():
+     if not itens: continue
+-    story += [Paragraph(f'{linha} — {len(itens)} {"item" if len(itens) == 1 else "itens"}', P_T2), Spacer(0, 2 * mm)]
++    story += [Paragraph(f'{linha} — {len(itens)} {plural(len(itens))}', P_T2), Spacer(0, 2 * mm)]
+     rows = [HEAD]
+     for c, r in itens:
+         b11 = B11.get(c) or [None] * 18
+diff --git a/catalogo_grafico/gerador/plural.py b/catalogo_grafico/gerador/plural.py
+new file mode 100644
+index 0000000..0a93974
+--- /dev/null
++++ b/catalogo_grafico/gerador/plural.py
+@@ -0,0 +1,5 @@
++"""Singular e plural do texto dos PDFs, num lugar só (RD-0510, RD-0526 e RD-0527): os geradores importam daqui."""
++
++
++def plural(n, um='item', varios='itens'):
++    return um if n == 1 else varios
+diff --git a/catalogo_grafico/gerador/portfolio.py b/catalogo_grafico/gerador/portfolio.py
+index 1c258e2..aad87b8 100644
+--- a/catalogo_grafico/gerador/portfolio.py
++++ b/catalogo_grafico/gerador/portfolio.py
+@@ -10,8 +10,9 @@ import pandas as pd
+ import apres_bemol as A
+ from apres_bemol import S, W, H
+ from taxo import ORDER_SIS, META
++from plural import plural
++from detalhe import BASE_UNIFICADA as BASE   # a base unificada do Git (dados/), como nos 3 PDFs
+ 
+-BASE = 'saidas/BASE_BAP_UNIFICADA_PRODUTOS_BAP_v11.xlsx'
+ NOME = 'BAP AUTOPARTS'
+ SITE = 'www.bapautoparts.com.br  ·  @bapautoparts'
+ A.C.update(dict(ochip='#fdeedd', gchip='#e3f1e0', soft='#f3f6f2'))
+@@ -151,7 +152,7 @@ def card_v(s, c, x, y, w, h):
+     yy = y + 7 + ih + 10
+     s.t(x + 13, yy, c['nome'], size, 'ink', 'PB')
+     s.p(x + 13, yy + 18, w - 26, html.escape(curto(c['desc'], w - 26, 8.2, 2)), 8.2, 10.6, 'sec')
+-    s.t(x + 13, y + h - 20, f"{c['n']} itens", 8, 'grey', 'PM')
++    s.t(x + 13, y + h - 20, f"{c['n']} {plural(c['n'])}", 8, 'grey', 'PM')
+ 
+ 
+ def curto(t, w, size, n):
+@@ -177,7 +178,7 @@ def card_h(s, c, x, y, w, h):
+     if c['lanc']:
+         s.chip(tx, y + 12 + hn, 'NOVIDADE', 'white', 'orange', 6.2); hn += 16
+     s.p(tx, y + 12 + hn, tw, html.escape(c['desc']), 7.6, 9.8, 'sec')
+-    s.t(tx, y + h - 17, f"{c['n']} itens", 7.8, 'grey', 'PM')
++    s.t(tx, y + h - 17, f"{c['n']} {plural(c['n'])}", 7.8, 'grey', 'PM')
+ 
+ 
+ def pacote(fams, cols):
+@@ -199,7 +200,7 @@ def pacote(fams, cols):
+ def pagina_sistema(s, lin_nome, num, sis, fams):
+     n_it = sum(c['n'] for cs in fams.values() for c in cs); n_pr = sum(len(cs) for cs in fams.values())
+     s.header(f'{lin_nome} · {num:02d} · {FRASE[sis]}', TITULO[sis],
+-             f"{len(fams)} {'família' if len(fams) == 1 else 'famílias'} · {n_pr} {'produto' if n_pr == 1 else 'produtos'} · {fmt(n_it)} itens")
++             f"{len(fams)} {plural(len(fams), 'família', 'famílias')} · {n_pr} {plural(n_pr, 'produto', 'produtos')} · {fmt(n_it)} {plural(n_it)}")
+     top, bot = 128, H - 46
+     if n_pr == 1:
+         fam, cards = next(iter(fams.items())); heroi(s, fam, cards[0], top, bot); s.footer(); return
+@@ -254,7 +255,7 @@ def heroi(s, fam, c, top, bot):
+     ih = bot - top - 30
+     s.foto(c['img'], 40, top, 400, ih)
+     if c['lanc']: s.chip(56, top + 16, 'NOVIDADE 2026', 'white', 'orange', 7.5)
+-    s.t(40, top + ih + 12, f"{c['n']} itens", 11, 'grey', 'PM')          # nº de itens embaixo da imagem
++    s.t(40, top + ih + 12, f"{c['n']} {plural(c['n'])}", 11, 'grey', 'PM')          # nº de itens embaixo da imagem
+     x = 476; y = top + 6; wr = W - 40 - x
+     s.t(x, y, tit(fam).upper(), 9.5, 'gdark', 'PB', ls=1.4); y += 22
+     s.t(x, y, c['nome'], 28, 'ink', 'PB', ls=-.4); y += 46

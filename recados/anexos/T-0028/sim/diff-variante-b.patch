@@ -1,0 +1,25 @@
+diff --git a/catalogo_grafico/gerador/portfolio.py b/catalogo_grafico/gerador/portfolio.py
+index aad87b8..7bec8ec 100644
+--- a/catalogo_grafico/gerador/portfolio.py
++++ b/catalogo_grafico/gerador/portfolio.py
+@@ -111,6 +111,7 @@ def dados(base):
+     todos = set()
+     for f in moto.FAMS:
+         if f.get('moto'): continue
++        sis_cat = f['eyebrow'].split(' · ')[0]      # o sistema do produto no Catálogo BAP (Rolamentos: RODAGEM)
+         for r in f['rows']:
+             c = r['code'].strip().upper(); x = B.get(c, {})
+             if not x: continue
+@@ -121,9 +122,10 @@ def dados(base):
+             if L == 'MOTO' or c in moto_cod: ls.add('MOTO')
+             if L == 'UNIVERSAL': ls.add('UNIVERSAL')
+             nfam[f['name']].add(x['FAMILIA'])
++            sis = sis_cat if sis_cat in ORDER_SIS else x['SISTEMA']   # um produto, um sistema por linha
+             for l in ls:
+-                acc[(l, x['SISTEMA'], x['FAMILIA'], f['name'])].add(c)
+-                ordem[(l, x['SISTEMA'], x['FAMILIA'], f['name'])].append(r)
++                acc[(l, sis, x['FAMILIA'], f['name'])].add(c)
++                ordem[(l, sis, x['FAMILIA'], f['name'])].append(r)
+     arv = {l: collections.OrderedDict() for l, _, _ in LINHAS}
+     for (l, sis, fam, prod), cs in sorted(acc.items(), key=lambda kv: (ORDER_SIS.index(kv[0][1]) if kv[0][1] in ORDER_SIS else 99, kv[0][2], kv[0][3])):
+         if len(cs) < MINIMO[l]: continue
