@@ -1,0 +1,22 @@
+erros de página (antes, depois): [] []
+produtos com tabela diferente: 1
+linhas que saem: 2 (entram: 0 esperado; linhas desses produtos: 11 -> 9)
+veículos distintos (marca+modelo+cilindrada), soma dos produtos: 34298 -> 34296
+anos cobertos (soma, por veículo e produto): 347263 -> 347211
+anos cobertos por produto (soma): 72745 -> 72745
+falhas da prova (linha sem cobertura, veículo, ano ou versão que some, linha que entra): 5
+  FALHA ('ROL84888', 'veículos', {('FIAT', 'DOBLO', ''), ('FIAT', 'STRADA', '')})
+  FALHA ('ROL84888', 'anos', ('FIAT', 'STRADA', ''))
+  FALHA ('ROL84888', 'anos', ('FIAT', 'DOBLO', ''))
+  FALHA ('ROL84888', 'sem cobertura', 'Fiat | Strada |  |  | 1996–2021 [VEICULOS sem ano]')
+  FALHA ('ROL84888', 'sem cobertura', 'Fiat | Doblo |  |  | 1996–2021 [VEICULOS sem ano]')
+muda av (aviso/cartão/seção/restrição fora): 0 []
+muda card (aviso/cartão/seção/restrição fora): 0 []
+muda sec (aviso/cartão/seção/restrição fora): 0 []
+muda rf (aviso/cartão/seção/restrição fora): 0 []
+
+== ROL84888 (11 -> 9 linhas)
+  SAI      Fiat | Strada |  |  | 1996–2021 [VEICULOS sem ano]
+  FICA     NENHUMA (FALHA)
+  SAI      Fiat | Doblo |  |  | 1996–2021 [VEICULOS sem ano]
+  FICA     NENHUMA (FALHA)

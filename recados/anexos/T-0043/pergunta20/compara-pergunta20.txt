@@ -1,0 +1,427 @@
+erros de página (antes, depois): [] []
+produtos com tabela diferente: 71
+linhas que saem: 137 (entram: 0 esperado; linhas desses produtos: 4007 -> 3870)
+veículos distintos (marca+modelo+cilindrada), soma dos produtos: 34298 -> 34298
+anos cobertos (soma, por veículo e produto): 347263 -> 347263
+anos cobertos por produto (soma): 72745 -> 72745
+falhas da prova (linha sem cobertura, veículo, ano ou versão que some, linha que entra): 0
+muda av (aviso/cartão/seção/restrição fora): 0 []
+muda card (aviso/cartão/seção/restrição fora): 0 []
+muda sec (aviso/cartão/seção/restrição fora): 0 []
+muda rf (aviso/cartão/seção/restrição fora): 0 []
+
+== TER55710 (30 -> 28 linhas)
+  SAI      Agrale | MA 8.5 | 4.8 8V |  | 2005–2011 [texto]
+  FICA     Agrale | MA 8.5 | 4.8 8V | SERIE 12 / X12 SOHV L4 | 2005–2011 [VEICULOS com ano]
+  SAI      Agrale | MA 8.5 | 5.9 12V |  | 2002–2005 [texto]
+  FICA     Agrale | MA 8.5 | 5.9 12V | 6 BT SOHV L6 | 2002–2005 [VEICULOS com ano]
+
+== TER5596500 (52 -> 51 linhas)
+  SAI      Scania | P | 9.0 10V |  | 2001–2004 [texto]
+  FICA     Scania | P | 9.0 10V | 94 · DC 9 05 SOHV L5 | 2001–2004 [VEICULOS com ano]
+
+== L803775 (180 -> 175 linhas)
+  SAI      Mercedes-Benz | OH | 5.7 12V |  | 1987–1989 [texto]
+  FICA     Mercedes-Benz | OH | 5.7 12V | 1518 · OM 352 SOHV L6 | 1987–1989 [VEICULOS com ano]
+  SAI      Mercedes-Benz | OH | 4.8 12V |  | 2012–2021 [texto]
+  FICA     Mercedes-Benz | OH | 4.8 12V | 1519 · OM 924 LA BLUETEC 5 SOHV L4 | 2012–2021 [VEICULOS com ano]
+  SAI      Volvo | VM | 6.5 12V |  | 2003–2005 [texto]
+  FICA     Volvo | VM | 6.5 12V | 23 210 · SERIE 10 / X10 SOHV L6 | 2003–2005 [VEICULOS com ano] || Volvo | VM | 6.5 12V | 17 240 · SERIE 10 / X10 SOHV L6 | 2003–2005 [VEICULOS com ano] || Volvo | VM | 6.5 12V | 17 210 · SERIE 10 / X10 SOHV L6 | 2003–2005 [VEICULOS com ano] || Volvo | VM | 6.5 12V | 23 240 · SERIE 10 / X10 SOHV L6 | 2003–2005 [VEICULOS com ano]
+  SAI      Volvo | VM | 4.8 8V | 210 R | 2006–2011 [texto]
+  FICA     Volvo | VM | 4.8 8V | 210 R · SERIE 12 / X12 SOHV L4 | 2006–2011 [VEICULOS com ano]
+  SAI      Volvo | VM | 7.2 12V |  | 2006–2011 [texto]
+  FICA     Volvo | VM | 7.2 12V | 260 · SERIE 12 / X12 / 7A260 SOHV L6 | 2006–2011 [VEICULOS com ano] || Volvo | VM | 7.2 12V | 310 · SERIE 12 / X12 / 7B310 SOHV L6 | 2006–2011 [VEICULOS com ano]
+
+== ROL4529A (69 -> 68 linhas)
+  SAI      Volkswagen | Polo | 1.8 8V | Classic | 1996–2003 [texto]
+  FICA     Volkswagen | Polo | 1.8 8V | CLASSIC · AP 1800 SOHC L4 | 1996–2003 [VEICULOS com ano]
+
+== ROL559/552A (70 -> 60 linhas)
+  SAI      Mercedes-Benz | L | 5.7 12V |  | 1970–1998 [texto]
+  FICA     Mercedes-Benz | L | 5.7 12V | 1513 · OM 352 SOHV L6 | 1969–2001 [VEICULOS com ano]
+  SAI      Mercedes-Benz | L | 9.7 10V |  | 1976–1987 [texto]
+  FICA     Mercedes-Benz | L | 9.7 10V | 1519 · OM 355/5 SOHV L5 | 1973–1987 [VEICULOS com ano] || Mercedes-Benz | L | 9.7 10V | 2219 · OM 355/5 SOHV L5 | 1976–1987 [VEICULOS com ano]
+  SAI      Mercedes-Benz | L | 9.7 10V |  | 1987–1997 [texto]
+  FICA     Mercedes-Benz | L | 9.7 10V | 2220 · OM 355/5 SOHV L5 | 1987–1997 [VEICULOS com ano]
+  SAI      Mercedes-Benz | LK | 6.0 12V | 1418 E | 1989–1993 [texto]
+  FICA     Mercedes-Benz | LK | 6.0 12V | 1418 E · OM 366 A SOHV L6 | 1989–1993 [VEICULOS com ano]
+  SAI      Mercedes-Benz | LK | 5.7 12V |  | 1970–1998 [texto]
+  FICA     Mercedes-Benz | LK | 5.7 12V | 1513 · OM 352 SOHV L6 | 1969–2001 [VEICULOS com ano]
+  SAI      Mercedes-Benz | LK | 9.7 10V |  | 1973–1980 [texto]
+  FICA     Mercedes-Benz | LK | 9.7 10V | 2219 · OM 355/5 SOHV L5 | 1973–1980 [VEICULOS com ano]
+  SAI      Mercedes-Benz | LK | 9.7 10V |  | 1987–1997 [texto]
+  FICA     Mercedes-Benz | LK | 9.7 10V | 2220 · OM 355/5 SOHV L5 | 1987–1997 [VEICULOS com ano]
+  SAI      Mercedes-Benz | LS | 9.7 10V |  | 1987–1997 [texto]
+  FICA     Mercedes-Benz | LS | 9.7 10V | 1525 · OM 355/5 A SOHV L5 | 1987–1997 [VEICULOS com ano]
+  SAI      Mercedes-Benz | OH | 9.7 10V |  | 1976–1996 [texto]
+  FICA     Mercedes-Benz | OH | 9.7 10V | 1419 · OM 355/5 SOHV L5 | 1976–1996 [VEICULOS com ano]
+  SAI      Mercedes-Benz | OH | 5.7 12V |  | 1987–1989 [texto]
+  FICA     Mercedes-Benz | OH | 5.7 12V | 1518 · OM 352 SOHV L6 | 1987–1989 [VEICULOS com ano]
+
+== ROL6202-2Z (68 -> 63 linhas)
+  SAI      Yamaha | DT | 0.2 |  | 1981–1998 [texto]
+  FICA     Yamaha | DT | 0.2 | 180 · 2 TEMPOS MONOCILÍNDRICO | 1981–1998 [VEICULOS com ano]
+  SAI      Yamaha | DT | 0.2 |  | 1991–2000 [texto]
+  FICA     Yamaha | DT | 0.2 | 200 · 2 TEMPOS MONOCILÍNDRICO | 1991–2000 [VEICULOS com ano]
+  SAI      Yamaha | RD | 0.1 |  | 1987–2000 [texto]
+  FICA     Yamaha | RD | 0.1 | 135 · 2 TEMPOS MONOCILÍNDRICO | 1987–2000 [VEICULOS com ano]
+  SAI      Yamaha | TDM | 0.2 2V |  | 1997–2006 [texto]
+  FICA     Yamaha | TDM | 0.2 2V | 225 · OHC MONOCILÍNDRICO | 1997–2006 [VEICULOS com ano]
+  SAI      Yamaha | XTZ | 0.2 2V | Lander 250 | 2006–2015 [texto]
+  FICA     Yamaha | XTZ | 0.2 2V | LANDER 250 · SOHC MONOCILÍNDRICO | 2006–2015 [VEICULOS com ano]
+
+== ROL683/672 (30 -> 28 linhas)
+  SAI      Volvo | B10M | 9.6 24V |  | 1988–1996 [texto]
+  FICA     Volvo | B10M | 9.6 24V | THD 102 KF DOHC L6 | 1988–1996 [VEICULOS com ano]
+  SAI      Volvo | B10M | 9.6 12V |  | 2003 [texto]
+  FICA     Volvo | B10M | 9.6 12V | DH 10 A340 SOHV L6 | 2003 [VEICULOS com ano]
+
+== BDA50007 (40 -> 39 linhas)
+  SAI      Ford | Belina | 1.8 8V |  | 1989–1991 [VEICULOS sem ano]
+  FICA     Ford | Belina | 1.8 8V | DEL REY · AP SOHC L4 | 1989–1991 [VEICULOS com ano]
+
+== BOL40000 (24 -> 23 linhas)
+  SAI      Volkswagen | Polo | 1.0 16V | Classic | 2001–2003 [texto]
+  FICA     Volkswagen | Polo | 1.0 16V | CLASSIC · EA111 DOHC L4 | 2001–2003 [VEICULOS com ano]
+
+== BOL40005 (49 -> 47 linhas)
+  SAI      Ford | Belina | 1.8 8V |  | 1989–1991 [texto]
+  FICA     Ford | Belina | 1.8 8V | DEL REY · AP SOHC L4 | 1989–1991 [VEICULOS com ano]
+  SAI      Volkswagen | Polo | 1.8 8V | Classic | 1996–2003 [texto]
+  FICA     Volkswagen | Polo | 1.8 8V | CLASSIC · AP 1800 SOHC L4 | 1996–2003 [VEICULOS com ano]
+
+== BOL40045 (31 -> 29 linhas)
+  SAI      Agrale | MA 5.0 | 2.8 12V |  | 2002–2005 [texto]
+  FICA     Agrale | MA 5.0 | 2.8 12V | SPRINT EURO 2 SOHC L4 | 2002–2005 [VEICULOS com ano]
+  SAI      Agrale | MA 6.0 | 2.8 12V |  | 1998–2006 [texto]
+  FICA     Agrale | MA 6.0 | 2.8 12V | SPRINT EURO 2 SOHC L4 | 1998–2006 [VEICULOS com ano]
+
+== BOL40021 (5 -> 4 linhas)
+  SAI      Ford | Belina | 1.6 8V |  | 1983–1989 [texto]
+  FICA     Ford | Belina | 1.6 8V | II | 1979–1989 [VEICULOS com ano]
+
+== BS10 (40 -> 39 linhas)
+  SAI      Chery | Tiggo | 1.5 16V |  | 2019–2024 [texto]
+  FICA     Chery | Tiggo | 1.5 16V | 5X | 2018–2024 [VEICULOS com ano]
+
+== CL18 (317 -> 316 linhas)
+  SAI      Volkswagen | Polo | 1.0 16V | Classic | 2001–2003 [texto]
+  FICA     Volkswagen | Polo | 1.0 16V | CLASSIC · EA111 DOHC L4 | 2001–2003 [VEICULOS com ano]
+
+== CL20 (293 -> 292 linhas)
+  SAI      Volkswagen | Polo | 1.0 16V | Classic | 2001–2003 [texto]
+  FICA     Volkswagen | Polo | 1.0 16V | CLASSIC · EA111 DOHC L4 | 2001–2003 [VEICULOS com ano]
+
+== CL22 (275 -> 274 linhas)
+  SAI      Toyota | Hilux | 2.7 16V |  | 2012–2020 [texto]
+  FICA     Toyota | Hilux | 2.7 16V | SW4 · 2TR-FBE DOHC L4 | 2012–2020 [VEICULOS com ano]
+
+== KG26 (66 -> 65 linhas)
+  SAI      Audi | A6 | 3.0 24V | Allroad | 2014–2017 [texto]
+  FICA     Audi | A6 | 3.0 24V | ALLROAD · EA837 DOHC V6 | 2014–2017 [VEICULOS com ano]
+
+== KHC12772 (13 -> 11 linhas)
+  SAI      Fiat | Doblo | 1.8 |  | 2011–2018 [texto]
+  FICA     Fiat | Doblo | 1.8 | Adventure | 2011–2018 [VEICULOS com ano]
+  SAI      Fiat | Strada | 1.8 |  | 2012 [texto]
+  FICA     Fiat | Strada | 1.8 | Adventure | 2011–2012 [VEICULOS com ano]
+
+== SFR30017 (19 -> 18 linhas)
+  SAI      Volkswagen | Polo | 1.8 8V | Classic | 2000–2003 [texto]
+  FICA     Volkswagen | Polo | 1.8 8V | CLASSIC · AP 1800 SOHC L4 | 2000–2003 [VEICULOS com ano]
+
+== SFR30032 (8 -> 7 linhas)
+  SAI      Chevrolet | Omega | 2.0 |  | 1992–1998 [texto]
+  FICA     Chevrolet | Omega | 2.0 | T | 1992–1998 [VEICULOS com ano]
+
+== JUH70002 (8 -> 7 linhas)
+  SAI      Fiat | Palio | 1.0 8V |  | 1996–2000 [texto]
+  FICA     Fiat | Palio | 1.0 8V | FIASA SOHC L4 | 1996–2001 [VEICULOS com ano]
+
+== JUH70008 (7 -> 5 linhas)
+  SAI      Fiat | Palio | 1.4 8V |  | 2011 [VEICULOS sem ano]
+  FICA     Fiat | Palio | 1.4 8V | FIRE SOHC L4 | 2005–2011 [VEICULOS com ano] || Fiat | Palio | 1.4 8V | FIRE EVO SOHC L4 | 2011–2017 [VEICULOS com ano]
+  SAI      Fiat | Siena | 1.4 8V |  | 2011 [VEICULOS sem ano]
+  FICA     Fiat | Siena | 1.4 8V | FIRE SOHC L4 | 2005–2016 [VEICULOS com ano]
+
+== 2.75-18 42P V250F (14 -> 13 linhas)
+  SAI      Suzuki | Intruder | 2V |  | 2002–2016 [texto]
+  FICA     Suzuki | Intruder | 2V | 125 · OHC MONOCILÍNDRICO | 2002–2016 [VEICULOS com ano]
+
+== 110/70-17 54S V456F (33 -> 31 linhas)
+  SAI      Honda | CBX | 4V | 250 Twister | 2001–2008 [texto]
+  FICA     Honda | CBX | 4V | 250 TWISTER · DOHC MONOCILÍNDRICO | 2001–2008 [VEICULOS com ano]
+  SAI      Yamaha | XTZ | 2V | 250X | 2007–2011 [texto]
+  FICA     Yamaha | XTZ | 2V | 250X · SOHC MONOCILÍNDRICO | 2007–2011 [VEICULOS com ano]
+
+== 140/70-17 66S V456R (22 -> 21 linhas)
+  SAI      Honda | CBX | 4V | 250 Twister | 2001–2008 [texto]
+  FICA     Honda | CBX | 4V | 250 TWISTER · DOHC MONOCILÍNDRICO | 2001–2008 [VEICULOS com ano]
+
+== FAC6035 (27 -> 26 linhas)
+  SAI      Kia | CARENS | 2.0 16V |  | 2008–2013 [texto]
+  FICA     Kia | CARENS | 2.0 16V | THETA DOHC L4 | 2008–2015 [VEICULOS com ano]
+
+== FAC6249 (22 -> 21 linhas)
+  SAI      Volkswagen | VAN | 1.6 8V |  | 1998–2003 [texto]
+  FICA     Volkswagen | VAN | 1.6 8V | AP 1600 SOHC L4 | 1998–2003 [VEICULOS com ano]
+
+== FAC6272 (31 -> 30 linhas)
+  SAI      Volkswagen | Golf | 1.4 16V |  | 2016–2019 [texto]
+  FICA     Volkswagen | Golf | 1.4 16V | EA211 DOHC L4 | 2013–2020 [VEICULOS com ano]
+
+== FAC6051 (20 -> 19 linhas)
+  SAI      Chevrolet | Prisma | 1.4 8V |  | 2013–2016 [texto]
+  FICA     Chevrolet | Prisma | 1.4 8V | LT | 2006–2023 [VEICULOS com ano] || Chevrolet | Prisma | 1.4 8V | LTZ | 2013–2016 [VEICULOS com ano]
+
+== FAR6276 (68 -> 63 linhas)
+  SAI      Ford | F-8000 | 5.2 6V |  | 1977–1979 [texto]
+  FICA     Ford | F-8000 | 5.2 6V | DETROIT SÉRIE 53 SOHV V6 | 1977–1979 [VEICULOS com ano]
+  SAI      Ford | F-8500 | 5.2 6V |  | 1977–1979 [texto]
+  FICA     Ford | F-8500 | 5.2 6V | DETROIT SÉRIE 53 SOHV V6 | 1977–1979 [VEICULOS com ano]
+  SAI      Ford | FT-8000 | 7.8 12V |  | 1977–1979 [texto]
+  FICA     Ford | FT-8000 | 7.8 12V | LTC SOHV L6 | 1977–1979 [VEICULOS com ano]
+  SAI      Volkswagen | 22-140 | 5.9 12V |  | 1987–1989 [texto]
+  FICA     Volkswagen | 22-140 | 5.9 12V | SERIE 229 SOHV L6 | 1987–1989 [VEICULOS com ano]
+  SAI      Volkswagen | 22-140 | 5.2 16V |  | 1986–1987 [texto]
+  FICA     Volkswagen | 22-140 | 5.2 16V | 318 3E SOHC V8 | 1986–1987 [VEICULOS com ano]
+
+== FAR6156 (122 -> 119 linhas)
+  SAI      Gmc | 7-110 | 4.3 8V |  | 1996–2001 [texto]
+  FICA     Gmc | 7-110 | 4.3 8V | 4HF1 SOHV L4 | 1996–2001 [VEICULOS com ano]
+  SAI      Gmc | C-70 | 4.9 12V |  | 1990–1991 [texto]
+  FICA     Gmc | C-70 | 4.9 12V | 292 SOHC L6 | 1985–1991 [VEICULOS com ano]
+  SAI      Volkswagen | 11-140 | 5.9 12V |  | 1987–1990 [texto]
+  FICA     Volkswagen | 11-140 | 5.9 12V | SERIE 229 SOHV L6 | 1987–1991 [VEICULOS com ano]
+
+== FAR6353 (32 -> 23 linhas)
+  SAI      Volkswagen | 14-220 | 8.3 12V |  | 1991–2000 [texto]
+  FICA     Volkswagen | 14-220 | 8.3 12V | 6 CTAA SOHV L6 | 1991–2000 [VEICULOS com ano]
+  SAI      Volkswagen | 16-210 | 8.3 12V |  | 1988–2000 [texto]
+  FICA     Volkswagen | 16-210 | 8.3 12V | 6 CT SOHV L6 | 1988–2000 [VEICULOS com ano]
+  SAI      Volkswagen | 16-210 H | 8.3 12V |  | 1988–2000 [texto]
+  FICA     Volkswagen | 16-210 H | 8.3 12V | 6 CT SOHV L6 | 1988–2000 [VEICULOS com ano]
+  SAI      Volkswagen | 16-220 | 8.3 12V |  | 1991–2000 [texto]
+  FICA     Volkswagen | 16-220 | 8.3 12V | 6 CT SOHV L6 | 1991–2000 [VEICULOS com ano] || Volkswagen | 16-220 | 8.3 12V | 6 CTAA SOHV L6 | 1991–2000 [VEICULOS com ano]
+  SAI      Volkswagen | 16-300 | 8.3 12V |  | 1995–2000 [texto]
+  FICA     Volkswagen | 16-300 | 8.3 12V | 6 CTAA SOHV L6 | 1995–2000 [VEICULOS com ano]
+  SAI      Volkswagen | 24-220 | 8.3 12V |  | 1991–2006 [texto]
+  FICA     Volkswagen | 24-220 | 8.3 12V | 6 CT SOHV L6 | 1991–2006 [VEICULOS com ano]
+  SAI      Volkswagen | 24-250 | 8.3 12V |  | 1992–2002 [texto]
+  FICA     Volkswagen | 24-250 | 8.3 12V | 6 CTAA SOHV L6 | 1991–2002 [VEICULOS com ano]
+  SAI      Volkswagen | 35-300 | 8.3 12V |  | 1991–2000 [texto]
+  FICA     Volkswagen | 35-300 | 8.3 12V | 6 CTAA SOHV L6 | 1991–2000 [VEICULOS com ano]
+  SAI      Volkswagen | 40-300 | 8.3 12V |  | 1999–2001 [texto]
+  FICA     Volkswagen | 40-300 | 8.3 12V | 6 CTAA SOHV L6 | 1999–2001 [VEICULOS com ano]
+
+== FAR6376 (125 -> 124 linhas)
+  SAI      Mercedes-Benz | O 371 | 6.0 12V |  | 1987–1995 [texto]
+  FICA     Mercedes-Benz | O 371 | 6.0 12V | OM 366 SOHV L6 | 1987–2003 [VEICULOS com ano]
+
+== FAR6299 (32 -> 25 linhas)
+  SAI      Volkswagen | 12-170 BT | 5.9 12V |  | 1997–2000 [texto]
+  FICA     Volkswagen | 12-170 BT | 5.9 12V | 6 BTAA SOHV L6 | 1997–2000 [VEICULOS com ano]
+  SAI      Volkswagen | 14-150 | 6.5 12V |  | 1991–1995 [texto]
+  FICA     Volkswagen | 14-150 | 6.5 12V | SERIE 10 / X10 SOHV L6 | 1991–1995 [VEICULOS com ano]
+  SAI      Volkswagen | 14-170 BT | 5.9 12V |  | 1997–2000 [texto]
+  FICA     Volkswagen | 14-170 BT | 5.9 12V | 6 BTAA SOHV L6 | 1997–2000 [VEICULOS com ano]
+  SAI      Volkswagen | 14-180 | 6.5 12V |  | 1999–2000 [texto]
+  FICA     Volkswagen | 14-180 | 6.5 12V | SERIE 10 / X10 SOHV L6 | 1999–2000 [VEICULOS com ano]
+  SAI      Volkswagen | 14-200 | 6.5 12V |  | 1991–1994 [texto]
+  FICA     Volkswagen | 14-200 | 6.5 12V | SERIE 10 / X10 SOHV L6 | 1991–1994 [VEICULOS com ano]
+  SAI      Volkswagen | 16-170 | 8.3 12V |  | 1991–1993 [texto]
+  FICA     Volkswagen | 16-170 | 8.3 12V | 6 CT SOHV L6 | 1991–1993 [VEICULOS com ano]
+  SAI      Volkswagen | 16-200 | 5.9 12V |  | 1997–2000 [texto]
+  FICA     Volkswagen | 16-200 | 5.9 12V | 6 BTAA SOHV L6 | 1997–2000 [VEICULOS com ano]
+
+== FAR6458 (22 -> 21 linhas)
+  SAI      Scania | P | 8.5 12V |  | 1995–2006 [texto]
+  FICA     Scania | P | 8.5 12V | 93 · DSC 9 07 SOHV L6 | 1995–2006 [VEICULOS com ano]
+
+== FAR6252 (5 -> 4 linhas)
+  SAI      Lifan | 620 | 1.6 16V |  | 2010–2015 [texto]
+  FICA     Lifan | 620 | 1.6 16V | DOHC L4 | 2010–2017 [VEICULOS com ano]
+
+== FAR6358 (14 -> 13 linhas)
+  SAI      Volkswagen | EOS | 2.0 16V |  | 2008–2010 [texto]
+  FICA     Volkswagen | EOS | 2.0 16V | D2L DOHC L4 | 2006–2010 [VEICULOS com ano]
+
+== FAR6230 (11 -> 10 linhas)
+  SAI      Daihatsu | FEROZA | 1.6 16V |  | 1988–1999 [texto]
+  FICA     Daihatsu | FEROZA | 1.6 16V | SOHC L4 | 1988–1999 [VEICULOS com ano]
+
+== FAR6231 (45 -> 42 linhas)
+  SAI      Gmc | 3500 HD | 4.2 18V |  | 1996–2001 [texto]
+  FICA     Gmc | 3500 HD | 4.2 18V | SPRINT EURO 1 SOHC L6 | 1996–2001 [VEICULOS com ano]
+  SAI      Gmc | 6-100 | 4.1 8V |  | 1996–2001 [texto]
+  FICA     Gmc | 6-100 | 4.1 8V | S4 SOHV L4 | 1996–2001 [VEICULOS com ano]
+  SAI      Gmc | 6-150 | 4.2 18V |  | 1996–2002 [texto]
+  FICA     Gmc | 6-150 | 4.2 18V | SPRINT EURO 1 SOHC L6 | 1996–2002 [VEICULOS com ano]
+
+== FAR6082 (109 -> 108 linhas)
+  SAI      Mercedes-Benz | 2423 K | 6.4 18V |  | 1999–2006 [texto]
+  FICA     Mercedes-Benz | 2423 K | 6.4 18V | OM 906 LA SOHV L6 | 1999–2009 [VEICULOS com ano]
+
+== FAR6189 (241 -> 240 linhas)
+  SAI      Volkswagen | 8-120 | 4.3 8V |  | 2000–2005 [texto]
+  FICA     Volkswagen | 8-120 | 4.3 8V | SERIE 10 / X10 SOHV L4 | 2000–2007 [VEICULOS com ano]
+
+== FAR6485 (98 -> 97 linhas)
+  SAI      Volkswagen | 14-210 | 8.3 12V |  | 1988–1998 [texto]
+  FICA     Volkswagen | 14-210 | 8.3 12V | 6 CT SOHV L6 | 1988–1998 [VEICULOS com ano]
+
+== FCB6104 (74 -> 72 linhas)
+  SAI      Scania | P | 8.9 10V |  | 2004–2011 [texto]
+  FICA     Scania | P | 8.9 10V | 230 · DC 9 19 SOHV L5 | 2004–2011 [VEICULOS com ano] || Scania | P | 8.9 10V | 310 · DC 9 21 SOHV L5 | 2004–2011 [VEICULOS com ano]
+  SAI      Scania | P | 9.0 10V |  | 2005–2011 [texto]
+  FICA     Scania | P | 9.0 10V | 270 · DC 9 20 SOHV L5 | 2005–2011 [VEICULOS com ano]
+
+== FCB6176 (37 -> 36 linhas)
+  SAI      Fiat | Siena | 1.8 8V |  | 2004 [texto]
+  FICA     Fiat | Siena | 1.8 8V | EX | 2003–2004 [VEICULOS com ano] || Fiat | Siena | 1.8 8V | HLX | 2004– [VEICULOS com ano] || Fiat | Siena | 1.8 8V | ELX | 2003– [VEICULOS com ano] || Fiat | Siena | 1.8 8V | EX Mec. Gas | 2003–2004 [texto]
+
+== FLU6009 (59 -> 58 linhas)
+  SAI      Peugeot | RCZ | 1.6 16V |  | 2012–2015 [texto]
+  FICA     Peugeot | RCZ | 1.6 16V | EP6CDTM DOHC L4 | 2011–2015 [VEICULOS com ano]
+
+== FLU6080 (31 -> 29 linhas)
+  SAI      Mercedes-Benz | 2423 K | 6.4 18V |  | 1999–2006 [texto]
+  FICA     Mercedes-Benz | 2423 K | 6.4 18V | OM 906 LA SOHV L6 | 1999–2009 [VEICULOS com ano]
+  SAI      Mercedes-Benz | 2726 K | 6.4 18V |  | 2008–2011 [texto]
+  FICA     Mercedes-Benz | 2726 K | 6.4 18V | OM 906 LA SOHV L6 | 2007–2011 [VEICULOS com ano]
+
+== FSE6117 (76 -> 73 linhas)
+  SAI      Agrale | 7500 | 4.3 8V |  | 1994–2005 [texto]
+  FICA     Agrale | 7500 | 4.3 8V | SERIE 10 / X10 SOHV L4 | 1994–2005 [VEICULOS com ano]
+  SAI      Agrale | MA 7.5T | 4.3 8V |  | 1996–2005 [texto]
+  FICA     Agrale | MA 7.5T | 4.3 8V | SERIE 10 / X10 SOHV L4 | 1996–2005 [VEICULOS com ano]
+  SAI      Agrale | MA 8.5T | 4.3 8V |  | 1997–2005 [texto]
+  FICA     Agrale | MA 8.5T | 4.3 8V | SERIE 10 / X10 SOHV L4 | 1996–2005 [VEICULOS com ano]
+
+== FSE6164 (94 -> 93 linhas)
+  SAI      Mercedes-Benz | 2423 K | 6.4 18V |  | 1999–2006 [texto]
+  FICA     Mercedes-Benz | 2423 K | 6.4 18V | OM 906 LA SOHV L6 | 1999–2009 [VEICULOS com ano]
+
+== FCB6312 (25 -> 24 linhas)
+  SAI      Scania | P | 9.0 12V |  | 1996–2001 [texto]
+  FICA     Scania | P | 9.0 12V | 94 · DSC 9 12 SOHV L6 | 1996–2001 [VEICULOS com ano]
+
+== FCB6028 (162 -> 161 linhas)
+  SAI      Volkswagen | 24-250 | 8.3 12V |  | 1992–2002 [texto]
+  FICA     Volkswagen | 24-250 | 8.3 12V | 6 CTAA SOHV L6 | 1991–2002 [VEICULOS com ano]
+
+== FCB6121 (29 -> 28 linhas)
+  SAI      Asia | ROCSTA | 2.2 8V |  | 1993–1998 [texto]
+  FICA     Asia | ROCSTA | 2.2 8V | SOHC SOHV L4 | 1993–2003 [VEICULOS com ano]
+
+== CUB60000 (34 -> 33 linhas)
+  SAI      Volkswagen | Polo | 1.8 8V | Classic | 1996–2003 [texto]
+  FICA     Volkswagen | Polo | 1.8 8V | CLASSIC · AP 1800 SOHC L4 | 1996–2003 [VEICULOS com ano]
+
+== CV-V25 (15 -> 14 linhas)
+  SAI      Volkswagen | SpaceFox | 1.6 8V |  | 2008 [texto]
+  FICA     Volkswagen | SpaceFox | 1.6 8V | EA111 SOHC L4 | 2006–2008 [VEICULOS com ano] || Volkswagen | SpaceFox | 1.6 8V | EA111 VHT SOHC L4 | 2008–2018 [VEICULOS com ano]
+
+== CV-Y01 (3 -> 2 linhas)
+  SAI      Mitsubishi | Pajero | 2.0 16V |  | 2009 [VEICULOS sem ano]
+  FICA     Mitsubishi | Pajero | 2.0 16V | 4G94 SOHC L4 | 2007–2015 [VEICULOS com ano]
+
+== POL1638 (19 -> 18 linhas)
+  SAI      Toyota | Hilux | 3.0 16V |  | 2005–2015 [texto]
+  FICA     Toyota | Hilux | 3.0 16V | SW4 · D4D DOHC L4 | 2005–2015 [VEICULOS com ano]
+
+== POL1692 (25 -> 24 linhas)
+  SAI      Scania | P | 9.0 12V |  | 1996–2001 [texto]
+  FICA     Scania | P | 9.0 12V | 94 · DSC 9 12 SOHV L6 | 1996–2001 [VEICULOS com ano]
+
+== PAF0023 (35 -> 34 linhas)
+  SAI      Volkswagen | Santana | 1.8 |  | 1985–1988 [texto]
+  FICA     Volkswagen | Santana | 1.8 | D | 1985–1988 [VEICULOS com ano]
+
+== PAF0367 (15 -> 14 linhas)
+  SAI      Volkswagen | Polo | 1.0 16V | Classic | 2001–2003 [texto]
+  FICA     Volkswagen | Polo | 1.0 16V | CLASSIC · EA111 DOHC L4 | 2001–2003 [VEICULOS com ano]
+
+== VEL7540 (16 -> 15 linhas)
+  SAI      Volkswagen | Polo | 1.0 16V | Classic | 2001–2003 [texto]
+  FICA     Volkswagen | Polo | 1.0 16V | CLASSIC · EA111 DOHC L4 | 2001–2003 [VEICULOS com ano]
+
+== VEL7574 (64 -> 63 linhas)
+  SAI      Volkswagen | Space Cross | 1.6 8V |  | 2010–2014 [texto]
+  FICA     Volkswagen | Space Cross | 1.6 8V | EA111 VHT SOHC L4 | 2010–2014 [VEICULOS com ano]
+
+== ABS4623 (10 -> 9 linhas)
+  SAI      Toyota | Hilux | 2.5 |  | 2009– [texto]
+  FICA     Toyota | Hilux | 2.5 | 4Cil 16v, Diesel | 2009– [VEICULOS com ano]
+
+== BAN14555EP (18 -> 17 linhas)
+  SAI      Chevrolet | Montana | 1.2 12V | LT | 2023–2026 [texto]
+  FICA     Chevrolet | Montana | 1.2 12V | LT · de | 2023–2026 [VEICULOS com ano]
+
+== BAN14586E (8 -> 7 linhas)
+  SAI      Toyota | Hilux | 4.0 24V |  | 2009–2013 [texto]
+  FICA     Toyota | Hilux | 4.0 24V | SW4 · 1GR-FE DOHC V6 | 2009–2018 [VEICULOS com ano]
+
+== BAN14586EP (8 -> 7 linhas)
+  SAI      Toyota | Hilux | 4.0 24V |  | 2009–2013 [texto]
+  FICA     Toyota | Hilux | 4.0 24V | SW4 · 1GR-FE DOHC V6 | 2009–2018 [VEICULOS com ano]
+
+== FLU6021 (131 -> 128 linhas)
+  SAI      Agrale | MA 8.5 | 4.8 8V |  | 2005–2011 [texto]
+  FICA     Agrale | MA 8.5 | 4.8 8V | SERIE 12 / X12 SOHV L4 | 2005–2011 [VEICULOS com ano]
+  SAI      Agrale | MA 8.5 | 5.9 12V |  | 1996–2005 [texto]
+  FICA     Agrale | MA 8.5 | 5.9 12V | 6 BT SOHV L6 | 1996–2005 [VEICULOS com ano]
+  SAI      Agrale | MA 9.2 E | 3.8 16V |  | 2004–2011 [texto]
+  FICA     Agrale | MA 9.2 E | 3.8 16V | ISF SOHV L4 | 2004–2011 [VEICULOS com ano]
+
+== FLU6025 (38 -> 37 linhas)
+  SAI      Ford | Belina | 1.8 8V |  | 1989–1991 [VEICULOS sem ano]
+  FICA     Ford | Belina | 1.8 8V | DEL REY · AP SOHC L4 | 1989–1991 [VEICULOS com ano]
+
+== FLU6031 (12 -> 11 linhas)
+  SAI      Ford | F-2000 | 3.9 8V |  | 1980–1983 [texto]
+  FICA     Ford | F-2000 | 3.9 8V | SERIE 229 SOHV L4 | 1980–1983 [VEICULOS com ano]
+
+== FLU6032 (23 -> 21 linhas)
+  SAI      Ford | F-2000 | 3.9 8V |  | 1980–1983 [texto]
+  FICA     Ford | F-2000 | 3.9 8V | SERIE 229 SOHV L4 | 1980–1983 [VEICULOS com ano]
+  SAI      Volkswagen | 7.110 S CO | 3.9 8V |  | 1987–1993 [texto]
+  FICA     Volkswagen | 7.110 S CO | 3.9 8V | SERIE 229 SOHV L4 | 1987–1994 [VEICULOS com ano]
+
+== FLU6240 (96 -> 86 linhas)
+  SAI      Honda | CBX | 16V |  | 1984–1995 [texto]
+  FICA     Honda | CBX | 16V | 750 · SOHC L4 | 1984–1995 [VEICULOS com ano]
+  SAI      Honda | NXR | 2V | 125 Bros | 2003–2014 [texto]
+  FICA     Honda | NXR | 2V | 125 BROS · OHC MONOCILÍNDRICO | 2003–2014 [VEICULOS com ano]
+  SAI      Honda | XR | 2V |  | 2001–2003 [texto]
+  FICA     Honda | XR | 2V | 200R · OHC MONOCILÍNDRICO | 1995–2003 [VEICULOS com ano] || Honda | XR | 2V | 200 · OHC MONOCILÍNDRICO | 2001–2003 [VEICULOS com ano]
+  SAI      Honda | XR | 2V | 200R | 1995–2003 [texto]
+  FICA     Honda | XR | 2V | 200R · OHC MONOCILÍNDRICO | 1995–2003 [VEICULOS com ano]
+  SAI      Yamaha | Fazer | 16V |  | 2004–2010 [texto]
+  FICA     Yamaha | Fazer | 16V | 600 · DOHC L4 | 2004–2010 [VEICULOS com ano]
+  SAI      Yamaha | XJ6 | 16V | F | 2009–2017 [texto]
+  FICA     Yamaha | XJ6 | 16V | F · DOHC L4 | 2009–2017 [VEICULOS com ano]
+  SAI      Yamaha | XJ6 | 16V | N | 2009–2019 [texto]
+  FICA     Yamaha | XJ6 | 16V | N · DOHC L4 | 2009–2019 [VEICULOS com ano]
+  SAI      Yamaha | XJ6 | 16V | N SP | 2013–2016 [texto]
+  FICA     Yamaha | XJ6 | 16V | N SP · DOHC L4 | 2013–2016 [VEICULOS com ano]
+  SAI      Yamaha | XT 1200Z SUPER TÉNÉRÉ | 1.2 8V |  | 2014–2020 [texto]
+  FICA     Yamaha | XT 1200Z SUPER TÉNÉRÉ | 1.2 8V | DOHC L2 | 2011–2020 [VEICULOS com ano]
+  SAI      Yamaha | XT 1200Z SUPER TÉNÉRÉ | 1.2 8V |  | 2011–2016 [texto]
+  FICA     Yamaha | XT 1200Z SUPER TÉNÉRÉ | 1.2 8V | DOHC L2 | 2011–2020 [VEICULOS com ano]
+
+== VEL7525 (23 -> 19 linhas)
+  SAI      Honda | CG | 2V | 125 Cargo | 1988–2015 [texto]
+  FICA     Honda | CG | 2V | 125 CARGO · OHC MONOCILÍNDRICO | 1988–2015 [VEICULOS com ano]
+  SAI      Honda | CG | 2V | 125 Titan | 1994–1999 [texto]
+  FICA     Honda | CG | 2V | 125 TITAN · OHC MONOCILÍNDRICO | 1994–1999 [VEICULOS com ano]
+  SAI      Honda | CG | 2V | 125 Today | 1989–1994 [texto]
+  FICA     Honda | CG | 2V | 125 TODAY · OHC MONOCILÍNDRICO | 1989–1994 [VEICULOS com ano]
+  SAI      Honda | NX | 2V |  | 1989–1994 [texto]
+  FICA     Honda | NX | 2V | 150 · OHC MONOCILÍNDRICO | 1989–1994 [VEICULOS com ano]
+
+== FLU6145 (40 -> 38 linhas)
+  SAI      Agrale | MA 8.5 | 4.8 8V |  | 2005–2011 [texto]
+  FICA     Agrale | MA 8.5 | 4.8 8V | SERIE 12 / X12 SOHV L4 | 2005–2011 [VEICULOS com ano]
+  SAI      Agrale | MA 8.5 | 5.9 12V |  | 1996–2005 [texto]
+  FICA     Agrale | MA 8.5 | 5.9 12V | 6 BT SOHV L6 | 1996–2005 [VEICULOS com ano]
