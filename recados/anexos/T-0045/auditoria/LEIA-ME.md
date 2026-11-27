@@ -1,4 +1,4 @@
-# T-0045 · auditoria de UX (designer-ux), 27/11/2026, 18:3x (Manaus)
+# T-0045 · auditoria de UX (designer-ux), 27/11/2026, 18:24 (Manaus)
 
 Só leitura, sobre o main 68c6dfe. Nada mudou em site/, catalogo_grafico/ nem docs/ux/.
 
