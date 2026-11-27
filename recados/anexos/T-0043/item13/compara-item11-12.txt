@@ -1,0 +1,571 @@
+erros [] []
+produtos com tabela diferente: 132
+linhas que saem: 58 linhas que entram: 0
+linhas que saem sem cobertura: 14
+
+== CXD13055 (38 -> 38 linhas)
+  MUDA  Porsche | Cayenne | 4.5 32V / 4.5 32V | DOHC V8 | 2003–2007 [ve]  -> Porsche | Cayenne | 4.5 32V | DOHC V8 | 2003–2007 [ve]
+  MUDA  Porsche | Cayenne | 3.2 24V / 3.2 24V | DOHC V6 | 2004–2007 [ve]  -> Porsche | Cayenne | 3.2 24V | DOHC V6 | 2004–2007 [ve]
+
+== CXD13094 (14 -> 14 linhas)
+  MUDA  Ford | F-250 | 4.2 / 4.2 12V | OHV OHV V6 | 1999–2003 [ve]  -> Ford | F-250 | 4.2 12V | OHV OHV V6 | 1999–2003 [ve]
+  MUDA  Ford | F-250 | 4.2 / 4.2 12V | OHV EFI OHV V6 | 1999–2003 [ve]  -> Ford | F-250 | 4.2 12V | OHV EFI OHV V6 | 1999–2003 [ve]
+
+== CXD13090 (7 -> 7 linhas)
+  MUDA  Volvo | V50 | 2.0 16V / 2.0 16V | DOHC L4 | 2011–2012 [ve]  -> Volvo | V50 | 2.0 16V | DOHC L4 | 2011–2012 [ve]
+
+== CXD13000 (13 -> 13 linhas)
+  MUDA  Chevrolet | Marajo | 1.6 8V / 1.6 8V | SOHC L4 | 1982–1990 [ve]  -> Chevrolet | Marajo | 1.6 8V | SOHC L4 | 1982–1990 [ve]
+
+== CXD13001 (13 -> 13 linhas)
+  MUDA  Chevrolet | Marajo | 1.6 8V / 1.6 8V | SOHC L4 | 1982–1990 [ve]  -> Chevrolet | Marajo | 1.6 8V | SOHC L4 | 1982–1990 [ve]
+
+== CXD13103 (6 -> 6 linhas)
+  MUDA  Hyundai | PORTER | 2.6 8V / 2.6 8V | SOHC L4 | 2001–2004 [ve]  -> Hyundai | PORTER | 2.6 8V | SOHC L4 | 2001–2004 [ve]
+
+== CXD13121 (19 -> 19 linhas)
+  MUDA  Volvo | S80 | 3.2 24V / 3.2 24V | DOHC L6 | 2006–2008 [ve]  -> Volvo | S80 | 3.2 24V | DOHC L6 | 2006–2008 [ve]
+
+== CXD13171 (3 -> 3 linhas)
+  MUDA  Renault | Clio | 3.0 / 1.6 8V | C OHV L4 | 1996–1998 [ve]  -> Renault | Clio | 1.6 8V | C3L OHV L4 | 1996–1998 [ve]
+
+== CXD13175 (3 -> 3 linhas)
+  MUDA  Renault | R19 | 3.0 / 1.6 8V | C OHV L4 | 1993–2000 [ve]  -> Renault | R19 | 1.6 8V | C3L OHV L4 | 1993–2000 [ve]
+
+== CXD13179 (3 -> 3 linhas)
+  MUDA  Renault | Clio | 3.0 / 1.6 8V | C OHV L4 | 1996–1998 [ve]  -> Renault | Clio | 1.6 8V | C3L OHV L4 | 1996–1998 [ve]
+
+== CXD13193 (13 -> 13 linhas)
+  MUDA  Chevrolet | Marajo | 1.6 8V / 1.6 8V | SOHC L4 | 1982–1990 [ve]  -> Chevrolet | Marajo | 1.6 8V | SOHC L4 | 1982–1990 [ve]
+
+== TER552120 (12 -> 12 linhas)
+  MUDA  Ford | Ranger | 2.5 / 2.5 8V | LIMA SOHC L4 | 1997–2001 [ve]  -> Ford | Ranger | 2.5 8V | LIMA SOHC L4 | 1997–2001 [ve]
+
+== TER552134 (8 -> 8 linhas)
+  MUDA  Ford | F-250 | 4.2 / 4.2 12V | OHV OHV V6 | 1999–2003 [ve]  -> Ford | F-250 | 4.2 12V | OHV OHV V6 | 1999–2003 [ve]
+  MUDA  Ford | F-250 | 4.2 / 4.2 12V | OHV EFI OHV V6 | 1999–2003 [ve]  -> Ford | F-250 | 4.2 12V | OHV EFI OHV V6 | 1999–2003 [ve]
+
+== TER553003 (14 -> 14 linhas)
+  MUDA  Chevrolet | Marajo | 1.6 8V / 1.6 8V | SOHC L4 | 1982–1989 [ve]  -> Chevrolet | Marajo | 1.6 8V | SOHC L4 | 1982–1989 [ve]
+
+== TER55330 (7 -> 7 linhas)
+  MUDA  Daewoo | Espero | 2.0 8V / 2.0 8V | SOHC L4 | 1994–1997 [ve]  -> Daewoo | Espero | 2.0 8V | SOHC L4 | 1994–1997 [ve]
+
+== TER55331 (6 -> 6 linhas)
+  MUDA  Daewoo | Espero | 2.0 8V / 2.0 8V | SOHC L4 | 1994–1997 [ve]  -> Daewoo | Espero | 2.0 8V | SOHC L4 | 1994–1997 [ve]
+
+== TER5592028 (14 -> 12 linhas)
+  SAI  Volvo | V50 | 1.6 16V |  | 2005–2012 [txt]   coberta por: Volvo | V50 | 1.6 16V | DOHC L4 | 2005–2012 [ve]
+  SAI  Volvo | V50 | 2.0 16V |  | 2006–2012 [txt]   coberta por: Volvo | V50 | 2.0 16V | DOHC L4 | 2006–2012 [ve]
+  MUDA  Volvo | V50 | 1.6 16V / 1.6 16V | DOHC L4 | 2005–2012 [ve]  -> Volvo | V50 | 1.6 16V | DOHC L4 | 2005–2012 [ve]
+  MUDA  Volvo | V50 | 2.0 16V / 2.0 16V | DOHC L4 | 2006–2012 [ve]  -> Volvo | V50 | 2.0 16V | DOHC L4 | 2006–2012 [ve]
+
+== TER5592029 (14 -> 12 linhas)
+  SAI  Volvo | V50 | 1.6 16V |  | 2005–2012 [txt]   coberta por: Volvo | V50 | 1.6 16V | DOHC L4 | 2005–2012 [ve]
+  SAI  Volvo | V50 | 2.0 16V |  | 2006–2012 [txt]   coberta por: Volvo | V50 | 2.0 16V | DOHC L4 | 2006–2012 [ve]
+  MUDA  Volvo | V50 | 1.6 16V / 1.6 16V | DOHC L4 | 2005–2012 [ve]  -> Volvo | V50 | 1.6 16V | DOHC L4 | 2005–2012 [ve]
+  MUDA  Volvo | V50 | 2.0 16V / 2.0 16V | DOHC L4 | 2006–2012 [ve]  -> Volvo | V50 | 2.0 16V | DOHC L4 | 2006–2012 [ve]
+
+== ROL0094 (38 -> 38 linhas)
+  MUDA  Renault | Clio | 3.0 / 1.6 8V | C OHV L4 | 1996–1999 [ve]  -> Renault | Clio | 1.6 8V | C3L OHV L4 | 1996–1999 [ve]
+  MUDA  Renault | R19 | 3.0 / 1.6 8V | C OHV L4 | 1993–2000 [ve]  -> Renault | R19 | 1.6 8V | C3L OHV L4 | 1993–2000 [ve]
+
+== L803775 (180 -> 180 linhas)
+  MUDA  Scania | R | 14.0 / 14.0 16V | 142 · DSC 01 SOHV V8 | 1987–1991 [ve]  -> Scania | R | 14.0 16V | 142 · DSC 01 SOHV V8 | 1987–1991 [ve]
+
+== ROL32311 (98 -> 98 linhas)
+  MUDA  Scania | R | 14.0 / 14.0 16V | 142 · DSC 01 SOHV V8 | 1987–1991 [ve]  -> Scania | R | 14.0 16V | 142 · DSC 01 SOHV V8 | 1987–1991 [ve]
+
+== ELE1018 (19 -> 19 linhas)
+  MUDA  Renault | Clio | 3.0 / 1.6 8V | C OHV L4 | 1998–1999 [ve]  -> Renault | Clio | 1.6 8V | C3L OHV L4 | 1998–1999 [ve]
+
+== ELE1049 (20 -> 20 linhas)
+  MUDA  Audi | TT | 2.0 / 2.0 16V | D DOHC L4 | 2007–2010 [ve]  -> Audi | TT | 2.0 16V | D2L DOHC L4 | 2007–2010 [ve]
+  MUDA  Chery | A3 | 1.6 16V / 1.6 16V | DOHC L4 | 2010–2011 [ve]  -> Chery | A3 | 1.6 16V | DOHC L4 | 2010–2011 [ve]
+
+== AMT7109 (9 -> 9 linhas)
+  MUDA  Ford | Ranger | 2.5 / 2.5 8V | LIMA SOHC L4 | 1998–2003 [ve]  -> Ford | Ranger | 2.5 8V | LIMA SOHC L4 | 1998–2003 [ve]
+
+== AMT7391 (9 -> 9 linhas)
+  MUDA  Ford | Ranger | 2.5 / 2.5 8V | LIMA SOHC L4 | 1998–2003 [ve]  -> Ford | Ranger | 2.5 8V | LIMA SOHC L4 | 1998–2003 [ve]
+
+== AMT7430 (3 -> 3 linhas)
+  MUDA  Volkswagen | Tiguan | 2.0 / 2.0 16V | D DOHC L4 | 2009 [ve]  -> Volkswagen | Tiguan | 2.0 16V | D2L DOHC L4 | 2009 [ve]
+
+== AMT7457 (5 -> 5 linhas)
+  MUDA  Audi | A3 | 2.0 / 2.0 16V | D DOHC L4 | 2013–2014 [ve]  -> Audi | A3 | 2.0 16V | D2L DOHC L4 | 2013–2014 [ve]
+
+== BOL40023 (12 -> 12 linhas)
+  MUDA  Chevrolet | Marajo | 1.6 8V / 1.6 8V | SOHC L4 | 1982–1990 [ve]  -> Chevrolet | Marajo | 1.6 8V | SOHC L4 | 1982–1990 [ve]
+
+== BOL40058 (8 -> 8 linhas)
+  MUDA  Ford | Ranger | 2.5 / 2.5 8V | LIMA SOHC L4 | 1998–2003 [ve]  -> Ford | Ranger | 2.5 8V | LIMA SOHC L4 | 1998–2003 [ve]
+
+== BV11 (81 -> 81 linhas)
+  MUDA  Jeep | Grand Cherokee | 3.6 24V / 3.6 24V | DOHC V6 | 2013–2015 [ve]  -> Jeep | Grand Cherokee | 3.6 24V | DOHC V6 | 2013–2015 [ve]
+  MUDA  Suzuki | S-CROSS | 1.4 16V / 1.4 16V | DOHC L4 | 2017–2024 [ve]  -> Suzuki | S-CROSS | 1.4 16V | DOHC L4 | 2017–2024 [ve]
+  MUDA  Suzuki | S-CROSS | 1.6 16V / 1.6 16V | DOHC L4 | 2017–2019 [ve]  -> Suzuki | S-CROSS | 1.6 16V | DOHC L4 | 2017–2019 [ve]
+
+== BV12 (247 -> 246 linhas)
+  SAI  Mercedes-Benz | GLE-CLASS | 4.0 32V |  | 2021 [txt]   coberta por: Mercedes-Benz | GLE-CLASS | 4.0 32V | M177DE40L DOHC V8 | 2021 [ve]
+  MUDA  Volkswagen | Passat | 2.0 / 2.0 16V | VARIANT · D DOHC L4 | 2007–2010 [ve]  -> Volkswagen | Passat | 2.0 16V | VARIANT · D2L DOHC L4 | 2007–2010 [ve]
+  MUDA  Lifan | 320 | 1.3 16V / 1.3 16V | DOHC L4 | 2009–2015 [ve]  -> Lifan | 320 | 1.3 16V | DOHC L4 | 2009–2015 [ve]
+  MUDA  Mercedes-Benz | GLE-CLASS | 40.0 / 4.0 32V | M177DE DOHC V8 | 2021 [ve]  -> Mercedes-Benz | GLE-CLASS | 4.0 32V | M177DE40L DOHC V8 | 2021 [ve]
+
+== BV14 (114 -> 114 linhas)
+  MUDA  Subaru | Outback | 3.6 24V / 3.6 24V | DOHC BOXER6 | 2015–2018 [ve]  -> Subaru | Outback | 3.6 24V | DOHC BOXER6 | 2015–2018 [ve]
+
+== BS14 (56 -> 55 linhas)
+  SAI  Mercedes-Benz | GLE-CLASS | 4.0 32V |  | 2021 [txt]   coberta por: Mercedes-Benz | GLE-CLASS | 4.0 32V | M177DE40L DOHC V8 | 2021 [ve]
+  MUDA  Mercedes-Benz | GLE-CLASS | 40.0 / 4.0 32V | M177DE DOHC V8 | 2021 [ve]  -> Mercedes-Benz | GLE-CLASS | 4.0 32V | M177DE40L DOHC V8 | 2021 [ve]
+
+== CL18 (320 -> 317 linhas)
+  SAI  Hyundai | EXCEL | 1.5 8V |  | 1989–1994 [txt]   coberta por: Hyundai | EXCEL | 1.5 8V | VVT SOHC L4 | 1989–1994 [ve]
+  SAI  Suzuki | IGNIS | 1.3 16V |  | 2000–2003 [txt]   coberta por: Suzuki | IGNIS | 1.3 16V | DOHC L4 | 2000–2003 [ve]
+  SAI  Mazda | MX5 | 1.8 16V |  | 1993–1997 [txt]   coberta por: Mazda | MX5 | 1.8 16V | DOHC L4 | 1993–1997 [ve]
+  MUDA  Hyundai | EXCEL | 1.5 8V / 1.5 8V | VVT SOHC L4 | 1989–1994 [ve]  -> Hyundai | EXCEL | 1.5 8V | VVT SOHC L4 | 1989–1994 [ve]
+  MUDA  Suzuki | IGNIS | 1.3 16V / 1.3 16V | DOHC L4 | 2000–2003 [ve]  -> Suzuki | IGNIS | 1.3 16V | DOHC L4 | 2000–2003 [ve]
+  MUDA  Ford | Ranger | 2.5 / 2.5 8V | LIMA SOHC L4 | 1997–2001 [ve]  -> Ford | Ranger | 2.5 8V | LIMA SOHC L4 | 1997–2001 [ve]
+  MUDA  Lifan | 320 | 1.3 16V / 1.3 16V | DOHC L4 | 2009–2015 [ve]  -> Lifan | 320 | 1.3 16V | DOHC L4 | 2009–2015 [ve]
+  MUDA  Mazda | MX5 | 1.8 16V / 1.8 16V | DOHC L4 | 1993–1997 [ve]  -> Mazda | MX5 | 1.8 16V | DOHC L4 | 1993–1997 [ve]
+
+== CL20 (296 -> 293 linhas)
+  SAI  Daihatsu | TERIOS | 1.3 16V |  | 1997–1999 [txt]   coberta por: Daihatsu | TERIOS | 1.3 16V | DOHC L4 | 1997–1999 [ve]
+  SAI  Mazda | 626 | 2.0 16V |  | 1994–1997 [txt]   coberta por: Mazda | 626 | 2.0 16V | DOHC L4 | 1994–1997 [ve]
+  SAI  Mazda | MPV | 3.0 18V |  | 1994–1999 [txt]   coberta por: Mazda | MPV | 3.0 18V | SOHC V6 | 1994–1999 [ve]
+  MUDA  Renault | R19 | 3.0 / 1.6 8V | C OHV L4 | 1993–2000 [ve]  -> Renault | R19 | 1.6 8V | C3L OHV L4 | 1993–2000 [ve]
+  MUDA  Daewoo | Leganza | 2.0 16V / 2.0 16V | DOHC L4 | 1997–2002 [ve]  -> Daewoo | Leganza | 2.0 16V | DOHC L4 | 1997–2002 [ve]
+  MUDA  Daihatsu | TERIOS | 1.3 16V / 1.3 16V | DOHC L4 | 1997–1999 [ve]  -> Daihatsu | TERIOS | 1.3 16V | DOHC L4 | 1997–1999 [ve]
+  MUDA  Ferrari | F 355 | 3.5 40V / 3.5 40V | DOHC V8 | 1995–1998 [ve]  -> Ferrari | F 355 | 3.5 40V | DOHC V8 | 1995–1998 [ve]
+  MUDA  Mazda | 626 | 2.0 / 2.0 16V | DOHC L4 | 1994–1997 [ve]  -> Mazda | 626 | 2.0 16V | DOHC L4 | 1994–1997 [ve]
+  MUDA  Mazda | MPV | 3.0 18V / 3.0 18V | SOHC V6 | 1994–1999 [ve]  -> Mazda | MPV | 3.0 18V | SOHC V6 | 1994–1999 [ve]
+
+== CL16 (218 -> 218 linhas)
+  MUDA  Suzuki | Jimny | 1.3 16V / 1.3 16V | SOHC L4 | 1998–2008 [ve]  -> Suzuki | Jimny | 1.3 16V | SOHC L4 | 1998–2008 [ve]
+  MUDA  Lifan | 620 | 1.6 16V / 1.6 16V | DOHC L4 | 2010–2015 [ve]  -> Lifan | 620 | 1.6 16V | DOHC L4 | 2010–2015 [ve]
+
+== CL22 (276 -> 275 linhas)
+  SAI  Chery | A1 | 1.1 16V |  | 2008–2015 [txt]   coberta por: Chery | A1 | 1.0 16V / 1.1 16V | DOHC L4 | 2008–2015 [ve]
+  MUDA  Ford | F-250 | 4.2 / 4.2 12V | OHV OHV V6 | 1998–2003 [ve]  -> Ford | F-250 | 4.2 12V | OHV OHV V6 | 1998–2003 [ve]
+  MUDA  Ford | F-250 | 4.2 / 4.2 12V | OHV EFI OHV V6 | 1998–2003 [ve]  -> Ford | F-250 | 4.2 12V | OHV EFI OHV V6 | 1998–2003 [ve]
+  MUDA  Daewoo | Leganza | 2.0 16V / 2.0 16V | DOHC L4 | 1997–2002 [ve]  -> Daewoo | Leganza | 2.0 16V | DOHC L4 | 1997–2002 [ve]
+
+== CL19 (209 -> 207 linhas)
+  SAI  Daihatsu | GRAN MOVE | 1.5 16V |  | 1996–2000 [txt]   coberta por: Daihatsu | GRAN MOVE | 1.5 16V | DOHC L4 | 1996–2000 [ve]
+  SAI  Mazda | 626 | 2.0 16V |  | 1997–1999 [txt]   coberta por: Mazda | 626 | 2.0 16V | DOHC L4 | 1997–1999 [ve]
+  MUDA  Chery | A3 | 1.6 16V / 1.6 16V | DOHC L4 | 2010–2012 [ve]  -> Chery | A3 | 1.6 16V | DOHC L4 | 2010–2012 [ve]
+  MUDA  Daewoo | Espero | 2.0 8V / 2.0 8V | SOHC L4 | 1995–1997 [ve]  -> Daewoo | Espero | 2.0 8V | SOHC L4 | 1995–1997 [ve]
+  MUDA  Daihatsu | GRAN MOVE | 1.5 16V / 1.5 16V | DOHC L4 | 1996–2000 [ve]  -> Daihatsu | GRAN MOVE | 1.5 16V | DOHC L4 | 1996–2000 [ve]
+  MUDA  Mazda | 626 | 2.0 / 2.0 16V | DOHC L4 | 1997–1999 [ve]  -> Mazda | 626 | 2.0 16V | DOHC L4 | 1997–1999 [ve]
+
+== CL24 (207 -> 207 linhas)
+  MUDA  Lifan | 620 | 1.6 16V / 1.6 16V | DOHC L4 | 2010–2015 [ve]  -> Lifan | 620 | 1.6 16V | DOHC L4 | 2010–2015 [ve]
+
+== CL17 (90 -> 89 linhas)
+  SAI  Suzuki | SIDEKICK | 1.6 16V |  | 1992–1994 [txt]   coberta por: Suzuki | SIDEKICK | 1.6 16V | DOHC L4 | 1992–1994 [ve]
+  MUDA  Suzuki | SIDEKICK | 1.6 16V / 1.6 16V | DOHC L4 | 1992–1994 [ve]  -> Suzuki | SIDEKICK | 1.6 16V | DOHC L4 | 1992–1994 [ve]
+
+== CL21 (204 -> 199 linhas)
+  SAI  Chery | A3 | 1.6 16V |  | 2010–2012 [txt]   coberta por: Chery | A3 | 1.6 16V | DOHC L4 | 2010–2012 [ve]
+  SAI  Daihatsu | GRAN MOVE | 1.5 16V |  | 1996–2000 [txt]   coberta por: Daihatsu | GRAN MOVE | 1.5 16V | DOHC L4 | 1996–2000 [ve]
+  SAI  Mazda | 626 | 2.0 16V |  | 1994–1999 [txt]   coberta por: Mazda | 626 | 2.0 16V | DOHC L4 | 1994–1999 [ve]
+  SAI  Mazda | MPV | 3.0 18V |  | 1994–1999 [txt]   coberta por: Mazda | MPV | 3.0 18V | SOHC V6 | 1994–1999 [ve]
+  SAI  Volvo | 460 | 2.0 8V |  | 1992–1996 [txt]   coberta por: Volvo | 460 | 2.0 8V | SOHC L4 | 1992–1996 [ve]
+  MUDA  Chery | A3 | 1.6 16V / 1.6 16V | DOHC L4 | 2010–2012 [ve]  -> Chery | A3 | 1.6 16V | DOHC L4 | 2010–2012 [ve]
+  MUDA  Daihatsu | GRAN MOVE | 1.5 16V / 1.5 16V | DOHC L4 | 1996–2000 [ve]  -> Daihatsu | GRAN MOVE | 1.5 16V | DOHC L4 | 1996–2000 [ve]
+  MUDA  Jeep | Grand Cherokee | 4.7 / 4.7 16V | V8 SOHC V8 | 1998–2006 [ve]  -> Jeep | Grand Cherokee | 4.7 16V | V8 SOHC V8 | 1998–2006 [ve]
+  MUDA  Jeep | Grand Cherokee | 4.0 / 4.0 12V | V6 SOHC V6 | 1999–2004 [ve]  -> Jeep | Grand Cherokee | 4.0 12V | V6 SOHC V6 | 1999–2004 [ve]
+  MUDA  Jeep | Grand Cherokee | 3.6 24V / 3.6 24V | DOHC V6 | 2011–2015 [ve]  -> Jeep | Grand Cherokee | 3.6 24V | DOHC V6 | 2011–2015 [ve]
+  MUDA  Mazda | 626 | 2.0 / 2.0 16V | DOHC L4 | 1994–1999 [ve]  -> Mazda | 626 | 2.0 16V | DOHC L4 | 1994–1999 [ve]
+  MUDA  Mazda | MPV | 3.0 18V / 3.0 18V | SOHC V6 | 1994–1999 [ve]  -> Mazda | MPV | 3.0 18V | SOHC V6 | 1994–1999 [ve]
+  MUDA  Volvo | 460 | 2.0 8V / 2.0 8V | SOHC L4 | 1992–1996 [ve]  -> Volvo | 460 | 2.0 8V | SOHC L4 | 1992–1996 [ve]
+
+== CL26 (118 -> 117 linhas)
+  SAI  Chrysler | GRAND CARAVAN | 3.8 12V |  | 1996–2000 [txt]   coberta por: Chrysler | GRAND CARAVAN | 3.8 12V | V6 SOHC V6 | 1996–2000 [ve]
+  MUDA  Chrysler | GRAND CARAVAN | 3.8 / 3.8 12V | V6 SOHC V6 | 1996–2000 [ve]  -> Chrysler | GRAND CARAVAN | 3.8 12V | V6 SOHC V6 | 1996–2000 [ve]
+  MUDA  Suzuki | SX4 | 2.0 16V / 2.0 16V | DOHC L4 | 2006–2015 [ve]  -> Suzuki | SX4 | 2.0 16V | DOHC L4 | 2006–2015 [ve]
+
+== CL14 (95 -> 94 linhas)
+  SAI  Lada | LAIKA | 1.6 8V |  | 1990–1998 [txt]   coberta por: Lada | LAIKA | 1.6 8V | SOHC L4 | 1990–1998 [ve]
+  MUDA  Suzuki | SX4 | 2.0 16V / 2.0 16V | DOHC L4 | 2006–2015 [ve]  -> Suzuki | SX4 | 2.0 16V | DOHC L4 | 2006–2015 [ve]
+  MUDA  Suzuki | S-CROSS | 1.6 16V / 1.6 16V | DOHC L4 | 2015–2019 [ve]  -> Suzuki | S-CROSS | 1.6 16V | DOHC L4 | 2015–2019 [ve]
+  MUDA  Daihatsu | TERIOS | 1.3 16V / 1.3 16V | DOHC L4 | 1997–1999 [ve]  -> Daihatsu | TERIOS | 1.3 16V | DOHC L4 | 1997–1999 [ve]
+  MUDA  Lada | LAIKA | 1.6 8V / 1.6 8V | SOHC L4 | 1990–1998 [ve]  -> Lada | LAIKA | 1.6 8V | SOHC L4 | 1990–1998 [ve]
+
+== MF18 (113 -> 113 linhas)
+  MUDA  Audi | A3 | 2.0 / 2.0 16V | D DOHC L4 | 2008–2014 [ve]  -> Audi | A3 | 2.0 16V | D2L DOHC L4 | 2008–2014 [ve]
+
+== MF19 (158 -> 158 linhas)
+  MUDA  Hyundai | Vera Cruz | 3.8 24V / 3.8 24V | DOHC V6 | 2008–2012 [ve]  -> Hyundai | Vera Cruz | 3.8 24V | DOHC V6 | 2008–2012 [ve]
+  MUDA  Volkswagen | Passat | 2.0 / 2.0 16V | VARIANT · D DOHC L4 | 2009–2010 [ve]  -> Volkswagen | Passat | 2.0 16V | VARIANT · D2L DOHC L4 | 2009–2010 [ve]
+
+== MF20 (90 -> 90 linhas)
+  MUDA  Volvo | C30 | 2.0 16V / 2.0 16V | DOHC L4 | 2008–2012 [ve]  -> Volvo | C30 | 2.0 16V | DOHC L4 | 2008–2012 [ve]
+
+== MF21 (113 -> 113 linhas)
+  MUDA  Volkswagen | Tiguan | 2.0 / 2.0 16V | D DOHC L4 | 2007–2016 [ve]  -> Volkswagen | Tiguan | 2.0 16V | D2L DOHC L4 | 2007–2016 [ve]
+
+== MF24 (196 -> 196 linhas)
+  MUDA  Audi | A3 | 2.0 / 2.0 16V | D DOHC L4 | 2008–2012 [ve]  -> Audi | A3 | 2.0 16V | D2L DOHC L4 | 2008–2012 [ve]
+  MUDA  Hyundai | Vera Cruz | 3.8 24V / 3.8 24V | DOHC V6 | 2008–2012 [ve]  -> Hyundai | Vera Cruz | 3.8 24V | DOHC V6 | 2008–2012 [ve]
+
+== MF26 (108 -> 108 linhas)
+  MUDA  Audi | A3 | 2.0 / 2.0 16V | D DOHC L4 | 2014 [ve]  -> Audi | A3 | 2.0 16V | D2L DOHC L4 | 2014 [ve]
+
+== KB21 (16 -> 16 linhas)
+  MUDA  Audi | TT | 2.0 / 2.0 16V | D DOHC L4 | 2008–2010 [ve]  -> Audi | TT | 2.0 16V | D2L DOHC L4 | 2008–2010 [ve]
+
+== KB24 (55 -> 55 linhas)
+  MUDA  Audi | A3 | 2.0 / 2.0 16V | D DOHC L4 | 2008–2012 [ve]  -> Audi | A3 | 2.0 16V | D2L DOHC L4 | 2008–2012 [ve]
+  MUDA  Chery | A3 | 1.6 16V / 1.6 16V | DOHC L4 | 2010–2012 [ve]  -> Chery | A3 | 1.6 16V | DOHC L4 | 2010–2012 [ve]
+
+== KF24 (91 -> 91 linhas)
+  MUDA  Hyundai | Vera Cruz | 3.8 24V / 3.8 24V | DOHC V6 | 2007–2012 [ve]  -> Hyundai | Vera Cruz | 3.8 24V | DOHC V6 | 2007–2012 [ve]
+  MUDA  Volkswagen | Passat | 2.0 / 2.0 16V | VARIANT · D DOHC L4 | 2007–2010 [ve]  -> Volkswagen | Passat | 2.0 16V | VARIANT · D2L DOHC L4 | 2007–2010 [ve]
+  MUDA  Volkswagen | Tiguan | 2.0 / 2.0 16V | D DOHC L4 | 2011–2016 [ve]  -> Volkswagen | Tiguan | 2.0 16V | D2L DOHC L4 | 2011–2016 [ve]
+  MUDA  Volvo | XC90 | 3.2 24V / 3.2 24V | DOHC L6 | 2006–2013 [ve]  -> Volvo | XC90 | 3.2 24V | DOHC L6 | 2006–2013 [ve]
+
+== KF26 (71 -> 70 linhas)
+  SAI  Mercedes-Benz | GLE-CLASS | 4.0 32V |  | 2021 [txt]   coberta por: Mercedes-Benz | GLE-CLASS | 4.0 32V | M177DE40L DOHC V8 | 2021 [ve]
+  MUDA  Volvo | C30 | 2.0 16V / 2.0 16V | DOHC L4 | 2008–2012 [ve]  -> Volvo | C30 | 2.0 16V | DOHC L4 | 2008–2012 [ve]
+  MUDA  Mercedes-Benz | GLE-CLASS | 40.0 / 4.0 32V | M177DE DOHC V8 | 2021 [ve]  -> Mercedes-Benz | GLE-CLASS | 4.0 32V | M177DE40L DOHC V8 | 2021 [ve]
+
+== KG22 (68 -> 68 linhas)
+  MUDA  Volkswagen | Fusca | 2.0 / 2.0 16V | D DOHC L4 | 2012–2014 [ve]  -> Volkswagen | Fusca | 2.0 16V | D2L DOHC L4 | 2012–2014 [ve]
+
+== KG24 (88 -> 88 linhas)
+  MUDA  Volkswagen | Passat | 2.0 / 2.0 16V | VARIANT · D DOHC L4 | 2007–2010 [ve]  -> Volkswagen | Passat | 2.0 16V | VARIANT · D2L DOHC L4 | 2007–2010 [ve]
+
+== KB18 (59 -> 59 linhas)
+  MUDA  Audi | A3 | 2.0 / 2.0 16V | D DOHC L4 | 2008–2012 [ve]  -> Audi | A3 | 2.0 16V | D2L DOHC L4 | 2008–2012 [ve]
+  MUDA  Chery | A3 | 1.6 16V / 1.6 16V | DOHC L4 | 2010–2012 [ve]  -> Chery | A3 | 1.6 16V | DOHC L4 | 2010–2012 [ve]
+
+== KF19 (42 -> 42 linhas)
+  MUDA  Hyundai | Vera Cruz | 3.8 24V / 3.8 24V | DOHC V6 | 2007–2012 [ve]  -> Hyundai | Vera Cruz | 3.8 24V | DOHC V6 | 2007–2012 [ve]
+  MUDA  Volkswagen | Passat | 2.0 / 2.0 16V | VARIANT · D DOHC L4 | 2007–2010 [ve]  -> Volkswagen | Passat | 2.0 16V | VARIANT · D2L DOHC L4 | 2007–2010 [ve]
+
+== KG19 (59 -> 59 linhas)
+  MUDA  Volkswagen | Passat | 2.0 / 2.0 16V | VARIANT · D DOHC L4 | 2007–2010 [ve]  -> Volkswagen | Passat | 2.0 16V | VARIANT · D2L DOHC L4 | 2007–2010 [ve]
+
+== KF20 (34 -> 34 linhas)
+  MUDA  Volvo | C30 | 2.0 16V / 2.0 16V | DOHC L4 | 2008–2012 [ve]  -> Volvo | C30 | 2.0 16V | DOHC L4 | 2008–2012 [ve]
+
+== KF21 (15 -> 15 linhas)
+  MUDA  Volkswagen | Tiguan | 2.0 / 2.0 16V | D DOHC L4 | 2011–2016 [ve]  -> Volkswagen | Tiguan | 2.0 16V | D2L DOHC L4 | 2011–2016 [ve]
+
+== KF22 (43 -> 42 linhas)
+  SAI  Mercedes-Benz | GLE-CLASS | 4.0 32V |  | 2021 [txt]   coberta por: Mercedes-Benz | GLE-CLASS | 4.0 32V | M177DE40L DOHC V8 | 2021 [ve]
+  MUDA  Mercedes-Benz | GLE-CLASS | 40.0 / 4.0 32V | M177DE DOHC V8 | 2021 [ve]  -> Mercedes-Benz | GLE-CLASS | 4.0 32V | M177DE40L DOHC V8 | 2021 [ve]
+  MUDA  Volvo | XC90 | 3.2 24V / 3.2 24V | DOHC L6 | 2008–2013 [ve]  -> Volvo | XC90 | 3.2 24V | DOHC L6 | 2008–2013 [ve]
+  MUDA  Volvo | XC90 | 4.4 / 4.4 32V | V8 DOHC V8 | 2008–2010 [ve]  -> Volvo | XC90 | 4.4 32V | V8 DOHC V8 | 2008–2010 [ve]
+
+== CIL8502 (35 -> 35 linhas)
+  MUDA  Daewoo | Espero | 2.0 8V / 2.0 8V | SOHC L4 | 1993–1997 [ve]  -> Daewoo | Espero | 2.0 8V | SOHC L4 | 1993–1997 [ve]
+
+== BOR11117 (12 -> 12 linhas)
+  MUDA  Renault | Clio | 3.0 / 1.6 8V | C OHV L4 | 1996–1999 [ve]  -> Renault | Clio | 1.6 8V | C3L OHV L4 | 1996–1999 [ve]
+
+== KAP11873 (8 -> 8 linhas)
+  MUDA  Hyundai | Vera Cruz | 3.8 24V / 3.8 24V | DOHC V6 | 2007–2013 [ve]  -> Hyundai | Vera Cruz | 3.8 24V | DOHC V6 | 2007–2013 [ve]
+
+== KAP11875 (2 -> 2 linhas)
+  MUDA  Hyundai | Vera Cruz | 3.8 24V / 3.8 24V | DOHC V6 | 2007–2013 [ve]  -> Hyundai | Vera Cruz | 3.8 24V | DOHC V6 | 2007–2013 [ve]
+
+== KAP11840 (7 -> 7 linhas)
+  MUDA  Hyundai | Santa Fe | 2.7 24V / 2.7 24V | DOHC V6 | 2001–2005 [ve]  -> Hyundai | Santa Fe | 2.7 24V | DOHC V6 | 2001–2005 [ve]
+
+== KAC11959 (9 -> 9 linhas)
+  MUDA  Renault | Clio | 3.0 / 1.6 8V | C OHV L4 | 1996–1999 [ve]  -> Renault | Clio | 1.6 8V | C3L OHV L4 | 1996–1999 [ve]
+
+== SFR30030 (17 -> 17 linhas)
+  MUDA  Ford | Ranger | 2.5 / 2.5 8V | LIMA SOHC L4 | 1998–2003 [ve]  -> Ford | Ranger | 2.5 8V | LIMA SOHC L4 | 1998–2003 [ve]
+
+== SFR30062 (15 -> 15 linhas)
+  MUDA  Ford | Ranger | 2.5 / 2.5 8V | LIMA SOHC L4 | 1998–2003 [ve]  -> Ford | Ranger | 2.5 8V | LIMA SOHC L4 | 1998–2003 [ve]
+
+== SFR30076 (5 -> 5 linhas)
+  MUDA  Renault | R19 | 3.0 / 1.6 8V | C OHV L4 | 1993–2000 [ve]  -> Renault | R19 | 1.6 8V | C3L OHV L4 | 1993–2000 [ve]
+
+== SFR30077 (14 -> 14 linhas)
+  MUDA  Jeep | Wrangler | 4.0 / 4.0 12V | V6 SOHC V6 | 1997–2002 [ve]  -> Jeep | Wrangler | 4.0 12V | V6 SOHC V6 | 1997–2002 [ve]
+
+== SFR30088 (8 -> 8 linhas)
+  MUDA  Renault | R19 | 3.0 / 1.6 8V | C OHV L4 | 1993–2000 [ve]  -> Renault | R19 | 1.6 8V | C3L OHV L4 | 1993–2000 [ve]
+
+== BIE20018 (9 -> 9 linhas)
+  MUDA  Ford | Ranger | 2.5 / 2.5 8V | LIMA SOHC L4 | 1998–2003 [ve]  -> Ford | Ranger | 2.5 8V | LIMA SOHC L4 | 1998–2003 [ve]
+
+== BIE20031 (29 -> 28 linhas)
+  SAI  Volkswagen | EOS | 2.0 16V |  | 2006–2010 [txt]   coberta por: Volkswagen | EOS | 2.0 16V | D2L DOHC L4 | 2006–2010 [ve]
+  MUDA  Volkswagen | Passat | 2.0 / 2.0 16V | VARIANT · D DOHC L4 | 2007–2010 [ve]  -> Volkswagen | Passat | 2.0 16V | VARIANT · D2L DOHC L4 | 2007–2010 [ve]
+  MUDA  Volkswagen | EOS | 2.0 / 2.0 16V | D DOHC L4 | 2006–2010 [ve]  -> Volkswagen | EOS | 2.0 16V | D2L DOHC L4 | 2006–2010 [ve]
+
+== BIE20041 (10 -> 10 linhas)
+  MUDA  Ford | F-250 | 4.2 / 4.2 12V | OHV OHV V6 | 1998–2003 [ve]  -> Ford | F-250 | 4.2 12V | OHV OHV V6 | 1998–2003 [ve]
+  MUDA  Ford | F-250 | 4.2 / 4.2 12V | OHV EFI OHV V6 | 1998–2003 [ve]  -> Ford | F-250 | 4.2 12V | OHV EFI OHV V6 | 1998–2003 [ve]
+
+== BIE20056 (8 -> 8 linhas)
+  MUDA  Hyundai | Vera Cruz | 3.8 24V / 3.8 24V | DOHC V6 | 2007–2013 [ve]  -> Hyundai | Vera Cruz | 3.8 24V | DOHC V6 | 2007–2013 [ve]
+
+== BIE20063 (8 -> 8 linhas)
+  MUDA  Hyundai | Vera Cruz | 3.8 24V / 3.8 24V | DOHC V6 | 2007–2013 [ve]  -> Hyundai | Vera Cruz | 3.8 24V | DOHC V6 | 2007–2013 [ve]
+
+== BIE20067 (11 -> 11 linhas)
+  MUDA  Chevrolet | Marajo | 1.6 8V / 1.6 8V | SOHC L4 | 1982–1989 [ve]  -> Chevrolet | Marajo | 1.6 8V | SOHC L4 | 1982–1989 [ve]
+
+== BIE20119 (9 -> 9 linhas)
+  MUDA  Ford | Ranger | 2.5 / 2.5 8V | LIMA SOHC L4 | 1998–2003 [ve]  -> Ford | Ranger | 2.5 8V | LIMA SOHC L4 | 1998–2003 [ve]
+
+== BIE20128 (4 -> 4 linhas)
+  MUDA  Jeep | Cherokee | 3.7 / 3.7 12V | K V6 SOHC V6 | 2001–2007 [ve]  -> Jeep | Cherokee | 3.7 12V | K V6 SOHC V6 | 2001–2007 [ve]
+
+== FAC6318 (11 -> 10 linhas)
+  SAI  Lifan | 620 | 1.6 16V |  | 2010–2017 [txt]   coberta por: Lifan | 620 | 1.6 16V | DOHC L4 | 2010–2017 [ve]
+  MUDA  Lifan | 620 | 1.6 16V / 1.6 16V | DOHC L4 | 2010–2017 [ve]  -> Lifan | 620 | 1.6 16V | DOHC L4 | 2010–2017 [ve]
+
+== FAR6305 (51 -> 51 linhas)
+  MUDA  Scania | R | 14.0 / 14.0 16V | 142 · DSC 01 SOHV V8 | 1987–1991 [ve]  -> Scania | R | 14.0 16V | 142 · DSC 01 SOHV V8 | 1987–1991 [ve]
+
+== FAR6252 (5 -> 5 linhas)
+  MUDA  Lifan | 620 | 1.6 16V / 1.6 16V | DOHC L4 | 2010–2017 [ve]  -> Lifan | 620 | 1.6 16V | DOHC L4 | 2010–2017 [ve]
+
+== FAR6358 (14 -> 14 linhas)
+  MUDA  Volkswagen | EOS | 2.0 / 2.0 16V | D DOHC L4 | 2006–2010 [ve]  -> Volkswagen | EOS | 2.0 16V | D2L DOHC L4 | 2006–2010 [ve]
+
+== FAR6230 (11 -> 11 linhas)
+  MUDA  Daihatsu | FEROZA | 1.6 16V / 1.6 16V | SOHC L4 | 1988–1999 [ve]  -> Daihatsu | FEROZA | 1.6 16V | SOHC L4 | 1988–1999 [ve]
+
+== FLU6009 (61 -> 59 linhas)
+  SAI  Volvo | V50 | 1.6 16V |  | 2009–2010 [txt]   coberta por: Volvo | V50 | 1.6 16V | DOHC L4 | 2009–2010 [ve]
+  SAI  Volvo | V50 | 2.0 16V |  | 2011–2012 [txt]   coberta por: Volvo | V50 | 2.0 16V | DOHC L4 | 2011–2012 [ve]
+  MUDA  Volvo | V50 | 1.6 16V / 1.6 16V | DOHC L4 | 2009–2010 [ve]  -> Volvo | V50 | 1.6 16V | DOHC L4 | 2009–2010 [ve]
+  MUDA  Volvo | V50 | 2.0 16V / 2.0 16V | DOHC L4 | 2011–2012 [ve]  -> Volvo | V50 | 2.0 16V | DOHC L4 | 2011–2012 [ve]
+
+== FLU6204 (137 -> 137 linhas)
+  MUDA  Mercedes-Benz | GLE-CLASS | 40.0 / 4.0 32V | M177DE DOHC V8 | 2021–2026 [ve]  -> Mercedes-Benz | GLE-CLASS | 4.0 32V | M177DE40L DOHC V8 | 2021–2026 [ve]
+
+== FSE6056 (194 -> 193 linhas)
+  SAI  Agrale | BX 60 | 3.1 6V |  | 1990–2005 [txt]   coberta por: Agrale | BX 60 | 3.1 6V | F-3L 913 SOHV L3 | 1990–2005 [ve]
+  MUDA  Agrale | BX 60 | 3.0 / 3.1 6V | F- 913 SOHV L3 | 1990–2005 [ve]  -> Agrale | BX 60 | 3.1 6V | F-3L 913 SOHV L3 | 1990–2005 [ve]
+
+== TAX10444 (12 -> 12 linhas)
+  MUDA  Volvo | S40 | 1.8 16V / 1.8 16V | DOHC L4 | 2004–2006 [ve]  -> Volvo | S40 | 1.8 16V | DOHC L4 | 2004–2006 [ve]
+  MUDA  Volvo | V50 | 1.6 16V / 1.6 16V | DOHC L4 | 2009–2010 [ve]  -> Volvo | V50 | 1.6 16V | DOHC L4 | 2009–2010 [ve]
+  MUDA  Volvo | V50 | 2.0 16V / 2.0 16V | DOHC L4 | 2011–2012 [ve]  -> Volvo | V50 | 2.0 16V | DOHC L4 | 2011–2012 [ve]
+
+== TAX10010 (13 -> 13 linhas)
+  MUDA  Chevrolet | Marajo | 1.6 8V / 1.6 8V | SOHC L4 | 1982–1989 [ve]  -> Chevrolet | Marajo | 1.6 8V | SOHC L4 | 1982–1989 [ve]
+
+== TAX10335 (1 -> 1 linhas)
+  MUDA  Hyundai | Vera Cruz | 3.8 24V / 3.8 24V | DOHC V6 | 2007–2013 [ve]  -> Hyundai | Vera Cruz | 3.8 24V | DOHC V6 | 2007–2013 [ve]
+
+== TAX10540 (3 -> 3 linhas)
+  MUDA  Jeep | Grand Cherokee | 3.6 24V / 3.6 24V | DOHC V6 | 2010–2021 [ve]  -> Jeep | Grand Cherokee | 3.6 24V | DOHC V6 | 2010–2021 [ve]
+
+== CUB60024 (11 -> 11 linhas)
+  MUDA  Ford | Ranger | 2.5 / 2.5 8V | LIMA SOHC L4 | 1998–2003 [ve]  -> Ford | Ranger | 2.5 8V | LIMA SOHC L4 | 1998–2003 [ve]
+
+== CUB60029 (8 -> 8 linhas)
+  MUDA  Ford | Ranger | 2.5 / 2.5 8V | LIMA SOHC L4 | 1998–2003 [ve]  -> Ford | Ranger | 2.5 8V | LIMA SOHC L4 | 1998–2003 [ve]
+
+== CUB60046 (15 -> 13 linhas)
+  SAI  Volvo | V50 | 1.6 16V |  | 2009–2010 [txt]   coberta por: Volvo | V50 | 1.6 16V | DOHC L4 | 2009–2010 [ve]
+  SAI  Volvo | V50 | 2.0 16V |  | 2011–2012 [txt]   coberta por: Volvo | V50 | 2.0 16V | DOHC L4 | 2011–2012 [ve]
+  MUDA  Volvo | V50 | 1.6 16V / 1.6 16V | DOHC L4 | 2009–2010 [ve]  -> Volvo | V50 | 1.6 16V | DOHC L4 | 2009–2010 [ve]
+  MUDA  Volvo | V50 | 2.0 16V / 2.0 16V | DOHC L4 | 2011–2012 [ve]  -> Volvo | V50 | 2.0 16V | DOHC L4 | 2011–2012 [ve]
+
+== CUB60055 (25 -> 24 linhas)
+  SAI  Volkswagen | EOS | 2.0 16V |  | 2006–2010 [txt]   coberta por: Volkswagen | EOS | 2.0 16V | D2L DOHC L4 | 2006–2010 [ve]
+  MUDA  Volkswagen | Tiguan | 2.0 / 2.0 16V | D DOHC L4 | 2011–2016 [ve]  -> Volkswagen | Tiguan | 2.0 16V | D2L DOHC L4 | 2011–2016 [ve]
+  MUDA  Volkswagen | EOS | 2.0 / 2.0 16V | D DOHC L4 | 2006–2010 [ve]  -> Volkswagen | EOS | 2.0 16V | D2L DOHC L4 | 2006–2010 [ve]
+  MUDA  Audi | TT | 2.0 / 2.0 16V | D DOHC L4 | 2007–2010 [ve]  -> Audi | TT | 2.0 16V | D2L DOHC L4 | 2007–2010 [ve]
+
+== CUB60064 (4 -> 4 linhas)
+  MUDA  Ford | Ranger | 2.5 / 2.5 8V | LIMA SOHC L4 | 1998–2003 [ve]  -> Ford | Ranger | 2.5 8V | LIMA SOHC L4 | 1998–2003 [ve]
+
+== CUB60069 (14 -> 14 linhas)
+  MUDA  Audi | A3 | 2.0 / 2.0 16V | D DOHC L4 | 2013–2014 [ve]  -> Audi | A3 | 2.0 16V | D2L DOHC L4 | 2013–2014 [ve]
+
+== CUB60073 (11 -> 11 linhas)
+  MUDA  Hyundai | Vera Cruz | 3.8 24V / 3.8 24V | DOHC V6 | 2007–2013 [ve]  -> Hyundai | Vera Cruz | 3.8 24V | DOHC V6 | 2007–2013 [ve]
+
+== CUB60081 (4 -> 4 linhas)
+  MUDA  Suzuki | Vitara | 1.6 16V / 1.6 16V | SOHC L4 | 1992–1999 [ve]  -> Suzuki | Vitara | 1.6 16V | SOHC L4 | 1992–1999 [ve]
+
+== CUB60100 (14 -> 14 linhas)
+  MUDA  Renault | Clio | 3.0 / 1.6 8V | C OHV L4 | 1996–1999 [ve]  -> Renault | Clio | 1.6 8V | C3L OHV L4 | 1996–1999 [ve]
+
+== PIV5056 (7 -> 6 linhas)
+  SAI  Hyundai | PORTER | 2.6 8V |  | 2001–2004 [txt]   coberta por: Hyundai | PORTER | 2.6 8V | SOHC L4 | 2001–2004 [ve]
+  MUDA  Hyundai | PORTER | 2.6 8V / 2.6 8V | SOHC L4 | 2001–2004 [ve]  -> Hyundai | PORTER | 2.6 8V | SOHC L4 | 2001–2004 [ve]
+
+== PIV5057 (11 -> 11 linhas)
+  MUDA  Ford | Ranger | 2.5 / 2.5 8V | LIMA SOHC L4 | 1997–2001 [ve]  -> Ford | Ranger | 2.5 8V | LIMA SOHC L4 | 1997–2001 [ve]
+
+== PIV5066 (6 -> 6 linhas)
+  MUDA  Ford | F-250 | 4.2 / 4.2 12V | OHV OHV V6 | 1998–2003 [ve]  -> Ford | F-250 | 4.2 12V | OHV OHV V6 | 1998–2003 [ve]
+  MUDA  Ford | F-250 | 4.2 / 4.2 12V | OHV EFI OHV V6 | 1998–2003 [ve]  -> Ford | F-250 | 4.2 12V | OHV EFI OHV V6 | 1998–2003 [ve]
+
+== PIV5076 (9 -> 9 linhas)
+  MUDA  Hyundai | PORTER | 2.6 8V / 2.6 8V | SOHC L4 | 2001–2004 [ve]  -> Hyundai | PORTER | 2.6 8V | SOHC L4 | 2001–2004 [ve]
+
+== PIV5091 (11 -> 11 linhas)
+  MUDA  Chevrolet | Marajo | 1.6 8V / 1.6 8V | SOHC L4 | 1982–1990 [ve]  -> Chevrolet | Marajo | 1.6 8V | SOHC L4 | 1982–1990 [ve]
+
+== PIV5097 (11 -> 11 linhas)
+  MUDA  Chevrolet | Marajo | 1.6 8V / 1.6 8V | SOHC L4 | 1982–1990 [ve]  -> Chevrolet | Marajo | 1.6 8V | SOHC L4 | 1982–1990 [ve]
+
+== POL1636 (19 -> 19 linhas)
+  MUDA  Audi | TT | 2.0 / 2.0 16V | D DOHC L4 | 2008–2010 [ve]  -> Audi | TT | 2.0 16V | D2L DOHC L4 | 2008–2010 [ve]
+
+== POL1638 (19 -> 19 linhas)
+  MUDA  Audi | TT | 2.0 / 2.0 16V | D DOHC L4 | 2007 [ve]  -> Audi | TT | 2.0 16V | D2L DOHC L4 | 2007 [ve]
+
+== POL1660 (71 -> 70 linhas)
+  SAI  Mercedes-Benz | SL-CLASS | 5.0 24V |  | 2001–2004 [txt]   coberta por: Mercedes-Benz | SL-CLASS | 5.0 24V | DOHC V8 | 2001–2004 [ve]
+  MUDA  Mercedes-Benz | SL-CLASS | 5.0 24V / 5.0 24V | DOHC V8 | 2001–2004 [ve]  -> Mercedes-Benz | SL-CLASS | 5.0 24V | DOHC V8 | 2001–2004 [ve]
+
+== POL1675 (64 -> 63 linhas)
+  SAI  Mercedes-Benz | SL-CLASS | 5.0 24V |  | 1996–2004 [txt]   coberta por: Mercedes-Benz | SL-CLASS | 5.0 24V | DOHC V8 | 1996–2004 [ve]
+  MUDA  Mercedes-Benz | SL-CLASS | 5.0 24V / 5.0 24V | DOHC V8 | 1996–2004 [ve]  -> Mercedes-Benz | SL-CLASS | 5.0 24V | DOHC V8 | 1996–2004 [ve]
+
+== POL1676 (15 -> 15 linhas)
+  MUDA  Volkswagen | Tiguan | 2.0 / 2.0 16V | D DOHC L4 | 2011–2016 [ve]  -> Volkswagen | Tiguan | 2.0 16V | D2L DOHC L4 | 2011–2016 [ve]
+
+== POL1691 (17 -> 17 linhas)
+  MUDA  Hyundai | PORTER | 2.6 8V / 2.6 8V | SOHC L4 | 2001–2003 [ve]  -> Hyundai | PORTER | 2.6 8V | SOHC L4 | 2001–2003 [ve]
+
+== POL1712 (15 -> 14 linhas)
+  SAI  Mercedes-Benz | 124-SERIE | 2.3 16V |  | 1990–1992 [txt]   coberta por: Mercedes-Benz | 124-SERIE | 2.3 8V / 2.3 16V | DOHC L4 | 1990–1992 [ve]
+
+== PAF0332 (23 -> 23 linhas)
+  MUDA  Ford | Ranger | 2.5 / 2.5 8V | LIMA SOHC L4 | 1998–2003 [ve]  -> Ford | Ranger | 2.5 8V | LIMA SOHC L4 | 1998–2003 [ve]
+
+== PAF1490S (8 -> 8 linhas)
+  MUDA  Audi | A3 | 2.0 / 2.0 16V | D DOHC L4 | 2013–2014 [ve]  -> Audi | A3 | 2.0 16V | D2L DOHC L4 | 2013–2014 [ve]
+
+== PAF1491 (19 -> 19 linhas)
+  MUDA  Audi | A3 | 2.0 / 2.0 16V | D DOHC L4 | 2013–2014 [ve]  -> Audi | A3 | 2.0 16V | D2L DOHC L4 | 2013–2014 [ve]
+  MUDA  Volkswagen | Tiguan | 2.0 / 2.0 16V | D DOHC L4 | 2007–2016 [ve]  -> Volkswagen | Tiguan | 2.0 16V | D2L DOHC L4 | 2007–2016 [ve]
+
+== VEL7503 (161 -> 154 linhas)
+  SAI  Daihatsu | FEROZA | 1.6 16V |  | 1994–2015 [txt]   coberta por: NENHUMA
+  SAI  Daihatsu | GRAN MOVE | 1.5 16V |  | 1994–2015 [txt]   coberta por: NENHUMA
+  SAI  Daihatsu | TERIOS | 1.3 16V |  | 1994–2015 [txt]   coberta por: NENHUMA
+  SAI  Mercedes-Benz | S-CLASS | 5.0 24V |  | 1994–2015 [txt]   coberta por: NENHUMA
+  SAI  Mercedes-Benz | SL-CLASS | 6.0 36V |  | 1994–2015 [txt]   coberta por: NENHUMA
+  SAI  Suzuki | IGNIS | 1.3 16V |  | 1994–2015 [txt]   coberta por: NENHUMA
+  SAI  Suzuki | SIDEKICK | 1.6 16V |  | 1994–2015 [txt]   coberta por: NENHUMA
+  MUDA  Daihatsu | FEROZA | 1.6 16V / 1.6 16V | SOHC L4 | 1988–1999 [ve]  -> Daihatsu | FEROZA | 1.6 16V | SOHC L4 | 1988–1999 [ve]
+  MUDA  Daihatsu | GRAN MOVE | 1.5 16V / 1.5 16V | DOHC L4 | 1996–2000 [ve]  -> Daihatsu | GRAN MOVE | 1.5 16V | DOHC L4 | 1996–2000 [ve]
+  MUDA  Daihatsu | TERIOS | 1.3 16V / 1.3 16V | DOHC L4 | 1998–2002 [ve]  -> Daihatsu | TERIOS | 1.3 16V | DOHC L4 | 1998–2002 [ve]
+  MUDA  Mercedes-Benz | S-CLASS | 5.0 24V / 5.0 24V | DOHC V8 | 1993–1998 [ve]  -> Mercedes-Benz | S-CLASS | 5.0 24V | DOHC V8 | 1993–1998 [ve]
+  MUDA  Mercedes-Benz | SL-CLASS | 6.0 36V / 6.0 36V | DOHC V12 | 1993–1995 [ve]  -> Mercedes-Benz | SL-CLASS | 6.0 36V | DOHC V12 | 1993–1995 [ve]
+  MUDA  Suzuki | IGNIS | 1.3 16V / 1.3 16V | DOHC L4 | 2002–2003 [ve]  -> Suzuki | IGNIS | 1.3 16V | DOHC L4 | 2002–2003 [ve]
+  MUDA  Suzuki | SIDEKICK | 1.6 16V / 1.6 16V | DOHC L4 | 1992–1994 [ve]  -> Suzuki | SIDEKICK | 1.6 16V | DOHC L4 | 1992–1994 [ve]
+
+== VEL7520 (34 -> 32 linhas)
+  SAI  Lifan | 320 | 1.3 16V |  | 2004–2020 [txt]   coberta por: NENHUMA
+  SAI  Lifan | 620 | 1.6 16V |  | 2004–2020 [txt]   coberta por: NENHUMA
+  MUDA  Lifan | 320 | 1.3 16V / 1.3 16V | DOHC L4 | 2010–2015 [ve]  -> Lifan | 320 | 1.3 16V | DOHC L4 | 2010–2015 [ve]
+  MUDA  Lifan | 620 | 1.6 16V / 1.6 16V | DOHC L4 | 2010–2017 [ve]  -> Lifan | 620 | 1.6 16V | DOHC L4 | 2010–2017 [ve]
+
+== VEL7537 (20 -> 20 linhas)
+  MUDA  Hyundai | Accent | 1.5 / 1.5 12V | VVT SOHC L4 | 1994–1999 [ve]  -> Hyundai | Accent | 1.5 12V | VVT SOHC L4 | 1994–1999 [ve]
+  MUDA  Hyundai | Accent | 1.5 16V / 1.5 16V | VVT DOHC L4 | 2000–2004 [ve]  -> Hyundai | Accent | 1.5 16V | VVT DOHC L4 | 2000–2004 [ve]
+
+== VEL7561 (15 -> 13 linhas)
+  SAI  Mazda | 929 | 3.0 24V |  | 1992–2006 [txt]   coberta por: NENHUMA
+  SAI  Mazda | MPV | 3.0 18V |  | 1992–2006 [txt]   coberta por: NENHUMA
+  MUDA  Mazda | 929 | 3.0 24V / 3.0 24V | DOHC V6 | 1990–1995 [ve]  -> Mazda | 929 | 3.0 24V | DOHC V6 | 1990–1995 [ve]
+  MUDA  Mazda | MPV | 3.0 18V / 3.0 18V | SOHC V6 | 1988–1999 [ve]  -> Mazda | MPV | 3.0 18V | SOHC V6 | 1988–1999 [ve]
+
+== VEL7574 (67 -> 64 linhas)
+  SAI  Jeep | Grand Cherokee | 4.7 16V |  | 1995–2024 [txt]   coberta por: NENHUMA
+  SAI  Lifan | 320 | 1.3 16V |  | 1995–2024 [txt]   coberta por: NENHUMA
+  SAI  Lifan | 620 | 1.6 16V |  | 1995–2024 [txt]   coberta por: NENHUMA
+  MUDA  Jeep | Grand Cherokee | 4.7 / 4.7 16V | V8 SOHC V8 | 1998–2004 [ve]  -> Jeep | Grand Cherokee | 4.7 16V | V8 SOHC V8 | 1998–2004 [ve]
+  MUDA  Lifan | 320 | 1.3 16V / 1.3 16V | DOHC L4 | 2010–2015 [ve]  -> Lifan | 320 | 1.3 16V | DOHC L4 | 2010–2015 [ve]
+  MUDA  Lifan | 620 | 1.6 16V / 1.6 16V | DOHC L4 | 2010–2017 [ve]  -> Lifan | 620 | 1.6 16V | DOHC L4 | 2010–2017 [ve]
+
+== ABS4517 (18 -> 18 linhas)
+  MUDA  Volkswagen | EOS | 2.0 / 2.0 16V | D DOHC L4 · COM FREIO ABS | 2006–2010 [ve]  -> Volkswagen | EOS | 2.0 16V | D2L DOHC L4 · COM FREIO ABS | 2006–2010 [ve]
+
+== ABS4557 (20 -> 20 linhas)
+  MUDA  Volkswagen | EOS | 2.0 / 2.0 16V | D DOHC L4 · COM FREIO ABS | 2006–2010 [ve]  -> Volkswagen | EOS | 2.0 16V | D2L DOHC L4 · COM FREIO ABS | 2006–2010 [ve]
+
+== BAN14518DP (10 -> 10 linhas)
+  MUDA  Ford | Ranger | 2.5 / 2.5 8V | LIMA SOHC L4 | 1998–2003 [ve]  -> Ford | Ranger | 2.5 8V | LIMA SOHC L4 | 1998–2003 [ve]
+
+== BAN14518EP (10 -> 10 linhas)
+  MUDA  Ford | Ranger | 2.5 / 2.5 8V | LIMA SOHC L4 | 1998–2003 [ve]  -> Ford | Ranger | 2.5 8V | LIMA SOHC L4 | 1998–2003 [ve]
+
+== BAN14585D (12 -> 11 linhas)
+  SAI  Lifan | 620 | 1.6 16V |  | 2010–2017 [txt]   coberta por: Lifan | 620 | 1.6 16V | DOHC L4 | 2010–2017 [ve]
+  MUDA  Lifan | 620 | 1.6 16V / 1.6 16V | DOHC L4 | 2010–2017 [ve]  -> Lifan | 620 | 1.6 16V | DOHC L4 | 2010–2017 [ve]
+
+== BAN14585E (12 -> 11 linhas)
+  SAI  Lifan | 620 | 1.6 16V |  | 2010–2017 [txt]   coberta por: Lifan | 620 | 1.6 16V | DOHC L4 | 2010–2017 [ve]
+  MUDA  Lifan | 620 | 1.6 16V / 1.6 16V | DOHC L4 | 2010–2017 [ve]  -> Lifan | 620 | 1.6 16V | DOHC L4 | 2010–2017 [ve]
+
+== FLU6057 (29 -> 27 linhas)
+  SAI  Mazda | 626 | 2.0 16V |  | 1994–1999 [txt]   coberta por: Mazda | 626 | 2.0 16V | DOHC L4 | 1994–1999 [ve]
+  SAI  Mazda | MX3 | 1.6 16V |  | 1993–1999 [txt]   coberta por: Mazda | MX3 | 1.6 16V | SOHC L4 | 1993–1999 [ve]
+  MUDA  Mazda | 626 | 2.0 / 2.0 16V | DOHC L4 | 1994–1999 [ve]  -> Mazda | 626 | 2.0 16V | DOHC L4 | 1994–1999 [ve]
+  MUDA  Mazda | MX3 | 1.6 16V / 1.6 16V | SOHC L4 | 1993–1999 [ve]  -> Mazda | MX3 | 1.6 16V | SOHC L4 | 1993–1999 [ve]
+
+== FLU6102 (83 -> 81 linhas)
+  SAI  Chrysler | GRAND CARAVAN | 3.8 12V |  | 1996–2000 [txt]   coberta por: Chrysler | GRAND CARAVAN | 3.8 12V | V6 SOHC V6 | 1996–2000 [ve]
+  SAI  Volvo | 460 | 2.0 8V |  | 1992–1997 [txt]   coberta por: Volvo | 460 | 2.0 8V | SOHC L4 | 1992–1997 [ve]
+  MUDA  Chrysler | GRAND CARAVAN | 3.8 / 3.8 12V | V6 SOHC V6 | 1996–2000 [ve]  -> Chrysler | GRAND CARAVAN | 3.8 12V | V6 SOHC V6 | 1996–2000 [ve]
+  MUDA  Volvo | 460 | 2.0 8V / 2.0 8V | SOHC L4 | 1992–1997 [ve]  -> Volvo | 460 | 2.0 8V | SOHC L4 | 1992–1997 [ve]
+
+== FLU6112 (183 -> 182 linhas)
+  SAI  Chrysler | GRAND CARAVAN | 3.8 12V |  | 1996–2000 [txt]   coberta por: Chrysler | GRAND CARAVAN | 3.8 12V | V6 SOHC V6 | 1996–2000 [ve]
+  MUDA  Chrysler | GRAND CARAVAN | 3.8 / 3.8 12V | V6 SOHC V6 | 1996–2000 [ve]  -> Chrysler | GRAND CARAVAN | 3.8 12V | V6 SOHC V6 | 1996–2000 [ve]
+  MUDA  Scania | R | 14.0 / 14.0 16V | 142 · DSC 01 SOHV V8 | 1987–1991 [ve]  -> Scania | R | 14.0 16V | 142 · DSC 01 SOHV V8 | 1987–1991 [ve]
+
+== FHD6087 (112 -> 112 linhas)
+  MUDA  Scania | R | 14.0 / 14.0 16V | 142 · DSC 01 SOHV V8 | 1987–1991 [ve]  -> Scania | R | 14.0 16V | 142 · DSC 01 SOHV V8 | 1987–1991 [ve]
+
+células de cilindrada que mudam:
+  38 2.0 / 2.0 16V -> 2.0 16V
+  26 1.6 16V / 1.6 16V -> 1.6 16V
+  16 2.5 / 2.5 8V -> 2.5 8V
+  13 2.0 16V / 2.0 16V -> 2.0 16V
+  12 3.0 / 1.6 8V -> 1.6 8V
+  10 4.2 / 4.2 12V -> 4.2 12V
+  10 1.6 8V / 1.6 8V -> 1.6 8V
+  10 1.3 16V / 1.3 16V -> 1.3 16V
+  10 3.8 24V / 3.8 24V -> 3.8 24V
+  6 2.0 8V / 2.0 8V -> 2.0 8V
+  5 14.0 / 14.0 16V -> 14.0 16V
+  5 40.0 / 4.0 32V -> 4.0 32V
+  4 3.2 24V / 3.2 24V -> 3.2 24V
+  4 2.6 8V / 2.6 8V -> 2.6 8V
+  4 3.6 24V / 3.6 24V -> 3.6 24V
+  4 1.5 16V / 1.5 16V -> 1.5 16V
+  3 3.0 18V / 3.0 18V -> 3.0 18V
+  3 3.8 / 3.8 12V -> 3.8 12V
+  3 5.0 24V / 5.0 24V -> 5.0 24V
+  2 1.8 16V / 1.8 16V -> 1.8 16V
+  2 4.7 / 4.7 16V -> 4.7 16V
+  2 4.0 / 4.0 12V -> 4.0 12V
+  1 4.5 32V / 4.5 32V -> 4.5 32V
+  1 1.4 16V / 1.4 16V -> 1.4 16V
+  1 1.5 8V / 1.5 8V -> 1.5 8V
+  1 3.5 40V / 3.5 40V -> 3.5 40V
+  1 4.4 / 4.4 32V -> 4.4 32V
+  1 2.7 24V / 2.7 24V -> 2.7 24V
+  1 3.7 / 3.7 12V -> 3.7 12V
+  1 3.0 / 3.1 6V -> 3.1 6V
+  1 6.0 36V / 6.0 36V -> 6.0 36V
+  1 1.5 / 1.5 12V -> 1.5 12V
+  1 3.0 24V / 3.0 24V -> 3.0 24V
+versões que mudam:
+  25 'D DOHC L4' -> 'D2L DOHC L4'
+  12 'C OHV L4' -> 'C3L OHV L4'
+  7 'VARIANT · D DOHC L4' -> 'VARIANT · D2L DOHC L4'
+  5 'M177DE DOHC V8' -> 'M177DE40L DOHC V8'
+  2 'D DOHC L4 · COM FREIO ABS' -> 'D2L DOHC L4 · COM FREIO ABS'
+  1 'F- 913 SOHV L3' -> 'F-3L 913 SOHV L3'

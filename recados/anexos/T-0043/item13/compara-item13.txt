@@ -1,0 +1,212 @@
+erros [] []
+muda av : 0
+muda card : 0
+muda sec : 0
+muda rf : 0
+produtos com tabela diferente: 27
+linhas que mudam só de ano: 142 | saem: 1 | entram: 8
+
+== ROL0094 (38 -> 38 linhas; an = 2010–2024)
+  ANO   Fiat | Fiorino |  | EVO | 2010–2024 [txt]  -> 2014–2024
+
+== L803775 (180 -> 180 linhas; an = 1980–2024)
+  ANO   Mercedes-Benz | OH | 5.7 12V |  | 1980–2024 [txt]  -> 1987–1989
+  ANO   Mercedes-Benz | OH | 4.8 12V |  | 1980–2024 [txt]  -> 2012–2021
+  ANO   Scania | R |  | 142 14 L 16V | 1980–2024 [txt]  -> 1980–1991
+  ANO   Scania | R |  | 143 14 L 16V | 1980–2024 [txt]  -> 1991–1996
+  ANO   Scania | T |  | 142 14 L 16V | 1980–2024 [txt]  -> 1980–1991
+  ANO   Scania | T |  | 143 14 L 16V | 1980–2024 [txt]  -> 1987–1996
+  ANO   Scania | 112 |  | S 11 L 12V | 1980–2024 [txt]  -> 1983–1987
+  ANO   Scania | S112 |  |  | 1980–2024 [txt]  -> 1983–1987
+  ANO   Volvo | VM | 6.5 12V |  | 1980–2024 [txt]  -> 2003–2005
+  ANO   Volvo | VM | 4.8 8V | 210 R | 1980–2024 [txt]  -> 2006–2011
+  ANO   Volvo | VM | 7.2 12V |  | 1980–2024 [txt]  -> 2006–2011
+
+== ROL4529A (69 -> 69 linhas; an = 1980–2014)
+  ANO   Ford | Escort |  |  | 1980–2014 [txt]  -> 1983–1992
+  ANO   Volkswagen | Polo | 1.0 16V |  | 1980–2014 [txt]  -> 2002–2005
+  ANO   Volkswagen | Polo | 1.8 8V | Classic | 1980–2014 [txt]  -> 1996–2003
+  ANO   Volkswagen | Fox | 1.6 8V |  | 1980–2014 [txt]  -> 2005–2009
+
+== ROL4533 (32 -> 32 linhas; an = 1987–2014)
+  ANO   Ford | Escort |  | Zetec, Hobby · XR3 87-03 | 1987–2014 [txt]  -> 1987–2003
+  ANO   Ford | Fiesta |  | Street · RoCam 96-14 | 1987–2014 [txt]  -> 1996–2014
+  ANO   Ford | Courier |  |  | 1987–2014 [txt]  -> 1997–2013
+
+== ROL559/552A (68 -> 70 linhas; an = 1970–1998)
+  ANO   Mercedes-Benz | L | 9.7 10V |  | 1970–1998 [txt]  -> 1976–1987
+  ANO   Mercedes-Benz | LK | 6.0 12V | 1418 E | 1970–1998 [txt]  -> 1989–1993
+  ANO   Mercedes-Benz | LK | 9.7 10V |  | 1970–1998 [txt]  -> 1973–1980
+  ANO   Mercedes-Benz | LS | 9.7 10V |  | 1970–1998 [txt]  -> 1987–1997
+  ANO   Mercedes-Benz | OH | 9.7 10V |  | 1970–1998 [txt]  -> 1976–1996
+  ANO   Mercedes-Benz | OH | 5.7 12V |  | 1970–1998 [txt]  -> 1987–1989
+  ENTRA Mercedes-Benz | L | 9.7 10V |  | 1976–1987 [txt]
+  ENTRA Mercedes-Benz | L | 9.7 10V |  | 1987–1997 [txt]
+  ENTRA Mercedes-Benz | LK | 9.7 10V |  | 1973–1980 [txt]
+  ENTRA Mercedes-Benz | LK | 9.7 10V |  | 1987–1997 [txt]
+
+== ROL563644 (8 -> 8 linhas; an = 2012–2021)
+  ANO   Chevrolet | Joy |  |  | 2012–2021 [txt]  -> 2019–2021
+  ANO   Chevrolet | Joy |  | Plus | 2012–2021 [txt]  -> 2019–2021
+
+== ROL683/672 (30 -> 30 linhas; an = 1985–2022)
+  ANO   Volvo | B10M | 9.6 24V |  | 1985–2022 [txt]  -> 1988–1996
+  ANO   Volvo | B10M | 9.6 12V | ROD | 1985–2022 [txt]  -> 1986–2001
+  ANO   Volvo | B10M | 9.6 12V |  | 1985–2022 [txt]  -> 2003
+  ANO   Volvo | B12 |  | M 12 L 24V | 1985–2022 [txt]  -> 1994–2001
+  ANO   Volvo | FM12 |  | 340 12 L 24V | 1985–2022 [txt]  -> 2000–2003
+  ANO   Volvo | FM12 |  | 380 12 L 24V | 1985–2022 [txt]  -> 2000–2003
+  ANO   Volvo | FM12 |  | 420 12 L 24V | 1985–2022 [txt]  -> 2000–2006
+
+== ROL84888 (9 -> 11 linhas; an = 1996–2021)
+  ANO   Fiat | Strada | 1.6 / 1.8 |  | 1996–2021 [txt]  -> 1999–2020
+  ANO   Fiat | Doblo | 1.6 / 1.8 |  | 1996–2021 [txt]  -> 2001–2021
+  ENTRA Fiat | Strada |  |  | 1996–2021 [ve]
+  ENTRA Fiat | Doblo |  |  | 1996–2021 [ve]
+
+== VEL7503 (154 -> 154 linhas; an = 1994–2015)
+  ANO   BMW | Serie 3 | 1.9 16V |  | 1994–2015 [txt]  -> 1995–2000
+  ANO   BMW | Serie 3 | 2.0 16V |  | 1994–2015 [txt]  -> 2006–2013
+  ANO   BMW | Serie 3 | 2.5 24V |  | 1994–2015 [txt]  -> 1995–2009
+  ANO   BMW | Serie 3 | 2.8 24V |  | 1994–2015 [txt]  -> 1995–1999
+  ANO   BMW | Serie 5 | 2.8 24V |  | 1994–2015 [txt]  -> 1995–2000
+  ANO   BMW | Serie 5 | 4.4 32V |  | 1994–2015 [txt]  -> 1996–2004
+  ANO   Chevrolet | Meriva | 1.8 16V |  | 1994–2015 [txt]  -> 2002–2009
+  ANO   Chevrolet | Tracker | 2.0 16V |  | 1994–2015 [txt]  -> 2006–2008
+  ANO   Chevrolet | Zafira | 2.0 16V |  | 1994–2015 [txt]  -> 2001–2008
+  ANO   Chrysler | Neon | 2.0 16V |  | 1994–2015 [txt]  -> 1996–2002
+  ANO   Citroën | Berlingo | 1.8 8V |  | 1994–2015 [txt]  -> 1998–2003
+  ANO   Citroën | C3 | 1.4 8V |  | 1994–2015 [txt]  -> 2005–2012
+  ANO   Citroën | Evasion | 2.0 16V |  | 1994–2015 [txt]  -> 1994–2002
+  ANO   Citroën | Evasion | 2.0 8V |  | 1994–2015 [txt]  -> 1994–2002
+  ANO   Citroën | Xsara | 2.0 16V |  | 1994–2015 [txt]  -> 1997–2000
+  ANO   Fiat | Brava | 1.8 16V |  | 1994–2015 [txt]  -> 2000–2003
+  ANO   Fiat | Marea | 1.6 16V |  | 1994–2015 [txt]  -> 2005–2007
+  ANO   Fiat | Marea | 1.8 16V |  | 1994–2015 [txt]  -> 1999–2007
+  ANO   Fiat | Marea | 2.0 20V |  | 1994–2015 [txt]  -> 1998–2007
+  ANO   Fiat | Marea | 2.4 20V |  | 1994–2015 [txt]  -> 2000–2007
+  ANO   Fiat | Marea Weekend | 1.8 16V |  | 1994–2015 [txt]  -> 1999–2007
+  ANO   Fiat | Marea Weekend | 2.0 20V |  | 1994–2015 [txt]  -> 1998–2006
+  ANO   Fiat | Marea Weekend | 2.4 20V |  | 1994–2015 [txt]  -> 2000–2007
+  ANO   Fiat | Stilo | 1.8 16V |  | 1994–2015 [txt]  -> 2002–2007
+  ANO   Fiat | Stilo | 2.4 20V |  | 1994–2015 [txt]  -> 2002–2008
+  ANO   Kia | Picanto | 1.0 12V |  | 1994–2015 [txt]  -> 2008–2011
+  ANO   Kia | Sportage | 2.0 16V |  | 1994–2015 [txt]  -> 1994–2014
+  ANO   Mercedes-Benz | A-Class | 2.0 16V |  | 1994–2015 [txt]  -> 2004–2011
+  ANO   Mercedes-Benz | C-Class | 2.0 16V |  | 1994–2015 [txt]  -> 1994–2001
+  ANO   Mercedes-Benz | C-Class | 2.3 16V |  | 1994–2015 [txt]  -> 1995–2004
+  ANO   Mercedes-Benz | C-Class | 2.8 18V |  | 1994–2015 [txt]  -> 1997–2000
+  ANO   Mitsubishi | Pajero | 2.0 16V |  | 1994–2015 [txt]  -> 2007–2009
+  ANO   Peugeot | 206 | 1.4 8V |  | 1994–2015 [txt]  -> 2005–2009
+  ANO   Peugeot | 206 | 1.6 8V |  | 1994–2015 [txt]  -> 1999–2003
+  ANO   Peugeot | 207 | 1.4 8V |  | 1994–2015 [txt]  -> 2008–2014
+  ANO   Peugeot | 306 | 1.8 16V |  | 1994–2015 [txt]  -> 1997–2003
+  ANO   Peugeot | 306 | 2.0 16V |  | 1994–2015 [txt]  -> 1994–2003
+  ANO   Peugeot | 406 | 2.0 16V |  | 1994–2015 [txt]  -> 2000–2004
+  ANO   Peugeot | 406 | 3.0 24V |  | 1994–2015 [txt]  -> 1999–2005
+  ANO   Peugeot | Hoggar | 1.4 8V |  | 1994–2015 [txt]  -> 2010–2015
+  ANO   Peugeot | Partner | 1.8 8V |  | 1994–2015 [txt]  -> 1999–2003
+  ANO   Renault | Laguna | 3.0 24V |  | 1994–2015 [txt]  -> 1999–2000
+  ANO   Renault | Symbol | 1.6 8V |  | 1994–2015 [txt]  -> 2009–2013
+  ANO   Suzuki | Grand Vitara | 1.6 16V |  | 1994–2015 [txt]  -> 2000–2004
+  ANO   Suzuki | SX4 | 2.0 16V |  | 1994–2015 [txt]  -> 2009–2015
+  ANO   Suzuki | Vitara | 2.0 24V |  | 1994–2015 [txt]  -> 1996–1998
+  ANO   Volkswagen | Passat | 2.0 16V |  | 1994–2015 [txt]  -> 2005
+  ANO   Volkswagen | Passat | 2.8 30V |  | 1994–2015 [txt]  -> 1997–1999
+  ANO   Volkswagen | Passat | 2.0 16V | Variant | 1994–2015 [txt]  -> 2005–2008
+  ANO   Volkswagen | Passat | 2.8 30V | Variant | 1994–2015 [txt]  -> 1997–2005
+  ANO   Audi | A4 | 2.8 30V |  | 1994–2015 [txt]  -> 1997–2000
+  ANO   Audi | A4 | 3.0 30V |  | 1994–2015 [txt]  -> 2001–2004
+  ANO   Audi | A6 | 2.8 30V |  | 1994–2015 [txt]  -> 1998–2001
+  ANO   Audi | A6 | 2.4 30V | Avant | 1994–2015 [txt]  -> 1999–2005
+  ANO   Audi | A6 | 2.8 12V | Avant | 1994–2015 [txt]  -> 1994–1997
+  ANO   Audi | A6 | 2.8 30V | Avant | 1994–2015 [txt]  -> 1998–1999
+  ANO   Daewoo | Lanos | 1.6 16V |  | 1994–2015 [txt]  -> 1997–2003
+  ANO   Daewoo | Leganza | 2.0 16V |  | 1994–2015 [txt]  -> 1997–2002
+  ANO   Daewoo | Nubira | 2.0 16V |  | 1994–2015 [txt]  -> 1997–1999
+  ANO   Jaguar | XJ | 4.0 24V |  | 1994–2015 [txt]  -> 1994–1998
+  ANO   Lexus | ES | 3.0 24V |  | 1994–2015 [txt]  -> 1998–2001
+  ANO   Porsche | 911 | 3.6 24V |  | 1994–2015 [txt]  -> 2012–2013
+  ANO   Subaru | Forester | 2.0 16V |  | 1994–2015 [txt]  -> 1997–2002
+  ANO   Subaru | Legacy | 2.5 16V |  | 1994–2015 [txt]  -> 1997–2001
+
+== VEL7519 (27 -> 27 linhas; an = 1996–2008)
+  ANO   Volkswagen | Kombi | 1.6 8V |  | 1996–2008 [txt]  -> 1997–2005
+  ANO   Seat | Inca | 1.6 8V |  | 1996–2008 [txt]  -> 1999–2002
+
+== VEL7520 (32 -> 32 linhas; an = 2004–2020)
+  ANO   Fiat | Idea | 1.8 16V |  | 2004–2020 [txt]  -> 2010–2015
+
+== VEL7528 (8 -> 8 linhas; an = 1996–2016)
+  ANO   Honda | Civic | 1.6 / 1.7 |  | 1996–2016 [txt]  -> 1996–2005
+  ANO   Toyota | Corolla | 1.8 |  | 1996–2016 [txt]  -> 2003–2008
+
+== VEL7530 (26 -> 26 linhas; an = 1992–2010)
+  ANO   Peugeot | 406 | 3.0 24V |  | 1992–2010 [txt]  -> 1999–2005
+  ANO   Citroën | Xantia | 3.0 24V |  | 1992–2010 [txt]  -> 1997–2000
+  ANO   Porsche | 911 | 3.6 12V |  | 1992–2010 [txt]  -> 1995–1997
+
+== VEL7533 (50 -> 50 linhas; an = 1996–2003)
+  ANO   Citroën | Xsara | 1.8 8V |  | 1996–2003 [txt]  -> 1998–1999
+  ANO   Citroën | Xsara | 1.8 16V | Break | 1996–2003 [txt]  -> 1998–2000
+  ANO   Renault | Clio | 1.6 8V |  | 1996–2003 [txt]  -> 1996–2002
+  ANO   Renault | Kangoo | 1.6 8V |  | 1996–2003 [txt]  -> 2000–2001
+
+== VEL7537 (20 -> 20 linhas; an = 1991–2008)
+  ANO   Hyundai | Atos | 1.0 12V | Prime | 1991–2008 [txt]  -> 2001–2003
+  ANO   Kia | Magentis | 2.0 16V |  | 1991–2008 [txt]  -> 2006–2008
+  ANO   Kia | Picanto | 1.1 12V |  | 1991–2008 [txt]  -> 2004–2008
+  ANO   Nissan | Pathfinder | 3.3 12V |  | 1991–2008 [txt]  -> 1997–2002
+  ANO   Honda | Civic | 1.5 / 1.6 / 1.4 8V |  | 1991–2008 [txt]  -> 1992–2000
+
+== VEL7539 (53 -> 53 linhas; an = 1970–1998)
+  ANO   Fiat | Elba | 1.5 8V |  | 1970–1998 [txt]  -> 1986–1996
+  ANO   Fiat | Elba | 1.6 8V |  | 1970–1998 [txt]  -> 1989–1996
+  ANO   Fiat | Fiorino | 1.6 8V |  | 1970–1998 [txt]  -> 1991–1996
+  ANO   Fiat | Premio | 1.6 8V |  | 1970–1998 [txt]  -> 1991–1994
+  ANO   Fiat | Tipo | 2.0 16V |  | 1970–1998 [txt]  -> 1993–1995
+  ANO   Fiat | Uno | 1.5 8V |  | 1970–1998 [txt]  -> 1987–1997
+  ANO   Fiat | Uno | 1.6 8V |  | 1970–1998 [txt]  -> 1986–1996
+
+== VEL7540 (16 -> 16 linhas; an = 1999–2008)
+  ANO   Volkswagen | Polo | 1.0 16V | Classic | 1999–2008 [txt]  -> 2001–2003
+
+== VEL7546 (8 -> 8 linhas; an = 2001–2009)
+  ANO   Chevrolet | Tracker | 2.0 16V | Gasolina 07-09 | 2001–2009 [txt]  -> 2007–2009
+
+== VEL7561 (13 -> 13 linhas; an = 1992–2006)
+  ANO   Honda | Civic | 1.5 / 1.6 |  | 1992–2006 [txt]  -> 1992–2000
+
+== VEL7565 (23 -> 23 linhas; an = 1994–2002)
+  ANO   Chevrolet | Corsa | 1.0 / 1.4 / 1.6 | EFI e MPFI 94-01 Gasolina | 1994–2002 [txt]  -> 1994–2001
+  ANO   Chevrolet | Celta | 1.0 | 00-02 Gasolina | 1994–2002 [txt]  -> 2000–2002
+
+== VEL7574 (64 -> 64 linhas; an = 1995–2024)
+  ANO   Volkswagen | Fox | 1.0 8V |  | 1995–2024 [txt]  -> 2005–2015
+  ANO   Volkswagen | Saveiro | 1.6 8V |  | 1995–2024 [txt]  -> 2006–2014
+  ANO   Volkswagen | Space Cross | 1.6 8V |  | 1995–2024 [txt]  -> 2010–2014
+  ANO   Volkswagen | Voyage | 1.0 8V |  | 1995–2024 [txt]  -> 2008–2015
+
+== CFR9001 (17 -> 17 linhas; an = 1996–2100)
+  ANO   Ford | Cargo | 3.9 8V |  | 1996– [txt]  -> 1996–2005
+
+== CFR9004 (46 -> 46 linhas; an = 1998–2100)
+  ANO   Iveco | Eurocargo | 7.8 24V | Cavallino | 1998– [txt]  -> 2006–2007
+
+== CFR9011 (51 -> 51 linhas; an = 1985–1999)
+  ANO   Volvo | NL12 |  | 360 12 L 12V | 1985–1999 [txt]  -> 1995–1999
+
+== EMB1047071R (10 -> 11 linhas; an = 2005–2100)
+  ANO   Ford | Cargo |  |  | 2005– [txt]  -> 2006–2012
+  ANO   Volvo | B270F | 7.2 24V |  | 2005– [txt]  -> 2011–
+  ANO   Volvo | VM | 7.2 12V |  | 2005– [txt]  -> 2012–
+  ENTRA Volvo | VM | 7.2 12V |  | 2012– [txt]
+  ENTRA Volvo | VM | 7.2 12V |  | 2006–2011 [txt]
+
+== EMB6261R (10 -> 9 linhas; an = 2000–2011)
+  SAI   Ford | Cargo |  |  | 2000–2011 [txt]
+
+== EMB6343R (34 -> 34 linhas; an = 2000–2006)
+  ANO   Mercedes-Benz | L | 4.3 12V | 1218 EL | 2000–2006 [txt]  -> 2001–2005
+  ANO   Mercedes-Benz | L | 4.3 12V | 1418 EL | 2000–2006 [txt]  -> 2001–2005
+  ANO   Mercedes-Benz | OH | 4.3 12V | 1417 | 2000–2006 [txt]  -> 2003–2004
