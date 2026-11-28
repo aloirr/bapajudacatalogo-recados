@@ -5,7 +5,7 @@ Só leitura, sobre a base **v31** (a base não muda). Refazer: `python3 dados/sc
 ## Arquivos
 
 - `lista_trabalho_T0046.xlsx`: tem três abas.
-  - **LISTA:** 3.038 linhas, 1.141 códigos.
+  - **LISTA:** 3.069 linhas, 1.154 códigos.
   - **RESUMO:** os totais por origem, por `o_que_falta` e por família, o que mudou da v30 para a v31 e o que ficou fora.
   - **PARA_A_SESSAO_LOCAL:** as instruções da T-0040 e o formato de volta.
 - `lista_trabalho_T0046.csv`: as linhas da LISTA, em UTF-8 com BOM e separado por `;`. É este arquivo que vai para a sessão local da Fraga.
@@ -28,7 +28,8 @@ Só leitura, sobre a base **v31** (a base não muda). Refazer: `python3 dados/sc
   3. `v30 sem resolução`;
   4. `fora da Fraga`;
   5. `não resolvida`;
-  6. `DE_PARA`.
+  6. `DE_PARA`;
+  7. `fora das origens (motivo)`: as linhas sem ano completo que não caem em nenhuma das seis. O motivo vai entre parênteses: `manter_atual da T-0040`, `fora da lista da T-0040` ou `linha nova da v31`.
 - A RESUMO mostra o tamanho de cada grupo antes de tirar as linhas repetidas.
 - A descrição e as referências vêm do `site/data/produtos.json`. Não há preço, estoque nem dado interno: a planilha passa pelo `sem_interno`, e o CSV pelo `INTERNO`.
 
@@ -42,13 +43,14 @@ Só leitura, sobre a base **v31** (a base não muda). Refazer: `python3 dados/sc
 | fora da Fraga | 483 códigos | 663 linhas de 158 códigos (66 códigos não têm linha na VEICULOS; nos outros 259, as linhas já têm início e fim) |
 | DE_PARA | 1.187 pares | 0 (as 4.776 linhas da Fraga já têm início e fim) |
 | 4 códigos | 4 | 13 linhas |
+| fora das origens | 31 (R-20261127-225955-alexandre) | 31 |
 
-- Ficam fora 33 linhas sem ano completo, que não estão em nenhuma origem (RESUMO, tabela 5):
+- Havia 33 linhas sem ano completo fora das seis origens (RESUMO, tabela 5). Pela decisão 108 do Alexandre (R-20261127-225955-alexandre), 31 delas entram na origem `fora das origens`:
   - 24 com `manter_atual` na T-0040;
-  - os 2 universais;
-  - 3 que não entraram na lista da T-0040;
+  - 3 que não entraram na lista da T-0040 (JUH70025, Gol 1.6 L e 1.8 L; SFR30017, Gol G5);
   - as 4 linhas novas da v31.
-- Se essas linhas entram é decisão do po.
+- Ficam fora só os 2 universais (FLU15001 e FLU15002, decisão 5 de 26/11).
+- Os 66 códigos fora da Fraga sem nenhuma linha na VEICULOS vão para a T-0052, que é uma lista de aplicação (decisão 109).
 
 ## Regras
 
