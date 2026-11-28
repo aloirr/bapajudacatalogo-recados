@@ -1,0 +1,92 @@
+[
+ {
+  "versao": "depois",
+  "largura": 1366,
+  "cod": "VEL7520",
+  "prodTopo": 19.5,
+  "trilha": 19.5,
+  "barraAteRodape": 56,
+  "fimPaginaAteRodape": 56,
+  "scrollW": 1366,
+  "scrollH": 2007
+ },
+ {
+  "versao": "depois",
+  "largura": 1366,
+  "cod": "BIE20014",
+  "prodTopo": 19.5,
+  "trilha": 19.5,
+  "barraAteRodape": 56,
+  "fimPaginaAteRodape": 56,
+  "scrollW": 1366,
+  "scrollH": 1131
+ },
+ {
+  "versao": "depois",
+  "largura": 1366,
+  "cod": "TER552120 (janela)",
+  "janelaAlt": 720,
+  "barraAteFimJanela": 0,
+  "scrollW": 1366
+ },
+ {
+  "versao": "depois",
+  "largura": 390,
+  "cod": "VEL7520",
+  "prodTopo": 19.5,
+  "trilha": 19.5,
+  "barraAteRodape": 40,
+  "fimPaginaAteRodape": 40,
+  "scrollW": 390,
+  "scrollH": 3196
+ },
+ {
+  "versao": "depois",
+  "largura": 390,
+  "cod": "BIE20014",
+  "prodTopo": 19.5,
+  "trilha": 19.5,
+  "barraAteRodape": 40,
+  "fimPaginaAteRodape": 40,
+  "scrollW": 390,
+  "scrollH": 1457
+ },
+ {
+  "versao": "depois",
+  "largura": 390,
+  "cod": "TER552120 (janela)",
+  "janelaAlt": 844,
+  "barraAteFimJanela": 0,
+  "scrollW": 390
+ },
+ {
+  "versao": "depois",
+  "largura": 1920,
+  "cod": "VEL7520",
+  "prodTopo": 19.5,
+  "trilha": 19.5,
+  "barraAteRodape": 56,
+  "fimPaginaAteRodape": 56,
+  "scrollW": 1920,
+  "scrollH": 1988
+ },
+ {
+  "versao": "depois",
+  "largura": 1920,
+  "cod": "BIE20014",
+  "prodTopo": 19.5,
+  "trilha": 19.5,
+  "barraAteRodape": 56,
+  "fimPaginaAteRodape": 56,
+  "scrollW": 1920,
+  "scrollH": 1131
+ },
+ {
+  "versao": "depois",
+  "largura": 1920,
+  "cod": "TER552120 (janela)",
+  "janelaAlt": 984.5,
+  "barraAteFimJanela": 0,
+  "scrollW": 1920
+ }
+]

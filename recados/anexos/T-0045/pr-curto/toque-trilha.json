@@ -1,0 +1,262 @@
+[
+ {
+  "largura": 1366,
+  "cod": "VEL7520",
+  "prodTopo": 19.5,
+  "scrollW": 1366,
+  "links": [
+   {
+    "txt": "Início",
+    "alturaLink": 19.5,
+    "alturaAlvo": "44px",
+    "sobreProd": 0,
+    "folgaCabecalho": 1.5,
+    "menos20": "link",
+    "mais20": "foto",
+    "mais19_5": "link",
+    "mais19_75": "link"
+   },
+   {
+    "txt": "Elétrica",
+    "alturaLink": 19.5,
+    "alturaAlvo": "44px",
+    "sobreProd": 0,
+    "folgaCabecalho": 1.5,
+    "menos20": "link",
+    "mais20": "foto",
+    "mais19_5": "link",
+    "mais19_75": "link"
+   },
+   {
+    "txt": "Ignição",
+    "alturaLink": 19.5,
+    "alturaAlvo": "44px",
+    "sobreProd": 0,
+    "folgaCabecalho": 1.5,
+    "menos20": "link",
+    "mais20": "foto",
+    "mais19_5": "link",
+    "mais19_75": "link"
+   }
+  ],
+  "toqueInicio": null
+ },
+ {
+  "largura": 1366,
+  "cod": "BIE20014",
+  "prodTopo": 19.5,
+  "scrollW": 1366,
+  "links": [
+   {
+    "txt": "Início",
+    "alturaLink": 19.5,
+    "alturaAlvo": "44px",
+    "sobreProd": 0,
+    "folgaCabecalho": 1.5,
+    "menos20": "link",
+    "mais20": "foto",
+    "mais19_5": "link",
+    "mais19_75": "link"
+   },
+   {
+    "txt": "Suspensão",
+    "alturaLink": 19.5,
+    "alturaAlvo": "44px",
+    "sobreProd": 0,
+    "folgaCabecalho": 1.5,
+    "menos20": "link",
+    "mais20": "foto",
+    "mais19_5": "link",
+    "mais19_75": "link"
+   },
+   {
+    "txt": "Barra Estabilizadora",
+    "alturaLink": 19.5,
+    "alturaAlvo": "44px",
+    "sobreProd": 0,
+    "folgaCabecalho": 1.5,
+    "menos20": "link",
+    "mais20": "DIV.prod",
+    "mais19_5": "link",
+    "mais19_75": "link"
+   }
+  ],
+  "toqueInicio": null
+ },
+ {
+  "largura": 390,
+  "cod": "VEL7520",
+  "prodTopo": 19.5,
+  "scrollW": 390,
+  "links": [
+   {
+    "txt": "Início",
+    "alturaLink": 19.5,
+    "alturaAlvo": "44px",
+    "sobreProd": 0,
+    "folgaCabecalho": 1.5,
+    "menos20": "link",
+    "mais20": "foto",
+    "mais19_5": "link",
+    "mais19_75": "link"
+   },
+   {
+    "txt": "Elétrica",
+    "alturaLink": 19.5,
+    "alturaAlvo": "44px",
+    "sobreProd": 0,
+    "folgaCabecalho": 1.5,
+    "menos20": "link",
+    "mais20": "foto",
+    "mais19_5": "link",
+    "mais19_75": "link"
+   },
+   {
+    "txt": "Ignição",
+    "alturaLink": 19.5,
+    "alturaAlvo": "44px",
+    "sobreProd": 0,
+    "folgaCabecalho": 1.5,
+    "menos20": "link",
+    "mais20": "DIV.prod",
+    "mais19_5": "link",
+    "mais19_75": "link"
+   }
+  ],
+  "toqueInicio": {
+   "20": "#/",
+   "-20": "#/",
+   "19.5": "#/"
+  }
+ },
+ {
+  "largura": 390,
+  "cod": "BIE20014",
+  "prodTopo": 19.5,
+  "scrollW": 390,
+  "links": [
+   {
+    "txt": "Início",
+    "alturaLink": 19.5,
+    "alturaAlvo": "44px",
+    "sobreProd": 0,
+    "folgaCabecalho": 1.5,
+    "menos20": "link",
+    "mais20": "foto",
+    "mais19_5": "link",
+    "mais19_75": "link"
+   },
+   {
+    "txt": "Suspensão",
+    "alturaLink": 19.5,
+    "alturaAlvo": "44px",
+    "sobreProd": 0,
+    "folgaCabecalho": 1.5,
+    "menos20": "link",
+    "mais20": "foto",
+    "mais19_5": "link",
+    "mais19_75": "link"
+   },
+   {
+    "txt": "Barra Estabilizadora",
+    "alturaLink": 19.5,
+    "alturaAlvo": "44px",
+    "sobreProd": 0,
+    "folgaCabecalho": 1.5,
+    "menos20": "link",
+    "mais20": "H1.",
+    "mais19_5": "link",
+    "mais19_75": "link"
+   }
+  ],
+  "toqueInicio": {
+   "20": "#/",
+   "-20": "#/",
+   "19.5": "#/"
+  }
+ },
+ {
+  "largura": 1920,
+  "cod": "VEL7520",
+  "prodTopo": 19.5,
+  "scrollW": 1920,
+  "links": [
+   {
+    "txt": "Início",
+    "alturaLink": 19.5,
+    "alturaAlvo": "44px",
+    "sobreProd": 0,
+    "folgaCabecalho": 1.5,
+    "menos20": "link",
+    "mais20": "foto",
+    "mais19_5": "link",
+    "mais19_75": "link"
+   },
+   {
+    "txt": "Elétrica",
+    "alturaLink": 19.5,
+    "alturaAlvo": "44px",
+    "sobreProd": 0,
+    "folgaCabecalho": 1.5,
+    "menos20": "link",
+    "mais20": "foto",
+    "mais19_5": "link",
+    "mais19_75": "link"
+   },
+   {
+    "txt": "Ignição",
+    "alturaLink": 19.5,
+    "alturaAlvo": "44px",
+    "sobreProd": 0,
+    "folgaCabecalho": 1.5,
+    "menos20": "link",
+    "mais20": "foto",
+    "mais19_5": "link",
+    "mais19_75": "link"
+   }
+  ],
+  "toqueInicio": null
+ },
+ {
+  "largura": 1920,
+  "cod": "BIE20014",
+  "prodTopo": 19.5,
+  "scrollW": 1920,
+  "links": [
+   {
+    "txt": "Início",
+    "alturaLink": 19.5,
+    "alturaAlvo": "44px",
+    "sobreProd": 0,
+    "folgaCabecalho": 1.5,
+    "menos20": "link",
+    "mais20": "foto",
+    "mais19_5": "link",
+    "mais19_75": "link"
+   },
+   {
+    "txt": "Suspensão",
+    "alturaLink": 19.5,
+    "alturaAlvo": "44px",
+    "sobreProd": 0,
+    "folgaCabecalho": 1.5,
+    "menos20": "link",
+    "mais20": "foto",
+    "mais19_5": "link",
+    "mais19_75": "link"
+   },
+   {
+    "txt": "Barra Estabilizadora",
+    "alturaLink": 19.5,
+    "alturaAlvo": "44px",
+    "sobreProd": 0,
+    "folgaCabecalho": 1.5,
+    "menos20": "link",
+    "mais20": "DIV.prod",
+    "mais19_5": "link",
+    "mais19_75": "link"
+   }
+  ],
+  "toqueInicio": null
+ }
+]
