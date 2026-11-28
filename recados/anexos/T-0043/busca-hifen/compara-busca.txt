@@ -1,0 +1,408 @@
+SIMULAÇÃO T-0043 (pergunta 47): a busca trata como iguais as formas que só diferem por hífen ou espaço
+Mesmo JSON (site/data/produtos.json do main 8179d82, base v31, 4.419 produtos). Antes = app.js do main; depois = app.js do branch web-site/T-0043-busca-hifen.
+
+REGRA (uma frase): duas palavras vizinhas que o texto do produto escreve com um hífen ou um espaço também valem juntas na busca
+("C-40" e "C 40" = C40, "Pick-Up" e "Pick Up" = PICKUP, "S-10" = S10), menos número com número ("2018 2021"), pedaço de número
+com ponto, vírgula ou barra ("1.6" continua diferente de "16") e, só com espaço, conectivo ("4 E 6", "96 A 05") e letra solta ao
+lado de palavra ("GM C-10" não vira GMC; "K112 CL S" não vira CLS).
+O contrário já valia antes: o digitado com hífen ou espaço ("c-40", "c 40", "pick up") já achava as três formas.
+Os códigos e as referências já ignoravam espaço e hífen (normCod) e não mudam. O JSON, a FICHA e a TRAVA não mudam.
+
+1. BUSCAS REAIS (54, com os modelos com hífen), antes x depois. Entra = o produto que passa a aparecer, com o trecho que explica.
+busca                               antes  depois  entram / saem
+*chevrolet c40 1990                     1       3  +2 / -0
+      + ROL15101/15245     ", F-600; GM D-20, D-40, A-40, C-40; AGRALE 6000, 7000;"
+      + ROL15103/15243     " FORD F-350, F-4000; GM D-40, C-40, A-40; DODGE D-400;"
+*c40 1990                               1       3  +2 / -0
+      + ROL15101/15245     ", F-600; GM D-20, D-40, A-40, C-40; AGRALE 6000, 7000;"
+      + ROL15103/15243     " FORD F-350, F-4000; GM D-40, C-40, A-40; DODGE D-400;"
+ chevrolet c-40 1990                    3       3  +0 / -0
+*c40                                    5       8  +3 / -0
+      + ROL15101/15245     ", F-600; GM D-20, D-40, A-40, C-40; AGRALE 6000, 7000;"
+      + ROL15103/15243     " FORD F-350, F-4000; GM D-40, C-40, A-40; DODGE D-400;"
+      + TER55336           "TERMINAL LEVE | FORD C 40, GM A/C/D20, BONANZ"
+ c-40                                   8       8  +0 / -0
+ c 40                                   8       8  +0 / -0
+*s10                                  135     139  +4 / -0
+      + TAX10517           "TERMINAL AXIAL | S-10 2012> · TRAILBLAZER"
+      + TAX10632           "TERMINAL AXIAL | S-10 · TRAILBLAZER 2017–"
+      + TER553018          "R DIANT. 01/1994–12/2006 + GM S-10 DIANT. 01/1994–12/2"
+      + CV-G74             "ATRAS DO MOTOR G ATE 1996; GM S-10 2.2 - EFI - TRANS. "
+ s-10                                 139     139  +0 / -0
+*s10 2010                              65      66  +1 / -0
+      + TER553018          "R DIANT. 01/1994–12/2006 + GM S-10 DIANT. 01/1994–12/2"
+ amortecedor s10                       10      10  +0 / -0
+*f1000                                 16      35  +19 / -0
+      + CL16               "A 1.8 L 8V 2005–2010 ; FORD - F-1000 3.9 L 8V 1979–1995 "
+      + CL18               "ESCORT 1983 · EXPLORER 1991 · F-1000 1992–1998 · F-4000 "
+      + CUB60157           "CUBO DE RODA | FORD - F 1000 - 01/1993 - 12/1996"
+      + FCB6154            "32/140 CV) 2000–2008 ; FORD - F-1000 XL CABINE SIMPLES 4"
+      + FLU6031            "RO OLEO LUBRIFICANTE | FORD - F-1000 3.9 L 8V 1979–1995 "
+      + FLU6032            "0 3.9 L 8V 1993–2003 ; FORD - F-1000 3.9 L 8V 1979–1995 "
+      + INT16579           " LUZ DE RE | FORD - CAMINHAO, F-1000, F-4000, F-12000, F"
+      + INT16620           " FORD - EXPLORER (1992–2000), F-1000 (1992–1998), RANGER"
+      + PAF0019            "1973–1985 D · F-1982–1986 D · F-1000 1979–1994 D · F-100"
+      + PIV5080            "SAO | (N2039)FORD / TROLLER - F 1000 / T4 - 04/1992 - 12"
+      + ROL102949/102910   " FORD/GM/DODGE/TROLLER - FORD F-1000, RANGER ; GM - D20,"
+      + ROL104949/104911   " FORD/GM/DODGE/TROLLER - FORD F-1000, F-250, F-350, F-40"
+      + ... e mais 7: ROL48548/48510, ROL501349/501310, ROL67048/67010, ROL802048/802011, TER552063, TER552065, TER55244
+ f-1000                                35      35  +0 / -0
+*f1000 1990                             9      19  +10 / -0
+      + CL16               "A 1.8 L 8V 2005–2010 ; FORD - F-1000 3.9 L 8V 1979–1995 "
+      + FLU6031            "RO OLEO LUBRIFICANTE | FORD - F-1000 3.9 L 8V 1979–1995 "
+      + FLU6032            "0 3.9 L 8V 1993–2003 ; FORD - F-1000 3.9 L 8V 1979–1995 "
+      + INT16579           " LUZ DE RE | FORD - CAMINHAO, F-1000, F-4000, F-12000, F"
+      + PAF0019            "1973–1985 D · F-1982–1986 D · F-1000 1979–1994 D · F-100"
+      + PIV5080            "SAO | (N2039)FORD / TROLLER - F 1000 / T4 - 04/1992 - 12"
+      + ROL48548/48510     "IO, BONANZA, S10 4X2 ; FORD - F-1000, RANGER 4X2 1960–20"
+      + ROL501349/501310   "/TROLLER/DODGE - FORD RANGER, F-1000 ; GM - S10, BLAZER,"
+      + ROL67048/67010     "A, VERANEIO, S10 4X2 ; FORD - F-1000, RANGER 4X2 1960–20"
+      + TER55244           " DIANTEIRO 01/87 12/88 + FORD F-1000 DIANTEIRO 01/87 03/"
+*f4000                                 20      44  +24 / -0
+      + CL18               "RER 1991 · F-1000 1992–1998 · F-4000 1992–1998 · RANGER "
+      + CL22               "2024 ; FORD - ECOSPORT 2018 · F-4000 1999–2001 · F150 19"
+      + CRUSPL55           "CRUZETA | FORD - F 4000 4X2 (01-1999–2003-0"
+      + CUB60068           "RO - ROSCA M14 X 1.5 ; FORD - F-4000 3.9 L 8V 2005–2011 "
+      + CUB60082           "CUBO DE RODA | FORD - F-4000 (1998–2012) - 4X2 -"
+      + CUB60177           "CUBO DE RODA | FORD - F 4000 - 01/2009 - 12/2012"
+      + EMB6126R           "FORD - CARGO 814 / 815 / 915, F-4000 1996–2012 · CUMMINS"
+      + FCB6154            "V L6 TURBO 2003–2006 ; FORD - F-4000 4X2 3.9 8V TURBO E-"
+      + FLU6021            "· F-350 5.0 L 12V 1969–1972 · F-4000 2.8 L 16V 2014–2023"
+      + FLU6031            "· F-2000 3.9 L 8V 1980–1983 · F-4000 3.9 L 8V 1984–1996 "
+      + FLU6032            "· F-2000 3.9 L 8V 1980–1983 · F-4000 3.9 L 8V 1984–1996 "
+      + FSE6056            "4 5.9 12V L6 - 1982–1991 FORD F-4000 4X4 3.9 16V TURBO E"
+      + ... e mais 12: INT16579, PAF0062, ROL104949/104911, ROL15101/15245, ROL15103/15243, ROL15106/15250, ROL25590/25522, ROL31594/31520, ROL807046/807010, TER55219, TER55224, TER55225
+*rolamento f4000                      449      10  +0 / -439 antes (mais próximos: 1 de 2 palavras)
+      - L803775
+      - ROL0015E
+      - ROL0031
+      - ROL0036
+      - ROL0094
+      - ROL1000
+      - ROL102949/102910
+      - ROL11749/11710
+      - ROL11949/11910
+      - ROL12649/12610
+      - ROL20002
+      - ROL20006
+*f350                                  15      26  +11 / -0
+      + SFR30020           " XLT 1998> · F-1999> ; FORD - F-350 3.9 L 8V 1998–2005 "
+      + FLU6021            "· F-250 6.7 L 32V 2018–2019 · F-350 2.8 L 16V 2014> · F"
+      + PAF0062            "· F-250 4.2 L 18V 1998–2006 · F-350 3.9 L 8V 1998–2005 "
+      + PAF0498S           "· F-250 4.2 L 18V 1998–2006 · F-350 3.9 L 8V 1998–2011 "
+      + PIV5066            "PIVO DE SUSPENSAO | FORD - F 350 01/1999–12/2017 · S"
+      + PIV5080            "OHC L4 / 4.0, (N92020) FORD - F 350 - 01/1999 - 12/2017"
+      + ROL104949/104911   "TROLLER - FORD F-1000, F-250, F-350, F-4000, RANGER ; G"
+      + ROL15101/15245     "ROLET / AGRALE / DODGE - FORD F-350, F-4000, F-600; GM "
+      + ROL15103/15243     "ROLET / DODGE / AGRALE - FORD F-350, F-4000; GM D-40, C"
+      + ROL15106/15250     "M/IVECO/AGRALE - FORD F-4000, F-350 ; GM - D40, A40, C4"
+      + ROL807046/807010   "E/IVECO - FORD F-4000, F-250, F-350 ; GM - D-40, SILVER"
+*pickup                                 3      65  +62 / -0
+      + AMT7000            "IANTEIRO DIR/ESQ | GM - CORSA PICK-UP 01/1995–12/2003 | A"
+      + AMT7009            "2/2016 · FURGAO / FURGONETA / PICK-UP · CHASSIS CURTO / C"
+      + AMT7042            "0–12/2013 · CARAT / CLIPPER / PICK-UP | AMORTECEDORES"
+      + AMT7128            "NO 01/1993–12/2012 · FURGAO / PICK-UP · CHASSIS LONGO | A"
+      + BCE3001            "99> ; GM - CORSA SEDAN, CORSA PICK-UP, KADET 1996>. | BOM"
+      + BDA50023           "1.0/1.3/1.5 (85..94) ; FIAT - PICK-UP 1.0 L 8V 1978–1979 "
+      + CUB60011           "CUBO DE RODA | FIAT - FIORINO PICK-UP (1994–2011) · STRAD"
+      + ELE1059            " EXPRESS 1.4/1.6 2009>, LOGAN PICK-UP 1.4/1.6 2008>, SAND"
+      + ELE1072            "SPI 1990–1996, FIORINO FURGAO/PICK-UP 1.0/1.0 SPI/1.3/1.5"
+      + ELE1094            "SPI 1990–1996, FIORINO FURGAO/PICK-UP 1.0/1.0 SPI/1.3/1.5"
+      + JUH70023           "SEDAN/WAGON (1994–2003) CORSA PICK-UP (1995–2003) S/ ABS "
+      + KAP11308           "/2007, CORSA 01/1994–12/2002, PICK-UP, CORSA CLASSIC · 01"
+      + ... e mais 50: KHC12499, PIV5003, PIV5005, PIV5006, SFR30036, TAX10285, TER553009, AMT7325, BAN14535D, BAN14535E, BOR11138, CUB60101, CXD13005, CXD13018, CXD13022, CXD13048, CXD13049, CXD13104, CXD13164, ELE1068, FAC6200, FCB6121, FCB6197, INT16502, INT16513, KAC11102, KAC11132, KAC11324 ...
+ pick-up                               65      65  +0 / -0
+ pick up                               65      65  +0 / -0
+*corsa pickup                           1      27  +26 / -0
+      + AMT7000            "IANTEIRO DIR/ESQ | GM - CORSA PICK-UP 01/1995–12/2003 | A"
+      + BCE3001            "99> ; GM - CORSA SEDAN, CORSA PICK-UP, KADET 1996>. | BOM"
+      + JUH70023           "SEDAN/WAGON (1994–2003) CORSA PICK-UP (1995–2003) S/ ABS "
+      + KAP11308           "/2007, CORSA 01/1994–12/2002, PICK-UP, CORSA CLASSIC · 01"
+      + KHC12499           "013 1.0, CORSA 1.0 / 1.6 1.4, PICK-UP 01/1995–12/2003 1.6"
+      + PIV5003            "CORSA / CORSA CLASSIC / CORSA PICK-UP / CORSA WAGON / PRI"
+      + TER553009          "T. 01/1994–12/2002 + GM CORSA PICK-UP DIANT. 01/1995–12/2"
+      + AMT7325            "/ESQ | GENERAL MOTORS - CORSA PICK-UP - 01/1995 - 12/2003"
+      + BAN14535D          "017 · CORSA 1996–2010 · CORSA PICK-UP 1998–2003 · MONTANA"
+      + BAN14535E          "017 · CORSA 1996–2010 · CORSA PICK-UP 1998–2003 · MONTANA"
+      + BOR11138           "ABILIZADORA DIANTEIRO | CORSA PICK-UP (1997>) · CORSA SED"
+      + CUB60101           "RODA | GENERAL MOTORS - CORSA PICK-UP / IPANEMA / KADETT "
+      + ... e mais 14: CXD13005, FAC6200, INT16502, INT16513, KAC11324, KAC11374, KAP11311, KHC12509, PAF0042, PAF0082, PIV5046, ROL4544A, TER553008, TER553022
+*hrv                                    6      37  +31 / -0
+      + AMT7206            "ENSAO DIANTEIRO ESQ | HONDA - HR-V 01/2016–12/2020 | A"
+      + AMT7223            "ENSAO DIANTEIRO DIR | HONDA - HR-V 01/2016–12/2020 | A"
+      + AMT7227            "AO TRASEIRO DIR/ESQ | HONDA - HR-V 01/2016–12/2020 | A"
+      + BV10               "ERRITORY 2023> · CR-V 2024> · HR-V 2015 · HR-V 2019 · "
+      + BV14               " 2009 · FIT 2015 · FIT 2018 · HR-V 2023 · WR-V 2017 · "
+      + CL14               "2022 · FIT* 2003 · FIT 2015 · HR-V 2023 · WR-V 2017 · "
+      + CL15               "4 · FOCUS 2000–2007 ; HONDA - HR-V 2015 · HR-V* 2018 ;"
+      + CL19               "CORD 2013–2017 · CIVIC 2000 · HR-V 2023 ; JAGUAR - XF "
+      + CL24               "8 · FIT 1.5 L 16V 2005–2008 · HR-V 1.8 L 16V 2017–2018"
+      + CL25               "20 ; HONDA - CITY 2015–2017 · HR-V 2015 · HR-V* 2018 ;"
+      + CL26               "7 · FIT 1.5 L 16V 2015–2023 · HR-V 1.8 L 16V 2015–2023"
+      + CUB60130           "CUBO DE RODA | HONDA - HR-V · 1.8 01/2016–12/20"
+      + ... e mais 19: KAP11956, MF15, ABS4574, ABS4575, BAN14593D, BAN14593E, CUB60201, CXD13146, FAC6068, INT16558, KAP11953, KF15, KF25, MF-25, PAF1494, PAF1495, PAF2207, POL1618, TAX10606
+ hr-v                                  38      38  +0 / -0
+*crv                                    5      50  +45 / -0
+      + BV10               "TAS 2014> · TERRITORY 2023> · CR-V 2024> · HR-V 2015 ·"
+      + BV12               "013 ; EC7 2014–2014 ; HONDA - CR-V 2017–2019 · CR-V 20"
+      + BV14               " ; FORD - EDGE 2008 ; HONDA - CR-V 2008–2012 · FIT* 20"
+      + CL14               " ; FORD - EDGE 2008 ; HONDA - CR-V 2008–2012 · CITY 20"
+      + CL16               " ; HONDA - ACCORD 2007–2012 · CR-V 2013–2016 · CR-V 20"
+      + CL17               "2009 ; HONDA - ACCORD 2024> · CR-V 2008–2012 ; JAC - J"
+      + CL19               " 1.8 L 8V 2002–2009 ; HONDA - CR-V 2.0 L 16V 1999–2002"
+      + CL20               " 2.1 L 8V 1990–1999 ; HONDA - CR-V 2.0 L 16V 2002–2006"
+      + CL21               " 2.0 L 8V 2003–2005 ; HONDA - CR-V 2.0 L 16V 2002–2006"
+      + CL26               " - CITY 1.5 L 16V 2014–2024 · CR-V 2.0 L 16V 2007–2017"
+      + KHC121413          "KA 01/2014–12/2019 1.5 / 1.6, CR-V 01/2009–12/2012 2.0"
+      + KHC12400D          " | FOCUS 01/2010–12/2013 1.6, CR-V 01/2009–12/2012 2.0"
+      + ... e mais 33: KHC12430D, MF19, MF24, TAX10428, AMT7392, AMT7415, AMT7442, AMT7443, AMT7481, AMT7482, CUB60201, CUB60206, CUB60207, CUB60226, FAC6068, FAC6113, FAR6478, INT16558, KAC11969D, KAC11969E, KAP11971D, KAP11971E, KG19, KG24, PAF0554, POL1618, SFR30053, SFR30079 ...
+ cr-v                                  53      53  +0 / -0
+*tcross                                 0      31  +31 / -0 antes (mais próximos: 0 de 1 palavras)
+      + BDA50024           "PACEFOX 1.6 L 16V 2013–2018 · T-CROSS 1.0 L 12V 2019> · T"
+      + BIE20000           "LO 2001> UP 2014> NIVUS 2021> T-CROSS 2020> ; VW - VIRTUS"
+      + BV10               "6 2013–2016 · GOL G7* 2017> · T-CROSS 2024 · TERA 2025 | "
+      + BV11               "5–2012 · CROSSFOX 2013–2018 · T-CROSS 2019 ; GM - CRUZE 1"
+      + CUB60133           "DE RODA | VW - NIVUS / POLO / T-CROSS / VIRTUS 01/2018–12"
+      + JUH70172           " VW - NIVUS 1.0 L 12V 2020> · T-CROSS 1.0 L 12V 2019> | J"
+      + KAC11409           "016> · SAVEIRO 1.6 8V 2012> · T-CROSS 1.0 12V TSI 2019> ·"
+      + MF18               "NIVUS GTS 2025> · POLO 2018 · T-CROSS 2019 · T-CROSS 2024"
+      + MF24               " JETTA 2011> · PASSAT 2005> · T-CROSS 2024 · TIGUAN 2010 "
+      + TER5597029         "/ POLO / Q3 / S3 / SCIROCCO / T-CROSS / T-ROC / TIGUAN / "
+      + ABS4500            "X, 1.6 4CIL 8V, FLEX, 2006> · T-CROSS, 1.0 3CIL 12V, FLEX"
+      + ABS4523            ".6 4CIL 8V, FLEX, 2006–2014 · T-CROSS, 1.0 3CIL 12V, FLEX"
+      + ... e mais 19: AMT7594, BAN14514D, BAN14514E, CUB60114, CXD13068, FAC6139, FAR6172, FAR6187, INT16501, INT16510, KAP11454, KCD2504, KG18, KG24, PAF1584, POL1621, POL1713, TER5597028, VEL7536
+ t-cross                               31      31  +0 / -0
+ up                                   112     112  +0 / -0
+ up!                                   30      30  +0 / -0
+*a40                                    1       5  +4 / -0
+      + CL16               "2012> ; GM - A-20 1985–1997 · A-40 1985–1997 · C-20 19"
+      + CRU5160            "ND BLAZER (1999–2000). ; GM - A-40 4.8 L 12V 1985–1995"
+      + ROL15101/15245     "F-4000, F-600; GM D-20, D-40, A-40, C-40; AGRALE 6000,"
+      + ROL15103/15243     "F-350, F-4000; GM D-40, C-40, A-40; DODGE D-400; AGRAL"
+ a-40                                   5       5  +0 / -0
+*d20                                   19      31  +12 / -0
+      + CL16               "BALT 2011> · D-10 1985–1997 · D-20 1985–1997 · SPARK E"
+      + CRU5160            " · A/C/D 40 (1981–1995) : A/C/D 20 (1978–1998) / AGRAL"
+      + CRU5273            " GM A/C/D 10 (1977–1989): A/C/D 20 (1978–1998): A/C/D "
+      + PIV5012            "0 / A/C/D 14 / A/C/D 15 / A/C/D 20 01/1964–12/1992 · S"
+      + PIV5026            "0 / A/C/D 14 / A/C/D 15 / A/C/D 20 01/1964–12/1992 · S"
+      + PIV5041            "PIVO DE SUSPENSAO | GM - A/C/D 20 / SILVERADO 01/1993"
+      + PIV5061            "PIVO DE SUSPENSAO | GM - A/C/D 20 / SILVERADO 01/1993"
+      + CUB60148           "E RODA | GENERAL MOTORS - A/C/D 20 - 01/1985 - 12/1992"
+      + CUB60149           "E RODA | GENERAL MOTORS - A/C/D 20 / SILVERADO - 01/19"
+      + FLU6031            "M - D-10 3.9 L 8V 1984–1994 · D-20 3.9 L 8V 1985–1994 "
+      + INT16614           " BRASIL, D-11000, C-10, D-10, D-20 | INTERRUPTORES DE "
+      + ROL15101/15245     "FORD F-350, F-4000, F-600; GM D-20, D-40, A-40, C-40; "
+ d-20                                  31      31  +0 / -0
+*d20 1995                              11      18  +7 / -0
+      + CL16               "BALT 2011> · D-10 1985–1997 · D-20 1985–1997 · SPARK E"
+      + CRU5273            " GM A/C/D 10 (1977–1989): A/C/D 20 (1978–1998): A/C/D "
+      + PIV5041            "PIVO DE SUSPENSAO | GM - A/C/D 20 / SILVERADO 01/1993"
+      + PIV5061            "PIVO DE SUSPENSAO | GM - A/C/D 20 / SILVERADO 01/1993"
+      + CUB60149           "E RODA | GENERAL MOTORS - A/C/D 20 / SILVERADO - 01/19"
+      + INT16614           " BRASIL, D-11000, C-10, D-10, D-20 | INTERRUPTORES DE "
+      + ROL15101/15245     "FORD F-350, F-4000, F-600; GM D-20, D-40, A-40, C-40; "
+*d40                                    7      11  +4 / -0
+      + CRU5160            " F4000 (1982–1998) / GM · A/C/D 40 (1981–1995) : A/C/D"
+      + FLU6031            "4 · D-20 3.9 L 8V 1985–1994 · D-40 3.9 L 8V 1985–1993 "
+      + ROL31594/31520     "11-130, 11-140, 12-140 ; GM - D-40, D-60 1975–2008 · M"
+      + ROL807046/807010   "D F-4000, F-250, F-350 ; GM - D-40, SILVERADO HD, GRAN"
+*c10                                    9      11  +2 / -0
+      + CV-G64             "0) E 1985 A 1 1985 A 1995; GM C-10 / C-14 / C-15 6 C I"
+      + INT16614           " - CHEVROLET BRASIL, D-11000, C-10, D-10, D-20 | INTER"
+*k2700                                  7       8  +1 / -0
+      + SFR30034           "-2400 2.4 1993–1997 T · BONGO K-2700 1997> · PREGIO 2.7 "
+ k-2700                                 8       8  +0 / -0
+*hb20                                  70      71  +1 / -0
+      + CXD13154           "CAIXA DE DIRECAO HIDRAULICA | HB-20 2012/2020 | CAIXA D"
+*l200                                  61      83  +22 / -0
+      + AMT7044            "NTEIRO DIR/ESQ | MITSUBISHI - L 200 06/2012–12/2020 · T"
+      + AMT7061            "NTEIRO DIR/ESQ | MITSUBISHI - L 200 01/2008–05/2012 · T"
+      + AMT7081            "ASEIRO DIR/ESQ | MITSUBISHI - L 200 06/2012–12/2020 · T"
+      + AMT7118            "ASEIRO DIR/ESQ | MITSUBISHI - L 200 01/2008–05/2012 · T"
+      + AMT7134            "NTEIRO DIR/ESQ | MITSUBISHI - L 200 01/2004–12/2007 · S"
+      + AMT7194            "ASEIRO DIR/ESQ | MITSUBISHI - L 200 01/2004–12/2007 · S"
+      + AMT7197            "ASEIRO DIR/ESQ | MITSUBISHI - L 200 01/2004–12/2012 · O"
+      + BIE20054           "ETA DA BARRA ESTABILIZADORA | L 200 TRITON 2008> DIANT."
+      + BIE20058           "ETA DA BARRA ESTABILIZADORA | L 200 TRITON 2008> DIANT."
+      + KHC12779           "G 01/2017–12/2019 MANUAL 1.4, L 200 OUTDOOR 01/2003–12/"
+      + PIV5024            "O DE SUSPENSAO | MITSUBISHI - L 200 / PAJERO · DAKAR / "
+      + PIV5064            "O DE SUSPENSAO | MITSUBISHI - L 200 / PAJERO 01/1998–12"
+      + ... e mais 10: PIV5065, PIV5088, JUH70148, JUH70149, JUH70163, JUH70230, JUH70231, KHC121123, KHC121307, KHC12310D
+*spacefox                              57      81  +24 / -0
+      + BIE20000           "DORA | GOL G5 2008> FOX 2003> SPACE FOX 2006/. CROSS FOX 20"
+      + BV14               "19> ; VW - PARATI 2001–2013 · SPACE FOX 2013 ; VOLVO - XC60"
+      + CIL8517            "SEAT - GOLF, PARATI, SAVEIRO, SPACE FOX, POLO CLASSIC / COR"
+      + ELE1000            " VOYAGE GV 1.0L / 1.6L 2008>, SPACE FOX 2006> | ELETROVENTI"
+      + ELE1007            "12, SAVEIRO GV 1.0/1.6 2008>, SPACE FOX 2006>, VOYAGE GV 1."
+      + ELE1039            "ELETROVENTILADOR | VW - SPACE FOX 1.0 1.6 1.8 2007–20"
+      + KAC11424           "2003> · SPACE CROSS 11/2017 · SPACE FOX 2006> | KIT BATENTE"
+      + MF14               " PORSCHE - MACAN 2014> ; VW - SPACE FOX 2013 · TIGUAN ALLSP"
+      + MF15               "SSFOX 2013–2018 · FOX 2013> · SPACE FOX 2013 | PALHETAS LIM"
+      + BAN14500           " 2004–2013 · POLO 2002–2015 · SPACE FOX 2004–2013 | BANDEJA"
+      + BAN14509D          "13–2015 · SAVEIRO 2008–2012 · SPACE FOX 2013–2016 · VOYAGE "
+      + BAN14509E          "13–2015 · SAVEIRO 2008–2012 · SPACE FOX 2013–2016 · VOYAGE "
+      + ... e mais 12: CV-V25, CXD13062, CXD13067, FAC6000, FAR6010, FAR6116, FAR6149, KG15, KG22, PAF0058, PAF0073, TAX10611
+*xterra                                 5      18  +13 / -0
+      + BIE20048           "ETA DA BARRA ESTABILIZADORA | X-TERRA 2004> FRONTIER 2007"
+      + BIE20049           "ETA DA BARRA ESTABILIZADORA | X-TERRA 2004> FRONTIER 2007"
+      + BOL40045           "RONTIER 2.8 L 12V 2002–2008 · X-TERRA 2.8 L 12V 2003–2008"
+      + CL19               " SENTRA 1.6 L 16V 1995–1996 · X-TERRA 2.8 L 12V 2003–2008"
+      + CUB60026           "HFINDER 4.0 L 24V 2005–2010 · X-TERRA 2.8 L 12V 2006–2010"
+      + CUB60044           "HFINDER 4.0 L 24V 2005–2010 · X-TERRA 2.8 L 12V 2006–2010"
+      + SFR30036           "HFINDER 3.5 L 24V 2002–2004 · X-TERRA 2.8 L 12V 2003–2010"
+      + SFR30046           " T · PATHFINDER 1996–2004 T · X-TERRA 2000–2004 T · X-TER"
+      + FCB6154            "/140 CV) 2003–2008 ; NISSAN - X-TERRA SE 2.8 12V TURBO (1"
+      + INT16613           "AUTOMATICO, TIIDA AUTOMATICO, X-TERRA, 350Z ; SUBARU - BR"
+      + POL1611            "RONTIER 2.8 L 12V 2002–2008 · X-TERRA 2.8 L 12V 2003–2010"
+      + POL1618            "RONTIER 2.8 L 12V 2002–2008 · X-TERRA 2.8 L 12V 2003–2010"
+      + ... e mais 1: POL1640
+*o500                                  16      27  +11 / -0
+      + FAR6090            " · O 371 12 L 10V 1994–1995 · O 500 12 L 24V 2001–2022 "
+      + FAR6276            "F 9170 5.8 L 12V 1989> ; MB - O 500 7.2 L 18V 2014–2022"
+      + FAR6360            "F 9170 5.8 L 12V 1989> ; MB - O 500 7.2 L 18V 2014–2022"
+      + FCB6029            "12 · LO 916 4.8 L 12V 2012> · O 500 12 L 24V 2001–2022 "
+      + INT16516           "CO, LS-1938, LS-2638. ONIBUS: O-500-M 1725, O-500-M 172"
+      + INT16537           " ; MB - O 400 SER, O 400 RSD, O 500 R, L 1728, OF 1730,"
+      + INT16543           "- AXOR, O-400 RSE, O-400 RSD, O-500 R, L1728, OF 1417, "
+      + INT16561           
+      + INT16592           "LO-812, LO-814, O-371, O-400, O-500, OF-1721, OH-1318, "
+      + PAF0116            " 10/2001> D/T · DIANT. ; MB - O 500 12 L 24V 2012–2022 "
+      + POL1685            "11 · LO 916 4.8 L 12V 2013> · O 500 6.4 L 18V 2006–2012"
+*of1721                                10      17  +7 / -0
+      + FCB6029            "3 · OF 1519 4.8 L 12V 2012> · OF 1721 4.8 L 12V 2012> · O"
+      + FLU6060            "3 · OF 1519 4.8 L 12V 2012> · OF 1721 4.8 L 12V 2012> · O"
+      + INT16516           "4144 6X4, 4144 6X4 EURO 5. 5, OF-1721, OF-1721 EURO 5, OF"
+      + INT16543           "8, OF 1417, OF 1418, OF 1620, OF 1721, OF 1730, OF 1732, "
+      + INT16561           "00 SER/RSD, OF 1417, OF 1418, OF 1721 ; VW - 19-370, 21-3"
+      + INT16592           " LO-814, O-371, O-400, O-500, OF-1721, OH-1318, OH-1418, "
+      + POL1685            "OF 1519R/60 4.8 L 12V 2023> · OF 1721 4.8 L 12V 2012> · O"
+*fh12                                  27      31  +4 / -0
+      + HC26               "1.5 L 16V 2012–2021 ; VOLVO - FH 12 380 12 L 12V 1993–2"
+      + INT16537           "-95 ; VOLVO - VM 260, VM 270, FH 12, NH 12 ; VW - CAMIN"
+      + INT16543           "D ; VOLVO - CAMINHOES VM, FE, FH 12, FH 16, FL 7, FM 9,"
+      + TER558525          "O NL10 + VOLVO NL12 ; VOLVO - FH 12 380 12 L 12V 1993–2"
+ 1.6                                  851     851  +0 / -0
+ 16                                  1172    1172  +0 / -0
+ gol 1.6                              122     122  +0 / -0
+*16v                                 1046    1047  +1 / -0
+      + PAF1582            "BO 2018> FIAT SCUDO CARGO 1.5 16 V 2023> SCUDO MULTI 1"
+ parabrisa                             99      99  +0 / -0
+ frasle                                93      93  +0 / -0
+ gmc                                   17      17  +0 / -0
+ cls                                    8       8  +0 / -0
+*pastilha hrv                         204       3  +0 / -201 antes (mais próximos: 1 de 2 palavras)
+      - PAF0013
+      - PAF0019
+      - PAF0023
+      - PAF0025
+      - PAF0042
+      - PAF0046
+      - PAF0047
+      - PAF0051
+      - PAF0054
+      - PAF0055
+      - PAF0058
+      - PAF0060
+*mercedesbenz                           0     183  +183 / -0 antes (mais próximos: 0 de 1 palavras)
+      + TER555183          "15 (06/2006–2010) LADO DIR. + MERCEDES BENZ O400 OM 449 / 447 L"
+      + TER555185          "15 (06/2006–2010) LADO DIR. + MERCEDES BENZ O400 OM 449 / 447 L"
+      + AMT7199            " SUSPENSAO TRASEIRO DIR/ESQ | MERCEDES BENZ - OF1721 / OF1722 -"
+      + AMT7267            "SUSPENSAO DIANTEIRO DIR/ESQ | MERCEDES BENZ - OF1724 - 01/2013 "
+      + AMT7379            "SUSPENSAO DIANTEIRO DIR/ESQ | MERCEDES BENZ - SPRINTER - 01/200"
+      + AMT7394            "SUSPENSAO DIANTEIRO DIR/ESQ | MERCEDES BENZ - SPRINTER - 06/201"
+      + AMT7417            " SUSPENSAO TRASEIRO DIR ESQ | MERCEDES BENZ - SPRINTER - 06/201"
+      + BOL40042           "BOMBA DE OLEO | BOMBA DE OLEO MERCEDES-BENZ 1215C | BOMBA DE OL"
+      + BOL40060           "BOMBA DE OLEO | MERCEDES BENZ | BOMBA DE OLEO"
+      + CFR9007            "ICO ESTACIONAMENTO 20/24 MB | MERCEDES-BENZ — CAMINHOES E ONIBU"
+      + CFR9015            "ERVICO/ESTACIONAMENTO 24/30 | MERCEDES-BENZ — CAMINHOES E ONIBU"
+      + CFR9016            " FREIO SERVICO 24/24 | FORD / MERCEDES-BENZ / VOLKSWAGEN — CAMI"
+      + ... e mais 171: FAC6218, FAC6349, FAR6276, FAR6326, FAR6360, FAR6376, FAR6485, FAR6516, FCB6355, FCB6417, FCB6543, FLU6209, FLU6212, FLU6441, FSE6056, FSE6167, FSE6354, INT16527, INT16561, INT16562, INT16565, INT16585, INT16589, INT16590, INT16591, INT16592, INT16601, INT16604 ...
+Mudam 31 de 54 buscas (* = muda).
+
+2. BUSCAS DO testar_site (55 buscas só com q, tiradas das rotas que a bateria abriu nas duas rodadas)
+busca                               antes  depois  entram / saem
+ CXD13062                               1       1  +0 / -0
+ CXD 13062                              1       1  +0 / -0
+ CXD-13062                              1       1  +0 / -0
+ cxd13062                               1       1  +0 / -0
+ TER555053                              1       1  +0 / -0
+ AMT7098                                1       1  +0 / -0
+ KD20                                   1       1  +0 / -0
+ KHC121482                              1       1  +0 / -0
+ FAC6217                                1       1  +0 / -0
+ JUH70175                               1       1  +0 / -0
+ POL1655                                1       1  +0 / -0
+ BAN14510D                              2       2  +0 / -0
+ 16900255S                              2       2  +0 / -0
+ TRW 16900255S                          2       2  +0 / -0
+ 16900255S TRW                          2       2  +0 / -0
+ NCDH50002                              1       1  +0 / -0
+ Volkswagen Gol 2018                   42      42  +0 / -0
+ AMORTECEDOR GOL 1990 KYB 441126        1       1  +0 / -0
+ gol 1990 amortecedor 441126 kyb        1       1  +0 / -0
+ amortecedor gol 1990 kyb 441126        1       1  +0 / -0
+ 441126 Kyb 1990 Gol Amortecedor        1       1  +0 / -0
+ AMORTECEDOR GOL 2015 KYB 441126        2       2  +0 / -0 antes (mais próximos: 4 de 5 palavras) depois (mais próximos: 4 de 5 palavras)
+ KYB 441126                             1       1  +0 / -0
+ AMORTECEDOR GOL 2007 MAHLE 33000       7       7  +0 / -0 antes (mais próximos: 3 de 5 palavras) depois (mais próximos: 3 de 5 palavras)
+ AMORTECEDOR GOL 2015 MAHLE 33000       8       8  +0 / -0 antes (mais próximos: 3 de 5 palavras) depois (mais próximos: 3 de 5 palavras)
+ MAHLE 33000                            2       2  +0 / -0 antes (mais próximos: 1 de 2 palavras) depois (mais próximos: 1 de 2 palavras)
+ bomba combustivel polo 2026            1       1  +0 / -0 antes (mais próximos: 3 de 4 palavras) depois (mais próximos: 3 de 4 palavras)
+ polo 2026                             34      34  +0 / -0
+ bomba combustivel onix 2015            1       1  +0 / -0
+ CL14                                   1       1  +0 / -0
+ 7908680404220                          1       1  +0 / -0
+ amortecedor dianteiro Onix            10      10  +0 / -0
+ 15W40                                  2       2  +0 / -0
+ filtro titan                           8       8  +0 / -0
+ titan                                 36      36  +0 / -0
+ biz                                   18      18  +0 / -0
+ focus titanium                         2       2  +0 / -0
+ CXD1306                               10      10  +0 / -0
+ FAR6365                                1       1  +0 / -0
+ xyzqwk nadaexiste                      0       0  +0 / -0 antes (mais próximos: 0 de 2 palavras) depois (mais próximos: 0 de 2 palavras)
+ ZZQ999999                              0       0  +0 / -0 antes (mais próximos: 0 de 1 palavras) depois (mais próximos: 0 de 1 palavras)
+ amortecedor                          710     710  +0 / -0
+ bateria                               47      47  +0 / -0
+ 60ah                                   8       8  +0 / -0
+ 60 ah                                  8       8  +0 / -0
+ 60Ah                                   8       8  +0 / -0
+ 60-Ah                                  8       8  +0 / -0
+ bateria 60ah                           8       8  +0 / -0
+ INT16523                               1       1  +0 / -0
+ CIL8534                                1       1  +0 / -0
+ KI20                                   2       2  +0 / -0
+ ROD8005                                1       1  +0 / -0
+ 60D-EFB-24                             1       1  +0 / -0
+ FLU15001                               1       1  +0 / -0
+ FLU15002                               1       1  +0 / -0
+Mudam 0 de 55 buscas (* = muda).
+
+3. LISTA DE MODELOS DO "MEU VEÍCULO" (opcoesVeiculo, sem busca, para cada uma das marcas)
+Marcas: 105; listas iguais antes e depois: 105 de 105.
+Modelos da mesma marca que só diferem por hífen ou espaço (no "ve" do JSON): 3. Nenhum passa a se juntar: a lista
+vem do "ve" e esta mudança é só da busca de texto.
+   AGRALE: "MA 9.2 E" (4 produto(s): EMB6852R, FAR6109, FCB6096, FLU6021) | "MA 9.2E" (4 produto(s): BOL40039, EMB6146R, FAR6367, FCB6096)
+   HONDA: "XLX 250 R" (1 produto(s): VEL7525) | "XLX 250R" (1 produto(s): VEL7525)
+   VOLVO: "B360 S" (1 produto(s): FCB6429) | "B360S" (2 produto(s): FCB6162, FUR6445)
+   Para juntar, o caminho é corrigir a VEICULOS na base (catalogo-dados), ou uma regra nova no site, com outra simulação.
+
+4. O QUE NÃO JUNTA (de propósito) E LIMITES
+   - "1.6" x "16", "2.0" x "20", "01/1980": o número com ponto, vírgula ou barra não junta (buscas "1.6", "16" e "gol 1.6" acima: iguais).
+   - A letra solta antes de palavra de 3 letras ou mais junta, com espaço ("T Cross" = TCROSS, "X Sara" = XSARA).
+   - "HR V" e "CR V" com espaço (JUH70170, JUH70150, JUH70200, JUH70284): a letra solta com espaço não junta; esses 4 só aparecem
+     em "hrv" e "crv" se a base escrever "HR-V" e "CR-V" (pedido ao catalogo-dados, se o Alexandre quiser). Com hífen, juntam.
+   - "GM C-10": dá C10, não GMC ("gmc" igual antes). "K112 CL S": não dá CLS ("cls" igual antes).
+   - O desempenho: as 109 buscas levaram 8.2 s antes e 9.1 s depois (no Chromium sem tela, com a montagem dos índices na 1ª).
+
+RESUMO: buscas reais que mudam: 31 de 54; buscas do testar_site que mudam: 0 de 55;
+produtos só saem em 2 busca(s) ('rolamento f4000', 'pastilha hrv'): em todas, antes nenhum produto tinha todas as palavras e a lista era a dos mais próximos; depois a lista é a dos que
+casam com todas (ex.: "rolamento f4000": antes 449 rolamentos quaisquer, depois os 10 rolamentos do F-4000).
+
+5. TESTES
+   - gerar_site.py: sem erro e sem [PARADO]; o JSON gerado só difere do main no gerado_em (o commit não leva o JSON).
+   - testar_site.mjs --conhecidos: PASSOU antes (app.js do main) e depois (0 falha nova; 390 px sem rolar de lado).
+   - t0033_busca_ano.mjs --so restricoes,aviso,contagens (depois): restrições e avisos PASSOU; 1 FALHOU só no console, pelo serviço de placas de fora (CORS no ambiente local, nada da busca); as contagens fixas avisam "JSON diferente do da medida" (são de outro JSON), mas "polo 2026" 34, "gol 2010" 100, "strada 2020" 93, "polo" 156, "filtro 2010" 258 e "BCE3001" 1 são iguais antes e depois (mesmos códigos e ordem).
+   - A rodada completa com --antes passa de 28 min neste ambiente e não terminou: fica para o testes.
+   - Prints (antes e depois, 1366 e 390 px): "chevrolet c40 1990", "c40", "pickup" e "tcross".
