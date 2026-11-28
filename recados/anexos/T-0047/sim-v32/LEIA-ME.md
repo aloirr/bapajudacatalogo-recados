@@ -1,6 +1,6 @@
 # T-0047 · SIMULAÇÃO da v32
 
-Branch `catalogo-dados/T-0047-v32`, commit fe551a3. A base real continua sendo a v31, e nada foi gravado. A revisão do revisor-codigo está em andamento.
+Branch `catalogo-dados/T-0047-v32`, commit fe551a3. A base real continua sendo a v31, e nada foi gravado. O revisor-codigo deu LIBERADO no fe551a3 (27/11 ~20:48, Manaus), com 1 ajuste de texto antes da gravação: a fonte do Tucson passa a dizer "o '05 /15' igual desde a v8".
 
 - `antes_depois_v32.xlsx`: abas RESUMO, MUDANCAS, SEM_FONTE, DO_SITE, PONTOS_ALEXANDRE (P1 a P6) e EFEITO_SITE.
 - `<página>_<antes|depois>_<1366|390>.png`: prints de BIE20014, TER552120, VEL7520, ROL84888 e das buscas "Fiat Strada 1997" e "Fiat Doblo 2000".
